@@ -1,1 +1,381 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+\begin{remark}
+  Für Permuationen in Zykelschreibe die folgenden nützlichen Rechenregeln:
+  \begin{itemize}
+    \item
+      Für alle paarweise verschiedenen Zahlen $1 \leq a_1, \dotsc, a_r \leq n$ gilt
+      \[
+          (a_1 \; \dotsm \; a_r)
+        = (a_1 \; a_2) \dotsm (a_{r-1} \; a_r).
+      \]
+    \item
+      Für alle paarweise verschiedenen Zahlen $1 \leq a_1, \dotsc, a_r \leq n$ und jede Permutation $\pi \in S_n$ gilt
+      \[
+          \pi (a_1 \; \dotsm \; a_r) \pi^{-1}
+        = ( \pi(a_1) \; \dotsm \; \pi(a_r) ).
+      \]
+  \end{itemize}
+\end{remark}
+
+% TODO: Zeigen.
+
+Wäre die angegebene binäre Verknüpfung wohldefiniert, so würde für die Transposition $\tau \coloneqq (1 \; (n+1)) \in S_{n+1}$ gelten, dass
+\[
+    \tau S_n
+  =  \tau S_n \cdot \id S_n
+  =  \tau S_n \cdot (1 \; 2) S_n
+  =  \tau(1 \; 2) S_n.
+\]
+Dies gilt aber nicht, da
+\[
+          \tau (1 \; 2) \tau^{-1}
+  =       ( \tau(1) \; \tau(2) )
+  =       (2 \; (n+1))
+  \notin  S_n
+\]
+Wäre $S_n$ normal in $S_{n+1}$, so wäre die angegebene Verknüpfung wohldefiniert;
+folglich kann $S_n$ nicht normal in $S_{n+1}$ sein.
+
+\begin{remark}
+  Ist allgemeiner $G$ ein Gruppe und $H \subgroup G$ eine nicht-normale Untergruppe, so gibt es $h \in H$ und $g \in G$ mit $g h g^{-1} \notin H$.
+  Führt man dann in der obigen Rechnung die Ersetzung
+  \[
+    S_{n+1}   \to G,
+    \quad
+    S_n       \to H,
+    \quad
+    \tau      \to g,
+    \quad
+    (1 \; 2)  \to h
+  \]
+  durch, so ergibt sich, dass die binäre Verknüpfung
+  \[
+            (G/H) \times (G/H)
+    \to     G/H,
+    \quad   (\class{g_1}, \class{g_2})
+    \mapsto \class{g_1 g_2}
+  \]
+  nicht wohldefiniert ist.
+  Diese Verknüpfung ist also \emph{genau dann} wohldefiniert, wenn $H$ normal in $G$ ist.
+\end{remark}
+
+
+
+
+
+\subsection{}
+\label{subsection: subgroups of quotient}
+
+Es seien
+\begin{gather*}
+            \Gsubs
+  \coloneqq \{
+              U
+            \suchthat
+              K \subgroup U \subgroup G
+            \}
+  \quad\text{und}\quad
+            \Hsubs
+  \coloneqq \{
+              W
+            \suchthat
+              W \subgroup H,
+            \}
+\shortintertext{sowie}
+            \Gnorms
+  \coloneqq \{
+              U
+            \suchthat
+              K \subgroup U \nsubgroup G
+            \}
+  \quad\text{und}\quad
+            \Hnorms
+  \coloneqq \{
+              W
+            \suchthat
+              W \nsubgroup H
+            \}.
+\end{gather*}
+
+
+
+\subsubsection*{Alle Untergruppen}
+
+Es gilt zunächst zu zeigen, dass die Abbildung
+\[
+          \psi
+  \colon  \Gsubs
+  \to     \Hsubs,
+  \quad   U
+  \mapsto \varphi(U)
+\]
+eine wohldefinierte Bijektion ist.
+
+Die Abbildung $\psi$ ist wohldefiniert, denn für jede Untergruppe $U \subgroup G$ ist die Einschränkung $\restrict{\varphi}{U}$ ebenfalls ein Gruppenhomomorphismus, und somit $\varphi(U) = \im \restrict{\varphi}{U}$ eine Untergruppe von $H$.
+
+Zum Nachweis der Bijektivität betrachten wir die Abbildung
+\[
+          \psi'
+  \colon  \Hsubs
+  \to     \Gsubs,
+  \quad   W
+  \mapsto \preim{\varphi}{W}
+\]
+Die Abbildung $\psi'$ ist wohldefiniert:
+
+\begin{lemma}
+  Für jeden Gruppenhomomorphismus $\varphi \colon G \to H$ und jede Untergruppe $W \subgroup H$ ist das Urbild $\preim{\varphi}{W}$ eine Untergruppe von $G$.
+\end{lemma}
+
+\begin{proof}
+  Wir geben zwei mögliche Beweise:
+  \begin{itemize}
+    \item
+      Es gilt $\varphi(1) = 1 \in W$ und somit $1 \in \preim{\varphi}{W}$.
+      Für alle $g_1, g_2 \in \preim{\varphi}{W}$ gilt $\varphi(g_1), \varphi(g_2) \in W$ und somit auch $\varphi(g_1 g_2) = \varphi(g_1)\varphi(g_2) \in W$, also $g_1 g_2 \in \preim{\varphi}{W}$.
+      Für jedes $g \in \preim{\varphi}{W}$ gilt $\varphi(g) \in W$ und somit auch $\varphi(g^{-1}) = \varphi(g)^{-1} \in W$, also $g^{-1} \in \preim{\varphi}{W}$.
+    
+    \item
+      Die Gruppe $H$ wirkt von links auf $H/W$ durch $h.\class{h'} \coloneqq \class{hh'}$, und es gilt
+      \[
+          \stab{H}{\class{1}}
+        = \{ h \in H \suchthat h.\class{1} = \class{1} \}
+        = \{ h \in H \suchthat \class{h} = \class{1} \}
+        = W.
+      \]
+      Über $\varphi$ lässt sich diese Gruppenwirkung zu einer Linkswirkung von $G$ auf $H/W$ mit $g.\class{h} \coloneqq \varphi(g).\class{h} = \class{\varphi(g)h}$ zurückziehen.
+      Dies lässt sich auf (mindestens) zwei Weisen sehen:
+      
+      \begin{itemize}
+        \item
+          Es gilt $1_G.\class{h} = \varphi(1_G).\class{h} = 1_H.\class{h} = \class{h}$, und für alle $g_1, g_2 \in G$ gilt
+          \[
+              g_1.(g_2.\class{h})
+            = \varphi(g_1).(\varphi(g_2).\class{h})
+            = (\varphi(g_1) \varphi(g_2)).\class{h}
+            = \varphi(g_1 g_2).\class{h}
+            = (g_1 g_2).\class{h}.
+          \]
+        \item
+          Die Gruppenwirkung von $H$ auf $H/W$ entspricht dem Gruppenhomomorphismus $\alpha \colon H \to \symm{H/W}$ mit $\alpha(h)(\class{h'}) = \class{h h'}$.
+          Die Komposition $\alpha \circ \varphi \colon G \to \symm{H/W}$ ist dann ebenfalls ein Gruppenhomomorphismus, und entspricht einer Gruppenwirkung von $G$ auf $H/W$ mit
+          \[
+              g.\class{h}
+            = (\alpha \circ \varphi)(g)(h)
+            = \alpha(\varphi(g))(h)
+            = \class{\varphi(g) h}.
+          \]
+      \end{itemize}
+      Es folgt, dass
+      \begin{align*}
+            \stab{G}{\class{1}}
+        &=  \{ g \in G \suchthat g.\class{1} = \class{1} \}
+         =  \{ g \in G \suchthat \varphi(g).\class{1} = \class{1} \}
+        \\
+        &=  \{ g \in G \suchthat \varphi(g) \in \stab{H}{\class{1}} \}
+         =  \{ g \in G \suchthat \varphi(g) \in W \}
+         =  \preim{\varphi}{W}
+      \end{align*}
+      eine Untergruppe von $G$ ist.
+    \qedhere
+  \end{itemize}
+\end{proof}
+
+Aus der Surjektivität ergibt sich für jede Untergruppe $W \subgroup H$, dass
+\[
+    \psi(\psi'(W))
+  = \varphi( \preim{\varphi}{W} )
+  = W,
+\]
+weshalb $\psi \circ \psi' = \id_{\Hsubs}$.
+
+\begin{lemma}
+  Ist $\varphi \colon G \to H$ ein Gruppenhomomorphismus, so gilt mit $K \coloneqq \ker \varphi$ für jede Untergruppe $U \subgroup G$, dass $\preim{\varphi}{\varphi(U)} = UK$.
+\end{lemma}
+
+\begin{proof}
+  Es gelten $U \subseteq \preim{\varphi}{\varphi(U)}$ sowie $K = \preim{\varphi}{1} \subseteq \preim{\varphi}{\varphi(U)}$, und somit gilt $U K \subseteq \preim{\varphi}{\varphi(U)}$.
+  Ist andererseits $g \in \preim{\varphi}{\varphi(U)}$, so gilt $\varphi(g) \in \varphi(U)$, weshalb es $u \in U$ mit $\varphi(g) = \varphi(u)$ gibt.
+  Dann gilt $g = u \cdot u^{-1} g$, wobei $u^{-1} g \in \ker \varphi$ da $\varphi(u^{-1} g) = \varphi(u)^{-1} \varphi(g) = 1$.
+\end{proof}
+
+Für jede Untergruppe $U \subgroup G$ mit $K \subgroup U$ gilt somit, dass
+\[
+    \psi'(\psi(U))
+  = \preim{\varphi}{\varphi(U)}
+  = UK
+  = U,
+\]
+weshalb $\psi' \circ \psi = \id_{\Gsubs}$.
+
+Ingesamt zeigt dies, dass $\psi$ eine Bijektion ist, und dass $\psi^{-1} = \psi'$.
+
+
+
+
+
+\subsubsection*{Normale Untergruppen}
+
+Die Aussage gilt auch dann noch, wenn man \enquote{Untergruppen} durch \enquote{normale Untergruppen} ersetzt.
+Hierfür genügt es zu zeigen, dass sich $\psi$ und $\psi'$ zu Abbildungen $\Gnorms \to \Hnorms$ und $\Hnorms \to \Gnorms$ einschränken.
+Dies ergibt sich aus dem Folgenden:
+
+\begin{lemma}
+  Es sei $\varphi \colon G \to H$ ein Gruppenhomomorphismus.
+  \begin{enumerate}
+    \item
+      Für jede normale Untergruppe $W \nsubgroup H$ ist auch $\preim{\varphi}{W} \subgroup G$ normal.
+    \item
+      Ist $\varphi$ surjektiv, so ist für jede normale Untergruppe $U \nsubgroup G$ auch $\varphi(U) \subgroup H$ normal.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  \begin{enumerate}
+    \item
+      Wir geben zwei Beweise:
+      \begin{itemize}
+        \item
+          Für $h \in \preim{\varphi}{W}$ gilt für jedes $g \in G$ dass
+          \[
+                \varphi( g h g^{-1} )
+            =   \varphi(g) \underbrace{\varphi(h)}_{\in W} \varphi(g)^{-1}
+            \in W,
+          \]
+          und somit dass $g h g^{-1} \in W$.
+        \item
+          Die kanonische Projektion $p \colon H \to H/W$, $h \mapsto \class{h}$ ist ein Gruppenhomomorphismus mit $W = \ker p = \preim{p}{1}$.
+          Deshalb ist $p \circ \varphi \colon G \to H/W$ ein Gruppenhomomorphismus mit
+          \[
+              \ker (p \circ \varphi)
+            = \preim{(p \circ \varphi)}{1}
+            = \preim{\varphi}{\preim{p}{1}}
+            = \preim{p}{W}.
+          \]
+      \end{itemize}
+    \item
+      Für jedes $h \in H$ gibt es ein $g \in G$ mit $h = \varphi(g)$, weshalb
+      \[
+          h \varphi(U) h^{-1}
+        = \varphi(g) \varphi(U) \varphi(g)^{-1}
+        = \varphi( g U g^{-1} )
+        = \varphi(U).
+        \qedhere
+      \]
+  \end{enumerate}
+\end{proof}
+
+
+
+
+
+\subsection{}
+
+Es gibt (mindestens) zwei Möglichkeiten, die Untergruppen von $\Integer/12$ zu bestimmen:
+
+\begin{itemize}
+  \item
+    Da die Gruppe $\Integer/12$ zyklisch ist, sind auch alle Untergruppen von $\Integer/12$ zyklisch.
+    Hieraus ergeben sich die Untergruppen
+    \begin{gather*}
+          \generated{ \class{1} }
+       =  \generated{ \class{5} }
+       =  \generated{ \class{7} }
+       =  \generated{ \class{11} }
+       =  \{ \class{0}, \class{1}, \dotsc, \class{11} \},
+      \qquad
+          \generated{ \class{2} }
+       =  \generated{ \class{10} }
+       =  \{ \class{0}, \class{2}, \class{4}, \class{6}, \class{8}, \class{10} \},
+      \\
+          \generated{ \class{3} }
+       =  \generated{ \class{9} }
+       =  \{ \class{0}, \class{3}, \class{6}, \class{9}\},
+      \qquad
+          \generated{ \class{4} }
+       =  \generated{ \class{8} }
+       =  \{ \class{0}, \class{4}, \class{8} \},
+      \qquad
+          \generated{ \class{6} }
+       =  \{ \class{0}, \class{6} \},
+      \qquad
+          \generated{ \class{0} }
+       =  \{ \class{0} \}.
+    \end{gather*}
+  \item
+    Nach Aufgabenteil~\ref{subsection: subgroups of quotient} entsprechen die Untergruppen von $\Integer/12$ bijektiv den Untergruppen von $\Integer$, die $12\Integer$ enthalten.
+    Jede Untergruppe von $\Integer$ ist zyklisch, da $\Integer$ zyklisch ist, und somit von der Form $n\Integer$ für $n \in \Integer$.
+    Dabei gilt genau dann $12\Integer \subseteq n\Integer$, wenn $12 \in n\Integer$, wenn also $n \divides 12$.
+    Die Untergruppen von $\Integer/12$ entsprechen also bijektiv den Teilern von $12$, und sind gegeben durch
+    \begin{gather*}
+       \Integer/12  = \{ \class{0}, \class{1}, \dotsc, \class{11} \},
+      \qquad
+      2\Integer/12  = \{ \class{0}, \class{2}, \class{4}, \class{6}, \class{8}, \class{10} \},
+      \qquad
+      3\Integer/12  = \{ \class{0}, \class{3}, \class{6}, \class{9} \},
+      \\
+      4\Integer/12  = \{ \class{0}, \class{4}, \class{8} \},
+      \qquad
+      6\Integer/12  = \{ \class{0}, \class{6} \},
+      \qquad
+      12\Integer/12 = \{ \class{0} \}.
+    \end{gather*}
+\end{itemize}
+
+Alle Untergruppen von $\Integer/12$ sind normal, da $\Integer/12$ abelsch ist.
+Die entsprechenden Quotienten lassen sich auf (mindestens) zwei verschiedene Weisen berechnen:
+
+\begin{itemize}
+  \item
+    Nach einem der Isomorphiesätze gilt für jeden Teiler $d$ von $12$, dass
+    \[
+            (\Integer/12) / (d\Integer/12) \cong \Integer/d.
+    \]
+    Die entsprechenden Quotienten sind also
+    \begin{gather*}
+      (\Integer/12) / (\Integer/12)   \cong \Integer/1 \cong 0,
+      \quad
+      (\Integer/12) / (2\Integer/12)  \cong \Integer/2,
+      \quad
+      (\Integer/12) / (3\Integer/12)  \cong \Integer/3,
+    \\
+      (\Integer/12) / (4\Integer/12)  \cong \Integer/4,
+      \quad
+      (\Integer/12) / (6\Integer/12)  \cong \Integer/6,
+      \quad
+      (\Integer/12) / (12\Integer/12) \cong \Integer/12.
+    \end{gather*}
+  \item
+    Da $\Integer/12$ zyklisch ist, ist auch jeder Quotient von $\Integer/12$ zyklisch.
+    Für jede Untergruppe $H \subgroup \Integer/12$ gilt deshalb
+    \[
+            (\Integer/12)/H
+      \cong \Integer/( 12/|H| ).
+    \]
+    Für jedes $d \in \{0, 1, 2, 3, 4, 6\}$ gilt somit
+    \begin{gather*}
+            (\Integer/12)/\generated{d}
+      \cong \Integer/(12/|\generated{d}|)
+      =     \Integer/(12/(12/d))
+      =     \Integer/d.
+    \end{gather*}
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+

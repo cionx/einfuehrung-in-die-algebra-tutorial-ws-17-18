@@ -3,6 +3,7 @@
 \usepackage{enumitem}
 \usepackage{xparse}
 \usepackage[ngerman]{babel}
+\usepackage{csquotes}
 
 % prevents breaking inline math around binary or relationship symbols
 \binoppenalty=\maxdimen
@@ -20,16 +21,30 @@
 
 \NewDocumentCommand{\suchthat}{s}{
   \IfBooleanTF{#1}
-    {\,\middle|\,}  % if a star is seen
-    {\,|\,}         % if no star is seen
+    {\,\middle|\,}
+    {\,|\,}       
 }
 
-\newcommand{\groupcenter}[1]{\operatorname{Z}(#1)}
-
+\newcommand{\divides}{\mathrel{|}}
 \newcommand{\subgroup}{\leq}
 \newcommand{\nsubgroup}{\trianglelefteq}
+
+\newcommand{\Integer}{\mathbb{Z}}
+
+\newcommand{\groupcenter}[1]{\operatorname{Z}(#1)}
+\DeclareMathOperator{\im}{im}
+\newcommand{\preim}[2]{#1^{-1}(#2)}
+\newcommand{\stab}[2]{\operatorname{Stab}_{#1}(#2)}
+\newcommand{\symm}[1]{S(#1)}
+
+\newcommand{\id}{\operatorname{id}}
 
 \DeclarePairedDelimiterX{\comm}[2]{[}{]}{#1,#2}
 \DeclarePairedDelimiter{\generated}{\langle}{\rangle}
 
 \newcommand{\class}[1]{\overline{#1}}
+\NewDocumentCommand{\restrict}{smm}{
+  \IfBooleanTF{#1}
+    {\left. #2 \right|_{#3}}
+    {#2|_{#3}}            
+}
