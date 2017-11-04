@@ -1,0 +1,13 @@
+\usepackage{amsmath, amssymb, mathtools}
+\usepackage{amsthm}
+\usepackage{enumitem}
+
+\setlist[enumerate, 1]{leftmargin=*}
+\setlist[itemize, 1]{leftmargin=*}
+\setlist[itemize, 2]{leftmargin=*, label={\textopenbullet}}
+
+\newcounter{everything}
+\newtheorem{claim}{Behauptung}
+\newtheorem{lemma}[everything]{Lemma}
+\theoremstyle{definition}
+\newtheorem{remark}[everything]{Bemerkung}
