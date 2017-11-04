@@ -1,1 +1,310 @@
-\addtocounter{section}{1}
+\section{}
+
+Für $g, h \in G$ schreiben wir im Folgenden abkürzend $\comm{g}{h} \coloneqq ghg^{-1}h^{-1}$.
+Dann ist $\comm{G}{G} = \generated{ \comm{g}{h} \suchthat g, h \in G }$.
+
+\begin{lemma}
+  Für $S \subseteq G$ und jeden Gruppenhomomorphismus $\varphi \colon G \to H$ gilt
+  \[
+      \varphi( \generated{S} )
+    = \generated{ \varphi(S) }.
+  \]
+\end{lemma}
+
+\begin{proof}
+  Wir geben zwei mögliche Beweise an:
+  \begin{itemize}
+    \item
+      Es gilt
+      \begin{align*}
+            \varphi( \generated{S} )
+        &=  \varphi(\{
+                      s_1^{\varepsilon_1} \dotsm s_n^{\varepsilon_n}
+                    \suchthat 
+                      n \geq 0,
+                      s_1, \dotsc, s_n \in S,
+                      \varepsilon_i = \pm 1
+                    \})
+        \\
+        &=  \{
+              \varphi(s_1)^{\varepsilon_1} \dotsm \varphi(s_n)^{\varepsilon_n}
+            \suchthat 
+              n \geq 0,
+              s_1, \dotsc, s_n \in S,
+              \varepsilon_i = \pm 1
+            \}
+        \\
+        &=  \{
+              t_1^{\varepsilon_1} \dotsm t_n^{\varepsilon_n}
+            \suchthat 
+              n \geq 0,
+              t_1, \dotsc, t_n \in \varphi(S),
+              \varepsilon_i = \pm 1
+            \}
+        =  \generated{ \varphi(S) }.
+      \end{align*}
+      
+    \item
+      Es ist $\varphi(\generated{S})$ eine Untergruppe von $H$, denn Bilder von Untergruppen sind Untergruppen.
+      Es gilt $\varphi(S) \subseteq \varphi(\generated{S})$ da $S \subseteq \generated{S}$.
+      Somit gilt $\generated{\varphi(S)} \subseteq \varphi(\generated{S})$, denn $\generated{\varphi(S)}$ ist die kleinste Untergruppe von $H$, die $\varphi(S)$ enthält.
+      
+      Andererseits ist $\varphi^{-1}( \generated{\varphi(S)} )$ eine Untergruppe von $G$, denn Urbilder von Untergruppen sind Untergruppen.
+      Dabei gilt $S \subseteq \varphi^{-1}( \generated{\varphi(S)} )$ da $\varphi(S) \subseteq \generated{\varphi(S)}$.
+      Somit gilt auch $\generated{S} \subseteq \varphi^{-1}( \generated{\varphi(S)} )$, denn $\generated{S}$ ist die kleinste Untergruppe von $G$, die $S$ enthält.
+      Deshalb gilt auch $\varphi(\generated{S}) \subseteq \generated{\varphi(S)}$.
+    \qedhere
+  \end{itemize}
+\end{proof}
+
+
+
+
+
+\subsection{}
+
+\begin{lemma}
+  Es sei $\varphi \colon G \to H$ ein Gruppenhomomorphismus.
+  \begin{enumerate}
+    \item
+      Für alle $g_1, g_2 \in G$ gilt $\varphi(\comm{g_1}{g_2}) = \comm{\varphi(g)}{\varphi(g_2)}$.
+    \item
+      Es gilt $\varphi(\comm{G}{G}) = \comm{\varphi(G)}{\varphi(G)}$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  \begin{enumerate}
+    \item
+      Es gilt
+      \[
+          \varphi(\comm{h_1}{h_2})
+        = \varphi( h_1 h_2 h_1^{-1} h_2^{-1} )
+        = \varphi(h_1) \varphi(h_2) \varphi(h_1)^{-1} \varphi(h_2)^{-1}
+        = \comm{ \varphi(h_1) }{ \varphi(h_2) }
+      \]
+    \item
+      Es gilt
+      \begin{align*}
+           \varphi( \comm{G}{G} )
+        &= \varphi( \generated{ \comm{g_1}{g_2} \suchthat g_1, g_2 \in G } )
+         = \generated{ \varphi(\comm{g_1}{g_2}) \suchthat g_1, g_2 \in G }
+        \\
+        &= \generated{ \comm{\varphi(g_1)}{\varphi(g_2)} \suchthat g_1, g_2 \in G }
+         = \generated{ \comm{h_1}{h_2} \suchthat h_1, h_2 \in \varphi(G) }
+         = \comm{\varphi(G)}{\varphi(G)}.
+      \end{align*}
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+Da für jedes $g \in G$ die Konjugationsabbildung $\varphi_g \colon G \to G$, $h \mapsto ghg^{-1}$ ein Gruppenautomorphismus ist, gilt
+\[
+    g \comm{G}{G} g^{-1}
+  = \varphi_g( \comm{G}{G} )
+  = \comm{\varphi_g(G)}{\varphi_g(G)}
+  = \comm{G}{G}.
+\]
+
+
+\begin{remark}
+  \label{remark: notion of characteristic subgroups}
+  Eine Untergruppe $H \subgroup G$ heißt \emph{charakteristisch}, falls $\varphi(H) = H$ für jeden Gruppenautomorphismus $\varphi \colon G \to G$ gilt.
+  Die obige Rechnung zeigt eigentlich, dass
+  \begin{itemize}
+    \item
+      $\comm{G}{G}$ eine charakteristische Untergruppe von $G$ ist, und
+    \item
+      charakteristische Untergruppen stets normal sind.
+  \end{itemize}
+  Anschaulich gesehen ist eine Untergruppe $H \subgroup G$ charakteristisch, wenn sie sich durch die Gruppenstruktur von $G$ beschreiben lässt, bzw.\ sich aus dieser ergibt:
+  Weitere Beispiele für eine charakteristische Untergruppen sind das Zentrum $\groupcenter{G}$, sowie die iterierten Kommutatorgruppen $G^{(n)}$ mit $G^{(1)} = G$ und $G^{(n+1)} = \comm{ G^{(n)} }{ G^{(n)} }$.
+  
+\end{remark}
+
+
+
+
+\subsection{}
+\label{subsection: perfect subgroup contained in commutator}
+
+\begin{lemma}
+  Für jede Untergruppe $H \subgroup G$ gilt $\comm{H}{H} \subgroup \comm{G}{G}$.
+\end{lemma}
+
+\begin{proof}
+  Es gilt
+  $
+          \comm{H}{H}
+    =     \generated{ \comm{h_1}{h_2} \suchthat h_1, h_2 \in H }
+    \subgroup  \generated{ \comm{g_1}{g_2} \suchthat g_1, g_2 \in G }
+    =     \comm{G}{G}.
+  $
+\end{proof}
+
+Für jede perfekte Untergruppe $P \subgroup G$ gilt $P = \comm{P}{P} \subgroup \comm{G}{G}$.
+
+
+
+
+
+\subsection{}
+
+Es sei $\perfects \coloneqq \{P \subgroup G \suchthat \text{$P$ ist perfekt}\}$ die Menge der perfekten Untergrupppen von $G$.
+Dann ist
+\[
+            \Perf{P}
+  \coloneqq \generated*{ \bigcup_{P \in \perfects} P },
+\]
+die kleinste Untergruppe von $G$, die alle perfekten Untergruppen enthält.
+Für jede perfekte Untergruppe $P \in \perfects$ gilt
+\[
+            \comm{\Perf{G}}{\Perf{G}}
+  =         \generated{ \comm{g}{h} \suchthat g, h \in \Perf{G} }
+  \supseteq \generated{ \comm{g}{h} \suchthat g, h \in P }
+  =         \comm{P}{P}
+  =         P,
+\]
+und somit $\bigcup_{P \in \perfects} P \subseteq \comm{\Perf{G}}{\Perf{G}}$.
+Somit gilt auch
+\[
+            \Perf{G}
+  =         \generated*{ \bigcup_{P \in \perfects} P }
+  \subseteq \comm{\Perf{G}}{\Perf{G}},
+\]
+was zeigt, dass $\Perf{G}$ perfekt ist.
+Per Konstruktion enthält $\Perf{G}$ jede perfekte Untergruppe von $G$.
+
+
+
+
+
+\subsection{}
+
+\begin{lemma}
+  Ist $P$ perfekt, so ist für jeden Gruppenhomomorphismus $\varphi \colon P \to H$ auch $\varphi(P)$ perfekt, d.h.\ Bilder von perfekten Gruppen sind ebenfalls perfekt.
+\end{lemma}
+
+\begin{proof}
+  Es gilt $\comm{ \varphi(P) }{ \varphi(P) } = \varphi( \comm{P}{P} ) = \varphi(P)$.
+\end{proof}
+
+Für jeden Gruppenhomomorphismus $\varphi \colon G \to G$ gilt
+\begin{align*}
+              \varphi( \Perf{G} )
+   =          \varphi\left( \generated*{ \bigcup_{P \in \perfects} P } \right)
+   =          \generated*{ \varphi\left( \bigcup_{P \in \perfects} P \right) }
+  &=          \generated*{ \bigcup_{P \in \perfects} \varphi(P) }
+  \\
+  &\subseteq  \generated*{ \bigcup_{P' \in \perfects} P' }
+   =          \Perf{G}.
+\end{align*}
+Für jedes $g \in G$ ist die Konjugationsabbildung $\varphi_g \colon G \to G$, $h \mapsto ghg^{-1}$ ein Gruppenhomomorphismus, und somit
+\[
+            g \Perf{G} g^{-1}
+  =         \varphi_g( \Perf{G} )
+  \subseteq \Perf{G}.
+\]
+
+\begin{remark}
+  Jeder Gruppenautomorphismus $\varphi \colon G \to G$ induziert eine Bijektion $\perfects \to \perfects$, $P \mapsto \varphi(P)$, weshalb $\varphi(\Perf{G}) = \Perf{G}$.
+  Die Untergruppe $\Perf{G} \subgroup G$ ist also charakteristisch im Sinne von Bemerkung~\ref{remark: notion of characteristic subgroups}, und somit normal.
+\end{remark}
+
+
+
+
+
+\subsection{}
+
+Da $\Perf{G} \nsubgroup G$ normal ist, induziert die Gruppenstruktur von $G$ eine Gruppenstuktur auf $G/\Perf{G}$ mit
+\[
+          (G/\Perf{G}) \times (G/\Perf{G})
+  \to     G/\Perf{G},
+  \quad   (\class{g_1}, \class{g_2})
+  \mapsto \class{g_1 g_2}.
+\]
+
+
+
+
+
+\subsection{}
+
+
+
+\subsubsection{}
+
+Es gilt
+\[
+        \text{$G/\Perf{G}$ ist trivial}
+  \iff  G = \Perf{G}
+  \iff  \text{$G$ ist perfekt}.
+\]
+
+
+
+\subsubsection{}
+
+\begin{lemma}
+  Ist $N \nsubgroup G$ eine normale Untergruppe, so ist $G/N$ genau dann abelsch, wenn $\comm{G}{G} \subgroup N$.
+\end{lemma}
+
+\begin{proof}
+  Es gilt
+  \begin{align*}
+          \text{$G/N$ ist abelsch}
+    &\iff \text{$\class{g} \class{h} = \class{h} \class{g}$ für alle $g, h \in G$}
+    \\
+    &\iff \text{$\class{g} \class{h} \class{g}^{-1} \class{h}^{-1} = 1$ für alle $g, h \in G$}
+    \\
+    &\iff \text{$\class{g h g^{-1} h^{-1}} = 1$ für alle $g, h \in G$}
+    \\
+    &\iff \text{$\class{\comm{g}{h}} = 1$ für alle $g, h \in G$}
+    \\
+    &\iff \text{$\comm{g}{h} \in N$ für alle $g, h \in G$}
+     \iff \comm{G}{G} \subgroup N.
+  \qedhere
+  \end{align*}
+\end{proof}
+
+Es gilt
+\[
+        \text{$G/\Perf{G}$ ist abelsch}
+  \iff  \comm{G}{G} \subgroup \Perf{G}
+\]
+Ist nun $\comm{G}{G}$ perfekt, so gilt  $\comm{G}{G} \subgroup \Perf{G}$.
+Gilt andererseits $\comm{G}{G} \subgroup \Perf{G}$, so gilt nach Aufgabenteil~\ref{subsection: perfect subgroup contained in commutator} auch $\Perf{G} \subgroup \comm{G}{G}$ und somit $\comm{G}{G} = \Perf{G}$;
+inbesondere ist $\comm{G}{G}$ dann perfekt.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

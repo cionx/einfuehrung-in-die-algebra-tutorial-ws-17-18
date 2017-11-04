@@ -1,6 +1,12 @@
 \usepackage{amsmath, amssymb, mathtools}
 \usepackage{amsthm}
 \usepackage{enumitem}
+\usepackage{xparse}
+\usepackage[ngerman]{babel}
+
+% prevents breaking inline math around binary or relationship symbols
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
 
 \setlist[enumerate, 1]{leftmargin=*}
 \setlist[itemize, 1]{leftmargin=*}
@@ -11,3 +17,19 @@
 \newtheorem{lemma}[everything]{Lemma}
 \theoremstyle{definition}
 \newtheorem{remark}[everything]{Bemerkung}
+
+\NewDocumentCommand{\suchthat}{s}{
+  \IfBooleanTF{#1}
+    {\,\middle|\,}  % if a star is seen
+    {\,|\,}         % if no star is seen
+}
+
+\newcommand{\groupcenter}[1]{\operatorname{Z}(#1)}
+
+\newcommand{\subgroup}{\leq}
+\newcommand{\nsubgroup}{\trianglelefteq}
+
+\DeclarePairedDelimiterX{\comm}[2]{[}{]}{#1,#2}
+\DeclarePairedDelimiter{\generated}{\langle}{\rangle}
+
+\newcommand{\class}[1]{\overline{#1}}
