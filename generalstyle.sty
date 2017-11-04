@@ -30,19 +30,28 @@
 \newcommand{\nsubgroup}{\trianglelefteq}
 
 \newcommand{\Integer}{\mathbb{Z}}
+\newcommand{\Rational}{\mathbb{Q}}
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Complex}{\mathbb{C}}
+
+\newcommand{\GL}[2]{\operatorname{GL}_{#1}(#2)}
 
 \newcommand{\groupcenter}[1]{\operatorname{Z}(#1)}
 \DeclareMathOperator{\im}{im}
+\newcommand{\mult}[1]{#1^{\times}}
 \newcommand{\preim}[2]{#1^{-1}(#2)}
 \newcommand{\stab}[2]{\operatorname{Stab}_{#1}(#2)}
 \newcommand{\symm}[1]{S(#1)}
 
 \newcommand{\id}{\operatorname{id}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
 
 \DeclarePairedDelimiterX{\comm}[2]{[}{]}{#1,#2}
 \DeclarePairedDelimiter{\generated}{\langle}{\rangle}
 
 \newcommand{\class}[1]{\overline{#1}}
+\newcommand{\induced}[1]{\overline{#1}}
 \NewDocumentCommand{\restrict}{smm}{
   \IfBooleanTF{#1}
     {\left. #2 \right|_{#3}}
