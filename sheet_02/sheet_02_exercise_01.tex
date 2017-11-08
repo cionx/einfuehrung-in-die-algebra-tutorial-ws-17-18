@@ -6,8 +6,8 @@
 
 \subsection{}
 
-Die Identität $\id \colon G \to G$ ist ein Gruppenhomomorphismus mit $\ker \id = \{e\}$.
-Also ist die Untergruppe $\{e\}$ normal mit $G/\{e\} \cong \im \id = G$.
+Die Identität $\id_G \colon G \to G$ ist ein Gruppenhomomorphismus mit $\ker \id_G = \{e\}$.
+Also ist die Untergruppe $\{e\}$ normal mit $G/\{e\} \cong \im \id_G = G$.
 
 
 
@@ -47,7 +47,7 @@ Inbesondere gilt $\Rational/\Integer \cong \mu_\infty(\Complex)$.
 \subsection{}
 
 Die Abbildung $\Im \colon \Complex \to \Real$, $z = x + iy \mapsto y$ ist ein surjektiver Gruppenhomomorphismus mit $\ker \Im = \Real$.
-Folglich ist $\Real$ eine normale Untergruppe von $\Complex$ (diese ergibt sich auch daraus, dass $\Complex$ abelsch ist), und $\Im$ induziert einen Isomorphismus
+Folglich ist $\Real$ eine normale Untergruppe von $\Complex$ (dies ergibt sich auch daraus, dass $\Complex$ abelsch ist), und $\Im$ induziert einen Isomorphismus
 \[
           \induced{\Im}
   \colon  \Complex/\Real
@@ -93,6 +93,16 @@ Für $z \in \mult{\Complex}$ gilt dabei, dass
   \iff  z \in \Real,
 \]
 weshalb $\ker f = \mult{\Real}$.
+Folglich ist $\mult{\Real}$ eine normale Untergruppe von $\mult{\Complex}$ (dies ergibt sich auch daraus, dass $\mult{\Complex}$ abelsch ist), und $f$ induziert einen Isomorphismus
+\[
+          \induced{f}
+  \colon  \mult{\Complex} \! / \, \mult{\Real}
+  \to     S^1,
+  \quad   \class{z}
+  \mapsto f(z)
+  =       \left( \frac{z}{\abs{z}} \right)^2.
+\]
+Inbesondere gilt $\mult{\Complex} \! / \, \mult{\Real} \cong S^1$.
 
 
 
@@ -109,7 +119,7 @@ Die Untergruppe $\sorthogonal{2} \subgroup \sorthogonal{3}$ ist nicht normal, de
               0 &  0  & 1
             \end{pmatrix*}
   \in       \sorthogonal{2}
-  \quad\text{and}\quad
+  \quad\text{und}\quad
             S
   \coloneqq \begin{pmatrix}
               0 & 0 & 1 \\
@@ -159,7 +169,7 @@ gilt
           \end{pmatrix*}
    \notin \sorthogonal{2}
 \end{align*}
-(Anschaulich gesehen ist $R$ die Drehung um die $z$-Achse zum $90^\circ$, während $S$ eine Rotation ist, welche die drei Koordinatenachsen in der Reihenfolge $x \to y \to z \to x$ zyklisch permutiert.
+(Anschaulich gesehen ist $R$ die Rotation um die $z$-Achse zum $90^\circ$, während $S$ eine Rotation ist, welche die drei Koordinatenachsen in der Reihenfolge $x \to y \to z \to x$ zyklisch permutiert.
 Vertauscht man die Achsen $z \to x$, so wird die Drehung um die $z$-Achse zur Drehung um die $x$-Achse.)
 
 \begin{remark}
@@ -172,8 +182,8 @@ Vertauscht man die Achsen $z \to x$, so wird die Drehung um die $z$-Achse zur Dr
     \text{für alle $S \in \sorthogonal{3}$, $x \in S^2$}.
   \]
   Diese Wirkung ist transitiv, d.h.\ für alle $x, y \in S^2$ gibt es eine Rotation $R \in \sorthogonal{3}$ mit $R.x = y$.
-  Der Stabilisator $\stab{\sorthogonal{3}}{e_3}$ aus all jeden Rotation, welche die $z$-Achse fixieren.
-  Es ist also $\stab{\sorthogonal{3}}{e_3} = \sorthogonal{2}$.
+  Der Stabilisator $\stab{\sorthogonal{3}}{e_3}$ besteht aus all jeden Rotation, welche die $z$-Achse fixieren;
+  es gilt also $\stab{\sorthogonal{3}}{e_3} = \sorthogonal{2}$.
   Wir erhalten somit eine Bijektion
   \[
             \sorthogonal{3}/\sorthogonal{2}
@@ -194,18 +204,19 @@ Vertauscht man die Achsen $z \to x$, so wird die Drehung um die $z$-Achse zur Dr
 
 Die Untergruppe $\orthogonal{2} \subgroup \GL{2}{\Real}$ ist nicht normal, denn für
 \[
-    S
-  = \begin{pmatrix}
-      0 & 1 \\
-      1 & 0
-    \end{pmatrix}
+            S
+  \coloneqq \begin{pmatrix}
+              0 & 1 \\
+              1 & 0
+            \end{pmatrix}
   \in \orthogonal{2}
   \quad\text{und}\quad
-    T
-  = \begin{pmatrix}
-      1 & 1 \\
-      0 & 1
-    \end{pmatrix}
+            T
+  \coloneqq \begin{pmatrix}
+              1 & 1 \\
+              0 & 1
+            \end{pmatrix}
+  \in \GL{2}{\Real}
 \]
 gilt
 \begin{align*}
@@ -239,12 +250,11 @@ gilt
         1 &  0  \\
         1 & -1
       \end{pmatrix*}
-  \notin \orthogonal{2}
+  \notin \orthogonal{2}.
 \end{align*}
-
 (Anschaulich gesehen ist $S$ die Spiegelung an der Winkelhalbierenden, d.h.\ $S$ vertauscht die beiden Standardbasisvektoren $e_1$ und $e_2$.
 Die Matrix $T$ erfüllt $Te_1 = e_1$ und $Te_2 = e_1 + e_2$.
-Die obige Komposition vertauscht deshalb die beiden Vektoren $e_1$ und $e_1 + e_2$, und ist somit nicht längenerhaltend.)
+Die obige Komposition $T S T^{-1}$ vertauscht deshalb die beiden Vektoren $e_1$ und $e_1 + e_2$, und ist somit nicht längenerhaltend.)
 
 
 
@@ -252,12 +262,13 @@ Die obige Komposition vertauscht deshalb die beiden Vektoren $e_1$ und $e_1 + e_
 
 \subsection{}
 
-Die Abbildung $\det \colon \orthogonal{n} \to \Real^\times$ ist wegen der Multiplikativität der Determinante ein Gruppenhomomorphismus, und es gilt $\ker \orthogonal{n} = \sorthogonal{n}$.
-Für jede orthogonale Matrix $S \in \orthogonal{n}$ gilt $S^2 = \Id$ und somit
+Die Abbildung $\restrict{\det}{\orthogonal{n}} \colon \orthogonal{n} \to \Real^\times$ ist aufgrund der Multiplikativität der Determinante ein Gruppenhomomorphismus, und es gilt $\ker \restrict{\det}{\orthogonal{n}} = \sorthogonal{n}$.
+Für jede orthogonale Matrix $S \in \orthogonal{n}$ gilt $S \transpose{S} = \Id$ und somit
 \[
     1
-  = \det(\Id)
-  = \det(S^2)
+  = \det \Id
+  = \det (S \transpose{S})
+  = (\det S) (\det \transpose{S})
   = \det(S)^2,
 \]
 also $\det(S) = \pm 1$.
@@ -277,7 +288,8 @@ Somit gilt $\im \restrict{\det}{\orthogonal{n}} = \{1, -1\}$.
 Also induziert $\restrict{\det}{\orthogonal{n}}$ einen Isomorphismus
 \[
           \orthogonal{n} / \sorthogonal{n}
-  \to     \im \restrict{\det}{\orthogonal{n}},
+  \to     \im \restrict{\det}{\orthogonal{n}}
+  =       \{1, -1\},
   \quad   \class{S}
   \mapsto \det S.
 \]
@@ -289,7 +301,7 @@ Inbesondere gilt $\orthogonal{n} / \sorthogonal{n} \cong \im \restrict{\det}{\or
 
 \subsection{}
 
-Für $n = 1$ ist $S_1$ trivial, und somit $S_1 \leq WB_1$ normal.
+Für $n = 1$ ist $S_1$ trivial, und somit $S_1 \leq WB_1$ normal mit $WB_1/S_1 \cong WB_1$.
 Für $n \geq 2$ ist $S_n \leq WB_n$ nicht normal:
 Wir betrachten die Permutation
 \[
@@ -329,14 +341,14 @@ Dann gilt
 
 Die Untergruppe $\GL{2}{\Real} \subgroup \GL{2}{\Complex}$ is nicht normal, denn für
 \[
-            A
+            S
   \coloneqq \begin{pmatrix}
               0 & 1 \\
               1 & 0
             \end{pmatrix}
   \in       \GL{2}{\Real}
   \quad\text{und}\quad
-            S
+            D
   \coloneqq \begin{pmatrix}
               i & 0 \\
               0 & 1
@@ -345,7 +357,7 @@ Die Untergruppe $\GL{2}{\Real} \subgroup \GL{2}{\Complex}$ is nicht normal, denn
 \]
 gilt
 \[
-    S A S^{-1}
+    D S D^{-1}
   = \begin{pmatrix}
       i & 0 \\
       0 & 1
@@ -362,5 +374,5 @@ gilt
        0  & i \\
       -i  & 0
     \end{pmatrix*}
-  \notin \GL{2}{\Complex}
+  \notin \GL{2}{\Complex}.
 \]

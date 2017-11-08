@@ -54,6 +54,7 @@
 \newcommand{\induced}[1]{\overline{#1}}
 \NewDocumentCommand{\restrict}{smm}{
   \IfBooleanTF{#1}
-    {\left. #2 \right|_{#3}}
-    {#2|_{#3}}            
+    {\left. {#2} \right|_{#3}}
+    {{#2}|_{#3}}            
 }
+\newcommand{\transpose}[1]{#1^T}
