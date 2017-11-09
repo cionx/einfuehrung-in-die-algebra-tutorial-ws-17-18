@@ -1,9 +1,19 @@
 \section{}
 
 Für $g, h \in G$ schreiben wir im Folgenden abkürzend $\comm{g}{h} \coloneqq ghg^{-1}h^{-1}$.
-Dann ist $\comm{G}{G} = \generated{ \comm{g}{h} \suchthat g, h \in G }$.
+Es gilt
+\[
+    \comm{g}{h}^{-1}
+  = (g h g^{-1} h^{-1})^{-1}
+  = h g h^{-1} g^{-1}
+  = \comm{h}{g}
+  \qquad
+  \text{für alle $g, h \in G$},
+\]
+und deshalb $\comm{G}{G} = \generated{ \comm{g}{h} \suchthat g, h \in G }$.
 
 \begin{lemma}
+  \label{lemma: images and generators}
   Für $S \subseteq G$ und jeden Gruppenhomomorphismus $\varphi \colon G \to H$ gilt
   \[
       \varphi( \generated{S} )
@@ -49,7 +59,7 @@ Dann ist $\comm{G}{G} = \generated{ \comm{g}{h} \suchthat g, h \in G }$.
       Es gilt $\varphi(S) \subseteq \varphi(\generated{S})$ da $S \subseteq \generated{S}$.
       Somit gilt $\generated{\varphi(S)} \subseteq \varphi(\generated{S})$, denn $\generated{\varphi(S)}$ ist die kleinste Untergruppe von $H$, die $\varphi(S)$ enthält.
       
-      Andererseits ist $\preim{\varphi}{\generated{\varphi(S)}}$ eine Untergruppe von $G$, denn Urbilder von Untergruppen sind Untergruppen.
+      Andererseits ist $\preim{\varphi}{\generated{\varphi(S)}}$ eine Untergruppe von $G$, denn Urbilder von Untergruppen sind Untergruppen (siehe Lemma~\ref{lemma: preimages of subgroups}).
       Dabei gilt $S \subseteq \preim{\varphi}{\generated{\varphi(S)}}$ da $\varphi(S) \subseteq \generated{\varphi(S)}$.
       Somit gilt auch $\generated{S} \subseteq \preim{\varphi}{\generated{\varphi(S)}}$, denn $\generated{S}$ ist die kleinste Untergruppe von $G$, die $S$ enthält.
       Deshalb gilt auch $\varphi(\generated{S}) \subseteq \generated{\varphi(S)}$.
@@ -64,10 +74,11 @@ Dann ist $\comm{G}{G} = \generated{ \comm{g}{h} \suchthat g, h \in G }$.
 \subsection{}
 
 \begin{lemma}
+  \label{lemma: images of commutators}
   Es sei $\varphi \colon G \to H$ ein Gruppenhomomorphismus.
   \begin{enumerate}
     \item
-      Für alle $g_1, g_2 \in G$ gilt $\varphi(\comm{g_1}{g_2}) = \comm{\varphi(g)}{\varphi(g_2)}$.
+      Für alle $g_1, g_2 \in G$ gilt $\varphi(\comm{g_1}{g_2}) = \comm{\varphi(g_1)}{\varphi(g_2)}$.
     \item
       Es gilt $\varphi(\comm{G}{G}) = \comm{\varphi(G)}{\varphi(G)}$.
   \end{enumerate}
@@ -78,13 +89,13 @@ Dann ist $\comm{G}{G} = \generated{ \comm{g}{h} \suchthat g, h \in G }$.
     \item
       Es gilt
       \[
-          \varphi(\comm{h_1}{h_2})
-        = \varphi( h_1 h_2 h_1^{-1} h_2^{-1} )
-        = \varphi(h_1) \varphi(h_2) \varphi(h_1)^{-1} \varphi(h_2)^{-1}
-        = \comm{ \varphi(h_1) }{ \varphi(h_2) }
+          \varphi(\comm{g_1}{g_2})
+        = \varphi( g_1 g_2 g_1^{-1} g_2^{-1} )
+        = \varphi(g_1) \varphi(g_2) \varphi(g_1)^{-1} \varphi(g_2)^{-1}
+        = \comm{ \varphi(g_1) }{ \varphi(g_2) }
       \]
     \item
-      Es gilt
+      Mit Lemma~\ref{lemma: images and generators} ergibt sich, dass
       \begin{align*}
            \varphi( \comm{G}{G} )
         &= \varphi( \generated{ \comm{g_1}{g_2} \suchthat g_1, g_2 \in G } )
@@ -113,7 +124,10 @@ Da für jedes $g \in G$ die Konjugationsabbildung $\varphi_g \colon G \to G$, $h
   Die obige Rechnung zeigt eigentlich, dass
   \begin{itemize}
     \item
-      $\comm{G}{G}$ eine charakteristische Untergruppe von $G$ ist, und
+      $\comm{G}{G}$ eine charakteristische Untergruppe von $G$ ist,
+  \end{itemize}
+  und dass
+  \begin{itemize}
     \item
       charakteristische Untergruppen stets normal sind.
   \end{itemize}
@@ -154,7 +168,7 @@ Es sei $\perfects \coloneqq \{P \subgroup G \suchthat \text{$P$ ist perfekt}\}$ 
 Dann ist
 \[
             \Perf{P}
-  \coloneqq \generated*{ \bigcup_{P \in \perfects} P },
+  \coloneqq \generated*{ \bigcup_{P \in \perfects} P }
 \]
 die kleinste Untergruppe von $G$, die alle perfekten Untergruppen enthält.
 Für jede perfekte Untergruppe $P \in \perfects$ gilt
@@ -186,10 +200,10 @@ Per Konstruktion enthält $\Perf{G}$ jede perfekte Untergruppe von $G$.
 \end{lemma}
 
 \begin{proof}
-  Es gilt $\comm{ \varphi(P) }{ \varphi(P) } = \varphi( \comm{P}{P} ) = \varphi(P)$.
+  Nach Lemma~\ref{lemma: images of commutators} gilt $\comm{ \varphi(P) }{ \varphi(P) } = \varphi( \comm{P}{P} ) = \varphi(P)$.
 \end{proof}
 
-Für jeden Gruppenhomomorphismus $\varphi \colon G \to G$ gilt
+Für jeden Gruppenhomomorphismus $\varphi \colon G \to G$ gilt somit
 \begin{align*}
               \varphi( \Perf{G} )
    =          \varphi\left( \generated*{ \bigcup_{P \in \perfects} P } \right)
@@ -268,14 +282,14 @@ Es gilt
   \end{align*}
 \end{proof}
 
-Es gilt
+Somit gilt
 \[
         \text{$G/\Perf{G}$ ist abelsch}
-  \iff  \comm{G}{G} \subgroup \Perf{G}
+  \iff  \comm{G}{G} \subgroup \Perf{G}.
 \]
 Ist nun $\comm{G}{G}$ perfekt, so gilt  $\comm{G}{G} \subgroup \Perf{G}$.
-Gilt andererseits $\comm{G}{G} \subgroup \Perf{G}$, so gilt nach Aufgabenteil~\ref{subsection: perfect subgroup contained in commutator} auch $\Perf{G} \subgroup \comm{G}{G}$ und somit $\comm{G}{G} = \Perf{G}$;
-inbesondere ist $\comm{G}{G}$ dann perfekt.
+Gilt andererseits $\comm{G}{G} \subgroup \Perf{G}$, so gilt wegen $\Perf{G} \subgroup \comm{G}{G}$ (siehe Aufgabenteil~\ref{subsection: perfect subgroup contained in commutator}) bereits $\comm{G}{G} = \Perf{G}$.
+Insbesondere ist $\comm{G}{G}$ dann perfekt.
 
 
 
