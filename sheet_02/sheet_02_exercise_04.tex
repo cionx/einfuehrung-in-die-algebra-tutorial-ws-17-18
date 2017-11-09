@@ -7,7 +7,7 @@
 \subsection{}
 
 \begin{remark}
-  Für Permuationen in Zykelschreibe die folgenden nützlichen Rechenregeln:
+  Für Permuationen in Zykelschreibe gelten die folgenden nützlichen Rechenregeln:
   \begin{itemize}
     \item
       Für alle paarweise verschiedenen Zahlen $1 \leq a_1, \dotsc, a_r \leq n$ gilt
@@ -31,23 +31,24 @@ Wir betrachten daher im Folgenden nur den Fall $n \geq 2$.
 Wäre die angegebene binäre Verknüpfung wohldefiniert, so würde für die Transposition $\tau \coloneqq (1 \; (n+1)) \in S_{n+1}$ gelten, dass
 \[
     \tau S_n
-  =  \tau S_n \cdot \id S_n
-  =  \tau S_n \cdot (1 \; 2) S_n
-  =  \tau(1 \; 2) S_n.
+  = (\id \tau) S_n
+  = \id S_n \cdot \tau S_n
+  = (1 \; 2) S_n \cdot \tau S_n
+  = (1 \; 2)\tau S_n.
 \]
 Dies gilt aber nicht, da
 \[
-          \tau (1 \; 2) \tau^{-1}
-  =       ( \tau(1) \; \tau(2) )
+          \tau^{-1} (1 \; 2) \tau
+  =       ( \tau^{-1}(1) \; \tau^{-1}(2) )
   =       (2 \; (n+1))
-  \notin  S_n
+  \notin  S_n.
 \]
 Wäre $S_n$ normal in $S_{n+1}$, so wäre die angegebene Verknüpfung wohldefiniert;
 folglich kann $S_n$ nicht normal in $S_{n+1}$ sein.
 
 \begin{remark}
-  Ist allgemeiner $G$ ein Gruppe und $H \subgroup G$ eine nicht-normale Untergruppe, so gibt es $h \in H$ und $g \in G$ mit $g h g^{-1} \notin H$.
-  Führt man dann in der obigen Rechnung die Ersetzung
+  Ist allgemeiner $G$ ein Gruppe und $H \subgroup G$ eine nicht-normale Untergruppe, so gibt es $h \in H$ und $g \in G$ mit $g^{-1} h g \notin H$.
+  Führt man dann in der obigen Rechnung die Ersetzungen
   \[
     S_{n+1}   \to G,
     \quad
@@ -55,7 +56,9 @@ folglich kann $S_n$ nicht normal in $S_{n+1}$ sein.
     \quad
     \tau      \to g,
     \quad
-    (1 \; 2)  \to h
+    (1 \; 2)  \to h,
+    \quad
+    \id       \to 1_G
   \]
   durch, so ergibt sich, dass die binäre Verknüpfung
   \[
@@ -65,7 +68,7 @@ folglich kann $S_n$ nicht normal in $S_{n+1}$ sein.
     \mapsto \class{g_1 g_2}
   \]
   nicht wohldefiniert ist.
-  Diese Verknüpfung ist also \emph{genau dann} wohldefiniert, wenn $H$ normal in $G$ ist.
+  Die Verknüpfung ist also \emph{genau dann} wohldefiniert, wenn $H$ normal in $G$ ist.
 \end{remark}
 
 
@@ -112,7 +115,7 @@ Es seien
 
 Es gilt zunächst zu zeigen, dass die Abbildung
 \[
-          \psi
+          \Phi
   \colon  \Gsubs
   \to     \Hsubs,
   \quad   U
@@ -120,17 +123,17 @@ Es gilt zunächst zu zeigen, dass die Abbildung
 \]
 eine wohldefinierte Bijektion ist.
 
-Die Abbildung $\psi$ ist wohldefiniert, denn für jede Untergruppe $U \subgroup G$ ist die Einschränkung $\restrict{\varphi}{U}$ ebenfalls ein Gruppenhomomorphismus, und somit $\varphi(U) = \im \restrict{\varphi}{U}$ eine Untergruppe von $H$.
+Die Abbildung $\Phi$ ist wohldefiniert, denn für jede Untergruppe $U \subgroup G$ ist die Einschränkung $\restrict{\varphi}{U}$ ebenfalls ein Gruppenhomomorphismus, und somit $\varphi(U) = \im \restrict{\varphi}{U}$ eine Untergruppe von $H$.
 
 Zum Nachweis der Bijektivität betrachten wir die Abbildung
 \[
-          \psi'
+          \Phi'
   \colon  \Hsubs
   \to     \Gsubs,
   \quad   W
   \mapsto \preim{\varphi}{W}
 \]
-Die Abbildung $\psi'$ ist wohldefiniert:
+Die Abbildung $\Phi'$ ist wohldefiniert:
 
 \begin{lemma}
   Für jeden Gruppenhomomorphismus $\varphi \colon G \to H$ und jede Untergruppe $W \subgroup H$ ist das Urbild $\preim{\varphi}{W}$ eine Untergruppe von $G$.
@@ -145,14 +148,28 @@ Die Abbildung $\psi'$ ist wohldefiniert:
       Für jedes $g \in \preim{\varphi}{W}$ gilt $\varphi(g) \in W$ und somit auch $\varphi(g^{-1}) = \varphi(g)^{-1} \in W$, also $g^{-1} \in \preim{\varphi}{W}$.
     
     \item
-      Die Gruppe $H$ wirkt von links auf $H/W$ durch $h.\class{h'} \coloneqq \class{hh'}$, und es gilt
+      Die Gruppe $H$ wirkt auf $H/W$ durch
+      \[
+                  h.\class{h'}
+        \coloneqq \class{hh'}
+        \quad     \text{für alle $h \in H$, $\class{h'} \in H/W$},
+      \]
+      und es gilt
       \[
           \stab{H}{\class{1}}
         = \{ h \in H \suchthat h.\class{1} = \class{1} \}
         = \{ h \in H \suchthat \class{h} = \class{1} \}
+        = \{ h \in H \suchthat h \in W \}
         = W.
       \]
-      Über $\varphi$ lässt sich diese Gruppenwirkung zu einer Linkswirkung von $G$ auf $H/W$ mit $g.\class{h} \coloneqq \varphi(g).\class{h} = \class{\varphi(g)h}$ zurückziehen.
+      Über $\varphi$ lässt sich diese Gruppenwirkung zu einer Wirkung von $G$ auf $H/W$ mit
+      \[
+                  g.\class{h}
+        \coloneqq \varphi(g).\class{h}
+        =         \class{\varphi(g)h}
+        \quad     \text{für alle $g \in G$, $\class{h} \in H/W$}
+      \]
+      zurückziehen.
       Dies lässt sich auf (mindestens) zwei Weisen sehen:
       
       \begin{itemize}
@@ -175,7 +192,7 @@ Die Abbildung $\psi'$ ist wohldefiniert:
             = \class{\varphi(g) h}.
           \]
       \end{itemize}
-      Es folgt, dass
+      Es folgt, dass $\stab{G}{\class{1}}$ eine Untergruppe von $G$ ist, wobei
       \begin{align*}
             \stab{G}{\class{1}}
         &=  \{ g \in G \suchthat g.\class{1} = \class{1} \}
@@ -183,41 +200,42 @@ Die Abbildung $\psi'$ ist wohldefiniert:
         \\
         &=  \{ g \in G \suchthat \varphi(g) \in \stab{H}{\class{1}} \}
          =  \{ g \in G \suchthat \varphi(g) \in W \}
-         =  \preim{\varphi}{W}
+         =  \preim{\varphi}{W}.
+      \qedhere
       \end{align*}
-      eine Untergruppe von $G$ ist.
     \qedhere
   \end{itemize}
 \end{proof}
 
 Aus der Surjektivität ergibt sich für jede Untergruppe $W \subgroup H$, dass
 \[
-    \psi(\psi'(W))
+    \Phi(\Phi'(W))
   = \varphi( \preim{\varphi}{W} )
   = W,
 \]
-weshalb $\psi \circ \psi' = \id_{\Hsubs}$.
+weshalb $\Phi \circ \Phi' = \id_{\Hsubs}$ gilt.
+Für die Komposition $\Phi' \circ \Phi$ nutzen wir die folgende Beobachtung:
 
 \begin{lemma}
   Ist $\varphi \colon G \to H$ ein Gruppenhomomorphismus, so gilt mit $K \coloneqq \ker \varphi$ für jede Untergruppe $U \subgroup G$, dass $\preim{\varphi}{\varphi(U)} = UK$.
 \end{lemma}
 
 \begin{proof}
-  Es gelten $U \subseteq \preim{\varphi}{\varphi(U)}$ sowie $K = \preim{\varphi}{1} \subseteq \preim{\varphi}{\varphi(U)}$, und somit gilt $U K \subseteq \preim{\varphi}{\varphi(U)}$.
+  Es gelten $U \subseteq \preim{\varphi}{\varphi(U)}$ und $K = \preim{\varphi}{1} \subseteq \preim{\varphi}{\varphi(U)}$, und deshalb $U K \subseteq \preim{\varphi}{\varphi(U)}$.
   Ist andererseits $g \in \preim{\varphi}{\varphi(U)}$, so gilt $\varphi(g) \in \varphi(U)$, weshalb es $u \in U$ mit $\varphi(g) = \varphi(u)$ gibt.
-  Dann gilt $g = u \cdot u^{-1} g$, wobei $u^{-1} g \in \ker \varphi$ da $\varphi(u^{-1} g) = \varphi(u)^{-1} \varphi(g) = 1$.
+  Dann gilt $g = u u^{-1} g$ mit $u^{-1} g \in \ker \varphi$, denn $\varphi(u^{-1} g) = \varphi(u)^{-1} \varphi(g) = 1$.
 \end{proof}
 
 Für jede Untergruppe $U \subgroup G$ mit $K \subgroup U$ gilt somit, dass
 \[
-    \psi'(\psi(U))
+    \Phi'(\Phi(U))
   = \preim{\varphi}{\varphi(U)}
   = UK
   = U,
 \]
-weshalb $\psi' \circ \psi = \id_{\Gsubs}$.
+weshalb $\Phi' \circ \Phi = \id_{\Gsubs}$ gilt.
 
-Ingesamt zeigt dies, dass $\psi$ eine Bijektion ist, und dass $\psi^{-1} = \psi'$.
+Ingesamt zeigt dies, dass $\Phi$ eine Bijektion ist, und dass $\Phi^{-1} = \Phi'$ gilt.
 
 
 
@@ -226,12 +244,12 @@ Ingesamt zeigt dies, dass $\psi$ eine Bijektion ist, und dass $\psi^{-1} = \psi'
 \subsubsection*{Normale Untergruppen}
 
 Die Aussage gilt auch dann noch, wenn man \enquote{Untergruppen} durch \enquote{normale Untergruppen} ersetzt.
-Hierfür genügt es zu zeigen, dass sich $\psi$ und $\psi'$ zu Abbildungen $\Gnorms \to \Hnorms$ und $\Hnorms \to \Gnorms$ einschränken.
+Hierfür genügt es zu zeigen, dass sich $\Phi$ und $\Phi'$ zu Abbildungen $\Gnorms \to \Hnorms$ und $\Hnorms \to \Gnorms$ einschränken.
 Dies ergibt sich aus dem Folgenden:
 
 \begin{lemma}
   Es sei $\varphi \colon G \to H$ ein Gruppenhomomorphismus.
-  \begin{enumerate}
+  \begin{enumerate}[label=\arabic*)]
     \item
       Für jede normale Untergruppe $W \nsubgroup H$ ist auch $\preim{\varphi}{W} \subgroup G$ normal.
     \item
@@ -240,7 +258,8 @@ Dies ergibt sich aus dem Folgenden:
 \end{lemma}
 
 \begin{proof}
-  \begin{enumerate}
+  \leavevmode
+  \begin{enumerate}[label=\arabic*)]
     \item
       Wir geben zwei Beweise:
       \begin{itemize}
@@ -251,7 +270,7 @@ Dies ergibt sich aus dem Folgenden:
             =   \varphi(g) \underbrace{\varphi(h)}_{\in W} \varphi(g)^{-1}
             \in W,
           \]
-          und somit dass $g h g^{-1} \in W$.
+          und somit dass $g h g^{-1} \in \preim{\varphi}{W}$.
         \item
           Die kanonische Projektion $p \colon H \to H/W$, $h \mapsto \class{h}$ ist ein Gruppenhomomorphismus mit $W = \ker p = \preim{p}{1}$.
           Deshalb ist $p \circ \varphi \colon G \to H/W$ ein Gruppenhomomorphismus mit
@@ -273,6 +292,64 @@ Dies ergibt sich aus dem Folgenden:
       \]
   \end{enumerate}
 \end{proof}
+
+\begin{remark}
+  Ist $H = G/K$ und $\varphi \colon G \to H$, $g \mapsto \class{g}$ die kanonische Projektion, so wollen wir noch die folgenden Beobachtungen festhalten:
+  \begin{itemize}
+    \item
+      Für jede Untergruppe $U \leq G$ mit $K \leq U$ ist die entsprechende Untergruppe $\Phi(U) \subgroup H = G/K$ genau $U/K$, denn
+      \[
+          \Phi(U)
+        = \varphi(U)
+        = \{ \varphi(u) \suchthat u \in U \}
+        = \{ uK \suchthat u \in U \}
+        = K/U.
+      \]
+    \item
+      Es seien $W' \nsubgroup W \subgroup H$ Untergruppen.
+      Für die entsprechenden Untergruppen $U' \subgroup U \subgroup G$ mit $U = \Phi^{-1}(U)$, $U' = \Phi^{-1}(W')$ gilt dann bereits $U' \nsubgroup U$ mit $U/U' \cong W/W'$:
+      \begin{itemize}
+        \item
+          Wie bereits gesehen gilt $W = U/K$.
+          Die Einschränkung $\psi \coloneqq \restrict{\varphi}{U} \colon U \to W$, $u \mapsto \varphi(u) = uK$ ist die kanonische Projektion $U \to U/K$.
+          Aus der Normalität von $W' \nsubgroup W$ folgt deshalb, dass $U' = \Phi^{-1}(W') = \preim{\varphi}{W'}$ normal in $U$ ist.
+        \item
+          Es gelten $W = U/K$ und $W' = U'/K$, und somit
+          \[
+                  U/U'
+            \cong (U/K) / (U'/K)
+            =     W/W'
+          \]
+          nach einem der Isomorphiesätze.
+      \end{itemize}
+  \end{itemize}
+\end{remark}
+
+\begin{example}
+  Ist $K \nsubgroup G$ eine beliebige normale Untergruppe, $p \colon G \to G/K$, $g \mapsto \class{g}$ die kanonische Projektion und
+  \[
+                1
+    =           H_0
+    \nsubgroup  H_1
+    \nsubgroup  H_2
+    \nsubgroup  \dotsb
+    \nsubgroup  H_n
+    =           G/K
+  \]
+  eine Normalenreihe für $G/K$, so erhält man für die zurückgezogenen Untergruppen $G_i \coloneqq \preim{p}{H_i} \subgroup G$ eine Normalenreihe
+  \[
+                1
+    \nsubgroup  K
+    =           G_0
+    \nsubgroup  G_1
+    \nsubgroup  G_2
+    \nsubgroup  \dotsb
+    \nsubgroup  G_n
+    =           G
+  \]
+  mit $G_i/G_{i-1} \cong H_i/H_{i-1}$ für alle $i$.
+  Auf diese Weise lassen sich induktiv Normalenreihen konstruieren, und ggf.\ Aussagen über die entsprechenden auftretenden Quotienten treffen.
+\end{example}
 
 
 
@@ -355,8 +432,8 @@ Die entsprechenden Quotienten lassen sich auf (mindestens) zwei verschiedene Wei
       (\Integer/12) / (12\Integer/12) \cong \Integer/12.
     \end{gather*}
   \item
-    Da $\Integer/12$ zyklisch ist, ist auch jeder Quotient von $\Integer/12$ zyklisch.
-    Für jede Untergruppe $H \subgroup \Integer/12$ gilt deshalb
+    Jeder Quotient von $\Integer/12$ ist zyklisch, da $\Integer/12$ zyklisch ist.
+    Für jede Untergruppe $H \subgroup \Integer/12$ gilt $| (\Integer/12)/H | = 12/|H|$, und somit
     \[
             (\Integer/12)/H
       \cong \Integer/( 12/|H| ).
