@@ -54,6 +54,7 @@ Somit gelten $HS/S = S/S = 1$ und $H \subgroup HS = S$.
 
 
 \subsection{}
+\label{subsection: unique fixed point}
 
 Für jede $p$-Sylowuntergruppe $S' \in \Sylow{p}{G}$ gilt
 \begin{align*}
@@ -75,7 +76,34 @@ Ingesamt zeigt dies, dass $S$ der eindeutige Fixpunkt der gegebenen Wirkung ist.
 
 
 
-\addtocounter{subsection}{1}
+\subsection{}
+
+Nach der Bahnengleichung gilt
+\begin{align*}
+      \card{\Sylow{p}{G}}
+  &=  \sum_{\orbit \in \Sylow{p}{G}/S} \card{\orbit}
+   =    \card*{\Sylow{p}{G}^S}
+      + \sum_{\substack{\orbit \in \Sylow{p}{G}/S \\ \card{\orbit} > 1}}
+        \card{\orbit}
+  \\
+  &=    \card*{\Sylow{p}{G}^S}
+      + \sum_{\substack{\orbit \in \Sylow{p}{G}/S \\ \card{\orbit} > 1, \, S' \in \orbit}}
+        \groupindex{S}{S_{S'}}.
+\end{align*}
+Dabei gilt für $\orbit \in \Sylow{p}{G}/S$ und $S' \in \orbit$ mit $\groupindex{S}{S_{S'}} = \card{\orbit} > 1$ wegen $\groupindex{S}{S_{S'}} \divides \card{S}$, dass $\groupindex{S}{S_{S'}}$ eine nicht-trivale $p$-Potenz ist;
+inbesondere ist $\groupindex{S}{S_{S'}}$ ein Vielfaches von $p$.
+Zudem gilt nach Aufgabenteil~\ref{subsection: unique fixed point}, dass $\card{\Sylow{p}{G}} = 1$.
+Ingesamt gilt somit
+\[
+          \card{\Sylow{p}{G}}
+  =       \underbrace{ \card*{\Sylow{p}{G}^S} }_{=1}
+          + \underbrace{
+            \sum_{\substack{\orbit \in \Sylow{p}{G}/S \\ \card{\orbit} > 1, \, S' \in \orbit}}
+            \groupindex{S}{S_{S'}}
+            }_{\text{Vielfaches von $p$}}
+  \equiv  1
+  \mod    p.
+\]
 
 
 
