@@ -237,7 +237,53 @@ Da außerdem $\card{(\Integer/p) \times (\Integer/p)} = p^2 = \card{G}$ gilt, is
 
 
 
-\addtocounter{subsection}{1}
+\subsection{}
+
+Es sei $G$ eine Gruppe der Ordnung $4$.
+Nach Korollar~\ref{corollary: center contains an element of order p} gibt es ein Element $x \in G$ von Ordnung $2$, und
+\[
+              1
+  \nsubgroup  \generated{x}
+  \nsubgroup  G
+\]
+ist eine Normalenreihe für $G$ mit der gewünschten Eigenschaft.
+In Abhängigkeit von der Isomorphieklasse lassen sich Normalenreihen auch konkreter angeben:
+\begin{itemize}
+  \item
+    Es kann $G \cong \Integer/4$ gelten.
+    Eine entsprechende Normalenreihe für $\Integer/4$ ist durch
+    \[
+                  0
+      =           \{ \class{0} \}
+      \nsubgroup  \{ \class{0}, \class{2} \}
+      \nsubgroup  \{ \class{0}, \class{1}, \class{2}, \class{3} \}
+      =           \Integer/4
+    \]
+    gegeben.
+    (Dies ist auch schon die einzige Möglichkeit, da $\generated{ \class{2} } = \{ \class{0}, \class{2} \}$ die einzige echte, nicht-triviale Untergruppe von $\Integer/4$ ist.)
+  \item
+    Ansonsten gilt $G \cong (\Integer/2) \times (\Integer/2)$.
+    Für $(\Integer/2) \times (\Integer/2)$ gibt es drei entsprechende Normalenreihen, nämlich
+    \begin{gather*}
+                  0
+      =           \{ (\class{0},\class{0}) \}
+      \nsubgroup  \{ (\class{0},\class{0}), (\class{0},\class{1}) \}
+      \nsubgroup  \{ (\class{0},\class{0}), (\class{0},\class{1}), (\class{1},\class{0}), (\class{1},\class{1}) \}
+      =           (\Integer/2) \times (\Integer/2),
+      \\
+                  0
+      =           \{ (\class{0},\class{0}) \}
+      \nsubgroup  \{ (\class{0},\class{0}), (\class{1},\class{0}) \}
+      \nsubgroup  \{ (\class{0},\class{0}), (\class{0},\class{1}), (\class{1},\class{0}), (\class{1},\class{1}) \}
+      =           (\Integer/2) \times (\Integer/2),
+      \\
+                  0
+      =           \{ (\class{0},\class{0}) \}
+      \nsubgroup  \{ (\class{0},\class{0}), (\class{1},\class{1}) \}
+      \nsubgroup  \{ (\class{0},\class{0}), (\class{0},\class{1}), (\class{1},\class{0}), (\class{1},\class{1}) \}
+      =           (\Integer/2) \times (\Integer/2).
+    \end{gather*}
+\end{itemize}
 
 
 
