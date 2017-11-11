@@ -1,1 +1,143 @@
-\addtocounter{section}{1}
+\section{}
+
+Im Folgenden nutzen wir wiederholt die folgende Aussage, der in der Vorlesung formuliert und bewiesen wurde:
+
+\begin{proposition}
+  \label{propositon: center is nontrivial}
+  Es sei $G$ ein endliche $p$-Gruppe mit $G \neq 1$.
+  Dann ist auch $\groupcenter{G} \neq 1$.
+\end{proposition}
+
+Wichtig ist für uns die folgende Konsequenz:
+
+\begin{corollary}
+  \label{corollary: center contains an element of order p}
+  Es sei $G$ eine endliche $p$-Gruppe mit $G \neq 1$.
+  Dann gibt es ein Element $g \in \groupcenter{G}$ von Ordnung $p$.
+\end{corollary}
+
+\begin{proof}
+  Nach Propositon~\ref{propositon: center is nontrivial} ist $\groupcenter{G} \neq 1$, weshalb es $\tilde{g} \in \groupcenter{G}$ mit $\tilde{g} \neq 1$ gibt.
+  Es gilt $\ord{\tilde{g}} \divides \card{G}$, weshalb $\ord{\tilde{g}}$ eine nicht-triviale $p$-Potenz ist.
+  Für $r > 1$ mit $\ord{\tilde{g}} = p^r$ gilt dann für das Element $g \coloneqq \tilde{g}^{(p^{r-1})} \in \groupcenter{G}$, dass $\ord{g} = p$.
+\end{proof}
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\subsection{}
+
+Wir merken zunächst an, dass $(\Integer/p) \times (\Integer/p)$ nicht zyklisch ist, da jedes nicht-triviale Element $x \in (\Integer/p) \times (\Integer/p)$ Ordnung $p$ hat.
+Es gilt also $\Integer/p^2 \ncong (\Integer/p) \times (\Integer/p)$, weshalb jede Gruppe der Ordnung $p^2$ tatsächlich nur zu genau einer der beiden Gruppen isomorph seien kann.
+
+Für jedes $g \in G$ gilt $\ord{g} \divides \card{G} = p^2$, und somit $\ord{g} \in \{1, p, p^2\}$.
+Gibt es ein $g \in G$ mit $\ord{g} = p^2 = \card{G}$, so ist $G$ zyklisch, und somit $G \cong \Integer/p^2$.
+Wir betrachten daher im Folgenden nur den Fall, dass $\ord{g} = p$ für alle $g \in G$ mit $g \neq 1$ gilt (der Fall $\ord{g} = 1$ tritt nur für $g = 1$ ein).
+
+Nach Proposition~\ref{propositon: center is nontrivial} gibt es $x \in \groupcenter{G}$ mit $x \neq 1$, und nach Annahme gilt $\ord{x} = p$.
+(Man könnte hier auch Korollar~\ref{corollary: center contains an element of order p} anwenden.)
+Da $\card{G} = p^2 > p = \generated{x}$ gilt, gibt es auch $y \in G$ mit $y \notin \generated{x}$.
+Da $\ord{x} = \ord{x} = p$ gilt, ist die Abbildung
+\[
+          \varphi
+  \colon  (\Integer/p) \times (\Integer/p)
+  \to     G,
+  \quad   (\class{n_1}, \class{n_2})
+  \mapsto x^{n_1} y^{n_2}
+\]
+wohldefiniert.
+Es handelt sich um einen Gruppenhomomorphismus, da $x$ zentral in $G$ ist:
+Für alle $(\class{n_1}, \class{n_2}), (\class{m_1}, \class{m_2}) \in (\Integer/p) \times (\Integer/p)$ gilt
+\begin{align*}
+      \varphi(\class{n_1}, \class{n_2}) \varphi(\class{m_1}, \class{m_2})
+  &=  x^{n_1} y^{n_2} x^{m_1} y^{m_2}
+   =  x^{n_1} x^{m_1} y^{n_2} y^{m_2}
+   =  x^{n_1 + n_2} y^{m_1 + m_2}
+  \\
+  &=  \varphi(\class{n_1 + n_2}, \class{m_1 + m_2})
+   =  \varphi( (\class{n_1}, \class{n_2}) + (\class{m_1}, \class{m_2}) ).
+\end{align*}
+Es gilt $x \in \im \varphi$ und somit $\card{\im \varphi} \geq \generated{x} = p$.
+Es gilt zudem $y \in \im \varphi$ mit $y \notin \generated{x}$, und somit sogar $\card{\im \varphi} > p$.
+Da $\im \varphi$ die Gruppenordnung $\card{G} = p^2$ teilt, muss bereits $\card{\im \varphi} = p^2$ gelten, und $\varphi$ somit surjektiv sein.
+Da außerdem $\card{(\Integer/p) \times (\Integer/p)} = p^2 = \card{G}$ gilt, ist $\varphi$ bereits ein Isomorphismus.
+
+\begin{remark}
+  Ein alternativer Lösungsweg verläuft wie folgt:
+  
+  Nach Proposition~\ref{propositon: center is nontrivial} ist $\groupcenter{G} \neq 1$, und somit $\card{ G / \groupcenter{G} } \in \{1, p\}$.
+  Inbesondere ist $G / \groupcenter{G}$ zyklisch.
+  Es gilt nun die folgende Standardaussage (die in der Vorlesung anscheinend nicht gezeigt wurde):
+  
+  \begin{lemma}
+    Ist $G$ eine Gruppe, so dass $G/\groupcenter{G}$ zyklisch ist, so ist $G$ bereits abelsch \textup(und somit bereits $\groupcenter{G} = G$ und $G/\groupcenter{G} = 1$.\textup)
+  \end{lemma}
+  
+  \begin{proof}
+    Es sei $g \in G$ mit $G/\groupcenter{G} = \generated{ \class{g} }$.
+    Für $x, y \in G$ gibt es dann $n, m \geq 0$ mit $\class{x} = \class{g}^n = \class{g^n}$ und $\class{y} = \class{g}^m = \class{g^m}$, und somit $x', y' \in \groupcenter{G}$ mit $x = g^n x'$ und $y = g^m y'$.
+    Die Elemente $x', y', g^n, g^m$ kommutieren alle miteinander, weshalb auch $x$ und $y$ kommutieren.
+  \end{proof}
+  
+  Somit folgt, dass $G$ bereits abelsch ist;
+  wir schreiben daher $G$ im Folgenden additiv.
+  Falls es ein Element $g \in G$ der Ordnung $\ord{g} = p^2$ gibt, so ist $G$ zkylisch und $G \cong \Integer/p^2$.
+  Ansonsten gilt $\ord{g} = p$ für alle $g \in G$, $g \neq 1$;
+  dann trägt die abelsche Gruppe $G$ die Struktur eines $\Finite{p}$-Vektorraums durch
+  \[
+      \class{n}.g
+    = n \cdot g
+    \qquad
+    \text{für alle $\class{n} \in \Finite{p}$, $g \in G$}.
+  \]
+  Aus $\card{G} = p^2$ erhalten wir, dass $G \cong \Finite{p}^2$ als $\Finite{p}$-Vektorräume, also $G \cong (\Integer/p) \times (\Integer/p)$ als (abelsche) Gruppen.
+\end{remark}
+
+\begin{remark}
+  Gruppen der Ordnung $p^n$ mit $n \geq 3$ sind nicht notwendigerweise abelsch:
+  Für $n = 3$ dient die Heisenberg-Gruppe
+  \[
+      \Borel{3}{\Finite{p}}
+    = \left\{
+        \begin{pmatrix}
+          1 & a & b \\
+            & 1 & c \\
+            &   & 1
+        \end{pmatrix}
+        \suchthat*
+        a, b, c \in \Finite{p}
+      \right\}
+  \]
+  als ein Gegenbeispiel (es handelt sich um eine Untergruppe von $\GL{3}{\Finite{p}}$).
+  Für $n \geq 3$ lässt sich somit allgemeiner das Gegenbeispiel $\Borel{3}{\Finite{p}} \times (\Integer/p)^{n-3}$ wählen.
+\end{remark}
+
+\begin{remark}
+  Für endlich erzeugte abelsche Gruppen verallgemeinert sich die hier gezeigte Aussagen zum \emph{Fundamentalsatz über endlich erzeugte abelsche Gruppen}:
+  Jede endlich erzeugte abelsche Gruppe $G$ ist von der Form
+  \[
+          G
+    \cong \Integer^r \times (\Integer/p_1^{n_1}) \times \dotsb \times (\Integer/p_t^{n_t})
+  \]
+  mit $r \geq 0$, $p_1, \dotsc, p_t$ prim und $n_1, \dotsc, n_t \geq 1$.
+  Die Zahl $r \geq 0$ ist dabei eindeutig, und wird der \emph{Rang} von $G$ genannt;
+  die Paare $(p_1, n_1), \dotsc, (p_t, n_t)$ sind eindeutig bis auf Permutation.
+  
+  Insbesondere ist jede endliche Gruppe von der Form $(\Integer/p_1^{n_1}) \times \dotsb \times (\Integer/p_t^{n_t})$.
+  Wir haben in dieser Aufgabe also den Fundentalsatz für den Fall $\card{G} = p^2$ gezeugt.
+\end{remark}
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\addtocounter{subsection}{1}

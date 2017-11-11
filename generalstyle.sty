@@ -15,7 +15,9 @@
 
 \newcounter{everything}
 \newtheorem{claim}{Behauptung}
+\newtheorem{corollary}[everything]{Korollar}
 \newtheorem{lemma}[everything]{Lemma}
+\newtheorem{proposition}[everything]{Proposition}
 \theoremstyle{definition}
 \newtheorem{example}[everything]{Beispiel}
 \newtheorem{remark}[everything]{Bemerkung}
@@ -34,6 +36,7 @@
 \newcommand{\Rational}{\mathbb{Q}}
 \newcommand{\Real}{\mathbb{R}}
 \newcommand{\Complex}{\mathbb{C}}
+\newcommand{\Finite}[1]{\mathbb{F}_{#1}}
 
 \newcommand{\GL}[2]{\operatorname{GL}_{#1}(#2)}
 
@@ -47,7 +50,9 @@
 \newcommand{\id}{\operatorname{id}}
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\ord}[1]{\operatorname{ord}(#1)}
 
+\DeclarePairedDelimiterX{\card}[1]{\lvert}{\rvert}{#1}
 \DeclarePairedDelimiterX{\comm}[2]{[}{]}{#1,#2}
 \DeclarePairedDelimiter{\generated}{\langle}{\rangle}
 
