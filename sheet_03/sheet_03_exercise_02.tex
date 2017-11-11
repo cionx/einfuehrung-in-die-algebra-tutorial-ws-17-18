@@ -1,1 +1,110 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\subsection{}
+
+Für jedes $f \in X$ gilt
+\[
+    \id.f
+  = f \circ \id^{-1}
+  = f \circ \id
+  = f,
+\]
+und für alle $\pi_1, \pi_2 \in S_n$ und jedes $f \in X$ gilt
+\[
+    \pi_1.(\pi_2.f)
+  = \pi_1(f \circ \pi_2^{-1})
+  = f \circ \pi_2^{-1} \circ \pi_1^{-1}
+  = f \circ (\pi_1 \circ \pi_2)^{-1}
+  = (\pi_1 \pi_2).f,
+\]
+weshalb es sich tatsächlich um eine Gruppenwirkung handelt.
+
+Wir können eine Funktion $f \colon \{1, \dotsc, n\} \to \{1, \dotsc, n\}$ als ein Tupel $(f(1), \dotsc, f(n))$ schreiben:
+\[
+          f
+  \equiv  (f(1), \dotsc, f(n)).
+\]
+Die Wirkung von $S_n$ auf $X$ ist dann durch
+\[
+    \pi.(a_1, \dotsc, a_n)
+  = \left( a_{\pi^{-1}(1)}, \dotsc, a_{\pi^{-1}(n)} \right)
+\]
+gegeben.
+(Man bemerke, dass sich diese Wirkung analog zu der Wirkung aus Aufgabenteil~(a) verhält.)
+Zwei Tupel $(a_1, \dotsc, a_n), (b_1, \dotsc, b_n) \in X$ sind genau dann in der gleichen Bahn, wenn sie die gleichen Einträge mit jeweils gleicher Vielfachheit erhalten.
+Ein Repräsentantensystem der Bahnen ist deshalb durch die Tupel
+\[
+  ( \underbrace{1, \dotsc, 1}_{m_1},
+    \underbrace{2, \dotsc, 2}_{m_2},
+    \dotsc,
+    \underbrace{n, \dotsc, n}_{m_n} )
+\]
+mit $m_1, \dotsc, m_n \geq 0$, $m_1 + \dotsb + m_n = n$ gegeben.
+Der Stabilisator eines solchen Repräsentanten
+\[
+  f = ( \underbrace{1, \dotsc, 1}_{m_1},
+        \underbrace{2, \dotsc, 2}_{m_2},
+        \dotsc,
+        \underbrace{n, \dotsc, n}_{m_n} )
+\]
+ist durch
+\begin{align*}
+   &\,      G_f
+  \\
+  =&\,      \left\{
+              \pi \in S_n
+            \suchthat*
+              \begin{tabular}{c}
+                $\pi$ permutiert das diskrete Intervall \\
+                $\{m_1 + \dotsb + m_k + 1, \dotsc, m_1 + \dotsb + m_{k+1}\}$  \\
+                für jedes $k = 0, \dotsc, n-1$
+              \end{tabular}
+            \right\}
+  \\
+  \cong&\,  S_{m_1} \times \dotsb \times S_{m_n}
+\end{align*}
+gegeben.
+
+
+
+
