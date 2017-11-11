@@ -109,4 +109,40 @@ Ingesamt gilt somit
 
 
 
-\addtocounter{subsection}{1}
+\subsection{}
+
+Die Gruppe $G$ wirkt $\Sylow{p}{G}$ durch Konjugation, d.h.\ durch
+\[
+    g.S'
+  = g S' g^{-1}
+  \qquad
+  \text{für alle $g \in G$, $S' \in \Sylow{p}{G}$}.
+\]
+Nach dem zweiten Sylowsatz ist diese Wirkung transitiv, d.h.\ für jedes $S' \in \Sylow{p}{G}$ gibt es ein $g \in G$ mit $g.S = S'$.
+Dabei gilt
+\[
+    G_S
+  = \{ g \in G \suchthat g.S = S \}
+  = \{ g \in G \suchthat g S g^{-1} = S \}
+  = \normalizer{S}{G}.
+\]
+Somit gilt
+\[
+    \card{\Sylow{p}{G}}
+  = \card{G.S}
+  = \groupindex{G}{G_S}
+  = \groupindex{G}{\normalizer{S}{G}}.
+\]
+Dabei gilt
+\[
+    m
+  = \frac{\card{G}}{\card{S}}
+  = \groupindex{G}{S}
+  = \groupindex{G}{\normalizer{S}{G}} \groupindex{\normalizer{S}{G}}{S}
+\]
+und somit
+\[
+            \card{\Sylow{p}{G}}
+  =         \groupindex{G}{\normalizer{S}{G}}
+  \divides  m.
+\]
