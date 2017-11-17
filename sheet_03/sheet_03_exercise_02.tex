@@ -33,7 +33,7 @@ Für jedes $A \in X$ gilt
   = \{ x \suchthat x \in A \}
   = A,
 \]
-und für alle $S, T \in \GL{n}{\Real}$ und $A \in X$ gilt
+und für alle $S, T \in \GL{n}{\Real}$ und $A \in X$ gelten
 \[
     S.(T.A)
   = S.\{ Tx \suchthat x \in A \}
@@ -42,9 +42,11 @@ und für alle $S, T \in \GL{n}{\Real}$ und $A \in X$ gilt
 \]
 Ingesamt zeigt dies, dass es sich um eine wohldefinierte Gruppenwirkung handelt.
 
+Zur Bestimmung der Bahnen nutzen wir Lineare Algebra:
+
 \begin{lemma}
   \label{lemma: transitive on linear independent}
-  Es seien $x_1, \dotsc, x_k \in \Real^n$.
+  Es seien $x_1, \dotsc, x_k \in \Real^n$ mit $k \leq n$.
   Dann gibt es $S \in \GL{n}{\Real}$ mit $Se_i = x_i$ für alle $i = 1, \dotsc, k$ \textup(wobei $e_1, \dotsc, e_n \in \Real^n$ die Standardbasis bezeichnet\textup).
 \end{lemma}
 
@@ -58,7 +60,7 @@ Um die Bahn und den Stabilisator von $A \in X$ zu bestimmen, unterscheiden wir z
 \begin{itemize}
   \item
     Ist $A = \{x_1, x_2\}$ linear unabhängig, so gilt $n \geq 2$.
-    Dann gibt es nach Lemma~\ref{lemma: transitive on linear independent} ein Element $S \in G$ mit $S.\{e_1, e_2\} = \{x_1, x_2\} = A$.
+    Dann gibt es nach Lemma~\ref{lemma: transitive on linear independent} ein Gruppenelement $S \in G$ mit $S.\{e_1, e_2\} = \{x_1, x_2\} = A$.
     Das zeigt, dass alle linear unabhängigen Teilmengen eine Bahn bilden.
     Der Stabilisator von $B \coloneqq \{e_1, e_2\}$ besteht aus all jenen $S \in \GL{n}{\Real}$, so dass $Se_1 = e_1$ und $Se_2 = e_2$, oder $Se_1 = e_2$ und $Se_2 = e_1$.
     Also gilt
@@ -85,11 +87,12 @@ Um die Bahn und den Stabilisator von $A \in X$ zu bestimmen, unterscheiden wir z
           \in \GL{n-2}{\Real}
         \right\}
     \]
-    Die Stabilisatoren für irgendeine linear unabhängige Teilmenge $A \in X$ ist entsprechend konjugiert zu $G_B$.
+    Der Stabilisator einer linear unabhängige Teilmenge $A \in X$ ist entsprechend konjugiert zu $G_B$.
   \item
     Ist $A = \{x_1, x_2\}$ linear abhängig, so gilt immer noch $x_1 \neq 0$ oder $x_2 \neq 0$ (da $\card{A} = 2$);
     wir können o.B.d.A.\ davon ausgehen, dass $x \coloneqq x_1 \neq 0$ gilt.
-    Da $A$ linear unabhängig ist, gibt es dann ein $\lambda \in \Real$, $\lambda \neq 1$ mit $x_2 = \lambda x$, und somit $A = \{x, \lambda x\}$.
+    Da $A$ linear unabhängig ist, gibt es dann ein $\lambda \in \Real$ mit $x_2 = \lambda x$, und somit $A = \{x, \lambda x\}$;
+    dabei gilt  $\lambda \neq 1$ da $\card{A} = 2$.
     Da $x \neq 0$ gilt, gibt es nach Lemma~\ref{lemma: transitive on linear independent} eine Matrix $S \in \GL{n}{\Real}$ mit $Se_1 = x$.
     Dann gilt
     \[
@@ -100,28 +103,65 @@ Um die Bahn und den Stabilisator von $A \in X$ zu bestimmen, unterscheiden wir z
     \]
     Zur Bestimmung der restlichen Bahnen genügt es also, die Mengen $B_\lambda \coloneqq \{e_1, \lambda e_1\}$ mit $\lambda \in \Real$, $\lambda \neq 1$ zu betrachten.
     
-    Eine Menge $A \in X$ ist genau dann in der Bahn von $B_\lambda$, wenn eines der Elemente von $A$ das $\lambda$-fache des anderen ist.
+    Eine Menge $A \in X$ ist genau dann in der Bahn von $B_\lambda$, wenn eines der Elemente von $A$ das $\lambda$-fache des anderen Elements ist.
     Es folgt, dass
     \begin{itemize}
       \item
-        $B_0$ und $B_\lambda$ für $\lambda \neq 1, 0$ nie in derselben Bahn liegen,
+        $B_0$ und $B_\mu$ für $\mu \neq 0$ nie in derselben Bahn liegen,
       \item
-        $B_\lambda$ und $B_\mu$ für $\lambda \neq 1, 0$ genau dann in der gleichen Bahn liegen, wenn $\mu = \lambda$ oder $\mu = 1/\lambda$ gilt.
+        $B_\lambda$ und $B_\mu$ für $\lambda \neq 0$ genau dann in der gleichen Bahn liegen, wenn $\mu = \lambda$ oder $\mu = 1/\lambda$ gilt.
     \end{itemize}
     Man bemerke, dass dabei für $\lambda = -1$ gilt, dass $1/\lambda = -1 = \lambda$.
-    Mit Ausnahme von $B_0$ und $B_{-1}$ liegen also je zwei $B_\lambda$ in der gleichen Bahn.
-    Ist $\Lambda \subseteq \Real$ mit
+    Mit Ausnahme von $B_0$ und $B_{-1}$ liegen also je genau zwei $B_\lambda$ in der gleichen Bahn.
+    Ist $\Lambda \subseteq \Real$ eine Teilmenge mit
     \begin{itemize}
       \item
         $1 \notin \Lambda$,
       \item
-        $0 \in \Lambda$,
+        $0, -1 \in \Lambda$,
+    \end{itemize}
+    und
+    \begin{itemize}[resume]
       \item
-        für all $\lambda \neq 1, 0, -1$ ist entweder $\lambda \in \Lambda$ oder $1/\lambda \in \Lambda$,
+        für alle $\lambda \neq 1, 0, -1$ entweder $\lambda \in \Lambda$ oder $1/\lambda \in \Lambda$,
     \end{itemize}
     so  sind die Mengen $B_\lambda \in X$ mit $\lambda \in \Lambda$ also ein Repräsentantensystem für die Bahnen der linear abhängigen Mengen.
     (Man kann etwa $\Lambda = [-1, 1)$ wählen.)
     
+    Für $S \in G_{B_\lambda}$ müssen die Vektoren $e_1$ und $\lambda e_1$ entweder fixiert werden oder vertauscht werden; es gilt also $S e_1 = \lambda e_1$, oder $S e_1 = \lambda e_1$ und $S(\lambda e_1) = e_1$
+    Dabei folgt aus $S e_1 = \lambda e_1$, dass $S(\lambda e_1) = \lambda S e_1 = \lambda^2 e_1 = 1$, und wegen $S(\lambda e_1) = e_1$ somit $\lambda^2 = 1$.
+    Der zweite Fall kann also nur für $\lambda = -1$ eintreten.
+    Damit können wir $G_{B_\lambda}$ in Abhängigkeit von $\lambda$ bestimmen:
+    \begin{itemize}
+      \item
+        Im Fall $\lambda \neq -1$ gilt für $S \in G$ genau dann $S \in G_{B_\lambda}$, wenn $Se_1 = e_1$ gilt.
+        In diesem Fall gilt also
+        \[
+            G_{B_\lambda}
+          = \left\{
+              \begin{pmatrix}
+                1 & * \\
+                0 & T
+              \end{pmatrix}
+            \suchthat*
+              T \in \GL{n-1}{\Real}
+            \right\}.
+        \]
+      \item
+        Im Fall $\lambda = 1$ gilt für $S \in G$ genau dann $S \in G_{B_{-1}}$, wenn $S e_1 = \pm e_1$ gilt.
+        In diesem Fall gilt also
+        \[
+            G_{B_\lambda}
+          = \left\{
+              \begin{pmatrix}
+                \pm 1 & * \\
+                    0 & T
+              \end{pmatrix}
+            \suchthat*
+              T \in \GL{n-1}{\Real}
+            \right\}.
+        \]
+    \end{itemize}
 \end{itemize}
 
 
