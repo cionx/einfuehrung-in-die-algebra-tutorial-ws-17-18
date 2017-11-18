@@ -122,7 +122,7 @@ Es ist $\hat{D}_n \subgroup \orthogonal{2}$ eine Untergruppe, weshalb wir den su
 Es gilt $\det R_\alpha = 1$ und $\det S_\alpha = -1$ für alle $\alpha \in \Real$, weshalb auch $\restrict{\det}{\hat{D}_n}$ noch surjektiv ist.
 Damit erhalten wir einen surjektiven Gruppenhomomorphismus
 \[
-          \varphi
+          \hat{g}
   \colon  D_n
   \to     \{1, -1\},
   \quad   x
@@ -131,13 +131,52 @@ Damit erhalten wir einen surjektiven Gruppenhomomorphismus
                       -1  & \text{falls $x$ eine Spiegelung ist}.
           \end{cases}
 \]
-Da $\{1, -1\} \cong \Integer/2$ lässt sich $\varphi$ auch als ein Gruppenhomomorphismus $D_n \to \Integer/2$ auffassen.
+Da $\{1, -1\} \cong \Integer/2$ lässt sich $\hat{g}$ auch als ein Gruppenhomomorphismus
+\[
+          g
+  \colon  D_n
+  \to     \Integer/2,
+  \quad   x
+  \mapsto \begin{cases}
+            \class{0} & \text{falls $x$ eine Rotation ist}, \\
+            \class{1} & \text{falls $x$ eine Spiegelung ist},
+          \end{cases}
+\]
+auffassen.
 
 
 
 
 
-\addtocounter{subsection}{1}
+\subsection{}
+
+Jedes Element $x \in D_n$ liefert einen Gruppenhomomorphismus
+\[
+          \tilde{s}
+  \colon  \Integer
+  \to     D_n,
+  \quad   n
+  \mapsto x^n.
+\]
+Ist $x$ eine Spiegelung, so gilt $x \neq 1$ aber $x^2 = 1$, und somit $\ker \tilde{s} = 2\Integer$.
+Somit induziert $\tilde{s}$ einen wohldefinierten Gruppenhomomorphismus
+\[
+          s
+  \colon  \Integer/2
+  \to     D_n,
+  \quad   \class{n}
+  \mapsto x^n.
+\]
+Dann gilt
+\[
+    (g \circ s)(\class{1})
+  = g(s(\class{1}))
+  = g(x^1)
+  = g(x)
+  = \class{1}.,
+\]
+sowie $(g \circ s)(\class{0}) = \class{0}$ da $g \circ s$ ein Gruppenhomomorphismus ist.
+Somit gilt $g \circ s = \id_{\Integer/2}$.
 
 
 
