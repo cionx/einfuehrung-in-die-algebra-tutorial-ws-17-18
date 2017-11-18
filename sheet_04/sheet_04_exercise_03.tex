@@ -156,6 +156,7 @@ Ein anderer Ansatz besteht darin, die Einträge der Matrizen nicht aus einem Kö
     Wie sich herausstellt\footnote{Siehe \url{https://math.stackexchange.com/a/45220/300783}.}, ist dies nicht möglich:
     
     \begin{lemma}
+      \label{lemma: non zero divisors are units}
       Ist $R$ ein endlicher \textup(nicht notwendigerweise kommutativer\textup) Ring und $r \in R$ kein Links-, bzw.\ Rechtsnullteiler, so ist $r$ eine Einheit.
     \end{lemma}
     
@@ -192,6 +193,10 @@ Ein anderer Ansatz besteht darin, die Einträge der Matrizen nicht aus einem Kö
       Ist $R$ ein endlicher \textup(nicht notwendigerweise kommutativer\textup) Ring, so ist jedes Element $r \in R$ entweder eine Einheit oder ein beidseitiger Nullteiler.
     \end{corollary}
     
+    \begin{proof}
+      Ist $r$ keine Einheit, so ist $r$ nach Lemma~\ref{lemma: non zero divisors are units} ein beidseitiger Nullteiler.
+      Außerdem sind Einheiten niemals Nullteiler.
+    \end{proof}
 \end{itemize}
 
 
