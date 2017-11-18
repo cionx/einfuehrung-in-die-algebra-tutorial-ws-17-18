@@ -1,1 +1,94 @@
-\addtocounter{section}{1}
+\section{}
+
+Wir betrachten im Folgenden nur die Fälle $n \geq 3$, da die auf dem Übungszettel gegebene Defition für $D_1$ und $D_2$ nicht (ohne weiteres) funktoniert.
+
+
+
+
+
+\subsection{}
+
+Es gibt verschiedene Möglichkeiten, die (Anzahl der) Elemente von $D_n$ zu bestimmen:
+
+\begin{itemize}
+  \item
+    Es gibt $n$ Rotation, jeweils um Vielfache von $360^\circ/n$, bzw.\ um $2\pi/n$.
+    Zudem gibt es noch $n$ Spiegelungen:
+    \begin{itemize}
+      \item
+        Ist $n$ ungerade, so gehen die Spiegelungsachsen durch einen der Eckpunkte, sowie den Mittelpunkt der gegebenüberliegenden Kante.
+        % TODO: Adding images for n = 3, 5$.
+      \item
+        Ist $n$ gerade, so gibt es zwei Arten von Spiegelungen:
+        \begin{itemize}
+          \item
+            Es gibt $n/2$ Spiegelungen, deren Spiegelungsachse durch einen Eckspunkt sowie den gegenüberliegenden Eckpunkt gehen.
+          \item
+            Es gibt $n/2$ Spiegelungen, deren Spiegelungsachse durch den Mittelpunkte einer Kante sowie den Mittelpunkt der gegenüberliegenden Kante gehen.
+        \end{itemize}
+        % TODO: Adding images for n = 6.
+    \end{itemize}
+    Damit ergeben sich insgesamt $2n$ Isometrien.
+    
+  \item
+    Es sei $x$ einer der Eckpunkte und $x'$ einer der zu $x$ benachbarten Eckpunkte.
+    Dann ist jede Isometrie des $n$-Ecks durch die Wirkung auf den benachbarten Eckpunkten $x$ und $x'$ bereits eindeutig bestimmt.
+    
+    Der Eckpunkt $x$ kann auf jeden der anderen Eckpunkte abgebildet werden, wofür es $n$ Möglichkeiten gibt.
+    Wird der Eckpunkt $x$ auf einen Eckpunkt $y$ abgebildet, so kann $x'$ auf jeden der beiden zu $y$ benachbarten Eckpunkt geschickt werden.
+    
+    Somit ergeben sich $2n$ Isometrien
+\end{itemize}
+
+Um zu zeigen, dass $D_n$ nicht abelsch ist, nummerieren wir die Eckpunkte des $n$-Ecks mit den Elementent von $\Integer/n$, so dass der Eckpunkt $\class{k}$ mit den Eckpunkten $\class{k-1}$ und $\class{k+1}$ benachbart sind.
+% TODO: Adding images for n = 3, 4, 5.
+
+Die Rotation um $360^\circ/n$ ist dann durch
+\[
+          r
+  \colon  \Integer/n
+  \to     \Integer/n,
+  \quad   \class{k}
+  \mapsto \class{k+1}
+\]
+gegeben.
+Die Spiegelung, deren Achse durch den Eckpunkt $\class{0}$ geht, ist dann durch
+\[
+          r
+  \colon  \Integer/n
+  \to     \Integer/n,
+  \quad   \class{k}
+  \mapsto \class{-k}
+\]
+gegeben.
+% TODO: Adding images.
+Es gilt
+\begin{gather*}
+    (r \circ s)(\class{0})
+  = r(s(\class{0}))
+  = r(\class{0})
+  = \class{1}
+\shortintertext{aber}
+    (s \circ r)(\class{0})
+  = s(r(\class{0}))
+  = s(\class{0})
+  = \class{-1},
+\end{gather*}
+wobei $\class{1} \neq \class{-1}$ da $n \geq 3$.
+% TODO: Adding images.
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
