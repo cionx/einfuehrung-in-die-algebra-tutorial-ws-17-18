@@ -1,1 +1,151 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+\begin{lemma}
+  Es sei $R_i$, $i \in I$ eine Familie von Ringen.
+  Dann trägt $\prod_{i \in I} R_i$ eine Ringstruktur durch
+  \[
+      (r_i)_{i \in I} + (r'_i)_{i \in I}
+    = (r_i + r'_i)_{i \in I}
+    \quad\text{und}\quad
+      (r_i)_{i \in I} \cdot (r'_i)_{i \in I}
+    = (r_i r'_i)_{i \in I}.
+  \]
+\end{lemma}
+
+\begin{proof}
+  Die Ringaxiome ergeben sich durch direktes Nachrechnen wie in Aufgabe~2 (c).
+  Das Nullelement ist durch $0 = (0_{R_i})_{i \in I}$ gegeben, und das Einselement durch $1 = (1_{R_i})_{i \in I}$.
+\end{proof}
+
+Der hier beschrieben Ring ist $A = \prod_{i \geq 1} \Integer/{p_i}$.
+
+
+
+
+
+\subsection{}
+
+Es gilt $0 = (0, 0, 0, \dotsc) \in B$.
+Für $x, y \in B$ mit $x = (x_1, x_2, \dotsc)$ und $y = (y_1, y_2, \dotsc)$ gibt es $n, m \geq 1$ mit $x_i = 0$ für alle $i \geq n$ und $y_i = 0$ für alle $i \geq m$.
+Dann ist $x - y = (x_1 - y_1, x_2 - y_2, \dotsc)$ mit $x_i - y_i = 0$ für alle $i \geq \max(n,m)$, und somit $x-y \in B$.
+
+
+
+
+
+\subsection{}
+
+Für jedes $x \in \Integer/n$ gilt $n \cdot x = 0$.
+Für $x \in B$ mit $x = (x_1, \dotsc, x_n, 0, 0, \dotsc)$ gilt deshalb
+\begin{align*}
+      \prod_{i=1}^n p_i \cdot x
+  &=  \prod_{i=1}^n p_i \cdot (x_1, \dotsc, x_n, 0, \dotsc)
+   =  \left( 
+        \prod_{i=1}^n p_i \cdot x_1,
+        \dotsc,
+        \prod_{i=1}^n p_i \cdot x_n,
+        0,
+        \dotsc
+      \right)
+  \\
+  &=  \left(
+        \prod_{i=2}^n p_i \cdot p_1 \cdot x_1,
+        \dotsc,
+        \prod_{i=1}^{n-1}  p_i \cdot p_n \cdot x_n, 0,
+        \dotsc
+      \right)
+  = (0, \dotsc, 0, 0, \dotsc).
+\end{align*}
+Somit hat $x$ endliche Ordnung.
+
+
+
+
+
+\subsection{}
+
+Gilt $\ord{1_R} = \infty$, so git auch $\exp(G) = \infty$.
+Es sei also $n \coloneqq \ord{1_R} < \infty$.
+Für jedes $r \in R$ gilt dann
+\[
+    n \cdot r
+  = \underbrace{r + \dotsb + r}_{n}
+  = \underbrace{ 1_R \cdot r + \dotsb + 1_R \cdot r }_{n}
+  = \underbrace{(1_R + \dotsb + 1_R)}_{n} \cdot r
+  = (n \cdot 1_R) \cdot r
+  = 0 \cdot r
+  = 0,
+\]
+und deshalb $\ord{r} \divides \ord{1_R}$.
+Somit gilt dann
+\[
+    \kgV \{\ord r \suchthat r \in R\}
+  = \ord{1_R}.
+\]
+
+
+
+
+
+\subsection{}
+
+Für jedes $j \geq 1$ gilt für das Element $x^{(j)} \in B$ mit
+\[
+    x^{(j)}_i
+  = \delta_{ij}
+  \qquad
+  \text{für alle $i \geq 1$},
+\]
+dass $\ord{ x^{(j)} } = p_j$.
+Somit ist $\{ \ord{x} \suchthat x \in B \} \supseteq \{ \ord{ x^{(j)} } \suchthat j \geq 1 \} = \{ p_j \suchthat j \geq 0\}$ und somit $\exp(B) = \infty$.
+
+
+
+
+
+\subsection{}
+
+Gebe es eine Ringstruktur auf $B$, so wäre $\infty = \exp(B) = \ord(1_B) < \infty$.
+
+
+
+
+
+\subsection{}
+
+Das Einselement von $A$ ist durch $1_A = (1, 1, 1, \dotsc) \notin B$ gegeben.
+Deshalb ist $B$ kein Unterring von $A$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
