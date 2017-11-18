@@ -4,17 +4,25 @@
 \usepackage{xparse}
 \usepackage[ngerman]{babel}
 \usepackage{csquotes}
+\usepackage{hyperref}
 
 % prevents breaking inline math around binary or relationship symbols
 \binoppenalty=\maxdimen
 \relpenalty=\maxdimen
 
+\hypersetup{
+    colorlinks,
+    urlcolor=blue
+}
+
 \setlist[enumerate, 1]{leftmargin=*}
+\setlist[enumerate, 2]{leftmargin=*}
 \setlist[itemize, 1]{leftmargin=*}
 \setlist[itemize, 2]{leftmargin=*, label={\textopenbullet}}
 
 \newcounter{everything}
 \newtheorem{claim}{Behauptung}
+\newtheorem{corollary}[everything]{Korollar}
 \newtheorem{lemma}[everything]{Lemma}
 \theoremstyle{definition}
 \newtheorem{example}[everything]{Beispiel}
@@ -29,6 +37,7 @@
 \newcommand{\divides}{\mathrel{|}}
 \newcommand{\subgroup}{\leq}
 \newcommand{\nsubgroup}{\trianglelefteq}
+\newcommand{\ideal}{\trianglelefteq}
 
 \newcommand{\Integer}{\mathbb{Z}}
 \newcommand{\Rational}{\mathbb{Q}}
@@ -38,6 +47,7 @@
 \newcommand{\End}[1]{\operatorname{End}(#1)}
 \newcommand{\GL}[2]{\operatorname{GL}_{#1}(#2)}
 \newcommand{\matrices}[2]{\operatorname{M}_{#1}(#2)}
+\newcommand{\triangular}[2]{\operatorname{T}_{#1}(#2)}
 
 \newcommand{\groupcenter}[1]{\operatorname{Z}(#1)}
 \DeclareMathOperator{\im}{im}
