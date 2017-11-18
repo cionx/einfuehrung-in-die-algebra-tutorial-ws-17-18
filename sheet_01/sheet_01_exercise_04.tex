@@ -81,7 +81,57 @@ wobei $\class{1} \neq \class{-1}$ da $n \geq 3$.
 
 
 
-\addtocounter{subsection}{1}
+\subsection{}
+
+Das regelmäßige $n$-Eck lässt sich in die Ebene $\Real^2$ einbetten, so dass der Nullpunkt $(0,0)$ der Schwerpunkt des $n$-Ecks ist, und einer der Eckpunkte der $n$-Ecks auf der $x$-Achse liegt.
+Dann lassen sich die Elemente von $D_n$ als Rotationen und Spiegelungen der Ebene auffassen, und somit als Rotations- und Spiegelungsmatrizen.
+Für $\alpha \in \Real$ ist die Rotation um den Winkel $\alpha$ durch die Matrix
+\[
+            R_\alpha
+  \coloneqq \begin{pmatrix*}[r]
+              \cos \alpha & -\sin \alpha  \\
+              \sin \alpha &  \cos \alpha
+            \end{pmatrix*}
+\]
+gegeben, und die Spiegelung an der Gerade mit Winkel $\alpha$ (zur $x$-Achse) ist durch die Matrix
+\[
+            S_\alpha
+  \coloneqq \begin{pmatrix*}[r]
+              \cos 2\alpha  &  \sin 2\alpha \\
+              \sin 2\alpha  & -\cos 2\alpha
+            \end{pmatrix*}
+\]
+gegeben.
+Die Gruppe $D_n$ ist dann durch die Matrizen
+\[
+            \hat{D}_n
+  \coloneqq \{
+              R_{k 2\pi/n}
+            \suchthat
+              k = 0, \dotsc, n-1
+            \}
+            \cup
+            \{
+              S_{k \pi/n}
+            \suchthat
+              k = 0, \dotsc, n-1
+            \}
+\]
+gegeben.
+Es ist $\hat{D}_n \subgroup \orthogonal{2}$ eine Untergruppe, weshalb wir den surjektiven Gruppenhomomorphismus $\restrict{\det}{\orthogonal{2}} \colon \orthogonal{2} \to \{1, -1\}$ zu einem Gruppenhomomorphismus $\restrict{\det}{\hat{D}_n} \colon \hat{D}_n \to \{1,-1\}$ einschränken.
+Es gilt $\det R_\alpha = 1$ und $\det S_\alpha = -1$ für alle $\alpha \in \Real$, weshalb auch $\restrict{\det}{\hat{D}_n}$ noch surjektiv ist.
+Damit erhalten wir einen surjektiven Gruppenhomomorphismus
+\[
+          \varphi
+  \colon  D_n
+  \to     \{1, -1\},
+  \quad   x
+  \mapsto \begin{cases}
+            \phantom{-}1  & \text{falls $x$ eine Rotation ist}, \\
+                      -1  & \text{falls $x$ eine Spiegelung ist}.
+          \end{cases}
+\]
+Da $\{1, -1\} \cong \Integer/2$ lässt sich $\varphi$ auch als ein Gruppenhomomorphismus $D_n \to \Integer/2$ auffassen.
 
 
 
@@ -92,3 +142,5 @@ wobei $\class{1} \neq \class{-1}$ da $n \geq 3$.
 
 
 
+
+\addtocounter{subsection}{1}
