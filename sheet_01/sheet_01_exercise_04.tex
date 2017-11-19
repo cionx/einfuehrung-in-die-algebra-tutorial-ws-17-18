@@ -150,6 +150,8 @@ auffassen.
 
 \subsection{}
 
+Der Kern von $g$ besteht genau aus den Rotationen.
+
 Jedes Element $x \in D_n$ liefert einen Gruppenhomomorphismus
 \[
           \tilde{s}
@@ -182,4 +184,113 @@ Somit gilt $g \circ s = \id_{\Integer/2}$.
 
 
 
-\addtocounter{subsection}{1}
+\subsection*{Bemerkungen}
+
+\begin{itemize}
+  \item
+    Manche Autoren schreiben $D_{2n}$ statt $D_n$, d.h.\ $D_{2n}$ ist die Diedergruppe von Ordnung $2n$.
+    
+  \item
+    Ist $r \in D_n$ eine Rotation um den Winkel $2\pi/n$ und $s \in D_n$ eine Spiegelung, so gilt
+    \begin{itemize}
+      \item
+        $\ord{r} = n$,
+      \item
+        $\ord{s} = 2$,
+      \item
+        $s r = r^{-1} s$.
+    \end{itemize}
+    Durch diese Bedingunegn sind die Elemente und die Gruppenstruktur von $D_n$ bereits eindeutig bestimmt:
+    \begin{itemize}
+      \item
+        Es gilt $\generated{r} = \{1, r, \dotsc, r^{n-1}\}$ mit $\card{ \generated{r} } = n$.
+        Für $\generated{r} s = \{s, rs, \dotsc, r^{n-1} s\}$ gilt dann auch $\card{ \generated{r} s } = n$.
+      \item
+        Es gilt $s \notin \generated{r}$, da $s$ keine Rotation ist.
+        Deshalb sind $\generated{r}$ und $\generated{r} s$ disjunkt.
+      \item
+        Da $\card{D_n} = 2n = n + n = \card{\generated{r}} + \card{\generated{r} s}$ gilt, ist $D_n$ bereits die disjunkte Vereinigung von $\generated{r}$ und $\generated{r} s$.
+        Es lässt sich also jedes Element $x \in D_n$ als $x = r^i s^j$ mit eindeutigen $0 \leq i \leq n-1$ und $0 \leq j \leq 1$ darstellen.
+    \end{itemize}
+    Das zeigt, dass die Elemente von $D_n$ eindeutig bestimmt sind.
+    \begin{itemize}[resume]
+      \item
+        Aus $s r = r^{-1} s$ folgt, dass $s r s^{-1} = r$.
+        Da die Abbildung $c \colon G \to G$, $x \mapsto s x s^{-1}$ ein Gruppenhomomorphismus ist, folgt ferner, dass bereits $s r^i s^{-1} = r^{-i}$ für alle $i \in \Integer$ gilt.
+        Für alle $i \in \Integer$ und $j \in \Integer$ gilt also $s^j r^i = r^{(-1)^j i} s^j$ (da $s^2 = 1$ gilt, genügt es, die Fälle $j = 0$ und $j = 1$ zu betrachten).
+      \item
+        Für alle $i, j, k , l \in \Integer$ gilt somit
+        \[
+            r^i s^j r^k s^l
+          = r^i r^{(-1)^j k} s^j s^l
+          = r^{i + (-1)^j } s^{j + l}
+          = r^{(i + (-1)^j) \bmod 2} s^{(j + l) \bmod 2}
+        \]
+    \end{itemize}
+    Also ist auch die Gruppenstruktur auf $D_n$ bereits bestimmt.
+    
+  \item
+    Inbesondere ließe sich die Diedergruppe $D_n$ auch auf rein algebraische Weise als die Menge $(\Integer/n) \times (\Integer/2)$ zusammen mit der Verknüpfung
+    \begin{equation}
+      \label{equation: algebraic construction of the dihedral group}
+                (\class{i}, \class{j}) \cdot (\class{k}, \class{l})
+      \coloneqq (\class{i} + (-1)^j \class{k}, \class{j} + \class{l})
+    \end{equation}
+    definieren.
+    
+  \item
+    Auf diese Weise lassen sich auch die Gruppen $D_1$ und $D_2$ definieren:
+    \begin{itemize}
+      \item
+        Die Gruppe $D_1$ lässt sich als die Menge $(\Integer/1) \times (\Integer/2)$ mit Verknüpfung~\eqref{equation: algebraic construction of the dihedral group} definieren.
+        Dann ist die Bijektion $(\Integer/1) \times (\Integer/2) \to \Integer/2$, $(x,y) \mapsto y$ ein Gruppenhomomoprhismus, und somit $D_1 \cong \Integer/2$.
+      \item
+        Die Gruppe $D_1$ lässt sich als die Menge $(\Integer/2) \times (\Integer/2)$ mit Verknüpfung~\eqref{equation: algebraic construction of the dihedral group} definieren.
+        Für die Gruppe $P \coloneqq (\Integer/2) \times (\Integer/2)$ mit der \enquote{üblichen} Produkt-Gruppenstruktur ist dann die Abbildung
+        \[
+                  P
+          \to     D_2,
+          \quad   (x, y)
+          \mapsto (x+y,y)
+        \]
+        ein Gruppenhomomorphismus, und somit $D_2 \cong \Integer/2 \times \Integer/2$ als Gruppen.
+    \end{itemize}
+    
+    Ähnlich wie die Diedergruppen $D_n$ mit $n \geq 3$ lassen sich die Diedergruppen $D_1$ und $D_2$ ebenfalls geometrisch definieren:
+    
+    \begin{itemize}[resume]
+      \item
+        Das regelmäßige $1$-Eck und $2$-Eck lassen sich wie folgt in $\Real^2$ einbetten:
+        \begin{center}
+          \begin{tikzpicture}
+            \draw[very thin, ->] (-2,0) -- (2,0) node[anchor = west, black] {$x$};
+            \draw[very thin, ->] (0,-2) -- (0,2) node[anchor = south, black] {$y$};
+            \fill (1,0) circle (0.1);
+          \end{tikzpicture}
+          \hspace{2em}
+          \begin{tikzpicture}
+            \draw[very thin, ->] (-2,0) -- (2,0) node[anchor = west, black] {$x$};;
+            \draw[very thin, ->] (0,-2) -- (0,2) node[anchor = south, black] {$y$};
+            \fill (-1,0) circle (0.1);
+            \fill (1,0) circle (0.1);
+            \draw[very thick] (-1,0) -- (1,0);
+          \end{tikzpicture}
+        \end{center}
+      Die Diedergruppe $D_n$ für $n = 1, 2$ besteht dann aus all jeden Isometrien der umgebenen Ebene $\Real^2$, welche diese eingebettete Version des $n$-Ecks unverändert lassen:
+      \begin{itemize}
+        \item
+          Die Diedergruppe $D_1$ besteht also aus all jenen Isometrien der Ebene, welche den Punkt $(1,0)$ unverändert lassen.
+          Hierfür kommen nur die Identität und die Spiegelung an der $x$-Achse in Frage.
+          Somit gilt $D_1 \cong \Integer/2$.
+        \item
+          Die Diedergruppe $D_2$ besteht aus all jenen Isometrien der Ebene, welche das eingezeichnete Interval $[-1, 1] \times \{0\}$ unverändert lassen.
+          Dies sind die Identität, die Spiegelung an den beiden Achsen, sowie die Komposition dieser beiden Spiegelungen (welche die Spiegelung am Koordinatenursprung ist).
+          Da die Spiegelungen an den Achsen miteinander kommutieren, ergibt sich, dass $D_2 \cong \Integer/2 \times \Integer/2$.
+      \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+
+
+
+

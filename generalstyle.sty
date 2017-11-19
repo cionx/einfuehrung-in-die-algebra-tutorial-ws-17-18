@@ -4,6 +4,7 @@
 \usepackage{xparse}
 \usepackage[ngerman]{babel}
 \usepackage{csquotes}
+\usepackage{tikz}
 
 % prevents breaking inline math around binary or relationship symbols
 \binoppenalty=\maxdimen
@@ -53,6 +54,7 @@
 \newcommand{\ord}[1]{\operatorname{ord}(#1)}
 \newcommand{\sign}{\operatorname{sgn}}
 
+\DeclarePairedDelimiterX{\card}[1]{\lvert}{\rvert}{#1}
 \DeclarePairedDelimiterX{\comm}[2]{[}{]}{#1,#2}
 \DeclarePairedDelimiter{\generated}{\langle}{\rangle}
 
