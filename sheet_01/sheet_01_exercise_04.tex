@@ -17,16 +17,91 @@ Es gibt verschiedene Möglichkeiten, die (Anzahl der) Elemente von $D_n$ zu best
     \begin{itemize}
       \item
         Ist $n$ ungerade, so gehen die Spiegelungsachsen durch einen der Eckpunkte, sowie den Mittelpunkt der gegebenüberliegenden Kante.
-        % TODO: Adding images for n = 3, 5$.
+        \begin{center}
+          \begin{tikzpicture}[scale=1.1]
+            % first triangle
+            \fill[black] (90:1) circle (0.1);
+            \fill[black] (210:1) circle (0.1);
+            \fill[black] (330:1) circle (0.1);
+            \draw[very thick] (90:1) -- (210:1);
+            \draw[very thick] (210:1) -- (330:1);
+            \draw[very thick] (330:1) -- (90:1);
+            \draw[thick, densely dashed] (90:1.5) -- (270:0.75);
+            % second triangle
+            \fill[black] ([xshift=9em]90:1) circle (0.1);
+            \fill[black] ([xshift=9em]210:1) circle (0.1);
+            \fill[black] ([xshift=9em]330:1) circle (0.1);
+            \draw[very thick] ([xshift=9em]90:1) -- ([xshift=9em]210:1);
+            \draw[very thick] ([xshift=9em]210:1) -- ([xshift=9em]330:1);
+            \draw[very thick] ([xshift=9em]330:1) -- ([xshift=9em]90:1);
+            \draw[thick, densely dashed] ([xshift=9em]210:1.5) -- ([xshift=9em]30:0.75);
+          % third triangle
+            \fill[black] ([xshift=18em]90:1) circle (0.1);
+            \fill[black] ([xshift=18em]210:1) circle (0.1);
+            \fill[black] ([xshift=18em]330:1) circle (0.1);
+            \draw[very thick] ([xshift=18em]90:1) -- ([xshift=18em]210:1);
+            \draw[very thick] ([xshift=18em]210:1) -- ([xshift=18em]330:1);
+            \draw[very thick] ([xshift=18em]330:1) -- ([xshift=18em]90:1);
+            \draw[thick, densely dashed] ([xshift=18em]330:1.5) -- ([xshift=18em]150:0.75);
+          \end{tikzpicture}
+        \end{center}
+
       \item
         Ist $n$ gerade, so gibt es zwei Arten von Spiegelungen:
         \begin{itemize}
           \item
-            Es gibt $n/2$ Spiegelungen, deren Spiegelungsachse durch einen Eckspunkt sowie den gegenüberliegenden Eckpunkt gehen.
-          \item
             Es gibt $n/2$ Spiegelungen, deren Spiegelungsachse durch den Mittelpunkte einer Kante sowie den Mittelpunkt der gegenüberliegenden Kante gehen.
+            \begin{center}
+              \begin{tikzpicture}[scale=1.1]
+                % first square
+                \fill[black] (45:1) circle (0.1);
+                \fill[black] (135:1) circle (0.1);
+                \fill[black] (225:1) circle (0.1);
+                \fill[black] (315:1) circle (0.1);
+                \draw[very thick] (45:1) -- (135:1);
+                \draw[very thick] (135:1) -- (225:1);
+                \draw[very thick] (225:1) -- (315:1);
+                \draw[very thick] (315:1) -- (45:1);
+                \draw[thick, densely dashed] (0:1.1) -- (180:1.1);
+                % second square
+                \fill[black] ([xshift=9em]45:1) circle (0.1);
+                \fill[black] ([xshift=9em]135:1) circle (0.1);
+                \fill[black] ([xshift=9em]225:1) circle (0.1);
+                \fill[black] ([xshift=9em]315:1) circle (0.1);
+                \draw[very thick] ([xshift=9em]45:1) -- ([xshift=9em]135:1);
+                \draw[very thick] ([xshift=9em]135:1) -- ([xshift=9em]225:1);
+                \draw[very thick] ([xshift=9em]225:1) -- ([xshift=9em]315:1);
+                \draw[very thick] ([xshift=9em]315:1) -- ([xshift=9em]45:1);
+                \draw[thick, densely dashed] ([xshift=9em]90:1.1) -- ([xshift=9em]270:1.1);
+              \end{tikzpicture}
+            \end{center}
+          \item
+            Es gibt $n/2$ Spiegelungen, deren Spiegelungsachse durch einen Eckspunkt sowie den gegenüberliegenden Eckpunkt gehen.
+            \begin{center}
+              \begin{tikzpicture}[scale=1.1]
+                % first square
+                \fill[black] (45:1) circle (0.1);
+                \fill[black] (135:1) circle (0.1);
+                \fill[black] (225:1) circle (0.1);
+                \fill[black] (315:1) circle (0.1);
+                \draw[very thick] (45:1) -- (135:1);
+                \draw[very thick] (135:1) -- (225:1);
+                \draw[very thick] (225:1) -- (315:1);
+                \draw[very thick] (315:1) -- (45:1);
+                \draw[thick, densely dashed] (45:1.5) -- (225:1.5);
+                % second square
+                \fill[black] ([xshift=9em]45:1) circle (0.1);
+                \fill[black] ([xshift=9em]135:1) circle (0.1);
+                \fill[black] ([xshift=9em]225:1) circle (0.1);
+                \fill[black] ([xshift=9em]315:1) circle (0.1);
+                \draw[very thick] ([xshift=9em]45:1) -- ([xshift=9em]135:1);
+                \draw[very thick] ([xshift=9em]135:1) -- ([xshift=9em]225:1);
+                \draw[very thick] ([xshift=9em]225:1) -- ([xshift=9em]315:1);
+                \draw[very thick] ([xshift=9em]315:1) -- ([xshift=9em]45:1);
+                \draw[thick, densely dashed] ([xshift=9em]135:1.5) -- ([xshift=9em]315:1.5);
+              \end{tikzpicture}
+            \end{center}
         \end{itemize}
-        % TODO: Adding images for n = 6.
     \end{itemize}
     Damit ergeben sich insgesamt $2n$ Isometrien.
     
@@ -41,7 +116,21 @@ Es gibt verschiedene Möglichkeiten, die (Anzahl der) Elemente von $D_n$ zu best
 \end{itemize}
 
 Um zu zeigen, dass $D_n$ nicht abelsch ist, nummerieren wir die Eckpunkte des $n$-Ecks mit den Elementent von $\Integer/n$, so dass der Eckpunkt $\class{k}$ mit den Eckpunkten $\class{k-1}$ und $\class{k+1}$ benachbart sind.
-% TODO: Adding images for n = 3, 4, 5.
+\begin{center}
+  \begin{tikzpicture}[scale=1.3]
+    \fill[black] (90:1) circle (0.1) node[anchor=south]{$\class{0}$};
+    \fill[black] (162:1) circle (0.1) node[anchor=south east]{$\class{4}$};
+    \fill[black] (234:1) circle (0.1) node[anchor=north east]{$\class{3}$};
+    \fill[black] (306:1) circle (0.1) node[anchor=north west]{$\class{2}$};
+    \fill[black] (18:1) circle (0.1) node[anchor=south west]{$\class{1}$};
+    \draw[very thick] (90:1) -- (162:1);
+    \draw[very thick] (162:1) -- (234:1);
+    \draw[very thick] (234:1) -- (306:1);
+    \draw[very thick] (306:1) -- (18:1);
+    \draw[very thick] (18:1) -- (90:1);
+  \end{tikzpicture}
+\end{center}
+
 
 Die Rotation um $360^\circ/n$ ist dann durch
 \[
@@ -75,7 +164,47 @@ Es gilt
   = \class{-1},
 \end{gather*}
 wobei $\class{1} \neq \class{-1}$ da $n \geq 3$.
-% TODO: Adding images.
+
+\begin{center}
+  \begin{tikzpicture}[scale=1]
+    % basic one
+    \fill[black] (90:1) circle (0.1) node[anchor=south]{$\class{0}$};
+    \fill[black] (162:1) circle (0.1) node[anchor=south east]{$\class{-1}$};
+    \fill[black] (18:1) circle (0.1) node[anchor=south west]{$\class{1}$};
+    \draw[very thick] (90:1) -- (162:1);
+    \draw[very thick] (18:1) -- (90:1);
+    % rotated
+    \fill[black] ([xshift=13em, yshift=4em]90:1) circle (0.1) node[anchor=south]{$\class{1}$};
+    \fill[black] ([xshift=13em, yshift=4em]162:1) circle (0.1) node[anchor=south east]{$\class{0}$};
+    \fill[black] ([xshift=13em, yshift=4em]18:1) circle (0.1) node[anchor=south west]{$\class{2}$};
+    \draw[very thick] ([xshift=13em, yshift=4em]90:1) -- ([xshift=13em, yshift=4em]162:1);
+    \draw[very thick] ([xshift=13em, yshift=4em]18:1) -- ([xshift=13em, yshift=4em]90:1);
+    % rotated then reflected
+    \fill[black] ([xshift=26em, yshift=4em]90:1) circle (0.1) node[anchor=south]{$\class{1}$};
+    \fill[black] ([xshift=26em, yshift=4em]162:1) circle (0.1) node[anchor=south east]{$\class{2}$};
+    \fill[black] ([xshift=26em, yshift=4em]18:1) circle (0.1) node[anchor=south west]{$\class{0}$};
+    \draw[very thick] ([xshift=26em, yshift=4em]90:1) -- ([xshift=26em, yshift=4em]162:1);
+    \draw[very thick] ([xshift=26em, yshift=4em]18:1) -- ([xshift=26em, yshift=4em]90:1);
+    % reflected
+    \fill[black] ([xshift=13em, yshift=-4em]90:1) circle (0.1) node[anchor=south]{$\class{0}$};
+    \fill[black] ([xshift=13em, yshift=-4em]162:1) circle (0.1) node[anchor=south east]{$\class{1}$};
+    \fill[black] ([xshift=13em, yshift=-4em]18:1) circle (0.1) node[anchor=south west]{$\class{-1}$};
+    \draw[very thick] ([xshift=13em, yshift=-4em]90:1) -- ([xshift=13em, yshift=-4em]162:1);
+    \draw[very thick] ([xshift=13em, yshift=-4em]18:1) -- ([xshift=13em, yshift=-4em]90:1);
+    % reflected then rotated
+    \fill[black] ([xshift=26em, yshift=-4em]90:1) circle (0.1) node[anchor=south]{$\class{-1}$};
+    \fill[black] ([xshift=26em, yshift=-4em]162:1) circle (0.1) node[anchor=south east]{$\class{0}$};
+    \fill[black] ([xshift=26em, yshift=-4em]18:1) circle (0.1) node[anchor=south west]{$\class{-2}$};
+    \draw[very thick] ([xshift=26em, yshift=-4em]90:1) -- ([xshift=26em, yshift=-4em]162:1);
+    \draw[very thick] ([xshift=26em, yshift=-4em]18:1) -- ([xshift=26em, yshift=-4em]90:1);
+    % arrows
+    \draw[thick, ->] (1.7, 0.7) -- node[above]{$r$} (2.9,  1.4);
+    \draw[thick, ->] (1.7, -0.1) -- node[above]{$s$} (2.9, -0.8);
+    \draw[thick, ->] (6.5, 2.3) -- node[above]{$s$} (7.4, 2.3);
+    \draw[thick, ->] (6.5, -0.4) -- node[above]{$r$} (7.4, -0.4);
+  \end{tikzpicture}
+\end{center}
+
 
 
 
