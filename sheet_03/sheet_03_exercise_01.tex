@@ -24,11 +24,11 @@ Inbesondere ist die Summe endlich.
 
 \subsection{}
 
-Wegen der Additivität von $\nu_p$ (es gilt $\nu_p(ab) = \nu_p(a) + \nu_p(b)$ für alle $n \in \Natural$) gilt
+Wegen der Additivität von $\nu_p$ (es gilt $\nu_p(ab) = \nu_p(a) + \nu_p(b)$ für alle $a,b \in \Natural$) gilt
 \[
     \nu_p\left( \binom{p^r m}{p^k} \right)
   = \nu_p\left( \frac{(p^r m)!}{(p^k)! (p^r m - p^k)!} \right)
-  = \nu_p((p^r m)!) - \nu_p((p^k)!) - \nu_p((p^r m - p^k)!).
+  = \nu_p((p^r m)!) - \nu_p((p^k)!) - \nu_p((p^r m - p^k)!)\,.
 \]
 Dabei gelten
 \begin{align*}
@@ -37,7 +37,7 @@ Dabei gelten
   &=  \sum_{i=1}^k p^{r-i} m + \sum_{i={k+1}}^\infty \floor*{ \frac{p^r m}{p^i} }
   \\
   &=  \sum_{i=1}^k p^{r-i} m + \sum_{j=1}^\infty \floor*{ \frac{p^{r-k} m}{p^j} }
-   =  \sum_{i=1}^k p^{r-i} m + \nu_p( (p^{r-k} m)! )
+   =  \sum_{i=1}^k p^{r-i} m + \nu_p( (p^{r-k} m)! )\,,
 \end{align*}
 sowie
 \[
@@ -65,11 +65,6 @@ Damit folgt, dass
    =  r-k,
 \end{align*}
 wobei wir für die letzte Gleichheit nutzen, dass $p \ndivides m$.
-
-
-
-
-
 
 
 
@@ -142,23 +137,17 @@ Nach der Bahnengleichung gilt
       \card{\Sylow{p}{G}}
   &=  \sum_{\orbit \in \Sylow{p}{G}/S} \card{\orbit}
    =    \card*{\Sylow{p}{G}^S}
-      + \sum_{\substack{\orbit \in \Sylow{p}{G}/S \\ \card{\orbit} > 1}}
-        \card{\orbit}
-  \\
-  &=    \card*{\Sylow{p}{G}^S}
-      + \sum_{\substack{\orbit \in \Sylow{p}{G}/S \\ \card{\orbit} > 1, \, S' \in \orbit}}
-        \groupindex{S}{S_{S'}}.
+      + \sum_{\substack{\orbit \in \Sylow{p}{G}/S \\ \card{\orbit} > 1}} \card{\orbit}
 \end{align*}
-Dabei gilt für $\orbit \in \Sylow{p}{G}/S$ und $S' \in \orbit$ mit $\groupindex{S}{S_{S'}} = \card{\orbit} > 1$ wegen $\groupindex{S}{S_{S'}} \divides \card{S}$, dass $\groupindex{S}{S_{S'}}$ eine nicht-trivale $p$-Potenz ist;
-inbesondere ist $\groupindex{S}{S_{S'}}$ ein Vielfaches von $p$.
+Dabei gilt für $\orbit \in \Sylow{p}{G}/S$ und $S' \in \orbit$ mit $\groupindex{S}{S_{S'}} = \card{\orbit} > 1$ wegen $\groupindex{S}{S_{S'}} \divides \card{S}$, dass $\card{\orbit} = \groupindex{S}{S_{S'}}$ eine nicht-trivale $p$-Potenz ist;
+inbesondere ist $\card{\orbit}$ ein Vielfaches von $p$.
 Zudem gilt nach Aufgabenteil~\ref{subsection: unique fixed point}, dass $\card{\Sylow{p}{G}} = 1$.
 Ingesamt gilt somit
 \[
           \card{\Sylow{p}{G}}
   =       \underbrace{ \card*{\Sylow{p}{G}^S} }_{=1}
           + \underbrace{
-            \sum_{\substack{\orbit \in \Sylow{p}{G}/S \\ \card{\orbit} > 1, \, S' \in \orbit}}
-            \groupindex{S}{S_{S'}}
+            \sum_{\substack{\orbit \in \Sylow{p}{G}/S \\ \card{\orbit} > 1}} \card{\orbit}
             }_{\text{Vielfaches von $p$}}
   \equiv  1
   \mod    p.
@@ -170,7 +159,7 @@ Ingesamt gilt somit
 
 \subsection{}
 
-Die Gruppe $G$ wirkt $\Sylow{p}{G}$ durch Konjugation, d.h.\ durch
+Die Gruppe $G$ wirkt auf $\Sylow{p}{G}$ durch Konjugation, d.h.\ durch
 \[
     g.S'
   = g S' g^{-1}
@@ -205,3 +194,7 @@ und somit
   =         \groupindex{G}{\normalizer{S}{G}}
   \divides  m.
 \]
+
+
+
+
