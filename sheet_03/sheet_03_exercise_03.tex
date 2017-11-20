@@ -1,1 +1,562 @@
-\addtocounter{section}{1}
+\section{}
+
+Im Folgenden nutzen wir wiederholt die folgende Aussage, die in der Vorlesung formuliert und bewiesen wurde:
+
+\begin{proposition}
+  \label{propositon: center is nontrivial}
+  Es sei $G$ ein endliche $p$-Gruppe mit $G \neq 1$.
+  Dann ist auch $\groupcenter{G} \neq 1$.
+\end{proposition}
+
+Wichtig ist für uns die folgende Konsequenz:
+
+\begin{corollary}
+  \label{corollary: center contains an element of order p}
+  Es sei $G$ eine endliche $p$-Gruppe mit $G \neq 1$.
+  Dann gibt es ein Element $g \in \groupcenter{G}$ von Ordnung $p$.
+\end{corollary}
+
+\begin{proof}
+  Nach Propositon~\ref{propositon: center is nontrivial} ist $\groupcenter{G} \neq 1$, weshalb es $\tilde{g} \in \groupcenter{G}$ mit $\tilde{g} \neq 1$ gibt.
+  Es gilt $\ord{\tilde{g}} \divides \card{G}$, weshalb $\ord{\tilde{g}}$ eine nicht-triviale $p$-Potenz ist.
+  Für $r > 1$ mit $\ord{\tilde{g}} = p^r$ gilt dann für das Element $g \coloneqq \tilde{g}^{(p^{r-1})} \in \groupcenter{G}$, dass $\ord{g} = p$.
+\end{proof}
+
+
+
+
+
+\subsection{}
+
+Für $\ord{G} = p^n$ zeigen wir die Aussage per Induktion über $n$:
+
+Für $n = 1$ gilt $G \cong \Integer/p$, weshalb $1 \nsubgroup G$ eine entsprechende Normalenreihe ist.
+
+Für $n \geq 2$ gibt es nach Korollar~\ref{corollary: center contains an element of order p} ein Element $x \in \groupcenter{G}$ mit $\ord{x} = p$.
+Die Untergruppe $\generated{x} \subgroup G$ ist normal, da $x$ zentral in $G$ ist.
+Für $G' \coloneqq G/\generated{x}$ gilt
+\[
+    \card{G'}
+  = \card{G/\generated{x}}
+  = \frac{\card{G}}{\card{\generated{x}}}
+  = \frac{p^n}{p}
+  = p^{n-1}\,.
+\]
+Nach Induktionsvoraussetzung gibt es eine Normalenreihe
+\[
+              1
+  =           G'_0
+  \nsubgroup  G'_1
+  \nsubgroup  \dotsb
+  \nsubgroup  G'_{n-1}
+  =           G'
+\]
+mit $G'_i/G'_{i-1} \cong \Integer/p$ für alle $i$.
+Bezeichnet $p \colon G \to G/\generated{x} = G'$, $g \mapsto \class{g}$ die kanonische Projektion, so ergibt sich mit den Untergruppen $G_{i+1} \coloneqq \preim{p}{G_i}$ eine Normalenreihe
+\[
+              \generated{x}
+  =           G_1
+  \nsubgroup  G_2
+  \nsubgroup  \dotsb
+  \nsubgroup  G_n
+  =           G
+\]
+mit $G_i/G_{i-1} \cong G'_{i-1}/G'_{i-2} \cong \Integer/p$ für alle $i = 2, \dotsc, n$ (siehe Übungsblatt 2, Aufgabe 4).
+Mit $G_1 \coloneqq \generated{x}$ erhalten wir die Normalenreihe
+\[
+              1
+  =           G_0
+  \nsubgroup  G_1
+  \nsubgroup  G_2
+  \dotsb      \dotsb
+  \nsubgroup  G_n
+  =           G
+\]
+mit $G_i/G_{i-1} \cong \Integer/p$ für alle $i$.
+
+\begin{remark}
+  Eine Normalenreihe
+  \[
+                1
+    =           G_0
+    \nsubgroup  G_1
+    \nsubgroup  \dotsb
+    \nsubgroup  G_n
+    =           G
+  \]
+  einer Gruppe $G$ ist eine \emph{Kompositionsreihe} falls die Quotienten $G_i/G_{i-1}$ alle einfach sind.
+  Ähnlich zum obigen Vorgehen lässt sich per Induktion über die Gruppenordnung $\card{G}$ zeigen, dass jede endliche Gruppe eine Kompositionsreihe besitzt, und dass sich jede Normalenreihe durch Hinzufügen von Termen zu einer Kompositionsreihe verfeinern lässt.
+  Die Wichtigkeit von Kompositionsreihen für das Verständnis endlicher Gruppen ergibt sich aus dem Satz von Jordan--Hölder:
+  
+  \begin{theorem}[Jordan--Hölder]
+    Es sei $G$ eine endliche Gruppe und es seien
+    \begin{gather*}
+                  1
+      =           G_0
+      \nsubgroup  G_1
+      \nsubgroup  \dotsb
+      \nsubgroup  G_n
+      =           G,
+      \\
+                  1
+      =           G'_0
+      \nsubgroup  G'_1
+      \nsubgroup  \dotsb
+      \nsubgroup  G'_m
+      =           G
+    \end{gather*}
+    zwei Kompositionreihen von $G$.
+    Dann gilt $n = m$, und die Quotienten $(G_i/G_{i-1})_{i=1}^n$ und $(G'_j/G'_{j-1})_{j=1}^m$ stimmen bis auf Permutation überein.
+  \end{theorem}
+  
+  Ist $G$ eine endliche Gruppe, so sind nach dem Satz von Jordan--Hölder in einer Kompositionsreihe
+  \[
+                1
+    =           G_0
+    \nsubgroup  G_1
+    \nsubgroup  \dotsb
+    \nsubgroup  G_n
+    =           G
+  \]
+  die Quotienten $F_i \coloneqq G_i/G_{i-1}$ eindeutig bis auf Permutations;
+  die Gruppen $F_i$ sind die \emph{Kompositionsfaktoren} von $G$.
+  
+  In dieser Aufgabe haben wir gezeigt, dass eine endliche Gruppe $G$ genau dann eine $p$-Gruppe ist, wenn $F_i \cong \Integer/p$ für alle $i$ gilt.
+  Allgemeiner ist eine endliche Gruppe $G$ genau dann auflösbar, wenn alle auftretenden Kompositionsfaktoren abelsch sind, d.h.\ von der Form $F_i \cong \Integer/p_i\Integer$ für passende Primzahlen $p_i$ sind.
+  Endliche auflösbare Gruppen sowie $p$-Gruppen lassen sich also durch die auftretenden Kompositionsfaktoren beschreiben.
+\end{remark}
+
+
+
+
+
+\subsection{}
+
+Wir merken zunächst an, dass $(\Integer/p) \times (\Integer/p)$ nicht zyklisch ist, da jedes nicht-triviale Element $x \in (\Integer/p) \times (\Integer/p)$ Ordnung $p$ hat.
+Es gilt also $\Integer/p^2 \ncong (\Integer/p) \times (\Integer/p)$, weshalb jede Gruppe der Ordnung $p^2$ tatsächlich nur zu genau einer der beiden Gruppen isomorph seien kann.
+
+Für jedes $g \in G$ gilt $\ord{g} \divides \card{G} = p^2$, und somit $\ord{g} \in \{1, p, p^2\}$.
+Gibt es ein $g \in G$ mit $\ord{g} = p^2 = \card{G}$, so ist $G$ zyklisch, und somit $G \cong \Integer/p^2$.
+Wir betrachten daher im Folgenden nur den Fall, dass $\ord{g} = p$ für alle $g \in G$ mit $g \neq 1$ gilt (der Fall $\ord{g} = 1$ tritt nur für $g = 1$ ein).
+
+Nach Proposition~\ref{propositon: center is nontrivial} gibt es $x \in \groupcenter{G}$ mit $x \neq 1$, und nach Annahme gilt $\ord{x} = p$.
+(Man könnte hier auch Korollar~\ref{corollary: center contains an element of order p} anwenden.)
+Da $\card{G} = p^2 > p = \generated{x}$ gilt, gibt es auch $y \in G$ mit $y \notin \generated{x}$.
+Da $\ord{x} = \ord{x} = p$ gilt, ist die Abbildung
+\[
+          \varphi
+  \colon  (\Integer/p) \times (\Integer/p)
+  \to     G,
+  \quad   (\class{n_1}, \class{n_2})
+  \mapsto x^{n_1} y^{n_2}
+\]
+wohldefiniert.
+Es handelt sich um einen Gruppenhomomorphismus, da $x$ zentral in $G$ ist:
+Für alle $(\class{n_1}, \class{n_2}), (\class{m_1}, \class{m_2}) \in (\Integer/p) \times (\Integer/p)$ gilt
+\begin{align*}
+      \varphi(\class{n_1}, \class{n_2}) \varphi(\class{m_1}, \class{m_2})
+  &=  x^{n_1} y^{n_2} x^{m_1} y^{m_2}
+   =  x^{n_1} x^{m_1} y^{n_2} y^{m_2}
+   =  x^{n_1 + m_1} y^{n_2 + m_2}
+  \\
+  &=  \varphi(\class{n_1 + m_1}, \class{n_2 + m_2})
+   =  \varphi( (\class{n_1}, \class{n_2}) + (\class{m_1}, \class{m_2}) )\,.
+\end{align*}
+Es gilt $x \in \im \varphi$ und somit $\card{\im \varphi} \geq \generated{x} = p$.
+Es gilt zudem $y \in \im \varphi$ mit $y \notin \generated{x}$, und somit sogar $\card{\im \varphi} > p$.
+Da $\card{\im \varphi}$ die Gruppenordnung $\card{G} = p^2$ teilt, muss bereits $\card{\im \varphi} = p^2$ gelten, und $\varphi$ somit surjektiv sein.
+Da außerdem $\card{(\Integer/p) \times (\Integer/p)} = p^2 = \card{G}$ gilt, ist $\varphi$ bereits ein Isomorphismus.
+
+\begin{remark}
+  Ein alternativer Lösungsweg verläuft wie folgt:
+  
+  Nach Proposition~\ref{propositon: center is nontrivial} ist $\groupcenter{G} \neq 1$, und somit $\card{ G / \groupcenter{G} } \in \{1, p\}$.
+  Inbesondere ist $G / \groupcenter{G}$ zyklisch.
+  Es gilt nun die folgende Standardaussage (die in der Vorlesung anscheinend nicht gezeigt wurde):
+  
+  \begin{lemma}
+    Ist $G$ eine Gruppe, so dass $G/\groupcenter{G}$ zyklisch ist, so ist $G$ bereits abelsch \textup(und somit bereits $\groupcenter{G} = G$ und $G/\groupcenter{G} = 1$\textup).
+  \end{lemma}
+  
+  \begin{proof}
+    Es sei $g \in G$ mit $G/\groupcenter{G} = \generated{ \class{g} }$.
+    Für $x, y \in G$ gibt es dann $n, m \geq 0$ mit $\class{x} = \class{g}^n = \class{g^n}$ und $\class{y} = \class{g}^m = \class{g^m}$, und somit gibt es $x', y' \in \groupcenter{G}$ mit $x = g^n x'$ und $y = g^m y'$.
+    Die Elemente $x', y', g^n, g^m$ kommutieren alle miteinander, weshalb auch $x$ und $y$ kommutieren.
+  \end{proof}
+  
+  Somit folgt, dass $G$ bereits abelsch ist;
+  wir schreiben daher $G$ im Folgenden additiv.
+  Falls es ein Element $g \in G$ der Ordnung $\ord{g} = p^2$ gibt, so ist $G$ zkylisch und $G \cong \Integer/p^2$.
+  Ansonsten gilt $\ord{g} = p$ für alle $g \in G$, $g \neq 1$;
+  dann trägt die abelsche Gruppe $G$ die Struktur eines $\Finite{p}$-Vektorraums durch
+  \[
+      \class{n}.g
+    = n \cdot g
+    \qquad
+    \text{für alle $\class{n} \in \Finite{p}$, $g \in G$}\,.
+  \]
+  Aus $\card{G} = p^2$ erhalten wir, dass $G \cong \Finite{p}^2$ als $\Finite{p}$-Vektorräume, also $G \cong (\Integer/p) \times (\Integer/p)$ als (abelsche) Gruppen.
+\end{remark}
+
+\begin{remark}
+  Gruppen der Ordnung $p^n$ mit $n \geq 3$ sind nicht notwendigerweise abelsch:
+  Für $n = 3$ dient die Heisenberg-Gruppe
+  \[
+      \Borel{3}{\Finite{p}}
+    = \left\{
+        \begin{pmatrix}
+          1 & a & b \\
+            & 1 & c \\
+            &   & 1
+        \end{pmatrix}
+        \suchthat*
+        a, b, c \in \Finite{p}
+      \right\}
+  \]
+  als ein Gegenbeispiel (es handelt sich um eine Untergruppe von $\GL{3}{\Finite{p}}$).
+  Für $n \geq 3$ lässt sich somit allgemeiner das Gegenbeispiel $\Borel{3}{\Finite{p}} \times (\Integer/p)^{n-3}$ wählen.
+\end{remark}
+
+\begin{remark}
+  Für endlich erzeugte abelsche Gruppen verallgemeinert sich die hier gezeigte Aussagen zum \emph{Fundamentalsatz über endlich erzeugte abelsche Gruppen}:
+  Jede endlich erzeugte abelsche Gruppe $G$ ist von der Form
+  \[
+          G
+    \cong \Integer^r \times (\Integer/p_1^{n_1}) \times \dotsb \times (\Integer/p_t^{n_t})
+  \]
+  mit $r \geq 0$, $p_1, \dotsc, p_t$ prim und $n_1, \dotsc, n_t \geq 1$.
+  Die Zahl $r \geq 0$ ist dabei eindeutig, und wird der \emph{Rang} von $G$ genannt;
+  die Paare $(p_1, n_1), \dotsc, (p_t, n_t)$ sind eindeutig bis auf Permutation.
+  
+  Insbesondere ist jede endliche abelsche Gruppe von der Form $(\Integer/p_1^{n_1}) \times \dotsb \times (\Integer/p_t^{n_t})$.
+  Wir haben in dieser Aufgabe also den Fundentalsatz für den Fall $\card{G} = p^2$ gezeugt.
+\end{remark}
+
+
+
+
+
+\subsection{}
+
+Es sei $G$ eine Gruppe der Ordnung $4$.
+Nach Korollar~\ref{corollary: center contains an element of order p} gibt es ein zentrales Element $x \in G$ von Ordnung $2$, und
+\[
+              1
+  \nsubgroup  \generated{x}
+  \nsubgroup  G
+\]
+ist eine Normalenreihe für $G$ mit der gewünschten Eigenschaft.
+In Abhängigkeit von der Isomorphieklasse von $G$ lassen sich Normalenreihen auch konkreter angeben:
+\begin{itemize}
+  \item
+    Es kann $G \cong \Integer/4$ gelten.
+    Eine entsprechende Normalenreihe für $\Integer/4$ ist durch
+    \[
+                  0
+      =           \{ \class{0} \}
+      \nsubgroup  \{ \class{0}, \class{2} \}
+      \nsubgroup  \{ \class{0}, \class{1}, \class{2}, \class{3} \}
+      =           \Integer/4
+    \]
+    gegeben.
+    (Dies ist auch schon die einzige Möglichkeit, da $\generated{ \class{2} } = \{ \class{0}, \class{2} \}$ die einzige echte, nicht-triviale Untergruppe von $\Integer/4$ ist.)
+  \item
+    Ansonsten gilt $G \cong (\Integer/2) \times (\Integer/2)$.
+    Für $(\Integer/2) \times (\Integer/2)$ gibt es drei entsprechende Normalenreihen, nämlich
+    \begin{gather*}
+                  0
+      =           \{ (\class{0},\class{0}) \}
+      \nsubgroup  \{ (\class{0},\class{0}), (\class{0},\class{1}) \}
+      \nsubgroup  \{ (\class{0},\class{0}), (\class{0},\class{1}), (\class{1},\class{0}), (\class{1},\class{1}) \}
+      =           (\Integer/2) \times (\Integer/2)\,,
+      \\
+                  0
+      =           \{ (\class{0},\class{0}) \}
+      \nsubgroup  \{ (\class{0},\class{0}), (\class{1},\class{0}) \}
+      \nsubgroup  \{ (\class{0},\class{0}), (\class{0},\class{1}), (\class{1},\class{0}), (\class{1},\class{1}) \}
+      =           (\Integer/2) \times (\Integer/2)\,,
+      \\
+                  0
+      =           \{ (\class{0},\class{0}) \}
+      \nsubgroup  \{ (\class{0},\class{0}), (\class{1},\class{1}) \}
+      \nsubgroup  \{ (\class{0},\class{0}), (\class{0},\class{1}), (\class{1},\class{0}), (\class{1},\class{1}) \}
+      =           (\Integer/2) \times (\Integer/2)\,.
+    \end{gather*}
+\end{itemize}
+
+
+
+
+
+\subsection{}
+
+Es sei $R$ ein beliebiger kommutativer Ring.
+Dann ist
+\[
+            \GL{n}{R}
+  \coloneqq \matrices{n}{R}^\times
+  =         \{
+              A \in \matrices{n}{R}
+            \suchthat
+              \text{es gibt $B \in \matrices{n}{R}$ mit $AB = I = BA$}
+            \}
+\]
+eine Gruppe bezüglich der üblichen Matrixmultiplikation.
+Ferner ist dann
+\[
+            \Borel{n}{R}
+  \coloneqq  \{
+              S \in \GL{n}{R}
+            \suchthat
+              \text{$S$ ist eine obere Dreiecksmatrix}
+            \}
+\]
+eine Untergruppe von $\GL{n}{R}$.
+Wir zeigen, dass $G \coloneqq \Borel{n}{R}$ auflösbar ist.
+Hierfür sei $C_0 \coloneqq \comm{G}{G}$ und $C_{k+1} \coloneqq \comm{C_k}{C_k}$ für alle $k \geq 1$.
+Wir zeigen, dass es ein $k \geq 1$ gibt, so dass $C_k = 1$ gilt.
+
+
+
+\subsubsection*{Berechnung des Kommutators $C_0 = \comm{G}{G}$}
+
+Für $S, T \in G$ mit
+\begin{gather*}
+    S
+  = \begin{pmatrix}
+      a_1 & \cdots  & *       \\
+          & \ddots  & \vdots  \\
+          &         & a_n
+    \end{pmatrix}
+  \quad\text{und}\quad
+    T
+  = \begin{pmatrix}
+      b_1 & \cdots  & *       \\
+          & \ddots  & \vdots  \\
+          &         & b_n
+    \end{pmatrix}
+\shortintertext{gelten}
+    S^{-1}
+  = \begin{pmatrix}
+      a_1^{-1}  & \cdots  & *       \\
+                & \ddots  & \vdots  \\
+                &         & a_n^{-1}
+    \end{pmatrix}
+  \quad\text{und}\quad
+    T^{-1}
+  = \begin{pmatrix}
+      b_1^{-1}  & \cdots  & *       \\
+                & \ddots  & \vdots  \\
+                &         & b_n^{-1}
+    \end{pmatrix},
+\end{gather*}
+und somit
+\begin{align*}
+   &\,   \comm{S}{T}
+  =       S T S^{-1} T^{-1}
+  \\
+  =&\,    \begin{pmatrix}
+            a_1 & \cdots  & *       \\
+                & \ddots  & \vdots  \\
+                &         & a_n
+          \end{pmatrix}
+          \begin{pmatrix}
+            b_1 & \cdots  & *       \\
+                & \ddots  & \vdots  \\
+                &         & b_n
+          \end{pmatrix}
+          \begin{pmatrix}
+            a_1^{-1}  & \cdots  & *       \\
+                      & \ddots  & \vdots  \\
+                      &         & a_n^{-1}
+          \end{pmatrix}
+          \begin{pmatrix}
+            b_1^{-1}  & \cdots  & *       \\
+                      & \ddots  & \vdots  \\
+                      &         & b_n^{-1}
+          \end{pmatrix}
+  \\
+  =&\,    \begin{pmatrix}
+            a_1 b_1 a_1^{-1} b_1^{-1} & \cdots  & *                         \\
+                                      & \ddots  & \vdots                    \\
+                                      &         & a_n b_n a_n^{-1} b_n^{-1}
+          \end{pmatrix}
+  =       \begin{pmatrix}
+            1 & *       & \cdots  & *       \\
+              & \ddots  & \ddots  & \vdots  \\
+              &         & \ddots  & *       \\
+              &         &         & 1
+          \end{pmatrix}.
+\end{align*}
+Es gilt also
+\begin{equation}
+  \label{equation: first commutator}
+            C_0
+  =         \comm{G}{G}
+  \subseteq \{ \text{Einheitsmatrix} + \text{echte obere Dreiecksmatrizen} \}\,.
+\end{equation}
+
+
+
+\subsubsection*{Berechnung der iterierten Kommutatoren $C_{k+1} = \comm{C_k}{C_k}$}
+
+Wir verallgemeinern \eqref{equation: first commutator} auf die iterierten Kommutatoren $C_{k+1} = \comm{C_k}{C_k}$:
+
+Für alle $k \geq 1$ sei $N_k \subseteq \matrices{n}{R}$ die Menge der oberen Dreiecksmatrizen, deren Diagonale sowie  $(k-1)$ oberen Nebendiagonalen alle verschwinden.
+Es ist also $N_1$ die Menge der echten oberen Dreiecksmatrizen, und im Schritt $N_k \to N_{k+1}$ verschwindet jeweils eine zusätzliche obere Nebendiagonale.
+Für alle $k \geq 1$ sei
+\[
+            Z_k
+  \coloneqq I + N_k
+  =         \{ I + N \suchthat N \in N_k \}\,.
+\]
+
+Wir haben bereits gezeigt, dass $C_0 \subgroup Z_1$ gilt.
+Wir zeigen im Folgenden induktiv, dass $C_k \subgroup Z_{2^k}$ für alle $k \geq 1$ gilt.
+Da $Z_k = 1$ für alle $k \geq n$ gilt, folgt dann, dass auch $C_k = 1$ für alle $k \geq n$ gilt.
+
+Ums uns die Rechnungen zu vereinfachen, nutzen wir, dass die Matrizen aus $Z_k$ alle von der Form
+\[
+  \text{Einheitsmatrix} + \text{nilpotente Matrix}
+\]
+sind.
+
+\begin{lemma}
+  Es seien $k, k_1, k_2 \geq 1$.
+  \begin{enumerate}
+    \item
+      Alle Matrizen $N \in N_k$ sind nilpotent.
+    \item
+      Es gilt $N_{k_1} N_{k_2} \subseteq N_{k_1 + k_2}$.
+  \end{enumerate}
+\end{lemma}
+ 
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Dies ergibt sich direkt daraus, dass $N_k$ aus echten oberen Dreiecksmatrizen besteht.
+    \item
+      Dies ergibt sich direkt daraus, dass genau dann $N \in N_k$ gilt, wenn
+      \[
+                  N \cdot \generated{e_1, \dotsc, e_l}
+        \subseteq \generated{e_1, \dotsc, e_{l-k}}
+        \qquad    \text{für alle $l = 1, \dotsc, n$}.
+        \qedhere
+      \]
+  \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+  \label{lemma: inverse for unipotent}
+  Ist $N \in \matrices{n}{R}$ nilpotent, so ist $I + N$ invertierbar, und es gilt
+  \[
+      (I+N)^{-1}
+    = \sum_{k=0}^\infty (-1)^k N^k\,.
+  \]
+\end{lemma}
+
+\begin{proof}
+  Die Summe $\sum_{k=0}^\infty (-1)^k N^k$ ist wohldefiniert, da $N$ nilpotent ist.
+  Es gilt
+  \begin{align*}
+        (I+N)\left( \sum_{k=0}^\infty (-1)^k N^k \right)
+    &=  \sum_{k=0}^\infty (-1)^k N^k + \sum_{k=0}^\infty (-1)^k N^{k+1}
+    \\
+    &=  \sum_{k=0}^\infty (-1)^k N^k - \sum_{k=1}^\infty (-1)^k N^k
+     =  I\,,
+  \end{align*}
+  sowie analog auch $(\sum_{k=0}^\infty (-1)^k N^k) (I+N) = I$.
+\end{proof}
+
+\begin{corollary}
+  \label{corollary: is a subgroup}
+  Es sei $k \geq 1$.
+  \begin{enumerate}
+    \item
+      Es gilt $Z_k Z_k \subseteq Z_k$.
+    \item
+      Für $S \in Z_k$ mit
+      \[
+          S
+        = \begin{pmatrix}
+            1 & 0       & \cdots  &       0 & a_1     & *       & \cdots  & *       \\
+              & \ddots  & \ddots  &         & \ddots  & \ddots  & \ddots  & \vdots  \\
+              &         & \ddots  & \ddots  &         & \ddots  & \ddots  & *       \\
+              &         &         & \ddots  & \ddots  &         & \ddots  & a_m     \\
+              &         &         &         & \ddots  & \ddots  &         & 0       \\
+              &         &         &         &         & \ddots  & \ddots  & \vdots  \\
+              &         &         &         &         &         & \ddots  & 0       \\
+              &         &         &         &         &         &         & 1
+          \end{pmatrix}
+      \]
+      gilt $S \in \GL{n}{R}$, und es gilt
+      \[
+          S^{-1}
+        = \begin{pmatrix}
+            1 & 0       & \cdots  &       0 & -a_1    & *       & \cdots  & *       \\
+              & \ddots  & \ddots  &         & \ddots  & \ddots  & \ddots  & \vdots  \\
+              &         & \ddots  & \ddots  &         & \ddots  & \ddots  & *       \\
+              &         &         & \ddots  & \ddots  &         & \ddots  & -a_m    \\
+              &         &         &         & \ddots  & \ddots  &         & 0       \\
+              &         &         &         &         & \ddots  & \ddots  & \vdots  \\
+              &         &         &         &         &         & \ddots  & 0       \\
+              &         &         &         &         &         &         & 1
+          \end{pmatrix}.
+      \]
+    \item
+      Es ist $Z_k$ eine Untergruppe von $G$.
+  \end{enumerate}
+\end{corollary}
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Für $S, T \in Z_k$ gibt es $N, M \in N_k$ mit $S = I + N$ und $T = I + M$.
+      Dann gilt
+      \[
+          S T
+        = (I + N)(I + M)
+        = I + N + M + NM
+      \]
+      mit $NM \in N_{2k} \subseteq N_k$, und somit $N + M + NM \in N_k$.
+    \item
+      Dies folgt direkt aus Lemma~\ref{lemma: inverse for unipotent}.
+    \item
+      Es gilt $I \in Z_k$, und nach den beiden vorherigen Aussagenteilen ist abgeschlossen unter Produkten und Inversen.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+  \label{corollary: indices add}
+  Für alle $k_1, k_2 \geq 1$ gilt $\comm{Z_{k_1}}{Z_{k_2}} \subseteq Z_{k_1 + k_2}$.
+\end{corollary}
+
+\begin{proof}
+  Für $S \in Z_{k_1}$ und $T \in Z_{k_2}$ gibt es $N \in N_{k_1}$ und $M \in N_{k_2}$ mit $S = I + N$ und $T = I + M$.
+  Nach der Inversionsformel aus Korollar~\ref{corollary: is a subgroup} gibt es $N' \in N_{k_1 + 1}$ und $M' \in N_{k_2 + 1}$, so dass
+  \[
+      S^{-1}
+    = I - N + N'
+    \quad\text{und}\quad
+      T^{-1}
+    = I - M + M'.
+  \]
+  Deshalb gilt
+  \begin{align*}
+        \comm{S}{T}
+     =  S T S^{-1} T^{-1}
+    &=  (I + N)(I + M)(I - N + N')(I - M + M')
+    \\
+    &=  I + N + M - N - M + \text{Terme aus $N_{k_1 + k_2}$},
+  \end{align*}
+  und somit $\comm{S}{T} \in I + N_{k_1 + k_2} = Z_{k_1 + k_2}$.
+\end{proof}
+
+Aus Korollar~\ref{corollary: indices add} ergibt sich mit $C_0 \subgroup Z_1$ induktiv, dass $C_k \subgroup Z_{2^k}$ für alle $k \geq0$.
+
+
+
+
