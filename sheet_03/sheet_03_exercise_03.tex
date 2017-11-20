@@ -289,4 +289,282 @@ In Abhängigkeit von der Isomorphieklasse lassen sich Normalenreihen auch konkre
 
 
 
-\addtocounter{subsection}{1}
+\subsection{}
+
+Es sei $R$ ein beliebiger kommutativer Ring.
+Dann ist
+\[
+            \GL{n}{R}
+  \coloneqq \matrices{n}{R}^\times
+  =         \{
+              A \in \matrices{n}{R}
+            \suchthat
+              \text{es gibt $B \in \matrices{n}{R}$ mit $AB = I = BA$}
+            \}
+\]
+eine Gruppe bezüglich der üblichen Matrixmultiplikation.
+Ferner ist dann
+\[
+            \Borel{n}{R}
+  \coloneqq  \{
+              S \in \GL{n}{R}
+            \suchthat
+              \text{$S$ ist eine obere Dreiecksmatrix}
+            \}
+\]
+eine Untergruppe.
+Wir zeigen, dass $G \coloneqq \Borel{n}{R}$ auflösbar ist.
+Hierfür sei $C_0 \coloneqq \comm{G}{G}$ und $C_{k+1} \coloneqq \comm{C_k}{C_k}$ für alle $k \geq 1$.
+Wir zeigen, dass es ein $k \geq 1$ gibt, so dass $C_k = 1$ gilt.
+
+
+
+\subsubsection*{Berechnung des Kommutators $C_0 = \comm{G}{G}$}
+
+Für $S, T \in G$ mit
+\begin{gather*}
+    S
+  = \begin{pmatrix}
+      a_1 & \cdots  & *       \\
+          & \ddots  & \vdots  \\
+          &         & a_n
+    \end{pmatrix}
+  \quad\text{und}\quad
+    T
+  = \begin{pmatrix}
+      b_1 & \cdots  & *       \\
+          & \ddots  & \vdots  \\
+          &         & b_n
+    \end{pmatrix}
+\shortintertext{gelten}
+    S^{-1}
+  = \begin{pmatrix}
+      a_1^{-1}  & \cdots  & *       \\
+                & \ddots  & \vdots  \\
+                &         & a_n^{-1}
+    \end{pmatrix}
+  \quad\text{und}\quad
+    T^{-1}
+  = \begin{pmatrix}
+      b_1^{-1}  & \cdots  & *       \\
+                & \ddots  & \vdots  \\
+                &         & b_n^{-1}
+    \end{pmatrix},
+\end{gather*}
+und somit
+\begin{align*}
+   &\,   \comm{S}{T}
+  =       S T S^{-1} T^{-1}
+  \\
+  =&\,    \begin{pmatrix}
+            a_1 & \cdots  & *       \\
+                & \ddots  & \vdots  \\
+                &         & a_n
+          \end{pmatrix}
+          \begin{pmatrix}
+            b_1 & \cdots  & *       \\
+                & \ddots  & \vdots  \\
+                &         & b_n
+          \end{pmatrix}
+          \begin{pmatrix}
+            a_1^{-1}  & \cdots  & *       \\
+                      & \ddots  & \vdots  \\
+                      &         & a_n^{-1}
+          \end{pmatrix}
+          \begin{pmatrix}
+            b_1^{-1}  & \cdots  & *       \\
+                      & \ddots  & \vdots  \\
+                      &         & b_n^{-1}
+          \end{pmatrix}
+  \\
+  =&\,    \begin{pmatrix}
+            a_1 b_1 a_1^{-1} b_1^{-1} & \cdots  & *                         \\
+                                      & \ddots  & \vdots                    \\
+                                      &         & a_n b_n a_n^{-1} b_n^{-1}
+          \end{pmatrix}
+  =       \begin{pmatrix}
+            1 & *       & \cdots  & *       \\
+              & \ddots  & \ddots  & \vdots  \\
+              &         & \ddots  & *       \\
+              &         &         & 1
+          \end{pmatrix}.
+\end{align*}
+Es gilt also
+\begin{equation}
+  \label{equation: first commutator}
+            C_0
+  =         \comm{G}{G}
+  \subseteq \text{Einheitsmatrix} + \text{echte obere Dreiecksmatrix}.
+\end{equation}
+
+
+
+\subsubsection*{Berechnung der iterierten Kommutatoren $C_{k+1} = \comm{C_k}{C_k}$}
+
+Wir verallgemeinern \eqref{equation: first commutator} auf die iterierten Kommutatoren $C_{k+1} = \comm{C_k}{C_k}$:
+
+Für alle $k \geq 1$ sei $N_k \subseteq \matrices{n}{R}$ die Menge der oberen Dreiecksmatrizen, deren Diagonale sowie die $(k-1)$ oberen Nebendiagonalen alle $0$ sind.
+Es ist also $N_1$ die Menge der echten oberen Dreiecksmatrizen, und im Schritt $N_k \to N_{k+1}$ verschwindet jeweils eine zusätzliche Nebendiagonale.
+Für alle $k \geq 1$ sei $Z_k \coloneqq I + N_k = \{I + N \suchthat N \in N_k\}$.
+
+Wir haben gesehen, dass $C_0 \subgroup Z_1$ gilt.
+Wir zeigen nun induktiv, dass $G_k \subgroup Z_{2^k}$ für alle $k \geq 1$ gilt.
+Da $Z_k = 1$ für alle $k \geq n$ gilt, zeigt dies dann, dass auch $C_k = 1$ für alle $k \geq n$ gilt.
+
+Ums uns die Rechnungen zu vereinfachen, nutzen wir, dass die Matrizen aus $Z_k$ alle von der Form
+\[
+  \text{Einheitsmatrix} + \text{nilpotente Matrix}
+\]
+sind.
+
+\begin{lemma}
+  Es seien $k, k_1, k_2 \geq 1$.
+  \begin{enumerate}
+    \item
+      Alle Matrizen $N \in N_k$ sind nilpotent.
+    \item
+      Es gilt $N_{k_1} N_{k_2} \subseteq N_{k_1 + k_2}$.
+  \end{enumerate}
+\end{lemma}
+ 
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Dies ergibt sich direkt daraus, dass $N_k$ aus echten oberen Dreiecksmatrizen besteht.
+    \item
+      Dies ergibt sich direkt daraus, dass genau dann $N \in N_k$ gilt, wenn
+      \[
+                  N \cdot \generated{e_1, \dotsc, e_l}
+        \subseteq \generated{e_1, \dotsc, e_{l-k}}
+        \qquad    \text{für alle $l = 1, \dotsc, n$}.
+        \qedhere
+      \]
+  \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+  \label{lemma: inverse for unipotent}
+  Ist $N \in \matrices{n}{R}$ nilpotent, so ist $I + N$ invertierbar, und es gilt
+  \[
+      (I+N)^{-1}
+    = \sum_{k=0}^\infty (-1)^k N^k\,.
+  \]
+\end{lemma}
+
+\begin{proof}
+  Die Summe $\sum_{k=0}^\infty (-1)^k N^k$ ist wohldefiniert, da $N$ nilpotent ist.
+  Es gilt
+  \begin{align*}
+        (I+N)\left( \sum_{k=0}^\infty (-1)^k N^k \right)
+    &=  \sum_{k=0}^\infty (-1)^k N^k + \sum_{k=0}^\infty (-1)^k N^{k+1}
+    \\
+    &=  \sum_{k=0}^\infty (-1)^k N^k - \sum_{k=1}^\infty (-1)^k N^k
+     =  I,
+  \end{align*}
+  sowie analog auch $(\sum_{k=0}^\infty (-1)^k N^k) (I+N) = I$.
+\end{proof}
+
+\begin{corollary}
+  \label{corollary: is a subgroup}
+  Es sei $k \geq 1$.
+  \begin{enumerate}
+    \item
+      Es gilt $Z_k Z_k \subseteq Z_k$.
+    \item
+      Für $S \in Z_k$ mit
+      \[
+          S
+        = \begin{pmatrix}
+            1 & 0       & \cdots  &       0 & a_1     & *       & \cdots  & *       \\
+              & \ddots  & \ddots  &         & \ddots  & \ddots  & \ddots  & \vdots  \\
+              &         & \ddots  & \ddots  &         & \ddots  & \ddots  & *       \\
+              &         &         & \ddots  & \ddots  &         & \ddots  & a_m     \\
+              &         &         &         & \ddots  & \ddots  &         & 0       \\
+              &         &         &         &         & \ddots  & \ddots  & \vdots  \\
+              &         &         &         &         &         & \ddots  & 0       \\
+              &         &         &         &         &         &         & 1
+          \end{pmatrix}
+      \]
+      gilt $S \in \GL{n}{R}$, und es gilt
+      \[
+          S^{-1}
+        = \begin{pmatrix}
+            1 & 0       & \cdots  &       0 & -a_1    & *       & \cdots  & *       \\
+              & \ddots  & \ddots  &         & \ddots  & \ddots  & \ddots  & \vdots  \\
+              &         & \ddots  & \ddots  &         & \ddots  & \ddots  & *       \\
+              &         &         & \ddots  & \ddots  &         & \ddots  & -a_m    \\
+              &         &         &         & \ddots  & \ddots  &         & 0       \\
+              &         &         &         &         & \ddots  & \ddots  & \vdots  \\
+              &         &         &         &         &         & \ddots  & 0       \\
+              &         &         &         &         &         &         & 1
+          \end{pmatrix}.
+      \]
+    \item
+      Es ist $Z_k$ eine Untergruppe von $G$.
+  \end{enumerate}
+\end{corollary}
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Für $S, T \in Z_k$ gibt es $N, M \in N_k$ mit $S = I + N$ und $T = I + M$.
+      Dann gilt
+      \[
+          S T
+        = (I + N)(I + M)
+        = I + N + M + NM
+      \]
+      mit $NM \in N_{2k} \subseteq N_k$, und somit $N + M + NM \in N_k$.
+    \item
+      Dies folgt direkt aus Lemma~\ref{lemma: inverse for unipotent}.
+    \item
+      Es gilt $I \in Z_k$, und nach den beiden vorherigen Aussagenteilen ist abgeschlossen unter Produkten und Inversen.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+  \label{corollary: indices add}
+  Für alle $k_1, k_2 \geq 1$ gilt $\comm{Z_{k_1}}{Z_{k_2}} \subseteq Z_{k_1 + k_2}$.
+\end{corollary}
+
+\begin{proof}
+  Für $S \in Z_{k_1}$ und $T \in Z_{k_2}$ gibt es $N \in N_{k_1}$ und $M \in N_{k_2}$ mit $S = I + N$ und $T = I + M$.
+  Nach der Inversionsformel aus Korollar~\ref{corollary: is a subgroup} gibt es $N' \in N_{k_1 + 1}$ und $M' \in N_{k_2 + 1}$, so dass
+  \[
+      S^{-1}
+    = I - N + N'
+    \quad\text{und}\quad
+      T^{-1}
+    = I - M + M'.
+  \]
+  Deshalb gilt
+  \begin{align*}
+        \comm{S}{T}
+     =  S T S^{-1} T^{-1}
+    &=  (I + N)(I + M)(I - N + N')(I - M + M')
+    \\
+    &=  I + N + M - N - M + \text{Terme aus $N_{k_1 + k_2}$},
+  \end{align*}
+  und somit $\comm{S}{T} \in I + N_{k_1 + k_2} = Z_{k_1 + k_2}$.
+\end{proof}
+
+Aus Korollar~\ref{corollary: indices add} ergibt sich mit $C_0 \subgroup Z_1$ induktiv, dass $C_k \subgroup Z_{2^k}$ für alle $k \geq 1$, was wir zeigen wollten.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
