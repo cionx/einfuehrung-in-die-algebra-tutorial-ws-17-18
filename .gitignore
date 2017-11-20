@@ -1,3 +1,5 @@
 *.aux
+*.kate-swp
 *.log
+*.out
 *.synctex.gz

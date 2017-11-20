@@ -1,1 +1,231 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\subsection{}
+
+Wir haben im Tutorium gesehen, dass für $A \in \matrices{n}{K}$ die Implikationen
+\begin{gather*}
+            \text{$A$ ist nicht injektiv}
+  \implies  \text{$A$ ist ein Linksnullteiler}
+\shortintertext{und}
+            \text{$A$ ist nicht surjektiv}
+  \implies  \text{$A$ ist ein Rechtsnullteiler}
+\end{gather*}
+gelten.
+Dabei handelt es sich tatsächlich schon um Äquivalenzen.
+Aus der linearen Algebra wissen wir dabei, dass wegen der Endlichdimensionalität von $K^n$ die Injektivität und Surjektivität von $A$ äquivalent sind.
+Deshalb kann der Matrizenring $\matrices{n}{K}$ keine Beispiele liefern.
+
+Im Tutorium haben wir dieses Problem dadurch gelöst, dass wir den endlichdimensionalen $K$-Vektorraums $K^n$ durch einen unendlichdimensionalen $K$-Vektorraum $V$ ersetzt haben, also anstelle von $\matrices{n}{K} \cong \End{K^n}$ den Endomorphismenring $\End{V}$ betrachtet haben.
+
+Ein anderer Ansatz besteht darin, die Einträge der Matrizen nicht aus einem Körper $K$ zu wählen:
+
+\begin{itemize}
+  \item
+    Ein erster Ansatz besteht darin, anstelle eines Körpers $K$ einen passenden kommutativen Ring $R$ zu betrachten, und dann im Matrizenring $\matrices{n}{R}$ nach Beispielen zu suchen.
+    Aufgrund der folgenden Resultate aus der kommutativen Algebra wird dies allerdings nicht zum Erfolg führen:
+    
+    \begin{lemma}
+      Ist $R$ ein kommutativer Ring, so gilt für $A \in \matrices{n}{R}$ genau dann $\ker A \neq 0$, wenn $\det A \in R$ ein Nullteiler ist.
+    \end{lemma}
+
+    \begin{corollary}
+      Ist $R$ ein kommutativer Ring, so sind für $A \in \matrices{n}{R}$ die folgenden Bedingungen äquivalent:
+      \begin{enumerate}[leftmargin=*, label=\roman*)]
+        \item
+          Die Matrix $A$ ist ein Linksnullteiler in $\matrices{n}{R}$.
+        \item
+          Der Skalar $\det A$ ist ein Nullteiler in $R$.
+        \item
+          Die Matrix $A$ ist ein Rechtsnullteiler in $\matrices{n}{R}$.
+      \end{enumerate}
+    \end{corollary}
+  
+  \item
+    Der obige Ansatz lässt sich dadurch reparieren, dass man die Matrixeinträge aus verschiedenen kommutativen Ringen wählt.
+    So kann man etwa
+    \[
+        R
+      = \begin{pmatrix}
+          \Integer  & \Integer/2 \\
+          0         & \Integer
+        \end{pmatrix}
+      = \left\{
+          \begin{pmatrix}
+            a & b \\
+            0 & c
+          \end{pmatrix}
+        \suchthat*
+          a, c \in \Integer,
+          b \in \Integer/2
+        \right\}
+    \]
+    mit der Addition
+    \[
+      \begin{pmatrix}
+        a & b \\
+        0 & c
+      \end{pmatrix}
+      +
+      \begin{pmatrix}
+        a'  & b'  \\
+        0   & c'
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        a+a'  & b+b'  \\
+        0     & c+c'
+      \end{pmatrix}
+    \]
+    und der Multiplikation
+    \[
+      \begin{pmatrix}
+        a & \class{b} \\
+        0 & c
+      \end{pmatrix}
+      \cdot
+      \begin{pmatrix}
+        a'  & \class{b'}  \\
+        0   & c'
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        aa' & \class{a b' + b c'}  \\
+        0   & cc'
+      \end{pmatrix}
+    \]
+    betrachten.
+    Dass $R$ mit den oberen Operationen tatsächlich einen Ring bildet, erkennt man durch direktes Nachrechnen.
+    In diesem Ring lässt sich dann die Matrix
+    \[
+                A
+      \coloneqq \begin{pmatrix}
+                  2 & 0 \\
+                  0 & 1
+                \end{pmatrix}
+      \in       R
+    \]
+    betrachten.
+    Es gilt
+    \[
+        \begin{pmatrix}
+          2 & 0 \\
+          0 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+          0 & \class{1} \\
+          0 & 0
+        \end{pmatrix}
+      = \begin{pmatrix}
+          0 & \class{2} \\
+          0 & 0
+        \end{pmatrix}
+      = 0,
+    \]
+    weshalb $A$ ein Linknullteiler ist.
+    Andererseits gilt
+    \[
+        \begin{pmatrix}
+          a & b \\
+          0 & c
+        \end{pmatrix}
+        \begin{pmatrix}
+          2 & 0 \\
+          0 & 1
+        \end{pmatrix}
+      = \begin{pmatrix}
+          2a  & b \\
+              & c
+        \end{pmatrix};
+    \]
+    wobei genau dann $2a = 0$, wenn $a = 0$.
+    Deshalb ist $A$ kein Rechtsnullteiler.
+\end{itemize}    
+
+Im Tutorium kam die Frage auf, ob es auch Beispiele in endlichen Ringen gibt.
+Wie sich (entgegen meiner spontanen Vermutung) herausstellt\footnote{Siehe \url{https://math.stackexchange.com/a/45220/300783}.}, ist dies nicht möglich:
+
+\begin{lemma}
+  \label{lemma: non zero divisors are units}
+  Ist $R$ ein endlicher \textup(nicht notwendigerweise kommutativer\textup) Ring und $r \in R$ kein Links-, bzw.\ Rechtsnullteiler, so ist $r$ eine Einheit.
+\end{lemma}
+
+\begin{proof}
+  Wir betrachten den Fall, dass $r$ kein Linksnullteiler ist;
+  der Fall, dass $r$ kein Rechtsnullteiler ist, verläuft analog.
+  Nach Annahme ist dann die Abbildung
+  \[
+            \pi_r
+    \colon  R
+    \to     R,
+    \quad   a
+    \mapsto ra
+  \]
+  injektiv, und wegen der Endlichkeit von $R$ somit bereits bijektiv.
+  Die Bjiektion $\pi_r$ ist also ein Element der symmetrischen Gruppe
+  \[
+      S(R)
+    = \{
+        \pi \colon R \to R
+      \suchthat
+      \text{$\pi$ ist eine Bijektion}
+      \}.
+  \]
+  Die Gruppe $S(R)$ ist endlich, da $R$ endlich ist.
+  Also hat $\pi_r$ endliche Ordnung, d.h.\ es gibt $n \geq 1$ mit $\pi_r^n = \id_R$.
+  Dabei ist die Abbildung $\pi_r^n$ durch Multiplikation mit $r^n$ gegeben.
+  Also ist $r^n$ linksneutral bezüglich der Multiplikation, und somit bereits $r^n = 1$.
+  Folglich ist $r$ eine Einheit mit $r^{-1} = r^{n-1}$.
+\end{proof}
+
+\begin{corollary}
+  Ist $R$ ein endlicher \textup(nicht notwendigerweise kommutativer\textup) Ring, so ist jedes Element $r \in R$ entweder eine Einheit oder ein beidseitiger Nullteiler.
+\end{corollary}
+
+\begin{proof}
+  Ist $r$ keine Einheit, so ist $r$ nach Lemma~\ref{lemma: non zero divisors are units} ein beidseitiger Nullteiler.
+  Außerdem sind Einheiten niemals Nullteiler.
+\end{proof}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
