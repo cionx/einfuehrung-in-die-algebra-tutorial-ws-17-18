@@ -31,14 +31,14 @@ Für jedes $A \in X$ gilt
     I.A
   = \{ Ix \suchthat x \in A \}
   = \{ x \suchthat x \in A \}
-  = A,
+  = A\,,
 \]
 und für alle $S, T \in \GL{n}{\Real}$ und $A \in X$ gelten
 \[
     S.(T.A)
   = S.\{ Tx \suchthat x \in A \}
   = \{ STx \suchthat x \in A \}
-  = (ST).A.
+  = (ST).A\,.
 \]
 Ingesamt zeigt dies, dass es sich um eine wohldefinierte Gruppenwirkung handelt.
 
@@ -85,7 +85,7 @@ Um die Bahn und den Stabilisator von $A \in X$ zu bestimmen, unterscheiden wir z
               \right\},
               S_2
           \in \GL{n-2}{\Real}
-        \right\}
+        \right\}.
     \]
     Der Stabilisator einer linear unabhängige Teilmenge $A \in X$ ist entsprechend konjugiert zu $G_B$.
   \item
@@ -107,7 +107,7 @@ Um die Bahn und den Stabilisator von $A \in X$ zu bestimmen, unterscheiden wir z
     Es folgt, dass
     \begin{itemize}
       \item
-        $B_0$ und $B_\mu$ für $\mu \neq 0$ nie in derselben Bahn liegen,
+        $B_0$ und $B_\mu$ für $\mu \neq 0$ nicht in derselben Bahn liegen,
       \item
         $B_\lambda$ und $B_\mu$ für $\lambda \neq 0$ genau dann in der gleichen Bahn liegen, wenn $\mu = \lambda$ oder $\mu = 1/\lambda$ gilt.
     \end{itemize}
@@ -128,7 +128,7 @@ Um die Bahn und den Stabilisator von $A \in X$ zu bestimmen, unterscheiden wir z
     so  sind die Mengen $B_\lambda \in X$ mit $\lambda \in \Lambda$ also ein Repräsentantensystem für die Bahnen der linear abhängigen Mengen.
     (Man kann etwa $\Lambda = [-1, 1)$ wählen.)
     
-    Für $S \in G_{B_\lambda}$ müssen die Vektoren $e_1$ und $\lambda e_1$ entweder fixiert werden oder vertauscht werden; es gilt also $S e_1 = \lambda e_1$, oder $S e_1 = \lambda e_1$ und $S(\lambda e_1) = e_1$
+    Für $S \in G_{B_\lambda}$ müssen die Vektoren $e_1$ und $\lambda e_1$ entweder fixiert werden oder vertauscht werden; es gilt also $S e_1 = e_1$, oder $S e_1 = \lambda e_1$ und $S(\lambda e_1) = e_1$
     Dabei folgt aus $S e_1 = \lambda e_1$, dass $S(\lambda e_1) = \lambda S e_1 = \lambda^2 e_1 = 1$, und wegen $S(\lambda e_1) = e_1$ somit $\lambda^2 = 1$.
     Der zweite Fall kann also nur für $\lambda = -1$ eintreten.
     Damit können wir $G_{B_\lambda}$ in Abhängigkeit von $\lambda$ bestimmen:
@@ -148,7 +148,7 @@ Um die Bahn und den Stabilisator von $A \in X$ zu bestimmen, unterscheiden wir z
             \right\}.
         \]
       \item
-        Im Fall $\lambda = 1$ gilt für $S \in G$ genau dann $S \in G_{B_{-1}}$, wenn $S e_1 = \pm e_1$ gilt.
+        Im Fall $\lambda = -1$ gilt für $S \in G$ genau dann $S \in G_{B_{-1}}$, wenn $S e_1 = \pm e_1$ gilt.
         In diesem Fall gilt also
         \[
             G_{B_\lambda}
@@ -187,7 +187,7 @@ Für jedes $f \in X$ gilt
     \id.f
   = f \circ \id^{-1}
   = f \circ \id
-  = f,
+  = f\,,
 \]
 und für alle $\pi_1, \pi_2 \in S_n$ und jedes $f \in X$ gilt
 \[
@@ -195,14 +195,14 @@ und für alle $\pi_1, \pi_2 \in S_n$ und jedes $f \in X$ gilt
   = \pi_1(f \circ \pi_2^{-1})
   = f \circ \pi_2^{-1} \circ \pi_1^{-1}
   = f \circ (\pi_1 \circ \pi_2)^{-1}
-  = (\pi_1 \pi_2).f,
+  = (\pi_1 \pi_2).f\,,
 \]
 weshalb es sich tatsächlich um eine Gruppenwirkung handelt.
 
 Wir können eine Funktion $f \colon \{1, \dotsc, n\} \to \{1, \dotsc, n\}$ als ein Tupel $(f(1), \dotsc, f(n))$ schreiben:
 \[
           f
-  \equiv  (f(1), \dotsc, f(n)).
+  \equiv  (f(1), \dotsc, f(n))\,.
 \]
 Die Wirkung von $S_n$ auf $X$ ist dann durch
 \[
