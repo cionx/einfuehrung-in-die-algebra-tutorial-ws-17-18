@@ -10,7 +10,7 @@ Bevor wir mit der Aufgabe selbst beginnen, merken wir zunächst an, dass man ans
 Der zu einem Polyeder $P$ duale Polyeder $P'$ hat als Knotenmenge die Mittelpunkte der Seiten von $P$, und je zwei Mittelpunkte sind genau dann durch eine Kante verbunden, wenn die entsprechenden Seiten aneinander liegen.
 \begin{itemize}
   \item
-    Der einen Würfel duale Körper ist der Oktaeder:
+    Der zum Würfel duale Körper ist der Oktaeder:
     \begin{center}
       \begin{tikzpicture}[scale=1.1]
         % coordinates for the cube
@@ -130,7 +130,7 @@ Der zu einem Polyeder $P$ duale Polyeder $P'$ hat als Knotenmenge die Mittelpunk
     \end{center}
   
   \item
-    Der zu einem Oktaeder duale Körper ist der Würfel:
+    Der zum Oktaeder duale Körper ist der Würfel:
     \begin{center}
       \begin{tikzpicture}[scale=1.5]
         % coordinates for the octrahedron
@@ -253,7 +253,7 @@ Der zu einem Polyeder $P$ duale Polyeder $P'$ hat als Knotenmenge die Mittelpunk
 \end{itemize}
 
 Da Oktaeder und Würfel dual zueinander sind, haben beide Körper die gleiche Isometriegruppe.
-Wir werden uns im Folgenden aber auf den Oktaeder beschränken.
+Wir werden uns im Folgenden aber den Oktaeder nutzen (wie in der Aufgabenstellung).
 
 
 
@@ -261,7 +261,7 @@ Wir werden uns im Folgenden aber auf den Oktaeder beschränken.
 
 \subsection*{Elemente von $\Okt$}
 
-Wir geben mehrere Möglichkeiten an, die (Anzahl der) Elemente von $\Okt$ zu bestimmen:
+Wir geben mehrere Möglichkeiten an, die Anzahl der Elemente von $\Okt$ zu bestimmen:
 \begin{itemize}
   \item 
     Im Oktaeder gibt es drei Vierecke:
@@ -345,16 +345,16 @@ Wir geben mehrere Möglichkeiten an, die (Anzahl der) Elemente von $\Okt$ zu bes
         \draw[densely dashed,thick,red] (back) -- (right);
         \draw[densely dashed,thick]     (back) -- (bottom);
         \draw[densely dashed,thick,red] (back) -- (left);
-        \fill[blue] (top)     circle (0.05) node[above = 2] {$P_1$};
-        \fill[blue] (bottom)  circle (0.05) node[below = 3] {$P_2$};
+        \fill[blue] (top)     circle (0.07) node[above = 2] {$P_1$};
+        \fill[blue] (bottom)  circle (0.07) node[below = 3] {$P_2$};
       \end{tikzpicture}
     \end{center}
-    Jede Isometrie Oktaeders, welche das Quadrat $Q$ fixiert, muss diese beiden Eckpunkte permutieren, d.h.\ die Gruppe $H$ wirkt auf $\{P_1, P_2\}$.
-    Diese Wirkung ist transitiv, denn $H$ enthält die Spiegelung an der Ebene, die $Q$ enthält, und diese Spiegelung bildet $P_1$ auf $P_2$ ab.
+    Jede Isometrie des Oktaeders, welche das Quadrat $Q$ fixiert, muss diese beiden Eckpunkte permutieren, d.h.\ die Gruppe $H$ wirkt auf $\{P_1, P_2\}$.
+    Diese Wirkung ist transitiv, denn $H$ enthält die Spiegelung an der $Q$-Ebene, und diese Spiegelung bildet $P_1$ auf $P_2$ ab.
     Für den Stabilisator $K \coloneqq H_{P_1}$ gilt somit, dass $|H|/|K| = 2$.
     Es genügt daher, die Kardinalität der Untergruppe $K$ zu bestimmen.
     
-    Die Isometrien des Oktaeders, welche die Eckpunkte $P_1$ und $P_2$ fixieren, entsprechen genau denn den Isometrien des Quadrats $Q$.
+    Die Isometrien des Oktaeders, welche die Eckpunkte $P_1$ und $P_2$ fixieren, entsprechen genau den Isometrien des Quadrats $Q$.
     Es gilt also $K \cong D_4$, und somit $|K| = |D_4| = 8$.
     Somit gilt
     \[
@@ -392,7 +392,8 @@ Wir geben mehrere Möglichkeiten an, die (Anzahl der) Elemente von $\Okt$ zu bes
       \end{tikzpicture}
     \end{center}
     Jede Isometrie des Oktaeders bildet gegenüberliegende Eckpunkte auf gegenüberliegende Eckpunkte ab;
-    deshalb liefert jede Isometrie $w \in \Okt$ des Oktaeders eine Vorzeichenpermutation $\pi_w \in \signper{3}$; falls $w$ den Eckpunkt $e_i$ auf den Eckpunkt $\varepsilon e_j$ mit $\varepsilon = \pm 1$ abbildet, so gilt $\pi_w(i) = \varepsilon j$.
+    deshalb liefert jede Isometrie $w \in \Okt$ des Oktaeders eine Vorzeichenpermutation $\pi_w \in \signper{3}$:
+    Falls $w$ den Eckpunkt $e_i$ auf den Eckpunkt $\varepsilon e_j$ mit $\varepsilon = \pm 1$ abbildet, so gilt $\pi_w(i) = \varepsilon j$.
     Hierdurch ergibt sich ein Gruppenhomomorphismus $\varphi \colon \Okt \to \signper{3}$, $w \mapsto \pi_w$.
     Jede Isometrie des Oktaeders ist durch die Wirkung auf den Eckpunkten bereits eindeutig bestimmt, weshalb $\varphi$ injektiv ist.
     
@@ -420,7 +421,7 @@ Wir geben mehrere Möglichkeiten an, die (Anzahl der) Elemente von $\Okt$ zu bes
         \draw[thick] (top) -- (back);
       \end{tikzpicture}
     \end{center}
-    Analog ergibt sich, dass auch die anderen Vorzeichenwechsel im Bild von $\varphi$ liegen.
+    Analog ergibt sich, dass auch die anderen beiden Vorzeichenwechsel im Bild von $\varphi$ liegen.
     Betrachtet man die Spiegelung an der $(e_1\!+\!e_2)$-$e_3$-Ebene, so wird diese auf die Transposition $(1 \; 2) \in S_3 \subgroup \signper{3}$ abgebildet.    
     \begin{center}
         \begin{tikzpicture}[scale = 1]
@@ -458,7 +459,7 @@ Wir geben mehrere Möglichkeiten an, die (Anzahl der) Elemente von $\Okt$ zu bes
     
   \item
     Es sei $P$ ein beliebiger Eckpunkt des Oktaeders.
-    Durch die Isometrien des Oktaeders lässt sich der Eckpunkt $P$ auf jeden Eckpunkt abbilden;
+    Durch die Isometrien des Oktaeders lässt sich der Eckpunkt $P$ auf jeden der Eckpunkte abbilden;
     für den Bildpunkt $P'$ von $P$ gibt es also $6$ Möglichkeiten.
     
     Es sei $Q$ ein zu $P$ benachbarter Eckpunkt.
@@ -475,11 +476,11 @@ Wir geben mehrere Möglichkeiten an, die (Anzahl der) Elemente von $\Okt$ zu bes
     Also gilt $|\Okt| = 6 \cdot 4 \cdot 2 = 48$.
 \end{itemize}
 
-Alternativ lassen sich die $48$ Isometrien des Oktraheders auch direkt auflisten.
+Alternativ lassen sich die $48$ Isometrien des Oktraheders auch explizit auflisten.
 Dies wird hier aus den folgenden Gründen nicht getan:
 \begin{itemize}
   \item
-    Ohne eine der obigen Argumentationen ist nicht klar, ab wann man alle Isometrien gefunden hat.
+    Ohne eines der obigen Argumentationen ist nicht klar, ob man alle Isometrien gefunden hat.
   \item
     Der Autor hat keine Lust, $48$ weitere Bilder zu zeichnen.
   \item
@@ -493,7 +494,7 @@ Wer dennoch eine vollständige Liste aller Isometrien haben möchte, kann online
 
 \subsection*{Gruppenhomomorphismen $h \colon \Okt \to \Integer/2$ und $t \colon \Integer/2 \to \Okt$}
 
-Wir können den Oktaeder so in den Raum $\Real^3$ einbetten, so dass die Achsen des Oktaeders die Koordinatenachsen sind.
+Wir können den Oktaeder so in den Raum $\Real^3$ einbetten, so dass die Achsen des Oktaeders auf den Koordinatenachsen liegen.
 \begin{center}
     \begin{tikzpicture}[scale = 1.5]
     \coordinate (right)   at ( 1, 0, 0);
@@ -516,7 +517,7 @@ Wir können den Oktaeder so in den Raum $\Real^3$ einbetten, so dass die Achsen 
     \draw[->] (0, 0, -1.5) -- (0, 0, 1.5) node[anchor=north east] {$z$};
   \end{tikzpicture}
 \end{center}
-Dann können wir die Isometrien des Oktaeders als Isometrien des umgebenden Raums $\Real^3$ auffassen, und somit als orthogonale Transformationen des $\Real^3$.
+Damit können die Isometrien des Oktaeders als Isometrien des umgebenden Raums $\Real^3$ aufgefasst werden, und somit als orthogonale Transformationen von $\Real^3$.
 Mithilfe der Determinante ergibt sich dann, wie für die Diedergruppen, ein Gruppenhomomorphismus
 \[
           h
@@ -552,14 +553,14 @@ und somit $|\Okt^+| = |\Okt|/2 = 48/2 = 24$.
 
 \subsection*{Gruppenisomorphismus $\Okt^+ \to S^4$}
 
-Der Oktaeder besteht $4$ Paare von gegenüberliegenden Seiten.
-Wir nummerieren die Paare gegenüberliegender Seiten mit $1$, $2$, $3$, $4$.
-Da jede Isometrie des Oktaeders diese Paare gegenüberliegender Seiten permutiert, erhalten wir einen Gruppenhomomorphismus $k \colon \Okt^+ \to S_4$.
+Der Oktaeder besteht $4$ Paaren von gegenüberliegenden Seiten.
+Wir nummerieren diese Paare mit $1$, $2$, $3$, $4$.
+Da jede Isometrie des Oktaeders diese Paare permutiert, erhalten wir einen Gruppenhomomorphismus $k \colon \Okt^+ \to S_4$.
 Wir zeigen, dass $k$ bereits ein Isomorphismus ist.
 Da $|\Okt^+| = 24 = |S_4|$ gilt, genügt es zu zeigen, dass $k$ surjektiv ist.
 Hierfür genügt es zu zeigen, dass $\im k$ alle Transpositionen enthält, da $S_4$ von diesen erzeugt wird.
 
-Hierfür betrachte man die Rotation um die Gerade, die durch die Mittelpunkte zweier gegenüberliegender Seiten gehen.
+Hierfür betrachte man die Rotation (um $180^\circ$) um die Gerade, die durch die Mittelpunkte zweier gegenüberliegender Kanten geht.
 \begin{center}
     \begin{tikzpicture}[scale = 3, rotate around y=5]
     % coordinates for the octrahedron
