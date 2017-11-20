@@ -4,13 +4,72 @@
 
 
 
-\addtocounter{subsection}{1}
+\subsection{}
+
+Es gilt
+\[
+    n!
+  = 1 \cdot 2 \cdot 3 \dotsm n.
+\]
+Wir zählen, wie häufig der Primfaktor $p$ in $n!$ vorkommt:
+
+Jeder $p$-te Faktor ist durch $p$ teilbar, d.h.\ in $\floor{n/p}$ vielen der Faktoren kommt der Primfaktor $p$ vor.
+In jedem $p^2$-ten Faktor kommt er sogar zweimal vor, und im jedem $p^3$-ten dreimal, usw.
+Somit kommt der Primfaktore $p$ in dem Produkt $1 \cdot 2 \dotsm n$ ingesamt $\sum_{i=1}^\infty \floor{n/p^i}$ mal vor.
+Inbesondere ist die Summe endlich.
 
 
 
 
 
-\addtocounter{subsection}{1}
+\subsection{}
+
+Wegen der Additivität von $\nu_p$ (es gilt $\nu_p(ab) = \nu_p(a) + \nu_p(b)$ für alle $n \in \Natural$) gilt
+\[
+    \nu_p\left( \binom{p^r m}{p^k} \right)
+  = \nu_p\left( \frac{(p^r m)!}{(p^k)! (p^r m - p^k)!} \right)
+  = \nu_p((p^r m)!) - \nu_p((p^k)!) - \nu_p((p^r m - p^k)!).
+\]
+Dabei gelten
+\begin{align*}
+      \nu_p( (p^r m!) )
+  =   \sum_{i=1}^\infty \floor*{ \frac{p^r m}{p^i} }
+  &=  \sum_{i=1}^k p^{r-i} m + \sum_{i={k+1}}^\infty \floor*{ \frac{p^r m}{p^i} }
+  \\
+  &=  \sum_{i=1}^k p^{r-i} m + \sum_{j=1}^\infty \floor*{ \frac{p^{r-k} m}{p^j} }
+   =  \sum_{i=1}^k p^{r-i} m + \nu_p( (p^{r-k} m)! )
+\end{align*}
+sowie
+\[
+    \nu_p( (p^k)! )
+  = \sum_{i=1}^\infty \floor*{ \frac{p^k}{p^i} }
+  = \sum_{i=1}^k p^{k-i}
+\]
+und
+\begin{align*}
+    \nu_p( (p^r m - p^k)! )
+  &= \sum_{i=1}^\infty \floor*{ \frac{p^r m - p^k}{p^i} }
+   = \sum_{i=1}^k (p^{r-i} m - p^{k-i}) + \sum_{i=k+1}^\infty \floor*{ \frac{p^r m - p^k}{p^i} }
+  \\
+  &= \sum_{i=1}^k (p^{r-i} m - p^{k-i}) + \sum_{j=1}^\infty \floor*{ \frac{p^{r-k} m - 1}{p^j} }
+  \\
+  &= \sum_{i=1}^k (p^{r-i} m - p^{k-i}) + \nu_p((p^{r-k} m - 1)!).
+\end{align*}
+Damit folgt, dass
+\begin{align*}
+      \nu_p\left( \binom{p^r m}{p^k} \right)
+  &=  \nu_p( (p^{r-k} m)! ) - \nu_p( (p^{r-k} m - 1)! )
+  \\
+  &=  \nu_p\left( \frac{(p^{r-k} m)!}{(p^{r-k} m - 1)!} \right)
+   =  \nu_p( p^{r-k} m )
+   =  r-k,
+\end{align*}
+wobei wir für die letzte Gleichheit nutzen, dass $p \ndivides m$.
+
+
+
+
+
 
 
 
