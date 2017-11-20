@@ -5,6 +5,7 @@
 \usepackage[ngerman]{babel}
 \usepackage{csquotes}
 \usepackage{hyperref}
+\usepackage{tikz}
 
 % prevents breaking inline math around binary or relationship symbols
 \binoppenalty=\maxdimen
@@ -19,6 +20,7 @@
 \setlist[enumerate, 2]{leftmargin=*}
 \setlist[itemize, 1]{leftmargin=*}
 \setlist[itemize, 2]{leftmargin=*, label={\textopenbullet}}
+\setlist[itemize, 3]{leftmargin=*}
 
 \newcounter{everything}
 \newtheorem{claim}{Behauptung}
@@ -52,6 +54,8 @@
 \newcommand{\End}[1]{\operatorname{End}(#1)}
 \newcommand{\GL}[2]{\operatorname{GL}_{#1}(#2)}
 \newcommand{\matrices}[2]{\operatorname{M}_{#1}(#2)}
+\newcommand{\orthogonal}[1]{\operatorname{O}(#1)}
+\newcommand{\sorthogonal}[1]{\operatorname{SO}(#1)}
 
 \newcommand{\groupcenter}[1]{\operatorname{Z}(#1)}
 \DeclareMathOperator{\im}{im}
@@ -66,6 +70,7 @@
 \renewcommand{\Im}{\operatorname{Im}}
 \newcommand{\kgV}{\operatorname{kgV}}
 \newcommand{\ord}[1]{\operatorname{ord}(#1)}
+\newcommand{\sign}{\operatorname{sgn}}
 
 \DeclarePairedDelimiterX{\card}[1]{\lvert}{\rvert}{#1}
 \DeclarePairedDelimiterX{\comm}[2]{[}{]}{#1,#2}
