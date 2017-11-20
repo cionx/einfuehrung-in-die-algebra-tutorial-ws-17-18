@@ -1,1 +1,200 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+Es gilt
+\[
+    n!
+  = 1 \cdot 2 \cdot 3 \dotsm n.
+\]
+Wir zählen, wie häufig der Primfaktor $p$ in $n!$ vorkommt:
+
+Jeder $p$-te Faktor ist durch $p$ teilbar, d.h.\ in $\floor{n/p}$ vielen der Faktoren kommt der Primfaktor $p$ vor.
+In jedem $p^2$-ten Faktor kommt er sogar zweimal vor, und im jedem $p^3$-ten dreimal, usw.
+Somit kommt der Primfaktore $p$ in dem Produkt $1 \cdot 2 \dotsm n$ ingesamt $\sum_{i=1}^\infty \floor{n/p^i}$ mal vor.
+Inbesondere ist die Summe endlich.
+
+
+
+
+
+\subsection{}
+
+Wegen der Additivität von $\nu_p$ (es gilt $\nu_p(ab) = \nu_p(a) + \nu_p(b)$ für alle $a,b \in \Natural$) gilt
+\[
+    \nu_p\left( \binom{p^r m}{p^k} \right)
+  = \nu_p\left( \frac{(p^r m)!}{(p^k)! (p^r m - p^k)!} \right)
+  = \nu_p((p^r m)!) - \nu_p((p^k)!) - \nu_p((p^r m - p^k)!)\,.
+\]
+Dabei gelten
+\begin{align*}
+      \nu_p( (p^r m!) )
+  =   \sum_{i=1}^\infty \floor*{ \frac{p^r m}{p^i} }
+  &=  \sum_{i=1}^k p^{r-i} m + \sum_{i={k+1}}^\infty \floor*{ \frac{p^r m}{p^i} }
+  \\
+  &=  \sum_{i=1}^k p^{r-i} m + \sum_{j=1}^\infty \floor*{ \frac{p^{r-k} m}{p^j} }
+   =  \sum_{i=1}^k p^{r-i} m + \nu_p( (p^{r-k} m)! )\,,
+\end{align*}
+sowie
+\[
+    \nu_p( (p^k)! )
+  = \sum_{i=1}^\infty \floor*{ \frac{p^k}{p^i} }
+  = \sum_{i=1}^k p^{k-i}
+\]
+und
+\begin{align*}
+    \nu_p( (p^r m - p^k)! )
+  &= \sum_{i=1}^\infty \floor*{ \frac{p^r m - p^k}{p^i} }
+   = \sum_{i=1}^k (p^{r-i} m - p^{k-i}) + \sum_{i=k+1}^\infty \floor*{ \frac{p^r m - p^k}{p^i} }
+  \\
+  &= \sum_{i=1}^k (p^{r-i} m - p^{k-i}) + \sum_{j=1}^\infty \floor*{ \frac{p^{r-k} m - 1}{p^j} }
+  \\
+  &= \sum_{i=1}^k (p^{r-i} m - p^{k-i}) + \nu_p((p^{r-k} m - 1)!).
+\end{align*}
+Damit folgt, dass
+\begin{align*}
+      \nu_p\left( \binom{p^r m}{p^k} \right)
+  &=  \nu_p( (p^{r-k} m)! ) - \nu_p( (p^{r-k} m - 1)! )
+  \\
+  &=  \nu_p\left( \frac{(p^{r-k} m)!}{(p^{r-k} m - 1)!} \right)
+   =  \nu_p( p^{r-k} m )
+   =  r-k,
+\end{align*}
+wobei wir für die letzte Gleichheit nutzen, dass $p \ndivides m$.
+
+
+
+
+
+\subsection{}
+
+Es gilt $S \nsubgroup \normalizer{S}{G}$ nach Definition von $\normalizer{S}{G}$, und nach Annahme gilt $H \subgroup \normalizer{S}{G}$.
+Nach einem der Isomorphiesätze ist deshalb $HS$ eine Untergruppe von $\normalizer{S}{G}$, sowie $H \cap S$ eine normale Untergruppe von $H$ mit $HS/S \cong H/(H \cap S)$.
+Inbesondere ist $HS/S$ mit der Multiplikation $\class{g_1} \class{g_2} = \class{g_1 g_2}$ eine wohldefinierte Gruppe.
+Es handelt sich um eine $p$-Gruppe da
+\[
+                \card{ HS/S }
+  =             \card{ H/(H \cap S) }
+  = \left.      \frac{ \card{H} }{ \card{H \cap S} }
+  \,\middle|\,  \card{H}
+    \right.
+\]
+und $\card{H}$ eine $p$-Gruppe ist.
+
+
+
+
+
+\subsection{}
+\label{subsection: contained in Sylow subgroup}
+
+Es gilt
+\[
+    \card{HS}
+  = \frac{\card{HS}}{\card{S}} \, \card{S}
+  = \card{HS/S} \, \card{S}.
+\]
+Da $HS/S$ und $S$ beides $p$-Gruppen sind, ist deshalb auch $HS$ eine $p$-Gruppe.
+Als $p$-Sylowuntergruppe ist $S$ kardinalitäts- und damit auch inklusionsmaximal unter allen $p$-Untergruppen von $G$;
+zusammen mit $S \subgroup HS$ folgt damit, dass bereits $S = HS$ gilt.
+Somit gelten $HS/S = S/S = 1$ und $H \subgroup HS = S$.
+
+
+
+
+
+\subsection{}
+\label{subsection: unique fixed point}
+
+Für jede $p$-Sylowuntergruppe $S' \in \Sylow{p}{G}$ gilt
+\begin{align*}
+        S' \in \Sylow{p}{G}^S
+  &\iff \forall s \in S: s.S' = S'
+   \iff \forall s \in S: s S' s^{-1} = S'
+  \\
+  &\iff \forall s \in S: s \in \normalizer{S'}{G}
+   \iff S \subgroup \normalizer{S'}{G}
+  \\
+  &\iff S \subgroup S'
+   \iff S = S'.
+\end{align*}
+Dabei nutzen wir für die vorletzte Äquivalenz Aufgabenteil~\ref{subsection: contained in Sylow subgroup}.
+Für die letzte Äquivalenz nutzen wir, dass $\card{S} = \card{S'}$ da $S$ und $S'$ zwei $p$-Sylowuntergruppen sind.
+Ingesamt zeigt dies, dass $S$ der eindeutige Fixpunkt der gegebenen Wirkung ist.
+
+
+
+
+
+\subsection{}
+
+Nach der Bahnengleichung gilt
+\begin{align*}
+      \card{\Sylow{p}{G}}
+  &=  \sum_{\orbit \in \Sylow{p}{G}/S} \card{\orbit}
+   =    \card*{\Sylow{p}{G}^S}
+      + \sum_{\substack{\orbit \in \Sylow{p}{G}/S \\ \card{\orbit} > 1}} \card{\orbit}
+\end{align*}
+Dabei gilt für $\orbit \in \Sylow{p}{G}/S$ und $S' \in \orbit$ mit $\groupindex{S}{S_{S'}} = \card{\orbit} > 1$ wegen $\groupindex{S}{S_{S'}} \divides \card{S}$, dass $\card{\orbit} = \groupindex{S}{S_{S'}}$ eine nicht-trivale $p$-Potenz ist;
+inbesondere ist $\card{\orbit}$ ein Vielfaches von $p$.
+Zudem gilt nach Aufgabenteil~\ref{subsection: unique fixed point}, dass $\card{\Sylow{p}{G}} = 1$.
+Ingesamt gilt somit
+\[
+          \card{\Sylow{p}{G}}
+  =       \underbrace{ \card*{\Sylow{p}{G}^S} }_{=1}
+          + \underbrace{
+            \sum_{\substack{\orbit \in \Sylow{p}{G}/S \\ \card{\orbit} > 1}} \card{\orbit}
+            }_{\text{Vielfaches von $p$}}
+  \equiv  1
+  \mod    p.
+\]
+
+
+
+
+
+\subsection{}
+
+Die Gruppe $G$ wirkt auf $\Sylow{p}{G}$ durch Konjugation, d.h.\ durch
+\[
+    g.S'
+  = g S' g^{-1}
+  \qquad
+  \text{für alle $g \in G$, $S' \in \Sylow{p}{G}$}.
+\]
+Nach dem zweiten Sylowsatz ist diese Wirkung transitiv, d.h.\ für jedes $S' \in \Sylow{p}{G}$ gibt es ein $g \in G$ mit $g.S = S'$.
+Dabei gilt
+\[
+    G_S
+  = \{ g \in G \suchthat g.S = S \}
+  = \{ g \in G \suchthat g S g^{-1} = S \}
+  = \normalizer{S}{G}.
+\]
+Somit gilt
+\[
+    \card{\Sylow{p}{G}}
+  = \card{G.S}
+  = \groupindex{G}{G_S}
+  = \groupindex{G}{\normalizer{S}{G}}.
+\]
+Dabei gilt
+\[
+    m
+  = \frac{\card{G}}{\card{S}}
+  = \groupindex{G}{S}
+  = \groupindex{G}{\normalizer{S}{G}} \groupindex{\normalizer{S}{G}}{S}
+\]
+und somit
+\[
+            \card{\Sylow{p}{G}}
+  =         \groupindex{G}{\normalizer{S}{G}}
+  \divides  m.
+\]
+
+
+
+

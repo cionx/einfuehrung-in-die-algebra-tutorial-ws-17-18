@@ -35,10 +35,12 @@
 }
 
 \newcommand{\divides}{\mathrel{|}}
+\newcommand{\ndivides}{\mathrel{\nmid}}
 \newcommand{\subgroup}{\leq}
 \newcommand{\nsubgroup}{\trianglelefteq}
 \newcommand{\ideal}{\trianglelefteq}
 
+\newcommand{\Natural}{\mathbb{N}}
 \newcommand{\Integer}{\mathbb{Z}}
 \newcommand{\Rational}{\mathbb{Q}}
 \newcommand{\Real}{\mathbb{R}}
@@ -52,6 +54,7 @@
 \newcommand{\groupcenter}[1]{\operatorname{Z}(#1)}
 \DeclareMathOperator{\im}{im}
 \newcommand{\mult}[1]{#1^{\times}}
+\newcommand{\normalizer}[2]{N_{#2}(#1)}
 \newcommand{\preim}[2]{#1^{-1}(#2)}
 \newcommand{\stab}[2]{\operatorname{Stab}_{#1}(#2)}
 \newcommand{\symm}[1]{S(#1)}
@@ -62,6 +65,7 @@
 \newcommand{\kgV}{\operatorname{kgV}}
 \newcommand{\ord}[1]{\operatorname{ord}(#1)}
 
+\DeclarePairedDelimiterX{\card}[1]{\lvert}{\rvert}{#1}
 \DeclarePairedDelimiterX{\comm}[2]{[}{]}{#1,#2}
 \DeclarePairedDelimiter{\generated}{\langle}{\rangle}
 
