@@ -22,8 +22,63 @@ Für jedes $n \geq 1$ gilt
 \end{align*}
 Aus $\cos(2 \pi /3) = \cos(4 \pi / 3)  = -1/2$ und $\sin(2 \pi / 3) = \sqrt{3}/2$, $\sin(4 \pi /3) = -\sqrt{3}/2$ folgen damit, dass
 \begin{align*}
-  W_2 &= \{ 1, -1 \}, \\
-  W_3 &= \left\{ 1, -\frac{1}{2} + i \frac{\sqrt{3}}{2}, -\frac{1}{2} - i \frac{\sqrt{3}}{2} \right\}, \\
-  W_4 &= \{ 1, i, -1, -i \}.
+  W_2 &= \{ 1, -1 \}\,, \\
+  W_3 &= \left\{ 1, -\frac{1}{2} + i \frac{\sqrt{3}}{2}, -\frac{1}{2} - i \frac{\sqrt{3}}{2} \right\}\,, \\
+  W_4 &= \{ 1, i, -1, -i \}\,.
 \end{align*}
+
+
+
+
+
+\subsection{}
+
+Für alle $n \geq 1$ ist die Abbildung
+\[
+          \varphi_n
+  \colon  \Integer
+  \to     \Complex^\times\,,
+  \quad   k
+  \mapsto e^{2 \pi i k / n}
+\]
+ist ein Gruppenhomomorphismus mit $\im \varphi_n = W_n$ und $\ker \varphi = n \Integer$.
+Somit ist $W_n$ eine Untergruppe von $\Complex^\times$, und $\varphi_n$ induziert nach der universellen Eigenschaft des Quotienten einen Gruppenisomorphismus
+\[
+          \Integer/n
+  \to     W_n,
+  \quad   \class{k}
+  \mapsto \varphi_n(k)
+  =       e^{2 \pi i k / n}.
+\]
+
+Die Abbildung
+\[
+          \varphi_\infty
+  \colon  \Rational
+  \to     \Complex^\times\,,
+  \quad   \frac{p}{q}
+  \mapsto e^{2 \pi i p /q}\,,
+\]
+ist ein Gruppenhomomorphismus mit $\im \varphi_\infty = \bigcup_{n \geq 1} W_n \eqqcolon W_\infty$ und $\ker \Integer$.
+Somit ist $W_\infty$ eine Untergruppe von $\Complex^\times$, und $\varphi_\infty$ induziert nach der universellen Eigenschaft des Quotienten einen Gruppenisomorphismus
+\[
+          \Rational/\Integer
+  \to     W_\infty\,,
+  \quad   \class{ \frac{p}{q} }
+  \mapsto \varphi_\infty\left( \frac{p}{q} \right)
+  =       e^{2 \pi i p /q}\,.
+\]
+
+\begin{remark}
+  Wir werden sehen, dass für einen beliebigen Körper $K$ die Gruppe der Einheitswurzeln
+  \[
+              W_n(K)
+    \coloneqq \{x \in K \suchthat x^n = 1\}
+  \]
+  zyklisch ist;
+  dies wird daraus folgen, dass jede endliche Untergruppe $H \subgroup K^\times$ zylisch ist.
+  Gilt $\ringchar{K} = 0$, so hat die Gruppe $W_n(K)$ Ordnung $n$;
+  gilt hingegen $\ringchar{K} = p > 0$, und ist $n = p^r m$ mit $p \ndivides m$, so hat die Gruppe $W_n(K)$ Ordnung $m$.
+\end{remark}
+
 
