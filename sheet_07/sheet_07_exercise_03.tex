@@ -1,5 +1,15 @@
 \section{}
 
+Für alle $n \geq 1$ schreiben im Folgenden
+\[
+            \mu_n
+  \coloneqq \{
+              \zeta \in W_n
+            \suchthat
+              \text{$\zeta$ ist eine primitive $n$-te Einheitswurzel}
+            \}\,.
+\]
+
 
 
 
@@ -120,13 +130,13 @@ Entscheidend ist die folgende Beobachtung:
   \[
       W_n
     = \coprod_{d \divides n} \{ \zeta \in W_n \suchthat \ord{\zeta} = d \}
-    = \coprod_{d \divides n} \{ \zeta \in W_d \suchthat \text{$\zeta$ ist primitiv} \}\,.
+    = \coprod_{d \divides n} \mu_n\,.
   \]
   (Hier steht $\coprod$ für die disjunkte Vereinigung.)
   \[
       t^n - 1
     = \prod_{\zeta \in W_n} (t - \zeta)
-    = \prod_{d \divides n} \prod_{\substack{\zeta \in W_d \\ \text{primitiv}}} (t - \zeta)
+    = \prod_{d \divides n} \prod_{\zeta \in \mu_d} (t - \zeta)
     = \prod_{d \divides n} \Phi_d(t)\,.
   \]
   Das zeigt die Gleichheit.
@@ -149,7 +159,7 @@ Entscheidend ist die folgende Beobachtung:
       n
     = \deg(t^n - 1)
     = \sum_{d \divides n} \deg \Phi_d(t)
-    = \sum_{d \divides n} \phi(t),
+    = \sum_{d \divides n} \varphi(t),
   \]
   gilt, wobei $\varphi$ die Eulersche Phi-Funktion bezeichnet.
 \end{remark}
@@ -213,3 +223,255 @@ Für $n = 1, \dotsc, 8$ erhalten wir die folgenden Ergebnisse:
   Es fällt auf, dass alle bisher bekannten Kreisteilungspolynome (also $\Phi_p(t)$ mit $p$ prim, und $\Phi_n(t)$ für $n = 1, \dotsc, 8$) jeweils nur $1, 0, -1$ als Koeffizienten haben.
   Dieses Muster setzt sich bis $\Phi_{104}(t)$ vor; das Kreisteilungspolynome $\Phi_{105}(t)$ hat schließlich den Koeffizienten $-2$.
 \end{remark}
+
+
+
+
+
+\subsection{}
+
+Wir geben zwei mögliche Beweise.
+
+
+
+\subsubsection*{Durch primitve Einheitswurzeln}
+
+Entscheidend ist die Beobachtung, dass für alle $\zeta \in \Complex$ die Äquivalenz
+\[
+        \zeta \in W_{np}
+  \iff  \zeta^p \in W_n
+\]
+gilt.
+Die Bedingung $p \divides n$ sorgt dafür, dass sich dies auf die primitiven Einheitswurzeln einschränkt:
+
+\begin{claim}
+  Eine Einheitswurzel $\zeta \in W_{np}$ ist genau dann primitiv, wenn $\zeta^p \in W_n$ primitiv ist.
+\end{claim}
+
+\begin{proof}
+  Wir geben zwei mögliche Beweise:
+  \begin{itemize}
+    \item
+      Ist $\zeta \in W_{np}$ primitiv, so gilt $\ord{\zeta} = np$, und somit
+      \[
+          \ord{\zeta^p}
+        = \frac{ \kgV(\ord{\zeta}, p) }{p}
+        = \frac{ \kgV(np, p) }{p}
+        = \frac{ np }{ p }
+        = n\,.
+      \]
+      Also ist auch $\zeta^p \in W_n$ primitiv.
+      
+      Ist andererseits $\zeta \in W_{np}$ nicht primitiv, so gilt $\ord{\zeta} < np$.
+      Also ist $\ord{\zeta}$ dann ein echter Teiler von $np$.
+      Es gibt daher einen echten Teiler $d$ von $np$ mit $\ord{\zeta} \divides d$, so dass $np/d$ prim ist
+      (während $\ord{\zeta}$ einige Primfaktoren von $np$ fehlen, fehlt $d$ nur noch ein Primfaktor).
+      Es gilt $p \divides n$, weshalb der Primfaktor $p$ in $np$ mindestens zweimal vorkommt;
+      somit muss er in $d$ mindestens einmal vorkommen, weshalb $p \divides d$ gilt.
+      Aus $\ord{\zeta} \divides d$ folgt $\zeta^d = 1$, und aus $p \divides d$ folgt damit, dass $(\zeta^p)^{d/p} = 1$ gilt.
+      Deshalb gilt $\ord{\zeta} = d/p < np/p = n$.
+      Also ist $\zeta^p$ keine primitive $n$-te Einheitswurzel.
+      
+    \item
+      Mit den Isomorphismen
+      \begin{gather*}
+                \varphi
+        \colon  \Integer/(np)
+        \to     W_{np}\,,
+        \quad   \class{k}
+        \mapsto e^{2 \pi i k / (np)}
+      \shortintertext{und}
+                \psi
+        \colon  \Integer/n
+        \to     W_{n}\,,
+        \quad   \class{k}
+        \mapsto e^{2 \pi i k / n}
+      \end{gather*}
+      erhalten wir für die Gruppenhomomorphismen
+      \begin{gather*}
+                f
+        \colon  W_{np}
+        \to     W_n\,,
+        \quad   \zeta
+        \mapsto \zeta^p
+      \shortintertext{und}
+                g
+        \colon  \Integer/(np)
+        \to     \Integer/n\,,
+        \quad   \class{k}
+        \mapsto \class{k}
+      \end{gather*}
+      das folgende kommutative Diagramm:
+      \[
+        \begin{tikzcd}
+            W_{np}
+            \arrow{r}{f}
+          & W_n
+          \\
+            \Integer/(np)
+            \arrow{r}{g}
+            \arrow{u}{\varphi}
+          & \Integer/n
+            \arrow[swap]{u}{\psi}
+        \end{tikzcd}
+      \]
+      Somit erhalten wir, dass
+      \begin{align*}
+            &\, (\text{$\zeta \in W_{np}$ ist primitiv} \iff \text{$\zeta^p \in W_n$ ist primitiv} )  \\
+        \iff&\, (\text{$\zeta \in W_{np}$ ist zyklischer Erzeuger} \iff \text{$\zeta^p \in W_n$ 
+        ist zyklischer Erzeuger}) \\
+        \iff&\, (\text{$\class{k} \in \Integer/(np)$ ist zyklischer Erzeuger} \iff \text{$\class{k} \in \Integer/n$ ist zkylischer Erzeuger}) \\
+        \iff&\, (\text{$k$ und $np$ sind teilerfremd} \iff \text{$k$ und $n$ sind teilerfremd})\,.
+      \end{align*}
+      Da $p \divides n$ gilt, haben $n$ und $np$ die gleichen Primfaktoren, weshalb $k$ und $np$ genau dann teilerfremd sind, wenn $k$ und $n$ es sind.
+    \qedhere
+  \end{itemize}
+\end{proof}
+
+Für den Gruppenhomomorphismus
+\[
+          f
+  \colon  W_{np}
+  \to     W_n\,,
+  \quad   \zeta
+  \mapsto \zeta^p
+\]
+gilt $\ker f = W_{np} \cap W_p = W_p$ mit $|W_p| = p$, weshalb für jedes $\xi \in W_n$ die Faser $\preim{f}{\xi}$ aus $p$ Elementen besteht.
+Aus der obigen Behauptung folgt, dass sich $f$ zu einer Abbildung
+\[
+          \tilde{f}
+  \colon  \mu_{np}
+  \to     \mu_n\,,
+  \quad   \zeta
+  \mapsto f(\zeta)
+  =       \zeta^p
+\]
+einschränkt, wobei für jedes $\xi \in W_n$ die Gleichheit $\preim{\tilde{f}}{\xi} = \preim{f}{\xi}$ gilt, und die Faser $\preim{f}{p}$ somit aus $p$ Elementen besteht.
+Wir erhalten somit eine disjunkte Zerlegung
+\[
+    \mu_{np}
+    = \coprod_{\xi \in \mu_n} \preim{\tilde{f}}{\xi}
+    = \coprod_{\xi \in \mu_n} \{ \zeta \in \mu_n \suchthat \zeta^p = \xi \}
+\]
+in $p$-elementige Teilmengen.
+Somit gilt, dass
+\begin{equation}
+  \label{equation: first decomposition}
+    \Phi_{np}(t)
+  = \prod_{\zeta \in \mu_{np}} (t - \zeta)
+  = \prod_{\xi \in \mu_n} \prod_{\substack{\zeta \in \mu_{np} \\ \zeta^p = \xi}} (t - \zeta)\,.
+\end{equation}
+Dabei besteht $\preim{\tilde{f}}{\xi} = \{ \zeta \in \mu_{np} \suchthat \zeta^p = \xi \}$ aus Nullstellen des Polynoms $t^p - \xi$;
+da es sich zum $p$ Nullstellen handelt, gilt bereits
+\[
+    t^p - \xi
+  = \prod_{\substack{\zeta \in \mu_{np} \\ \zeta^p = \xi}} (t - \zeta)\,.
+\]
+Damit erhalten wir aus \eqref{equation: first decomposition}, dass
+\[
+    \Phi_{np}(t)
+  = \prod_{\xi \in \mu_n} (t^p - \xi)
+  = \Phi_n(t^p)\,.
+\]
+
+
+
+\subsubsection*{Mithilfe der Eulerschen Phi-Funktion}
+
+Über $\Complex$ zerfallen die Polynome $\Phi_{np}(t)$ und $\Phi_n(t^p)$ in Linearfaktoren;
+es genügt daher zu zeigen, dass beide Polynome die gleichen Linearfaktoren mit jeweils gleicher Vielfachheit haben.
+
+Es gilt $\Phi_{np}(t^p) = \prod_{\zeta \in \mu_{np}} (t - \zeta)$.
+Für jede primitive $(np)$-te Einheitswurzel $\zeta \in \mu_{np}$ ist $\zeta^p$ eine primitive $n$-te Einheitswurzel, also $\zeta^p \in \mu_n$.
+Somit ist $\zeta$ dann eine Nullstelle von $\Phi_n(t) = \prod_{\xi \in \mu_n} (t^p - \xi)$.
+Das zeigt, dass jeder Linearfaktor von $\Phi_{np}(t)$ auch in $\Phi_n(t^p)$ auftritt.
+
+Da jeder Linearfaktor in $\Phi_{np}(t)$ Vielfachheit $1$ hat, genügt es nun zu zeigen, dass $\deg \Phi_{np}(t) = \deg \Phi_n(t^p)$ gilt.
+Ist $n = p_1^{\nu_1} p_2^{\nu_2} \dotsm p_r^{\nu_r}$ die Primfaktorzerlegung von $n$ mit $p_1 = p$ (und $p_i \neq p_j$ für $i \neq j$, sowie $\nu_i \geq 0$ für alle $i$), so ist $np = p_1^{\nu_1 + 1} p_2^{\nu_2} \dotsm p_r^{\nu_r}$ die Primfaktorzerlegung von $np$.
+Es gilt deshalb
+\begin{align*}
+      \deg \Phi_{np}(t)
+  &=  \varphi(np)
+  \\
+  &=  \varphi( p_1^{\nu_1 + 1} p_2^{\nu_2} \dotsm p_r^{\nu_r} )
+  \\
+  &=  \varphi( p_1^{\nu_1 + 1} ) \varphi( p_2^{\nu_2} ) \dotsm \varphi( p_r^{\nu_r} )
+  \\
+  &=  (p_1^{\nu_1 + 1} - p_1^{\nu_1}) \cdot ( p_2^{\nu_2} - p_2^{\nu_2 - 1} ) \dotsm ( p_r^{\nu_r} - p_r^{\nu_r - 1})
+  \\
+  &= p_1 (p_1^{\nu_1} - p_1^{\nu_1 - 1}) \cdot ( p_2^{\nu_2} - p_2^{\nu_2 - 1} ) \dotsm ( p_r^{\nu_r} - p_r^{\nu_r - 1})
+  \\
+  &= \dotsb
+  \\
+  &= p_1 \varphi(n)
+   = p \, \varphi(n)
+   = p \deg \Phi_n(t)
+   = \deg \Phi_n(t^p)\,.
+\end{align*}
+
+
+
+
+
+\subsubsection*{Explizite Formel für $\Phi_{p^k}(t)$}
+
+Damit ergibt sich nun für alle $k \geq 1$, dass
+\[
+    \Phi_{p^k}(t)
+  = \Phi_{p^{k-1}}(t^p)
+  = \Phi_{p^{k-2}}((t^p)^p)
+  = \Phi_{p^{k-2}}\left( t^{(p^2)} \right)
+  = \dotsb
+  = \Phi_p\left( t^{(p^{k-1})} \right)\,,
+\]
+und mit $\Phi_p(t) = \sum_{l=0}^{p-1} t^l$ somit
+\[
+    \Phi_{p^k}(t)
+  = \sum_{l=0}^{p-1} \left( t^{(p^{k-1})} \right)^l
+  = \sum_{l=0}^{p-1} t^{l p^{(k-1)}}\,.
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
