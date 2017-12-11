@@ -455,6 +455,21 @@ sie können durch die übliche Polynomdivision berechnet werden.
 
 
 
+\subsection{}
+
+Die Normiertheit von $\Phi_n(t)$ ergibt sich dadurch, dass es sich (per Definition) um eine Produkt von Linearfaktoren handelt.
+Dass bereits $\Phi_n(t) \in \Integer[t]$ gilt, ergibt sich induktiv:
+Wir wissen bereits, dass $\Phi_1(t) \in \Integer[t]$ gilt.
+Für alle $n > 1$ haben wir nach Korollar~\ref{corollary: inductive calculation of cyclotomic polynomials}, dass
+\[
+    \Phi_n(t)
+  = \frac{t^n - 1}{\prod_{d \divides n, d \neq n} \Phi_d(t)}
+\]
+gilt.
+Die die Polynome $\Phi_d(t)$ mit $d \divides n$, $d < n$ normiert und nach Induktionsvoraussetzung ganzzahlig sind, ist auch $\prod_{d \divides n, d \neq n} \Phi_d(t)$ normiert und ganzzahlig.
+Aus dem vorherigen Aufgabenteil ergibt sich damit, dass auch $\Phi_n(t)$ bereits ganzzahlig ist.
+
+
 
 
 
