@@ -82,3 +82,134 @@ Somit ist $W_\infty$ eine Untergruppe von $\Complex^\times$, und $\varphi_\infty
 \end{remark}
 
 
+
+
+
+\subsection{}
+
+Entscheidend ist die folgende Beobachtung:
+
+\begin{lemma}
+  \label{lemma: decomposition into cyclotomic polynomials}
+  Für alle $n \geq 1$ gilt
+  \[
+      t^n - 1
+    = \prod_{d \divides n} \Phi_d(t)\,.
+  \]
+\end{lemma}
+
+\begin{proof}
+  Für $\zeta \in W_n$ sei $d \coloneqq \ord{\zeta}$.
+  Es gilt $\zeta^d = 1$, weshalb $\zeta$ eine $d$-te Einheitswurzel ist, d.h.\ es gilt $\zeta \in W_d$.
+  Da
+  \[
+      \ord{\zeta}
+    = d
+    = \ord{W_d}
+  \]
+  gilt, ist $\zeta$ bereits ein zyklischer Erzeuger von $W_d$.
+  Also ist $\zeta$ eine primitive $d$-te Einheitswurzel.
+  Zudem gilt
+  \[
+              d
+    =         \ord{\zeta}
+    \divides  \ord{W_n}
+    =         n\,.
+  \]
+  Damit erhalten wir ingesamt, dass
+  \[
+      W_n
+    = \coprod_{d \divides n} \{ \zeta \in W_n \suchthat \ord{\zeta} = d \}
+    = \coprod_{d \divides n} \{ \zeta \in W_d \suchthat \text{$\zeta$ ist primitiv} \}\,.
+  \]
+  (Hier steht $\coprod$ für die disjunkte Vereinigung.)
+  \[
+      t^n - 1
+    = \prod_{\zeta \in W_n} (t - \zeta)
+    = \prod_{d \divides n} \prod_{\substack{\zeta \in W_d \\ \text{primitiv}}} (t - \zeta)
+    = \prod_{d \divides n} \Phi_d(t)\,.
+  \]
+  Das zeigt die Gleichheit.
+\end{proof}
+
+\begin{remark}
+  Die obige Argumentation lässt sich dahingehend verallgemeinern, dass für jede Gruppe $G$ die disjunkte Zerlegung
+  \begin{align*}
+        G
+    &=  \coprod_{H \subgroup G} \{\text{$h \in H$ ist ein zyklischer Erzeuger von $H$}\}  \\
+    &=  \coprod_{\substack{H \subgroup G \\ \text{zyklisch}}} \{\text{$h \in H$ ist ein Erzeuger von $H$}\}
+  \end{align*}
+  gilt.
+  Dies ist nur eine Umformulierung der Tatsache, dass jedes Element $g \in G$ eine eindeutige (zyklische) Untergruppe $\generated{g} \subgroup G$ erzeugt.
+\end{remark}
+
+\begin{remark}
+  Aus Lemma~\ref{lemma: decomposition into cyclotomic polynomials} folgt insbesondere, dass für jede natürliche Zahl $n \geq 1$ die Gleichheit
+  \[
+      n
+    = \deg(t^n - 1)
+    = \sum_{d \divides n} \deg \Phi_d(t)
+    = \sum_{d \divides n} \phi(t),
+  \]
+  gilt, wobei $\varphi$ die Eulersche Phi-Funktion bezeichnet.
+\end{remark}
+
+Aus der Vorlesung ist bereits bekannt, dass
+\[
+    \Phi_p(t)
+  = t^{p-1} + t^{p-2} + \dotsb + t + 1
+  = \frac{t^p - 1}{t-1}
+\]
+für jede Primzahl $p$.
+Aus Lemma~\ref{lemma: decomposition into cyclotomic polynomials} ergibt sich eine Verallgemeinerung dieser Gleichheit:
+
+\begin{corollary}
+  \label{corollary: inductive calculation of cyclotomic polynomials}
+  Für alle $n \geq 1$ gilt
+  \[
+      \Phi_n(t)
+    = \frac{t^n - 1}{\prod_{d \divides n, d \neq n} \Phi_d(t)}\,.
+  \]
+\end{corollary}
+
+Mithilfe von Korollar~\ref{corollary: inductive calculation of cyclotomic polynomials} und Polynomdivision lassen sich die Kreisteilungspolynome $\Phi_n(t)$ nun induktiv berechnen.
+Für $n = 1, \dotsc, 8$ erhalten wir die folgenden Ergebnisse:
+\begin{align*}
+      \Phi_1(t)
+  &=  t-1\,,
+  \\
+      \Phi_2(t)
+  &=  t+1\,,
+  \\
+      \Phi_3(t)
+  &=  t^2 + t + 1\,,
+  \\
+      \Phi_4(t)
+  &=  \frac{t^4 - 1}{\Phi_1(t) \Phi_2(t)}
+   =  \frac{t^4 - 1}{(t-1)(t+1)}
+   =  \frac{t^4 - 1}{t^2 - 1}
+   =  t^2 + 1\,,
+  \\
+      \Phi_5(t)
+  &=  t^4 + t^3 + t^2 + t + 1\,,
+  \\
+      \Phi_6(t)
+  &=  \frac{t^6 - 1}{\Phi_1(t) \Phi_2(t) \Phi_3(t)}
+   =  \frac{t^6 - 1}{(t-1)(t+1)(t^2 + t + 1)}
+   =  \frac{t^6 - 1}{t^4 + t^3 - t - 1}
+   =  t^2 - t + 1\,,
+  \\
+      \Phi_7(t)
+  &=  t^6 + t^5 + t^4 + t^3 + t^2 + t + 1\,,
+  \\
+      \Phi_8(t)
+  &=  \frac{t^8 - 1}{\Phi_1(t) \Phi_2(t) \Phi_4(t)}
+   =  \frac{t^8 - 1}{(t-1)(t+1)(t^2 + 1)}
+   =  \frac{t^8 - 1}{t^4 - 1}
+   =  t^4 +1\,.
+\end{align*}
+
+\begin{remark}
+  Es fällt auf, dass alle bisher bekannten Kreisteilungspolynome (also $\Phi_p(t)$ mit $p$ prim, und $\Phi_n(t)$ für $n = 1, \dotsc, 8$) jeweils nur $1, 0, -1$ als Koeffizienten haben.
+  Dieses Muster setzt sich bis $\Phi_{104}(t)$ vor; das Kreisteilungspolynome $\Phi_{105}(t)$ hat schließlich den Koeffizienten $-2$.
+\end{remark}
