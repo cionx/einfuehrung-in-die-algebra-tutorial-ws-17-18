@@ -411,8 +411,6 @@ Es gilt deshalb
 
 
 
-
-
 \subsubsection*{Explizite Formel für $\Phi_{p^k}(t)$}
 
 Damit ergibt sich nun für alle $k \geq 1$, dass
@@ -435,10 +433,23 @@ und mit $\Phi_p(t) = \sum_{l=0}^{p-1} t^l$ somit
 
 
 
+\subsection{}
 
+Da $\Rational$ ein Körper ist, gibt es eindeutige Polynome $q, r \in \Rational[t]$ mit den gewünschten Bedingungen.
+Das Polynom $q$ lässt sich durch Polynomdivision von $g$ durch $f$ ausrechnen.
+Die Rechenoperationen, die dabei in $\Rational[t]$ verwendet werden, sind dabei
+\begin{itemize}
+  \item
+    Ringoperationen, d.h.\ Addition, Subtraktion und Multiplikation, und
+  \item
+    Division durch den Leitkoeffizienten von $f$.
+\end{itemize}
+Da $f$ nomiert sind, verlassen wir ausgehend von $g \in \Integer[t]$ dabei den Ring $\Integer[t]$ nicht.
+Somit ergibt sich, dass bereits $g \in \Integer[t]$ gilt.
+Damit gilt auch $r = g - qf \in \Integer[t]$.
 
-
-
+Das zeigt die Existenz und Eindeutig der gewünschten Polynome $q, r \in \Integer[t]$;
+sie können durch die übliche Polynomdivision berechnet werden.
 
 
 
