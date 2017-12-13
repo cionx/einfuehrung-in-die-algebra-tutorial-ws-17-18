@@ -1,1 +1,60 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+Die Idee hinter der Aussage ist, dass $\phi(1) = 1$ gelten, und sich alle Elemente des Primkörpers durch iteratives Anwenden den Körperoperationen (Addition, Subtraktion, Multiplikation, Division) aus $1$ ergeben.
+Da $\phi$ mit diesen Operationen verträglich ist, sollte somit bereits $\phi(x) = x$ für alle $x \in P$ gelten.
+
+Um diese Anschauung zu formalisieren, zeigen wir, dass die Menge
+\[
+    K^\phi
+  = \{ x \in K \suchthat \phi(x) = x \}
+\]
+ein Unterkörper von $K$ ist.
+Dann gilt $P \subseteq K$, da $P$ in jedem Unterkörper von $K$ enthalten ist.
+
+Es gelten $\phi(0) = 0$ und $\phi(1) = 1$ und somit $0, 1 \in K$.
+Für alle $x, y \in K$ gelten auch
+\begin{gather*}
+    \phi(x+y)
+  = \phi(x) + \phi(y)
+  = x + y
+  \quad\text{und}\quad
+    \phi(xy)
+  = \phi(x) \phi(y)
+  = xy,
+\end{gather*}
+und somit $x + y, xy \in K$.
+Für jedes $x \in K$ gilt
+\[
+    \phi(-x)
+  = -\phi(x)
+  = -x
+\]
+und somit $-x \in K$, und falls zusätzlich $x \neq 0$ gilt, dann gilt auch
+\[
+    \phi(x^{-1})
+  = \phi(x)^{-1}
+  = x^{-1},
+\]
+und somit $x^{-1} \in K$.
+Ingesamt zeigt dies, dass $K^\phi$ ein Unterkörper von $K$ ist.
+
+
+
+
+
+\subsection{}
+
+Die Abbildung $\phi \colon K \to K$ ist per Annahme bijektiv und additiv.
+Für alle $\lambda \in P$, $x \in K$ gilt nach dem vorherigen Sinne, dass
+\[
+    \phi(\lambda x)
+  = \phi(\lambda) \phi(x)
+  = \lambda \phi(x).
+\]
+Dies zeigt insgesamt, dass $\phi$ ein $K$-Vektorraum-Automorphismus ist.
