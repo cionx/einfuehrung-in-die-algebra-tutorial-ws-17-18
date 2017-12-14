@@ -1,1 +1,68 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+Für alle $(a,s) \in R \times S$ gilt $(a,s) \sim (a,s)$, denn für $1 \in S$ gilt
+\[
+    1 \cdot (a s - a s
+  = 0
+  \,.
+\]
+Also ist $\sim$ reflexiv.
+Für alle $(a, s), (a', s') \in R \times S$ mit $(a,0s) \sim (a', s')$ gibt es ein $t \in S$ mit
+\[
+    t \cdot (a s' - a' s)
+  = 0
+  \,.
+\]
+Dann gilt
+\[
+    t \cdot (a' s - a s')
+  = t \cdot (-(a s' - a' s))
+  = -(t \cdot (a s' - a' s))
+  = -0
+  = 0
+  \,,
+\]
+und somit ebenfalls $(a', s') \sim (a, s)$.
+Das zeigt, dass $\sim$ symmetrisch ist.
+
+Für alle $(a, s), (a', s'), (a'', s'') \in R \times S$ mit $(a, s) \sim (a', s')$ und $(a', s') \sim (a'', s'')$ gibt es $t, u \in S$ mit
+\[
+    t \cdot (a' s - a s')
+  = 0
+  \quad\text{und}\quad
+    u \cdot (a'' s' - a' s'')
+  = 0
+  \,,
+\]
+also mit
+\[
+    t \cdot a s'
+  = t \cdot a' s
+  \quad\text{und}\quad
+    u \cdot a' s''
+  = u \cdot a'' s'
+  \,.
+\]
+Diese Gleichungen sollte man so lesen, dass sich in Anwesenheit des Elements $t$ die Ersetzung $a s' \to a' s$ durchführen lässt, und in Anwesenheit des Elements $u$ die Ersetzung $a' s'' \to a'' s'$.
+In Anwesenheit des Elementes $s'tu$ lässt sich dann auch die Ersetzung $a s'' \to a'' s$ durchführen, da
+\[
+    s'tu \cdot a'' s
+  = st \cdot u \cdot a'' s'
+  = st \cdot u \cdot a' s''
+  = s''u \cdot t \cdot a' s
+  = s''u \cdot t \cdot a s'
+  = s' t u \cdot a s''
+\]
+gilt.
+Das zeigt die Transitivität von $\sim$.
+Ingesamt zeigt dies, dass $\sim$ eine Äquivalenzrelation ist.
+
+
+
+
