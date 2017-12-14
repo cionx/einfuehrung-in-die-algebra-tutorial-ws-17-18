@@ -1,1 +1,206 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\subsection{}
+
+\begin{lemma}
+  \label{lemma: existence of frobenius}
+  Es sei $R$ ein kommutativer Ring von Charakteristik $\ringchar{R} = p$ prim.
+  Dann ist die Abbildung
+  \[
+            \sigma
+    \colon  R
+    \to     R,
+    \quad   x
+    \mapsto x^p
+  \]
+  ein Ringhomomorphismus.
+\end{lemma}
+
+\begin{proof}
+  Es gilt $\sigma(1) = 1^p = 1$, und für alle $x, y \in R$ gilt
+  \[
+      \sigma(xy)
+    = (xy)^p
+    = x^p y^p
+    = \sigma(x) \sigma(y)\,,
+  \]
+  da $R$ kommutativ ist.
+  Für alle $x, y \in R$ folgt aus der Kommutativität von $R$, dass
+  \begin{equation}
+    \label{equation: binomial theorem}
+      \sigma(x + y)
+    = (x + y)^p
+    = \sum_{k=0}^p \binom{p}{k} x^k y^{p-k}
+  \end{equation}
+  gilt.
+  Für alle $0 < k < p$ gelten dabei $p \ndivides k!$ und $p \ndivides (p-k)!$, und somit
+  \[
+    \left.        p
+    \,\middle|\,  \frac{p!}{k! (p-k)!} \right.
+    =             \binom{p}{k}\,.
+  \]
+  Damit folgt aus \eqref{equation: binomial theorem} die Gleichheit
+  \[
+      \sigma(x + y)
+    = (x + y)^p
+    = x^p + y^p
+    = \sigma(x) + \sigma(y)\,.
+    \qedhere
+  \]
+\end{proof}
+
+\begin{remark}
+  Man bezeichnet den Ringhomomorphismus $\sigma$ aus Lemma~\ref{lemma: existence of frobenius} als den \emph{Frobenius-Homomorphismus}.
+\end{remark}
+
+
+Wir bemerken, dass $\zeta = e^{2 \pi i / p^2}$ eine $p^2$-te primitive Einheitswurzel ist, und somit eine Nullstelle des Kreisteilungspolynoms $\Phi_{p^2}(t) \in \Integer[t] \subseteq \Rational[t]$.
+Das Polynom $\Phi_{p^2}(t)$ ist normiert, und wir zeigen im Folgenden, dass es irreduzibel ist;
+dann ist $\Phi_{p^2}(t)$ bereits das Minimalpolynom von $\zeta$ über $\Rational$.
+
+In der Vorlesung haben wir die Irreduziblität von $\Phi_p(t)$ gezeigt, indem wir das Einstein-Kriterium für $\Phi_p(t+1)$ bezüglich der Primzahl $p$ angewendet haben.
+Auf gleiche Weise zeigen wir, dass auch $\Phi_{p^2}(t)$ irreduzibel ist, d.h.\ wir zeigen, dass sich auf $f(t) \coloneqq \Phi_{p^2}(t+1)$ das Eisenstein-Kriterium mit der Primzahl $p$ anwenden lässt.
+Hierfür nutzen wir, dass $\Phi_{p^2}(t) = \Phi_p(t^p)$ gilt.
+
+\begin{itemize}
+  \item
+    Das Kreisteilungspolynom $\Phi_{p^2}(t)$ ist normiert, also ist es auch $f(t) = \Phi_{p^2}(t+1)$.
+    Insbesondere ist der Leitkoeffizient von $f$ nicht durch $p$ teilbar.
+  \item
+    Wir müssen zeigen, dass alle anderen Koeffizienten von $f(t)$ durch $p$ teilbar sein.
+    Hierfür betrachten wir den Ringhomomorphismus
+    \[
+              \Integer[t]
+      \to     \Finite{p}[t],
+      \quad   g
+      =       \sum_i a_i t^i
+      \mapsto \sum_i \class{a_i} t^i
+      =       \class{g}.
+    \]
+    Für $g_1, g_2 \in \Integer[t]$ schreiben wir im Folgenden
+    \[
+      g_1 \equiv g_2 \mod p
+    \]
+    falls $\class{g_1} = \class{g_2}$ gilt.
+    
+    Wir wissen bereits, dass das Polynom $\Phi_p(t+1)$ mit $\deg \Phi_p(t+1) = \deg \Phi(t) = p-1$ das Eisenstein-Kriterium erfüllt, weshalb
+    \[
+      \Phi_p(t+1) \equiv t^{p-1} \mod p
+    \]
+    gilt.
+    Indem wir für die Variable $t$ das Polynom $t^p$ einsetzen, erhalten wir, dass
+    \[
+      \Phi_p(t^p + 1) \equiv (t^p)^{p-1} =  t^{p(p-1)} \mod p
+    \]
+    gilt.
+    Wir möchten zeigen, dass bis auf Leitkoeffizienten von $\Phi_{p^2}(t+1)$ alle Koeffizienten dieses Polynoms durch $p$ teilbar sind.
+    Da
+    \[
+        \deg \Phi_{p^2}(t+1)
+      = \deg \Phi_{p^2}(t)
+      = \deg \Phi_p(t^p)
+      = p \deg \Phi_p(t)
+      = p(p-1)
+    \]
+    gilt, müssen wir also zeigen, dass
+    \[
+      \Phi_{p^2}(t+1) \equiv t^{p(p-1)} \mod p
+    \]
+    gilt.
+    Setzen wir in der Gleichung $\Phi_{p^2}(t) = \Phi_p(t^p)$ für die Variable $t$ das Polynom $t+1$ ein, so erhalten wir dabei, dass $\Phi_{p^2}(t+1) = \Phi_p((t+1)^p)$ gilt.
+    Wir müssen also zeigen, dass
+    \[
+      \Phi_p((t+1)^p) \equiv t^{p(p-1)} \mod p
+    \]
+    gilt.
+    Nach Lemma~\ref{lemma: existence of frobenius} gilt
+    \[
+              (t+1)^p
+      \equiv  t^p + 1^p
+      =       t^p + 1
+      \mod    p,
+    \]
+    und somit gilt
+    \[
+      \Phi_p((t+1)^p) \equiv \Phi_p(t^p + 1)  \mod p.
+    \]
+    Damit erhalten wir insgesamt, dass
+    \[
+              \Phi_{p^2}(t+1)
+      =       \Phi_p((t+1)^p)
+      \equiv  \Phi_p(t^p + 1)
+      \equiv  t^{p(p-1)}
+    \]
+    gilt.
+    Also sind alle Koeffizienten von $\Phi_{p^2}(t+1)$, bis auf den Leitkoeffizienten, durch $p$ teilbar.
+    
+  \item
+    Wir müssen noch zeigen, dass der konstante Term von $\Phi_{p^2}(t+1)$ nicht durch $p^2$ teilbar ist.
+    Dieser konstante Teil lässt sich dadurch bestimmen, dass wir für die Variable $t$ die Zahl $0 \in \Integer$ einsetzen.
+    Wir erhalten die Gleichungskette
+    \[
+        \Phi_{p^2}(0+1)
+      = \Phi_{p^2}(1)
+      = \Phi_p(1^p)
+      = \Phi_p(1)
+      = 1^{p-1} + 1^{p-2} + \dotsb +  1^1 + 1^0
+      = p.
+    \]
+    Der konstante Koeffizient von $\Phi_{p^2}(t+1)$ ist also $p$, und somit nicht durch $p^2$ teilbar.
+
+\end{itemize}
+
+
+
+
+
+% Wir möchten die Irreduziblität von $\Phi_{p^2}(t)$ mithilfe des Eisenstein-Kriteriums zeigen.
+% Das Polynom $\Phi_{p^2}(t)$ selbst ist hierfür aber nicht geeignet, da (nach dem letzten Übungszettel) die Gleichheit
+% \[
+%     \Phi_{p^2}(t)
+%   = \Phi_p(t^p)
+%   = \sum_{\ell = 0}^{p-1} t^{\ell p}
+% \]
+% gilt.
+% In der Vorlesung haben wir für das Polynom $\Phi_p(t)$ gesehen, 
+
+
+
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
