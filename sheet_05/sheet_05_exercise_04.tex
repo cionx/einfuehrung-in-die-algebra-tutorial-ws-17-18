@@ -9,15 +9,13 @@
 Für alle $(a,s) \in R \times S$ gilt $(a,s) \sim (a,s)$, denn für $1 \in S$ gilt
 \[
     1 \cdot (a s - a s
-  = 0
-  \,.
+  = 0  \,.
 \]
 Also ist $\sim$ reflexiv.
 Für alle $(a, s), (a', s') \in R \times S$ mit $(a,0s) \sim (a', s')$ gibt es ein $t \in S$ mit
 \[
     t \cdot (a s' - a' s)
-  = 0
-  \,.
+  = 0  \,.
 \]
 Dann gilt
 \[
@@ -25,30 +23,25 @@ Dann gilt
   = t \cdot (-(a s' - a' s))
   = -(t \cdot (a s' - a' s))
   = -0
-  = 0
-  \,,
+  = 0  \,,
 \]
 und somit ebenfalls $(a', s') \sim (a, s)$.
 Das zeigt, dass $\sim$ symmetrisch ist.
 
 Für alle $(a, s), (a', s'), (a'', s'') \in R \times S$ mit $(a, s) \sim (a', s')$ und $(a', s') \sim (a'', s'')$ gibt es $t, u \in S$ mit
-\[
+\begin{gather*}
     t \cdot (a' s - a s')
   = 0
   \quad\text{und}\quad
     u \cdot (a'' s' - a' s'')
-  = 0
-  \,,
-\]
-also mit
-\[
+  = 0  \,,
+\shortintertext{also mit}
     t \cdot a s'
   = t \cdot a' s
   \quad\text{und}\quad
     u \cdot a' s''
-  = u \cdot a'' s'
-  \,.
-\]
+  = u \cdot a'' s'  \,.
+\end{gather*}
 Diese Gleichungen sollte man so lesen, dass sich in Anwesenheit des Elements $t$ die Ersetzung $a s' \to a' s$ durchführen lässt, und in Anwesenheit des Elements $u$ die Ersetzung $a' s'' \to a'' s'$.
 In Anwesenheit des Elementes $s'tu$ lässt sich dann auch die Ersetzung $a s'' \to a'' s$ durchführen, da
 \[
@@ -61,7 +54,121 @@ In Anwesenheit des Elementes $s'tu$ lässt sich dann auch die Ersetzung $a s'' \
 \]
 gilt.
 Das zeigt die Transitivität von $\sim$.
+
 Ingesamt zeigt dies, dass $\sim$ eine Äquivalenzrelation ist.
+Anstelle von $[a,s]$ schreiben wir im Folgenden
+\[
+  \frac{a}{s}
+\]
+oder $a/s$ für die Äquivalenzklasse von $(a,s) \in R \times S$.
+
+
+
+
+
+\subsection{}
+
+Es seien $(a, s), (a', s'), (b, t), (b', t') \in R \times S$ mit $(a, s) \sim (a', s')$ und $(b, t) \sim (b', t')$.
+Dann gibt es $u_1, u_2 \in S$ mit
+\begin{gather*}
+  u_1 \cdot (a s' - a' s) = 0
+  \quad\text{und}\quad
+  u_2 \cdot (b t' - b' t) = 0 \,,
+\shortintertext{also mit}
+    u_1 \cdot a s'
+  = u_1 \cdot a' s
+  \quad\text{und}\quad
+    u_2 \cdot b t'
+  = u_2 \cdot b' t \,.
+\end{gather*}
+Dann gilt
+\begin{align*}
+      u_1 u_2 \cdot (at + bs) s' t'
+  &=  (u_1 u_2 \cdot ats't') + (u_1 u_2 \cdot b s s' t')  \\
+  &=  (u_2 t t' \cdot u_1 \cdot a s') + (u_1 s s' \cdot u_2 \cdot b t') \\
+  &=  (u_2 t t' \cdot u_1 \cdot a' s) + (u_1 s s' \cdot u_2 \cdot b' t) \\
+  &=  (u_1 u_2 \cdot a' s t t') + (u_1 u_2 \cdot b' s s' t)
+   =  u_1 u_2 \cdot (a' t' + b' s') st
+\end{align*}
+und somit
+\begin{gather*}
+    u_1 u_2 \cdot ( (a t + b s) s' t' - (a' t' + b' s') )
+  = 0 \,,
+\shortintertext{also}
+    \frac{a t + b s}{s t}
+  = \frac{a' t' + b' s'}{s' t'} \,.
+\end{gather*}
+Das zeigt, dass die Addition
+\[
+            \frac{a}{s} + \frac{b}{t}
+  \coloneqq \frac{at + bs}{st}
+\]
+auf $S^{-1} R$ wohldefiniert ist.
+
+Außerdem gilt
+\begin{gather*}
+  u_1 u_2 \cdot a b s' t'
+  = (u_1 \cdot a s') (u_2 \cdot b t')
+  = (u_1 \cdot a' s) (u_2 \cdot b' t)
+  = u_1 u_2 \cdot a' b' s t
+\shortintertext{und somit}
+    u_1 u_2 \cdot (a b s' t' - a' b' s t)
+  = 0 \,,
+\shortintertext{also}
+    \frac{a b}{s t}
+  = \frac{a' b'}{s' t'}.
+\end{gather*}
+Das zeigt, dass die Multiplikation
+\[
+    \frac{a}{s} \cdot \frac{b}{t}
+  = \frac{a b}{s t}
+\]
+auf $S^{-1} R$ wohldefiniert ist.
+
+Das folgende Lemma erweist sich zum Rechnen in $S^{-1} R$ als sehr nützlich:
+
+\begin{lemma}[Kürzen von Brüchen]
+  \label{lemma: cancelation rules for fractions}
+  Für alle $a/s \in S^{-1} R$ und $t \in S$ gilt
+  \[
+      \frac{a}{s}
+    = \frac{at}{st} \,.
+  \]
+\end{lemma}
+
+\begin{proof}
+  Für $1 \in S$ gilt $1 \cdot (a st - at s) = 0$, also gilt $(a,s) \sim (at,st)$.
+\end{proof}
+
+Hieraus ergibt sich insbesondere, dass $0/1 = 0/s$ für alle $s \in S$ gilt, da
+\[
+    \frac{0}{s}
+  = \frac{0 \cdot s}{1 \cdot s}
+  = \frac{0}{1}
+\]
+gilt.
+
+Die Assoziativität und Kommutativität der Addition und Multiplikation, sowie die Distributivität folgen durch direktes Nachrechnen.
+Das Einselement in $S^{-1} R$ ist $1/1$, denn für alle $a/s \in S^{-1} R$ gilt
+\[
+    \frac{a}{s} \cdot \frac{1}{1}
+  = \frac{a \cdot 1}{s \cdot 1}
+  = \frac{a}{s} \,.
+\]
+Das Nullelement ist $0/1$, denn für alle $a/s \in S^{-1} R$ gilt
+\[
+    \frac{a}{s} + \frac{0}{1}
+  = \frac{a \cdot 1 + 0 \cdot s}{s \cdot 1}
+  = \frac{a}{s} \,.
+\]
+Das additiv Inverse Element zu $a/s \in S^{-1} R$ ist $(-a)/s$, denn es gilt
+\[
+    \frac{a}{s} + \frac{-a}{s}
+  = \frac{a s - a s}{s^2}
+  = \frac{0}{s^2}
+  = \frac{0}{1} \,.
+\]
+Ingesamt zeigt dies, dass $S^{-1} R$ mit der gegebenen Addition und Multiplikation einen kommutativen Ring ergibt.
 
 
 
