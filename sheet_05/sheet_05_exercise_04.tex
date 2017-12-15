@@ -330,8 +330,8 @@ Nach der universellen Eigenschaft der Lokalsierung (siehe Bemerkung~\ref{remark:
   =       p q^{-1}
   =       \frac{p}{q}.
 \]
-Der Ringhomomorphismus $\varphi$ ist surjektiv.
-Er ist auch injektiv, denn für $p/q \in \Quot{\Integer}$ gilt
+Der Ringhomomorphismus $\varphi$ ist surjektiv, und als Körperhomomorphismus auch injektiv.
+Die Injektivität lässt sich auch von Hand nachrechen, denn für alle $p/q \in \Quot{\Integer}$ gilt
 \[
     \varphi\left( \frac{p}{q} \right) = 0
   \implies
@@ -377,3 +377,38 @@ Also ist $\varphi$ ein Isomorphismus.
 \end{remark}
 
 
+
+
+
+\subsection{}
+
+Wir gehen wie im vorherigen Aufgabenteil vor:
+Für die Inklusion $i \colon \Integer \to \Rational$, $a \mapsto a$ gilt
+\[
+            \varphi(S)
+  =         S
+  \subseteq \Rational \setminus \{0\}
+  =         \Rational^\times \,.
+\]
+Deshalb induziert $i$ nach der universellen Eigenschaft der Lokalisierung einen Ringhomomorphismus
+\[
+          \induced{i}
+  \colon  S^{-1} \Integer
+  \to     \Rational,
+  \quad   \frac{a}{p^k}
+  \mapsto \frac{i(n)}{i(p^k)}
+  =       \frac{a}{p^k} \,.
+\]
+Insbesondere ist
+\[
+    \im \induced{i}
+  = \left\{
+      \frac{a}{p^k}
+    \suchthat*
+      a, k \in \Integer,
+      k \geq 0
+    \right\}
+\]
+ein Unterring von $\Rational$.
+Die Injektivität von $\induced{i}$ ergibt sich wie im vorherigen Aufgabenteil.
+Damit ergibt sich dann, dass $\induced{i}$ eine Isomorphie $S^{-1} \Integer \cong \im \induced{i}$ induziert.
