@@ -170,6 +170,132 @@ Das additiv Inverse Element zu $a/s \in S^{-1} R$ ist $(-a)/s$, denn es gilt
 \]
 Ingesamt zeigt dies, dass $S^{-1} R$ mit der gegebenen Addition und Multiplikation einen kommutativen Ring ergibt.
 
+\begin{remark}
+  Ist $R$ ein kommutativer Ring und $S \subseteq R$ eine multiplikative Teilmenge, so ist die Abbildung $f \colon R \to R_S$ ein Ringhomomorphismus.
+  (Dies ergibt sich durch direktes Nachrechnen.)
+  
+  Für jedes $s \in S$ ist das Element $f(s) = s/1 \in S^{-1} R$ eine Einheit, da
+  \[
+      \frac{s}{1} \cdot \frac{1}{s}
+    = \frac{s}{s}
+    = \frac{1}{1}
+    = 1_{S^{-1} R}
+  \]
+  gilt.
+  In dem Ring $S^{-1} R$ werden die Elemente aus $S$ also Einheiten.
+  
+  Der Ring $S^{-1} R$ (zusammen mit dem Homomorphismus $f$) ist universell mit dieser Eigenschaft:
+  Ist $T$ ein Ring und $g \colon R \to T$ ein Ringhomomorphismus, so dass $g(s)$ für jedes $s \in S$ eine Einheit ist, so gibt es einen eindeutigen Ringhomomorphismus $\hat{\varphi} \colon S^{-1} R \to T$, der das folgende Diagramm zum Kommutieren bringt:
+  \[
+    \begin{tikzcd}
+        S^{-1} R
+        \arrow{r}{\hat{g}}
+      & T
+      \\
+        R
+        \arrow{u}{f}
+        \arrow[swap]{ru}{g}
+      & {}
+    \end{tikzcd}
+  \]
+  Der Homomorphismus $\hat{g}$ ist gegeben durch
+  \[
+      \hat{g}\left( \frac{a}{s} \right)
+    = \frac{g(a)}{g(s)}
+    = g(a) g(s)^{-1}
+    \qquad
+    \text{für alle $\frac{a}{s} \in S^{-1} R$} \,.
+  \]
+\end{remark}
+
+\begin{remark}
+  \label{remark: injectivity of the canonical map}
+  Man beachte aber, dass der Ringhomomorphismus $f \colon R \to S^{-1} R$, $r \mapsto r/1$ im Allgemeinen nicht injektiv ist:
+  Für alle $r \in R$ gilt
+  \[
+          r \in \ker f
+    \iff  \frac{r}{1} = \frac{0}{1}
+    \iff  \exists s \in S: rs = 0 \,.
+  \]
+  Somit ist $f$ genau dann injektiv, wenn für alle $s \in S$ und $r \in R$ mit $rs = 0$ bereits $r = 0$ folgt, d.h.\ wenn $S$ keine Nullteiler enthält.
+  
+  Ist inbesondere $R$ ein Integritätsbereich, so ist im Fall $0 \notin S$ der Ringhomomorphismus $f \colon R \to S^{-1} R$ stets injektiv.
+  Dann lässt sich $R$ als ein Unterring von $S^{-1} R$ auffassen.
+\end{remark}
 
 
 
+
+
+\subsection{}
+
+Da $R$ ein Integritätsbereich ist, gilt $1 \neq 0$, und somit $1 \in S$.
+Für alle $s, t \in S$ gilt $s, t \neq 0$, wegen der Nullteilerfreiheit von $R$ also $st \neq 0$ und somit $st \in S$.
+Das zeigt, dass $S$ eine multiplikative Menge ist.
+
+Bevor wir zeigen, dass $\Quot{R}$ ein Körper ist, wollen wir anmerken, dass sich die Gleichheitsregel für Brüche im Falle in der gegebenen Situation vereinfachen:
+Für zwei Brüche $a/s, b/t \in \Quot{R}$ gilt genau dann $a/s = b/t$, wenn es ein $u \in S$ mit
+\[
+    u \cdot (at - bs) = 0
+\]
+gibt.
+Dabei gilt $u \neq 0$ (da $S = R \smallsetminus \{0\}$), weshalb dies nach der Nullteilerfreiheit von $R$ bereits äquivalent dazu ist, dass $at - bs = 0$ gilt.
+Es gilt also
+\[
+    \frac{a}{s}
+  = \frac{b}{t}
+  \iff
+    at = bs \,.
+\]
+Wir können Brüche in $\Quot{R}$ also auf die \enquote{naive} Art und Weise vergleichen.
+
+\begin{remark}
+  Ist allgemeiner $R$ ein Integritätsbereich und $S \subseteq R$ eine multiplikative Teilmenge mit $0 \notin S$, so gilt für $a/s, b/t \in \Quot{R}$ genau dann $a/s = b/t$, wenn $at = bs$ gilt.
+  Dies ergibt sich unverändert aus der obigen Rechnung.
+  Für nicht-triviale (also vom Nullring $0$ verschiedene) Lokalisierungen von Integritätsbereichen gilt also die \enquote{naive} Gleichheitsregel für Brüche.
+\end{remark}
+
+Da $R$ ein Integritätsbereich ist, gilt $0_R \neq 1_R$.
+Deshalb gilt auch $0_{\Quot{R}} \neq 1_{\Quot{R}}$, denn es gilt
+\[
+        \frac{0}{1} = \frac{1}{1}
+  \iff  0 \cdot 1 = 1 \cdot 1
+  \iff  0 = 1 \,.
+\]
+Es sei nun $a/s \in S^{-1} R$ mit $a/s \neq 0$.
+Dann gilt $a \neq 0$, weshalb der Bruch $s/a \in \Quot{R}$ wohldefiniert ist.
+Es gilt
+\[
+    \frac{a}{s} \cdot \frac{s}{a}
+  = \frac{as}{sa}
+  = \frac{1}{1}
+  = 1_{S^{-1} R} \,,
+\]
+was zeigt, dass $a/s$ eine Einheit in $\Quot{R}$ ist.
+
+Zusammen zeigt dies, dass der kommutative Ring $\Quot{R}$ bereits ein Körper ist.
+
+\begin{remark}
+  Nach Bemerkung~\ref{remark: injectivity of the canonical map} lässt sich $R$ durch den Ringhomomorphismus $R \to \Quot{R}$, $r \mapsto r/1$ als einen Unterring von $\Quot{R}$ auffassen.
+  Da jeder Unterring eines Körpers ein Integritätsbereich ist, erhalten wir damit eine Charakterisierung von Integritätsbereichen:
+  \begin{center}
+    \emph{Integritätsbereiche sind genau die Unterringe von Körpern.}
+  \end{center}
+  
+  Dies liefert auch eine mögliche Erklärung, warum der Nullring kein Integritätsbereich ist:
+  Es handelt sich nicht um den Unterring eines Körpers.
+\end{remark}
+
+\begin{remark}
+  Ist allgemeiner $R$ ein kommutativer Ring und $P \ideal R$ ein Primideal, so ist $S_P \coloneqq R \smallsetminus P$ eine multiplikative Teilmenge:
+  Es gilt $1 \notin P$ da $P \neq R$, und somit $1 \in S_P$.
+  Für alle $x, y \in S_P$ gilt $x, y \notin P$, somit auch $xy \notin P$ (da $P$ prim ist), und deshalb $xy \in S_P$.
+  
+  Man bezeichnet den Ring $R_P \coloneqq S_P^{-1} R$ als die \emph{Lokalisierung von $R$ an $P$}.
+  Bei $R_P$ behandelt es sich um einen sogennanten \emph{lokalen Ring}, d.h.\ $R_P$ besitzt genau ein maximales Ideal (nämlich $S_P^{-1} P$).
+  Diese Konstruktion spielt eine wichtige Rolle in der kommutativen Ringe und algebraischen Geometrie.
+  
+  Ist dabei $R$ ein Integritätsbereich, so ist $0 \ideal R$ ein Primideal, und es folgt, dass $S = S_0 = R \smallsetminus \{0\}$ eine multiplikative Teilmenge ist.
+  Zudem ist dann $S_0^{-1} 0 = S^{-1} 0 = 0$ das eindeutige maximale Ideal von $S^{-1} R$.
+  Inbesondere ist das Nullideal in $S^{-1} R$ maximal, und $S^{-1} R$ somit ein Körper.
+\end{remark}
