@@ -171,6 +171,7 @@ Das additiv Inverse Element zu $a/s \in S^{-1} R$ ist $(-a)/s$, denn es gilt
 Ingesamt zeigt dies, dass $S^{-1} R$ mit der gegebenen Addition und Multiplikation einen kommutativen Ring ergibt.
 
 \begin{remark}
+  \label{remark: universal property of localization}
   Ist $R$ ein kommutativer Ring und $S \subseteq R$ eine multiplikative Teilmenge, so ist die Abbildung $f \colon R \to R_S$ ein Ringhomomorphismus.
   (Dies ergibt sich durch direktes Nachrechnen.)
   
@@ -206,6 +207,8 @@ Ingesamt zeigt dies, dass $S^{-1} R$ mit der gegebenen Addition und Multiplikati
     \qquad
     \text{für alle $\frac{a}{s} \in S^{-1} R$} \,.
   \]
+  
+  Man bezeichnet dies als die \emph{universelle Eigenschaft der Lokalisierung}.
 \end{remark}
 
 \begin{remark}
@@ -241,12 +244,13 @@ Für zwei Brüche $a/s, b/t \in \Quot{R}$ gilt genau dann $a/s = b/t$, wenn es e
 gibt.
 Dabei gilt $u \neq 0$ (da $S = R \smallsetminus \{0\}$), weshalb dies nach der Nullteilerfreiheit von $R$ bereits äquivalent dazu ist, dass $at - bs = 0$ gilt.
 Es gilt also
-\[
+\begin{equation}
+  \label{equation: comparing fractions over integral domains}
     \frac{a}{s}
   = \frac{b}{t}
   \iff
     at = bs \,.
-\]
+\end{equation}
 Wir können Brüche in $\Quot{R}$ also auf die \enquote{naive} Art und Weise vergleichen.
 
 \begin{remark}
@@ -277,7 +281,7 @@ Zusammen zeigt dies, dass der kommutative Ring $\Quot{R}$ bereits ein Körper is
 
 \begin{remark}
   Nach Bemerkung~\ref{remark: injectivity of the canonical map} lässt sich $R$ durch den Ringhomomorphismus $R \to \Quot{R}$, $r \mapsto r/1$ als einen Unterring von $\Quot{R}$ auffassen.
-  Da jeder Unterring eines Körpers ein Integritätsbereich ist, erhalten wir damit eine Charakterisierung von Integritätsbereichen:
+  Da jeder Unterring eines Körpers auch ein Integritätsbereich ist, erhalten wir damit eine Charakterisierung von Integritätsbereichen:
   \begin{center}
     \emph{Integritätsbereiche sind genau die Unterringe von Körpern.}
   \end{center}
@@ -299,3 +303,77 @@ Zusammen zeigt dies, dass der kommutative Ring $\Quot{R}$ bereits ein Körper is
   Zudem ist dann $S_0^{-1} 0 = S^{-1} 0 = 0$ das eindeutige maximale Ideal von $S^{-1} R$.
   Inbesondere ist das Nullideal in $S^{-1} R$ maximal, und $S^{-1} R$ somit ein Körper.
 \end{remark}
+
+
+
+
+
+\subsection{}
+
+Die Abbildung $\tilde{\varphi} \colon \Integer \to \Rational$, $n \mapsto n/1$ ist injektiv.
+Für $S \coloneqq \Integer \smallsetminus \{0\}$ gilt deshalb
+\[
+            \tilde{\varphi}(S)
+  =         \tilde{\varphi}(\Integer \smallsetminus \{0\})
+  =         \tilde{\varphi}(\Integer) \smallsetminus \{0\}
+  \subseteq \Rational \smallsetminus \{0\}
+  =         \Rational^\times \,.
+\]
+Nach der universellen Eigenschaft der Lokalsierung (siehe Bemerkung~\ref{remark: universal property of localization}) induziert $\tilde{\varphi}$ einen Ringhomomorphismus
+\[
+          \varphi
+  \colon  \Quot{\Integer}
+  =       S^{-1} \Integer
+  \to     \Rational,
+  \quad   \frac{p}{q}
+  \mapsto \tilde{\varphi}(p) \tilde{\varphi}(q)^{-1}
+  =       p q^{-1}
+  =       \frac{p}{q}.
+\]
+Der Ringhomomorphismus $\varphi$ ist surjektiv.
+Er ist auch injektiv, denn für $p/q \in \Quot{\Integer}$ gilt
+\[
+    \varphi\left( \frac{p}{q} \right) = 0
+  \implies
+    \text{$\frac{p}{q} = 0$ (in $\Rational$)}
+  \implies
+    \text{$p = 0$ (in $\Integer$)}
+  \implies
+    \text{$\frac{p}{q} = 0$ (in $\Quot{\Integer}$)}.
+\]
+Also ist $\varphi$ ein Isomorphismus.
+
+\begin{remark}
+  Sofern die universelle Eigenschaft der Lokalisierung noch nicht zur Verfügung steht, so muss von Hand begründet werden, warum $\varphi$ ein wohldefinierter Ringhomomorphismus ist:
+  \begin{enumerate}
+    \item
+      Für alle $p_1, p_2 \in \Integer$ und $q_1, q_2 \in S$ mit $p_1 / q_1 = p_2 / q_2$ in $\Quot{\Integer}$ gilt $p_1 q_2 = p_2 q_1$ (siehe \eqref{equation: comparing fractions over integral domains}) und somit $p_1 / q_1 = p_2 / q_1$ in $\Rational$.
+      Somit ist $\varphi$ wohldefiniert.
+    \item
+      Dass $\varphi$ ein Ringhomomorphismus ist, ergibt sich durch direktes Nachrechnen.
+  \end{enumerate}
+\end{remark}
+
+\begin{remark}
+  Ist $R$ ein beliebiger Integritätsbereich und $K$ ein Körper, so erhalten wir analog zur obigen Rechnung, dass jeder injektive Ringhomomorphismus $j \colon R \to K$ einen eindeutigen Körperhomomorphismus $\induced{j} \colon \Quot{R} \to K$ induziert, der für die Inklusion $i \colon R \to \Quot{R}$, $r \mapsto r/1$ das folgende Diagramm zum Kommutieren bringt:
+  \[
+    \begin{tikzcd}
+        \Quot{R}
+        \arrow{r}{\induced{j}}
+      & K
+      \\
+        R
+        \arrow{u}{i}
+        \arrow[swap]{ur}{j}
+      & {}
+    \end{tikzcd}
+  \]
+  Man bemerke, dass dabei $\induced{j}$ injektiv ist (da $\Quot{R}$ ein Körper ist, und $K \neq 0$ gilt), also $\Quot{R}$ durch $\overline{j}$ mit einem Unterkörper von $K$ identifiziert wird.
+  Anschaulich bedeutet dies:
+  \begin{center}
+    \emph{Jeder Körper $K$, der $R$ enthält, enthält auch schon $\Quot{R}$.}
+  \end{center}
+  Im Falle von $R = \Integer$ und $K = \Rational$ wird $K$ als Körper bereits von $R$ erzeugt, weshalb $\Quot{R}$ bereits ganz $\Rational$ seien muss.
+\end{remark}
+
+
