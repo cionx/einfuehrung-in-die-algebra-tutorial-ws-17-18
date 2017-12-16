@@ -1,12 +1,14 @@
 \section{}
 
+Für ein Elemente $x \in R$ bezeichnen wir im Folgenden eine Zerlegung $x = \varepsilon p_1 \dotsm p_n$ in eine Einheit $\varepsilon \in R^\times$ und irreduzible Elemente $p_1, \dotsc, p_n \in R$ als eine \emph{Primfaktorzerlegung} von $x$.
+Man beachte, dass a priori nicht gefordert wird, dass die $p_i$ prim sind.
 
 
 
 
 \subsection{}
 
-Wir bemerken zunächst einige (intuitive) Aussagen über Primfaktorzerlegungen in faktoriellen Ringen:
+Wir formulieren zunächst einige (intuitive) Aussagen über Primfaktorzerlegungen in faktoriellen Ringen:
 
 \begin{lemma}
   \label{lemma: extension of prime factorizations}
@@ -26,8 +28,8 @@ Wir bemerken zunächst einige (intuitive) Aussagen über Primfaktorzerlegungen i
   und die Aussage ergibt sich mit $\varepsilon' \coloneqq \varepsilon \delta$.
 \end{proof}
 
-Für $x \in R$, $x \neq 0$ mit Primfaktorzerlegung $x = \varepsilon p_1 \dotsm p_n$ bezeichnen wir mit $\nu(x) \coloneqq n$ die Anzahl der vorkommenden Primfaktoren (inklusive Vielfachheit).
-Die Zahl $\nu(x)$ ist wohldefiniert, da die Primfaktorzerlegung bis Einheiten und Permutation der Faktoren eindeutig ist.
+Für $x \in R$, $x \neq 0$ mit Primfaktorzerlegung $x = \varepsilon p_1 \dotsm p_n$ bezeichnen wir mit $\nu(x) \coloneqq n$ die Anzahl der insgesamt vorkommenden Primfaktoren (inklusive Vielfachheit).
+Die Zahl $\nu(x)$ ist wohldefiniert, da die Primfaktorzerlegung von $x$ bis auf Permutation und Einheiten eindeutig ist.
 
 \begin{lemma}
   \label{lemma: number of prime factors}
@@ -48,10 +50,11 @@ Die Zahl $\nu(x)$ ist wohldefiniert, da die Primfaktorzerlegung bis Einheiten un
   \begin{enumerate}
     \item
       In der Primfaktorzerlegung $x = \varepsilon p_1 \dotsm p_n$ gilt $n = 0$ und somit $x = \varepsilon \in R^\times$.
+      Falls $x$ eine Einheit ist, so ist für die Einheit $\varepsilon \coloneqq x$ die Zerlegung $x = \varepsilon$ bereits eine Primfaktorzerlegung.
     \item
-      Da $R$ ein Integritätsbereich ist, gilt auch $xy \neq 0$.
+      Da $R$ ein Integritätsbereich ist, gilt auch $xy \neq 0$, weshalb $\nu(xy)$ definiert ist.
       Es seien $x = \varepsilon p_1 \dotsm p_n$ und $y = \delta q_1 \dotsm q_m$ Primfaktorzerlegungen.
-      Dann 
+      Dann ist
       \[
           xy
         = (\varepsilon \delta) p_1 \dotsm p_n q_1 \dotsm q_m
@@ -70,10 +73,10 @@ Die Zahl $\nu(x)$ ist wohldefiniert, da die Primfaktorzerlegung bis Einheiten un
             \nu(y)
        =    \nu(xz)
        =    \nu(x) + \nu(z)
-       \leq \nu(x) \,.
+       \geq \nu(x) \,.
      \]
     \item
-      Ansonsten gilt in der obigen Situation $\nu(z) = 0$, weshalb $z$ dann eine Einheit ist.
+      In der obigen Situation gilt andernfalls $\nu(z) = 0$, weshalb $z$ dann eine Einheit ist.
       Deshalb gilt dann
       \[
           (y)
@@ -91,7 +94,7 @@ Die Zahl $\nu(x)$ ist wohldefiniert, da die Primfaktorzerlegung bis Einheiten un
 Es sei $p \in R$ irreduzibel, und es seien $x, y \in R$ mit $p \divides xy$.
 Gilt $x = 0$ oder $y = 0$, so gilt $p \divides x$ oder $p \divides y$.
 
-Ansonsten gibt es Primfaktorzerlegungen $x = \delta q_1 \dotsm q_n$ und $y = \delta' q'_1 \dotsm q'_m$ Primfaktorzerlegungen.
+Andernfalls gibt es Primfaktorzerlegungen $x = \delta q_1 \dotsm q_n$ und $y = \delta' q'_1 \dotsm q'_m$.
 Dann ist
 \begin{equation}
   \label{equation: first factorization}
@@ -114,7 +117,7 @@ Es gilt deshalb $p \divides q_i$ oder $p \divides q'_i$ für passendes $i$, und 
 \subsubsection{}
 
 Wir nehmen an, dass nicht jede aufsteigende Kette von Hauptidealen stabilisieren würde.
-Dann gibt es eine unendliche echt aufsteigende Kette von Hauptidealen
+Dann gibt es eine unendliche, echt aufsteigende Kette von Hauptidealen
 \[
               (a_0)
   \subsetneq  (a_1)
@@ -123,7 +126,7 @@ Dann gibt es eine unendliche echt aufsteigende Kette von Hauptidealen
   \subsetneq  (a_4)
   \subsetneq  \dotsb
 \]
-Dann gilt $a_i \neq 0$ für alle $i \geq 1$ (denn sonst wäre $(a_i) = 0$ für ein solches $i$, und damit bereits $(a_i) = \dotsb = (a_0) = 0$), und für jedes $i \geq 1$ ist $a_{i+1}$ ein echter Teiler von $a_i$.
+Dann gilt $a_i \neq 0$ für alle $i \geq 1$ (denn sonst wäre $(a_i) = 0$ für ein solches $i$, und dann würde $(a_i) = \dotsb = (a_0) = 0$ gelten).
 Nach Lemma~\ref{lemma: number of prime factors} erhalten wir eine unendliche absteigende Kette
 \[
     \nu(a_1)
@@ -140,12 +143,11 @@ Dies ist aber nicht möglich.
 
 \subsection{}
 
-Wir müssen zeigen, dass es für jedes Element $x \in R$ mit $x \neq 0$ eine Zerlegung
+Wir müssen zeigen, dass es für jedes Element $x \in R$ mit $x \neq 0$ eine Primfaktorzerlegung
 \[
   x = \varepsilon p_1 \dotsm p_n
 \]
-in eine Einheit $\varepsilon \in R^\times$ und irreduzible Elemente $p_1, \dotsc, p_n \in R$ gibt,
-und dass eine solche Zerlegung eindeutig bis auf Einheiten und Permutation ist.
+gibt, und dass diese eindeutig bis auf Einheiten und Permutation ist.
 
 \subsubsection*{Existenz}
 
@@ -162,17 +164,17 @@ und dass eine solche Zerlegung eindeutig bis auf Einheiten und Permutation ist.
   Dann wäre $z$ eine Einheit mit $z^{-1} = z'$, im Widerspruch zu $z \notin R^\times$.
 \end{proof}
 
-Wir nehmen an, dass es ein Element $x \in R$ mit $x \neq 0$ gibt, dass keine entsprechende Zerlegung besitzt.
+Wir nehmen an, dass es ein Element $x \in R$ mit $x \neq 0$ gibt, dass keine Primfaktorzerlegung besitzt.
 Dann ist $x$ inbesondere keine Einheit und auch nicht irreduzibel.
-Es gibt deshalb nicht-Einheiten $y_1, y_2 \in R$ mit $x = y_1 y_2$;
-dabei gelten $y, z \neq 0$ da $x \neq 0$.
-Würden $x$ und $z$ entsprechende Zerlegungen besitzten, so würden sich diese zu einer Zerlegung von $x$ kombinieren lassen.
-Also hat $x$ oder $y$ keine entsprechende Zerlegung;
-wir können o.B.d.A. davon ausgehen, dass $y$ keine Zerlegung hat.
+Es gibt deshalb nicht-Einheiten $y, z \in R$ mit $x = y z$;
+dabei gelten $y, z \neq 0$ da $x \neq 0$ gilt.
+Würden $x$ und $z$ beide eine Primfaktorzerlegung besitzten, so würden sich diese zu einer Primfaktorzerlegung von $x$ kombinieren lassen.
+Also hat $x$ oder $y$ keine Primfaktorzerlegung;
+wir können o.B.d.A. davon ausgehen, dass $y$ keine hat.
 Da $z$ keine Einheit ist, gilt $(x) \subsetneq (y)$ nach Lemma~\ref{lemma: proper divisors give bigger ideals}.
 
 Wir setzen $a_0 \coloneqq x$ und $a_1 \coloneqq y$.
-Durch Induktion erhalten wir eine unendliche aufsteigende Kette von Hauptidealen
+Durch induktives Wiederholen der obigen Argumentation erhalten wir eine unendliche aufsteigende Kette von Hauptidealen
 \[
               (a_0)
   \subsetneq  (a_1)
@@ -180,34 +182,19 @@ Durch Induktion erhalten wir eine unendliche aufsteigende Kette von Hauptidealen
   \subsetneq  (a_3)
   \subsetneq  \dotsb
 \]
-Im Widerspruch zur Annahme (ii).
-
-\begin{remark}
-  Ein kommutativer Ring $R$ heißt \emph{noethersch}, wenn jede aufsteigende Kette
-  \[
-            I_0
-    \ideal  I_1
-    \ideal  I_2
-    \ideal  I_3
-    \ideal \dotsb
-  \]
-  von Idealen $I_j \ideal R$ stabilisiert.
-  Wir haben soeben insbesondere gezeigt, dass in einem notherschen Ring $R$ jedes Element $x \in R$ eine Zerlegung $x = \varepsilon p_1 \dotsm p_n$ in eine Einheit $\varepsilon \in R^\times$ und irreduzible Elemente $p_1, \dotsc, p_n \in R$ besitzt.
-\end{remark}
-
+Dies steht im Widerspruch zur Annahme (ii).
 
 
 
 \subsubsection*{Eindeutigkeit}
 
-Es seien
+Für zwei Primfaktorzerlegungen
 \[
     x
   = \varepsilon p_1 \dotsm p_n
   = \delta q_1 \dotsm q_m
 \]
-Zerlegungen in Einheiten $\varepsilon, \delta \in R^\times$ und irreduzible Elemente $p_i, q_j \in R$.
-Wir zeigen die gewünschte Eindeutigkeit per Induktion über $n$:
+zeigen wir die gewünschte Eindeutigkeit per Induktion über $n$:
 
 Gilt $n = 0$, so ist $x = \varepsilon \in R^\times$ eine Einheit.
 Dann gilt $q_j \divides x \divides 1$ für alle $j$, weshalb jedes $q_j$ eine Einheit ist.
@@ -216,14 +203,20 @@ Dann ist also $x = \varepsilon = \delta$, und die beiden Zerlegungen stimmen üb
 
 Es sei nun $n > 0$.
 Nach Annahme (i) ist $p_1$ prim.
-Aus $p_1 \divides x = \delta q_1 \dotsm q_m$ folgt damit, dass $p_1 \divides \delta$, oder dass $p_1 \divides q_j$ für ein $j$.
-Wäre $p_1 \divides \delta$, so wäre $p_1$ eine Einheit, im Widerspruch zur Irreduziblität von $p_1$.
+Aus
+\[
+            p_1
+  \divides  x
+  =         \delta q_1 \dotsm q_m
+\]
+folgt damit, dass $p_1 \divides \delta$ gilt, oder dass $p_1 \divides q_j$ für ein $j$ gilt.
+Würde $p_1 \divides \delta$ gelten, so wäre $p_1$ eine Einheit, im Widerspruch zur Irreduziblität von $p_1$.
 Also gilt $p_1 \divides q_j$ für ein $j$;
-wir können o.B.d.A.\ davon ausgehen, dass $p_1 \divides q_1$.
+wir können o.B.d.A.\ davon ausgehen, dass $p_1 \divides q_1$ gilt.
 Es gibt also $\delta' \in R$ mit $q_1 = p_1 \delta'$.
-Da $q_1$ irreduzibel ist folgt dabei, dass bereits $p_1$ oder $\delta'$ eine Einheit ist;
+Da $q_1$ irreduzibel ist, folgt dabei, dass bereits $p_1$ oder $\delta'$ eine Einheit ist;
 $p_1$ ist wegen Irreduziblität keine Einheit, so dass $\delta'$ eine Einheit ist.
-Also sind $p_1$ und $q_1$ gleich bis auf die Einheit $\delta'$.
+Also sind $p_1$ und $q_1$ bis auf die Einheit $\delta'$ gleich.
 
 Es gilt nun
 \begin{equation}
@@ -231,7 +224,7 @@ Es gilt nun
     x
   = \varepsilon p_1 \dotsm p_n
   = \delta q_1 \dotsm q_m
-  = \delta \delta' p_1 q_2 \dotsm q_m.
+  = \delta \delta' p_1 q_2 \dotsm q_m \,.
 \end{equation}
 Da $R$ ein Integritätsbereich ist, können wir die obige Gleichung durch $p_1 \neq 0$ teilen, und erhalten, dass bereits
 \begin{equation}
@@ -239,8 +232,23 @@ Da $R$ ein Integritätsbereich ist, können wir die obige Gleichung durch $p_1 \
     \varepsilon p_2 \dotsm p_n
   = (\delta \delta') q_2 \dotsm m
 \end{equation}
-Nach Induktionsvoraussetzung sind beide Seiten von \eqref{equation: induction} gleich bis auf Permutation und Einheiten.
-Da $p_1$ und $q_1$ auch gleich bis auf Einheit sind, sind in \eqref{equation: before induction} bereits beide Zerlegungen bis auf Permutation und Einheiten gleich.
+gilt.
+Nach Induktionsvoraussetzung sind beide Seiten von \eqref{equation: induction} bis auf Einheiten und Permutation gleich.
+Damit sind in \eqref{equation: before induction} bereits beide Zerlegungen bis auf Einheiten und Permutation gleich, da auch $p_1$ und $q_1$ bis auf Einheit gleich ist.
+
+% \begin{remark}
+%   Ein kommutativer Ring $R$ heißt \emph{noethersch}, wenn jede aufsteigende Kette
+%   \[
+%             I_0
+%     \ideal  I_1
+%     \ideal  I_2
+%     \ideal  I_3
+%     \ideal \dotsb
+%   \]
+%   von Idealen $I_j \ideal R$ stabilisiert.
+%   Wir haben soeben insbesondere gezeigt, dass in einem noetherschen Ring $R$ jedes Element $x \in R$ eine Primfaktorzerlegung besitzt.
+%   Diese erfüllt im Allgemeinen allerdings
+% \end{remark}
 
 
 
