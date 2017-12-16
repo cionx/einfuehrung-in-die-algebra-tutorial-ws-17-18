@@ -1,1 +1,143 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+Wir bemerken zunächst einige (intuitive) Aussagen über Primfaktorzerlegungen in faktoriellen Ringen:
+
+\begin{lemma}
+  \label{lemma: extension of prime factorizations}
+  Es seien $x, y \in R$ mit $x, y \neq 0$, so dass $x$ ein Teiler von $y$ ist.
+  Dann lässt sich jede Primfaktorzerlegung $x = \varepsilon p_1 \dotsm p_n$ von $x$ zu einer Primfaktorzerlegung $y = \varepsilon' p_1 \dotsm p_n p_{n+1} \dotsm p_m$ von $y$ ergänzen.
+\end{lemma}
+
+\begin{proof}
+  Es gibt $z \in R$ mit $xz = y$, und es gilt $z \neq 0$, da $y \neq 0$ gilt.
+  Also besitzt $z$ eine Primfaktorzerlegung $z = \delta p_{n+1} \dotsm p_m$.
+  Dann gilt
+  \[
+      y
+    = xz
+    = \varepsilon \delta p_1 \dotsm p_n p_{n+1} \dotsm p_m \,,
+  \]
+  und die Aussage ergibt sich mit $\varepsilon' \coloneqq \varepsilon \delta$.
+\end{proof}
+
+Für $x \in R$, $x \neq 0$ mit Primfaktorzerlegung $x = \varepsilon p_1 \dotsm p_n$ bezeichnen wir mit $\nu(x) \coloneqq n$ die Anzahl der vorkommenden Primfaktoren (inklusive Vielfachheit).
+Die Zahl $\nu(x)$ ist wohldefiniert, da die Primfaktorzerlegung bis Einheiten und Permutation der Faktoren eindeutig ist.
+
+\begin{lemma}
+  \label{lemma: number of prime factors}
+  Es seien $x, y \in R$ mit $x, y \neq 0$.
+  \begin{enumerate}
+    \item
+      Es gilt genau dann $\nu(x) = 0$, wenn $x$ eine Einheit ist.
+    \item
+      Es gilt $\nu(x y) = \nu(x) + \nu(y)$.
+    \item
+      Ist $x$ ein Teiler von $y$, so gilt $\nu(x) \leq \nu(y)$.
+    \item
+      Ist $x$ ein echter Teiler von $y$, also $(y) \subsetneq (x)$, so gilt $\nu(x) < \nu(y)$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}\leavevmode
+  \begin{enumerate}
+    \item
+      In der Primfaktorzerlegung $x = \varepsilon p_1 \dotsm p_n$ gilt $n = 0$ und somit $x = \varepsilon \in R^\times$.
+    \item
+      Da $R$ ein Integritätsbereich ist, gilt auch $xy \neq 0$.
+      Es seien $x = \varepsilon p_1 \dotsm p_n$ und $y = \delta q_1 \dotsm q_m$ Primfaktorzerlegungen.
+      Dann 
+      \[
+          xy
+        = (\varepsilon \delta) p_1 \dotsm p_n q_1 \dotsm q_m
+      \]
+      eine Primfaktorzerlegung von $xy$ und somit
+      \[
+          \nu(xy)
+        = n + m
+        = \nu(x) + \nu(y) \,.
+      \]
+    \item
+     Es gibt $z \in R$ mit $y = xz$.
+     Es gilt $z \neq 0$, da $y \neq 0$ gilt, weshalb $\nu(z)$ definiert ist.
+     Somit gilt
+     \[
+            \nu(y)
+       =    \nu(xz)
+       =    \nu(x) + \nu(z)
+       \leq \nu(x) \,.
+     \]
+    \item
+      Ansonsten gilt in der obigen Situation $\nu(z) = 0$, weshalb $z$ dann eine Einheit ist.
+      Deshalb gilt dann
+      \[
+          (y)
+        = (xz)
+        = (x) \,.
+        \qedhere
+      \]
+  \end{enumerate}
+\end{proof}
+
+
+
+\subsubsection{}
+
+Es sei $p \in R$ irreduzibel, und es seien $x, y \in R$ mit $p \divides xy$.
+Gilt $x = 0$ oder $y = 0$, so gilt $p \divides x$ oder $p \divides y$.
+
+Ansonsten gibt es Primfaktorzerlegungen $x = \delta q_1 \dotsm q_n$ und $y = \delta' q'_1 \dotsm q'_m$ Primfaktorzerlegungen.
+Dann ist
+\begin{equation}
+  \label{equation: first factorization}
+    xy
+  = (\delta \delta') q_1 \dotsm q_n q'_1 \dotsm q'_m
+\end{equation}
+eine Primfaktorzerlegung von $xy$.
+Da $p$ irreduzibel ist und $p \divides xy$ gilt, lässt sich $p$ nach Lemma~\ref{lemma: extension of prime factorizations} zu einer Primfaktorzerlegung
+\begin{equation}
+  \label{equation: second factorization}
+    xy
+  = \varepsilon p p_2 \dotsm p_r
+\end{equation}
+ergänzen.
+Da $R$ faktoriell ist, sind die beiden Primfaktorzerlegungen \eqref{equation: first factorization} und \eqref{equation: second factorization} eindeutig bis auf Einheiten und Permutation.
+Es gilt deshalb $p \divides q_i$ oder $p \divides q'_i$ für passendes $i$, und somit $p \divides x$ oder $p \divides y$.
+
+
+
+\subsubsection{}
+
+Wir nehmen an, dass nicht jede aufsteigende Kette von Hauptidealen stabilisieren würde.
+Dann gibt es eine unendliche echt aufsteigende Kette von Hauptidealen
+\[
+              (a_0)
+  \subsetneq  (a_1)
+  \subsetneq  (a_2)
+  \subsetneq  (a_3)
+  \subsetneq  (a_4)
+  \subsetneq  \dotsb
+\]
+Dann gilt $a_i \neq 0$ für alle $i \geq 1$ (denn sonst wäre $(a_i) = 0$ für ein solches $i$, und damit bereits $(a_i) = \dotsb = (a_0) = 0$), und für jedes $i \geq 1$ ist $a_{i+1}$ ein echter Teiler von $a_i$.
+Nach Lemma~\ref{lemma: number of prime factors} erhalten wir eine unendliche absteigende Kette
+\[
+    \nu(a_1)
+  > \nu(a_2)
+  > \nu(a_3)
+  > \nu(a_4)
+  > \dotsb
+\]
+Dies ist aber nicht möglich.
+
+
+
+
+
+
+
+
