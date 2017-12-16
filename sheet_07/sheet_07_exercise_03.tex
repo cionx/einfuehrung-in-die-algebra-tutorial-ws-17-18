@@ -7,7 +7,7 @@ Für alle $n \geq 1$ schreiben im Folgenden
               \zeta \in W_n
             \suchthat
               \text{$\zeta$ ist eine primitive $n$-te Einheitswurzel}
-            \}\,.
+            \} \,.
 \]
 
 
@@ -19,22 +19,23 @@ Für alle $n \geq 1$ schreiben im Folgenden
 Für jedes $n \geq 1$ gilt
 \begin{align*}
     W_n
-  &=  \{
+  &=  \left\{
         e^{2 \pi i  k / n}
-      \suchthat
+      \suchthat*
         k = 0, \dotsc, n-1
-      \}
-  &=  \{
+      \right\}
+  \\
+  &=  \left\{
         \cos(2 \pi k / n) + i \sin(2 \pi k /n )
-      \suchthat
+      \suchthat*
         k = 0, \dotsc, n-1
-      \}
+      \right\} \,.
 \end{align*}
 Aus $\cos(2 \pi /3) = \cos(4 \pi / 3)  = -1/2$ und $\sin(2 \pi / 3) = \sqrt{3}/2$, $\sin(4 \pi /3) = -\sqrt{3}/2$ folgen damit, dass
 \begin{align*}
-  W_2 &= \{ 1, -1 \}\,, \\
-  W_3 &= \left\{ 1, -\frac{1}{2} + i \frac{\sqrt{3}}{2}, -\frac{1}{2} - i \frac{\sqrt{3}}{2} \right\}\,, \\
-  W_4 &= \{ 1, i, -1, -i \}\,.
+  W_2 &= \{ 1, -1 \} \,, \\
+  W_3 &= \left\{ 1, -\frac{1}{2} + i \frac{\sqrt{3}}{2}, -\frac{1}{2} - i \frac{\sqrt{3}}{2} \right\} \,, \\
+  W_4 &= \{ 1, i, -1, -i \} \,.
 \end{align*}
 
 
@@ -45,50 +46,49 @@ Aus $\cos(2 \pi /3) = \cos(4 \pi / 3)  = -1/2$ und $\sin(2 \pi / 3) = \sqrt{3}/2
 
 Für alle $n \geq 1$ ist die Abbildung
 \[
-          \varphi_n
+          f_n
   \colon  \Integer
-  \to     \Complex^\times\,,
+  \to     \Complex^\times \,,
   \quad   k
   \mapsto e^{2 \pi i k / n}
 \]
-ist ein Gruppenhomomorphismus mit $\im \varphi_n = W_n$ und $\ker \varphi = n \Integer$.
-Somit ist $W_n$ eine Untergruppe von $\Complex^\times$, und $\varphi_n$ induziert nach der universellen Eigenschaft des Quotienten einen Gruppenisomorphismus
+ein Gruppenhomomorphismus mit $\im f_n = W_n$ und $\ker f_n = n \Integer$.
+Somit ist $W_n$ eine Untergruppe von $\Complex^\times$, und $f_n$ induziert nach dem ersten Isomorphiesatz einen Gruppenisomorphismus
 \[
           \Integer/n
   \to     W_n,
   \quad   \class{k}
-  \mapsto \varphi_n(k)
-  =       e^{2 \pi i k / n}.
+  \mapsto f_n(k)
+  =       e^{2 \pi i k / n} \,.
 \]
-
 Die Abbildung
 \[
-          \varphi_\infty
+          f_\infty
   \colon  \Rational
-  \to     \Complex^\times\,,
+  \to     \Complex^\times \,,
   \quad   \frac{p}{q}
-  \mapsto e^{2 \pi i p /q}\,,
+  \mapsto e^{2 \pi i p /q}
 \]
-ist ein Gruppenhomomorphismus mit $\im \varphi_\infty = \bigcup_{n \geq 1} W_n \eqqcolon W_\infty$ und $\ker \Integer$.
-Somit ist $W_\infty$ eine Untergruppe von $\Complex^\times$, und $\varphi_\infty$ induziert nach der universellen Eigenschaft des Quotienten einen Gruppenisomorphismus
+ist ein Gruppenhomomorphismus mit $\im f_\infty = \bigcup_{n \geq 1} W_n \eqqcolon W_\infty$ und $\ker f_\infty = \Integer$.
+Somit ist $W_\infty$ eine Untergruppe von $\Complex^\times$, und $f_\infty$ induziert nach dem ersten Isomorphiesatz einen Gruppenisomorphismus
 \[
           \Rational/\Integer
-  \to     W_\infty\,,
-  \quad   \class{ \frac{p}{q} }
-  \mapsto \varphi_\infty\left( \frac{p}{q} \right)
-  =       e^{2 \pi i p /q}\,.
+  \to     W_\infty \,,
+  \quad   \class{ \left( \frac{p}{q} \right) }
+  \mapsto f_\infty\left( \frac{p}{q} \right)
+  =       e^{2 \pi i p /q} \,.
 \]
 
 \begin{remark}
   Wir werden sehen, dass für einen beliebigen Körper $K$ die Gruppe der Einheitswurzeln
   \[
               W_n(K)
-    \coloneqq \{x \in K \suchthat x^n = 1\}
+    \coloneqq \{ x \in K \suchthat x^n = 1 \}
   \]
-  zyklisch ist;
-  dies wird daraus folgen, dass jede endliche Untergruppe $H \subgroup K^\times$ zylisch ist.
-  Gilt $\ringchar{K} = 0$, so hat die Gruppe $W_n(K)$ Ordnung $n$;
-  gilt hingegen $\ringchar{K} = p > 0$, und ist $n = p^r m$ mit $p \ndivides m$, so hat die Gruppe $W_n(K)$ Ordnung $m$.
+  zyklisch ist.
+  Dies wird daraus folgen, dass jede endliche Untergruppe $H \subgroup K^\times$ zylisch ist.
+  Gilt $\ringchar{K} = 0$, so hat die Gruppe $W_n(K)$ Ordnung $n$.
+  Gilt hingegen $\ringchar{K} = p > 0$, und ist $n = p^r m$ mit $p \ndivides m$, so hat die Gruppe $W_n(K)$ Ordnung $m$.
 \end{remark}
 
 
@@ -104,7 +104,7 @@ Entscheidend ist die folgende Beobachtung:
   Für alle $n \geq 1$ gilt
   \[
       t^n - 1
-    = \prod_{d \divides n} \Phi_d(t)\,.
+    = \prod_{d \divides n} \Phi_d(t) \,.
   \]
 \end{lemma}
 
@@ -124,21 +124,24 @@ Entscheidend ist die folgende Beobachtung:
               d
     =         \ord{\zeta}
     \divides  \ord{W_n}
-    =         n\,.
+    =         n \,.
   \]
   Damit erhalten wir ingesamt, dass
   \[
       W_n
     = \coprod_{d \divides n} \{ \zeta \in W_n \suchthat \ord{\zeta} = d \}
-    = \coprod_{d \divides n} \mu_n\,.
+    = \coprod_{d \divides n} \mu_n
   \]
+  gilt.
   (Hier steht $\coprod$ für die disjunkte Vereinigung.)
+  Es folgt, dass
   \[
       t^n - 1
     = \prod_{\zeta \in W_n} (t - \zeta)
     = \prod_{d \divides n} \prod_{\zeta \in \mu_d} (t - \zeta)
-    = \prod_{d \divides n} \Phi_d(t)\,.
+    = \prod_{d \divides n} \Phi_d(t)
   \]
+  gilt.
   Das zeigt die Gleichheit.
 \end{proof}
 
@@ -150,35 +153,35 @@ Entscheidend ist die folgende Beobachtung:
     &=  \coprod_{\substack{H \subgroup G \\ \text{zyklisch}}} \{\text{$h \in H$ ist ein Erzeuger von $H$}\}
   \end{align*}
   gilt.
-  Dies ist nur eine Umformulierung der Tatsache, dass jedes Element $g \in G$ eine eindeutige (zyklische) Untergruppe $\generated{g} \subgroup G$ erzeugt.
+  Dies ist nur eine Umformulierung der Tatsache, dass jedes Element $g \in G$ eine eindeutige (zyklische) Untergruppe von $G$ erzeugt (nämlich $\generated{g}$).
 \end{remark}
 
 \begin{remark}
-  Aus Lemma~\ref{lemma: decomposition into cyclotomic polynomials} folgt insbesondere, dass für jede natürliche Zahl $n \geq 1$ die Gleichheit
+  Aus Lemma~\ref{lemma: decomposition into cyclotomic polynomials} folgt für jede natürliche Zahl $n \geq 1$ die Identität
   \[
       n
     = \deg(t^n - 1)
     = \sum_{d \divides n} \deg \Phi_d(t)
-    = \sum_{d \divides n} \varphi(t),
+    = \sum_{d \divides n} \varphi(d) \,,
   \]
-  gilt, wobei $\varphi$ die Eulersche Phi-Funktion bezeichnet.
+  wobei $\varphi$ die Eulersche Phi-Funktion bezeichnet.
 \end{remark}
 
-Aus der Vorlesung ist bereits bekannt, dass
+Aus der Vorlesung ist bereits bekannt, dass für jede Primzahle $p$ das Kreisteilungspolynom $\Phi_p(t)$ durch
 \[
     \Phi_p(t)
   = t^{p-1} + t^{p-2} + \dotsb + t + 1
   = \frac{t^p - 1}{t-1}
 \]
-für jede Primzahl $p$.
-Aus Lemma~\ref{lemma: decomposition into cyclotomic polynomials} ergibt sich eine Verallgemeinerung dieser Gleichheit:
+gegeben ist.
+Aus Lemma~\ref{lemma: decomposition into cyclotomic polynomials} ergibt sich eine Verallgemeinerung dieser Formel:
 
 \begin{corollary}
   \label{corollary: inductive calculation of cyclotomic polynomials}
   Für alle $n \geq 1$ gilt
   \[
       \Phi_n(t)
-    = \frac{t^n - 1}{\prod_{d \divides n, d \neq n} \Phi_d(t)}\,.
+    = \frac{t^n - 1}{\prod_{d \divides n, d \neq n} \Phi_d(t)} \,.
   \]
 \end{corollary}
 
@@ -186,42 +189,43 @@ Mithilfe von Korollar~\ref{corollary: inductive calculation of cyclotomic polyno
 Für $n = 1, \dotsc, 8$ erhalten wir die folgenden Ergebnisse:
 \begin{align*}
       \Phi_1(t)
-  &=  t-1\,,
+  &=  t-1 \,,
   \\
       \Phi_2(t)
-  &=  t+1\,,
+  &=  t+1 \,,
   \\
       \Phi_3(t)
-  &=  t^2 + t + 1\,,
+  &=  t^2 + t + 1 \,,
   \\
       \Phi_4(t)
   &=  \frac{t^4 - 1}{\Phi_1(t) \Phi_2(t)}
    =  \frac{t^4 - 1}{(t-1)(t+1)}
    =  \frac{t^4 - 1}{t^2 - 1}
-   =  t^2 + 1\,,
+   =  t^2 + 1 \,,
   \\
       \Phi_5(t)
-  &=  t^4 + t^3 + t^2 + t + 1\,,
+  &=  t^4 + t^3 + t^2 + t + 1 \,,
   \\
       \Phi_6(t)
   &=  \frac{t^6 - 1}{\Phi_1(t) \Phi_2(t) \Phi_3(t)}
    =  \frac{t^6 - 1}{(t-1)(t+1)(t^2 + t + 1)}
    =  \frac{t^6 - 1}{t^4 + t^3 - t - 1}
-   =  t^2 - t + 1\,,
+   =  t^2 - t + 1 \,,
   \\
       \Phi_7(t)
-  &=  t^6 + t^5 + t^4 + t^3 + t^2 + t + 1\,,
+  &=  t^6 + t^5 + t^4 + t^3 + t^2 + t + 1 \,,
   \\
       \Phi_8(t)
   &=  \frac{t^8 - 1}{\Phi_1(t) \Phi_2(t) \Phi_4(t)}
    =  \frac{t^8 - 1}{(t-1)(t+1)(t^2 + 1)}
    =  \frac{t^8 - 1}{t^4 - 1}
-   =  t^4 +1\,.
+   =  t^4 +1 \,.
 \end{align*}
 
 \begin{remark}
   Es fällt auf, dass alle bisher bekannten Kreisteilungspolynome (also $\Phi_p(t)$ mit $p$ prim, und $\Phi_n(t)$ für $n = 1, \dotsc, 8$) jeweils nur $1, 0, -1$ als Koeffizienten haben.
-  Dieses Muster setzt sich bis $\Phi_{104}(t)$ vor; das Kreisteilungspolynome $\Phi_{105}(t)$ hat schließlich den Koeffizienten $-2$.
+  Dieses Muster setzt sich bis $\Phi_{104}(t)$ vor.
+  Das Kreisteilungspolynome $\Phi_{105}(t)$ hingegen hat den Koeffizienten $-2$.
 \end{remark}
 
 
@@ -234,7 +238,7 @@ Wir geben zwei mögliche Beweise.
 
 
 
-\subsubsection*{Durch primitive Einheitswurzeln}
+\subsubsection*{Möglichkeit 1: Durch primitive Einheitswurzeln}
 
 Entscheidend ist die Beobachtung, dass für alle $\zeta \in \Complex$ die Äquivalenz
 \[
@@ -242,7 +246,7 @@ Entscheidend ist die Beobachtung, dass für alle $\zeta \in \Complex$ die Äquiv
   \iff  \zeta^p \in W_n
 \]
 gilt.
-Die Bedingung $p \divides n$ sorgt dafür, dass sich dies auf die primitiven Einheitswurzeln einschränkt:
+Die Bedingung $p \divides n$ sorgt dafür, dass sich diese Äquivalenz auf die primitiven Einheitswurzeln einschränkt:
 
 \begin{claim}
   Eine Einheitswurzel $\zeta \in W_{np}$ ist genau dann primitiv, wenn $\zeta^p \in W_n$ primitiv ist.
@@ -258,7 +262,7 @@ Die Bedingung $p \divides n$ sorgt dafür, dass sich dies auf die primitiven Ein
         = \frac{ \kgV(\ord{\zeta}, p) }{p}
         = \frac{ \kgV(np, p) }{p}
         = \frac{ np }{ p }
-        = n\,.
+        = n \,.
       \]
       Also ist auch $\zeta^p \in W_n$ primitiv.
       
@@ -277,13 +281,13 @@ Die Bedingung $p \divides n$ sorgt dafür, dass sich dies auf die primitiven Ein
       \begin{gather*}
                 \varphi
         \colon  \Integer/(np)
-        \to     W_{np}\,,
+        \to     W_{np} \,,
         \quad   \class{k}
         \mapsto e^{2 \pi i k / (np)}
       \shortintertext{und}
                 \psi
         \colon  \Integer/n
-        \to     W_{n}\,,
+        \to     W_{n} \,,
         \quad   \class{k}
         \mapsto e^{2 \pi i k / n}
       \end{gather*}
@@ -291,13 +295,13 @@ Die Bedingung $p \divides n$ sorgt dafür, dass sich dies auf die primitiven Ein
       \begin{gather*}
                 f
         \colon  W_{np}
-        \to     W_n\,,
+        \to     W_n \,,
         \quad   \zeta
         \mapsto \zeta^p
       \shortintertext{und}
                 g
         \colon  \Integer/(np)
-        \to     \Integer/n\,,
+        \to     \Integer/n \,,
         \quad   \class{k}
         \mapsto \class{k}
       \end{gather*}
@@ -318,12 +322,12 @@ Die Bedingung $p \divides n$ sorgt dafür, dass sich dies auf die primitiven Ein
       Somit erhalten wir, dass
       \begin{align*}
             &\, (\text{$\zeta \in W_{np}$ ist primitiv} \iff \text{$\zeta^p \in W_n$ ist primitiv} )  \\
-        \iff&\, (\text{$\zeta \in W_{np}$ ist zyklischer Erzeuger} \iff \text{$\zeta^p \in W_n$ 
-        ist zyklischer Erzeuger}) \\
-        \iff&\, (\text{$\class{k} \in \Integer/(np)$ ist zyklischer Erzeuger} \iff \text{$\class{k} \in \Integer/n$ ist zkylischer Erzeuger}) \\
+        \iff&\, (\text{$\zeta \in W_{np}$ ist ein zykl.\ Erzeuger} \iff \text{$\zeta^p \in W_n$ 
+        ist ein zykl.\ Erzeuger}) \\
+        \iff&\, (\text{$\class{k} \in \Integer/(np)$ ist ein zykl.\ Erzeuger} \iff \text{$\class{k} \in \Integer/n$ ist ein zkyl.\ Erzeuger}) \\
         \iff&\, (\text{$k$ und $np$ sind teilerfremd} \iff \text{$k$ und $n$ sind teilerfremd})\,.
       \end{align*}
-      Da $p \divides n$ gilt, haben $n$ und $np$ die gleichen Primfaktoren, weshalb $k$ und $np$ genau dann teilerfremd sind, wenn $k$ und $n$ es sind.
+      Da $p \divides n$ gilt, haben $n$ und $np$ die gleichen Primfaktoren, weshalb $k$ und $np$ genau dann teilerfremd sind, wenn $k$ und $n$ teilerfremd sind.
     \qedhere
   \end{itemize}
 \end{proof}
@@ -332,7 +336,7 @@ Für den Gruppenhomomorphismus
 \[
           f
   \colon  W_{np}
-  \to     W_n\,,
+  \to     W_n \,,
   \quad   \zeta
   \mapsto \zeta^p
 \]
@@ -341,7 +345,7 @@ Aus der obigen Behauptung folgt, dass sich $f$ zu einer Abbildung
 \[
           \tilde{f}
   \colon  \mu_{np}
-  \to     \mu_n\,,
+  \to     \mu_n \,,
   \quad   \zeta
   \mapsto f(\zeta)
   =       \zeta^p
@@ -359,24 +363,24 @@ Somit gilt, dass
   \label{equation: first decomposition}
     \Phi_{np}(t)
   = \prod_{\zeta \in \mu_{np}} (t - \zeta)
-  = \prod_{\xi \in \mu_n} \prod_{\substack{\zeta \in \mu_{np} \\ \zeta^p = \xi}} (t - \zeta)\,.
+  = \prod_{\xi \in \mu_n} \prod_{\substack{\zeta \in \mu_{np} \\ \zeta^p = \xi}} (t - \zeta) \,.
 \end{equation}
 Dabei besteht $\preim{\tilde{f}}{\xi} = \{ \zeta \in \mu_{np} \suchthat \zeta^p = \xi \}$ aus Nullstellen des Polynoms $t^p - \xi$;
 da es sich zum $p$ Nullstellen handelt, gilt bereits
 \[
     t^p - \xi
-  = \prod_{\substack{\zeta \in \mu_{np} \\ \zeta^p = \xi}} (t - \zeta)\,.
+  = \prod_{\substack{\zeta \in \mu_{np} \\ \zeta^p = \xi}} (t - \zeta) \,.
 \]
 Damit erhalten wir aus \eqref{equation: first decomposition}, dass
 \[
     \Phi_{np}(t)
   = \prod_{\xi \in \mu_n} (t^p - \xi)
-  = \Phi_n(t^p)\,.
+  = \Phi_n(t^p) \,.
 \]
 
 
 
-\subsubsection*{Mithilfe der Eulerschen Phi-Funktion}
+\subsubsection*{Möglichkeit 2: Mithilfe der Eulerschen Phi-Funktion}
 
 Über $\Complex$ zerfallen die Polynome $\Phi_{np}(t)$ und $\Phi_n(t^p)$ in Linearfaktoren;
 es genügt daher zu zeigen, dass beide Polynome die gleichen Linearfaktoren mit jeweils gleicher Vielfachheit haben.
@@ -406,7 +410,7 @@ Es gilt deshalb
   &= p_1 \varphi(n)
    = p \, \varphi(n)
    = p \deg \Phi_n(t)
-   = \deg \Phi_n(t^p)\,.
+   = \deg \Phi_n(t^p) \,.
 \end{align*}
 
 
@@ -422,11 +426,11 @@ Damit ergibt sich nun für alle $k \geq 1$, dass
   = \dotsb
   = \Phi_p\left( t^{(p^{k-1})} \right)\,,
 \]
-und mit $\Phi_p(t) = \sum_{l=0}^{p-1} t^l$ somit
+und mit $\Phi_p(t) = \sum_{\ell=0}^{p-1} t^\ell$ somit die Identität
 \[
     \Phi_{p^k}(t)
-  = \sum_{l=0}^{p-1} \left( t^{(p^{k-1})} \right)^l
-  = \sum_{l=0}^{p-1} t^{l p^{(k-1)}}\,.
+  = \sum_{\ell=0}^{p-1} \left( t^{(p^{k-1})} \right)^\ell
+  = \sum_{\}ll=0}^{p-1} t^{\ell p^{(k-1)}}\,.
 \]
 
 
@@ -437,7 +441,7 @@ und mit $\Phi_p(t) = \sum_{l=0}^{p-1} t^l$ somit
 
 Da $\Rational$ ein Körper ist, gibt es eindeutige Polynome $q, r \in \Rational[t]$ mit den gewünschten Bedingungen.
 Das Polynom $q$ lässt sich durch Polynomdivision von $g$ durch $f$ ausrechnen.
-Die Rechenoperationen, die dabei in $\Rational[t]$ verwendet werden, sind dabei
+Die Rechenoperationen, die dabei in $\Rational[t]$ verwendet werden, sind
 \begin{itemize}
   \item
     Ringoperationen, d.h.\ Addition, Subtraktion und Multiplikation, und
@@ -457,7 +461,7 @@ sie können durch die übliche Polynomdivision berechnet werden.
 
 \subsection{}
 
-Die Normiertheit von $\Phi_n(t)$ ergibt sich dadurch, dass es sich (per Definition) um eine Produkt von Linearfaktoren handelt.
+Die Normiertheit von $\Phi_n(t)$ ergibt sich dadurch, dass es sich (per Definition) um ein Produkt von Linearfaktoren handelt.
 Dass bereits $\Phi_n(t) \in \Integer[t]$ gilt, ergibt sich induktiv:
 Wir wissen bereits, dass $\Phi_1(t) \in \Integer[t]$ gilt.
 Für alle $n > 1$ haben wir nach Korollar~\ref{corollary: inductive calculation of cyclotomic polynomials}, dass
@@ -468,35 +472,6 @@ Für alle $n > 1$ haben wir nach Korollar~\ref{corollary: inductive calculation 
 gilt.
 Die die Polynome $\Phi_d(t)$ mit $d \divides n$, $d < n$ normiert und nach Induktionsvoraussetzung ganzzahlig sind, ist auch $\prod_{d \divides n, d \neq n} \Phi_d(t)$ normiert und ganzzahlig.
 Aus dem vorherigen Aufgabenteil ergibt sich damit, dass auch $\Phi_n(t)$ bereits ganzzahlig ist.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
