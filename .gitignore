@@ -1,5 +1,7 @@
 *.aux
 *.kate-swp
+*.kilepr*
 *.log
 *.out
 *.synctex.gz
+*.toc
