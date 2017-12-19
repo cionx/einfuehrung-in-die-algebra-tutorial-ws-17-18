@@ -1,1 +1,130 @@
-\addtocounter{section}{1}
+\chapter{Äußere direkte Produkte}
+
+
+
+
+
+\section{Definition}
+
+Es seien $G$ und $H$ zwei Gruppen.
+Auf der Menge $G \times H$ wird durch die Multiplikation
+\[
+          (g_1, h_1) \cdot (g_2, h_2)
+  \define (g_1 g_2, h_1 h_2)
+\]
+eine Gruppenstruktur definiert.
+Wir nennen die entstehende Gruppe das \emph{äußere direkte Produkt} von $G$ und $H$, und bezeichnen diesese mit $G \times H$.
+
+
+
+
+
+\section{Einbettungen von \texorpdfstring{$G$}{G} und \texorpdfstring{$H$}{H} in \texorpdfstring{$G \times H$}{G x H}}
+
+Die Gruppe $G \times H$ enthält die beiden Untergruppen
+\[
+          \induced{G}
+  \define G \times \{1\}
+  \quad\text{und}\quad
+          \induced{H}
+  \define \{1\} \times H \,.
+\]
+Diese sind isomorph zu $G$, bzw.\ $H$, da sich die Gruppenmonomorphismen
+\begin{alignat*}{2}
+            i
+  &\colon   G
+   \to      G \times H,
+   &
+   \quad    g
+  &\mapsto  (g,1) \,,
+  \\
+            j
+  &\colon   H
+   \to      G \times H,
+   &
+            h
+  &\mapsto (1,h)
+\end{alignat*}
+zu Gruppenisomorphismen
+\[
+        \restrict{i}{}[\induced{G}]
+ \colon G
+ \to    \induced{G}
+ \quad\text{und}\quad
+        \restrict{j}{}[\induced{H}]
+ \colon H
+ \to    \induced{H}
+\]
+einschränken.
+Wir können also $G$ und $H$ mit Untergruppen von $G \times H$ identifizieren.
+Wir werden diese Identifikation im Folgenden \emph{nicht} implizit vornehmen, sondern stets explizit.
+Hierfür bezeichnen wir für $g \in G$ und $h \in H$ die entsprechenden Elemente aus $G \times H$ mit
+\[
+          \induced{g}
+  \define i(g)
+  =       (g,1)
+  \quad\text{und}\quad
+          \induced{h}
+  \define j(h)
+  =       (1,h).
+\]
+Vorstellungsmäßig unterscheiden wir im Folgenden allerdings nicht zwischen den Elementen $g$ und $\induced{g}$, sowie den Elementen $h$ und $\induced{h}$.
+
+
+
+
+
+\section{Universelle Eigenschaft von \texorpdfstring{$G \times H$}{G x H}}
+
+Stellen wir uns $G$ und $H$ als Untergruppen von $G \times H$ vor, so kommutieren $G$ und $H$ miteinander:
+Für alle $g \in G$, $h \in H$ gilt
+\[
+    \induced{g} \induced{h}
+  = (g, 1) (1, h)
+  = (g, h)
+  = (1, h) (g, 1)
+  = \induced{h} \induced{g} \,.
+\]
+Die Inklusionen $i \colon G \to G \times H$ und $j \colon H \to G \times H$ betten also $G$ und $H$ in eine Gruppe $G \times H$ ein, in der $G$ und $H$ dann miteinander kommutieren.
+Tatsächlich ist $G \times H$ bereits universell mit dieser Eigenschaft:
+
+\begin{proposition}
+  Es sei $T$ eine Gruppe, und es seien $\alpha \colon G \to T$ und $\beta \colon H \to T$ zwei Gruppenhomomorphismen, so dass
+  \[
+      \alpha(g) \beta(h)
+    = \beta(h) \alpha(g)
+    \qquad
+    \text{für alle $g \in G$, $h \in H$}
+  \]
+  gilt.
+  Dann gibt es einen eindeutigen Gruppenhomomorphismus $\varphi \colon G \times H \to T$, der die folgenden beiden Diagramme zum Kommutieren bringt:
+  \[
+    \begin{tikzcd}
+        G \times H
+        \arrow{rr}{\varphi}
+      & {}
+      & T
+      \\
+        {}
+      & G
+        \arrow[swap]{ru}{i}
+        \arrow{lu}{\alpha}
+      & {}
+    \end{tikzcd}
+    \qquad\qquad
+    \begin{tikzcd}
+        G \times H
+        \arrow{rr}{\varphi}
+      & {}
+      & T
+      \\
+        {}
+      & H
+        \arrow[swap]{ru}{j}
+        \arrow{lu}{\beta}
+      & {}
+    \end{tikzcd}
+  \]
+\end{proposition}
+
+Die Gruppe $G \times H$ zusammen mit den beiden Inklusionen $i \colon G \to G \times H$ und $j \colon H \to G \times H$ sind also die \enquote{allgemeinste} Möglichkeit, $G$ und $H$ auf kommutierende Weise zu einer gemeinsamen Gruppen $G \times H$ zusammenzufassen.

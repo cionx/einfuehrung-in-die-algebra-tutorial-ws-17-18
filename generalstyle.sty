@@ -39,6 +39,7 @@
     {\,|\,}       
 }
 
+\newcommand{\define}{\coloneqq}
 \newcommand{\divides}{\mathrel{|}}
 \newcommand{\ndivides}{\mathrel{\nmid}}
 \newcommand{\subgroup}{\leq}
@@ -82,9 +83,9 @@
 
 \newcommand{\class}[1]{\overline{#1}}
 \newcommand{\induced}[1]{\overline{#1}}
-\NewDocumentCommand{\restrict}{smm}{
+\NewDocumentCommand{\restrict}{smmO{}}{
   \IfBooleanTF{#1}
-    {\left. {#2} \right|_{#3}}
-    {{#2}|_{#3}}            
+    {\left. {#2} \right|_{#3}^{#4}}
+    {{#2}|_{#3}^{#4}}
 }
 \newcommand{\transpose}[1]{#1^T}
