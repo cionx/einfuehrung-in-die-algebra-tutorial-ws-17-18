@@ -1,1 +1,152 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+Die Aussage ist \emph{wahr}:
+
+Da $M/K$ algebraisch ist, gibt es für jedes $a \in M$ ein Polynom $p(t) \in K[t]$ mit $p(t) \neq 0$ und $p(a) = 0$.
+Dann gilt auch $p(t) \in L[t]$, weshalb $a$ algebrasich über $M$ ist.
+Das zeigt, dass auch $M/L$ algebraisch ist.
+
+Jedes Element $a \in M$ ist algebraisch über $K$, da $M/K$ algebraisch ist.
+Insbesondere ist jedes $a \in L$ algebraisch über $K$, und somit $L/K$ algebraisch.
+
+
+
+
+
+\subsection{}
+
+Die Aussage ist \emph{wahr}, denn nach der Gradformel gilt
+\[
+    [M : K]
+  = [M : L][L : K] \,,
+\]
+und nach Annahme sind und $[M : L], [L : K] < \infty$ endlich.
+
+
+
+
+
+\subsection{}
+
+Die Aussage ist \emph{wahr}:
+Per Aufgabenstellung ist $L$ ein algebraischer Abschluss von $\Real$.
+Außerdem ist $\Complex$ ein algebraischer Abschluss von $\Real$.
+Es gibt deshalb nach der Vorlesung einen $\Real$-Isomorphismus $L \to \Complex$.
+Insbesondere gilt
+\[
+    [L : \Real]
+  = \dim_\Real L
+  = \dim_\Real \Complex
+  = 2 \,.
+\]
+
+
+
+
+
+\subsection{}
+
+Die Aussage ist \emph{falsch}:
+Es sei $\alpha \define e^{2 \pi i / 5}$.
+Wir bemerken zunächst, dass das Element
+\[
+          \beta
+  \define \alpha + \alpha^{-1}
+  =       \alpha + \conjugate{\alpha}
+\]
+das Polynom $p(t) \define t^2 + t - 1$ erfüllt.
+Es ist nämlich $\alpha$ eine primitive $5$-te Einheitswurzel weshalb $\Phi_5(\alpha) = 0$ gilt.
+Also gilt
+\begin{align*}
+      0
+   =  \alpha^4 + \alpha^3 + \alpha^2 + \alpha + 1
+  &=  \alpha^{-1} + \alpha^{-2} + \alpha^2 + \alpha + 1
+  \\
+  &=  \alpha^{-1} + (\alpha^{-1} + \alpha)^2 - 2 + \alpha + 1
+   =  \beta^2 + \beta - 1 \,.
+\end{align*}
+
+Es gibt mehrere Möglichkeiten, einzusehen, dass $\Rational \subsetneq \Rational(\beta)$ gilt:
+\begin{itemize}
+  \item
+    Das Polynom hat keine rationale Nullstelle, denn die beiden komplexen Nullstellen sind $(-1 \pm \sqrt{5})/2$.
+    Somit gilt inbesondere $\beta \notin \Rational$.
+    (Man kann hier bereits erkennen, dass $\beta = (-1 + \sqrt{5})/2$ gilt.
+\end{itemize}
+Hieraus ergibt sich inbesondere auch, dass $p(t)$ irreduzibel ist, da es quadratisch ist.
+\begin{itemize}[resume]
+  \item
+    Das Polynom $p(t) = t^2 + t -1 \in \Integer[t]$ ist normiert und somit primitiv.
+    Das Polynom $\induced{p}(t) = t^2 + t + 1 \in (\Integer/2)[t]$ ist irreduzibel, da es quadratisch ist und keine Nullstellen besitzt (da $\induced{p}(0) = 1 = \induced{p}(1)$ gilt).
+    Nach dem Reduktionskriterium ist $p(t)$ somit irreduzibel.
+    Somit ist $p(t)$ das Minimalpolynom von $\beta$ über $\Rational$, weshalb $[\Rational(\beta) : \Rational] = \deg p = 2$ gilt.
+    Inbesondere gilt $\beta \notin \Rational$.
+  \item
+    Das Minimalpolynom von $\beta$ über $\Rational$ ist $\Phi_5(t)$ (die Irreduziblität ist aus der Vorlesung bekannt), weshalb $[\Rational(\alpha) : \Rational] = \deg \Phi_5 = 4$ gilt.
+    Deshalb ist die Familie $(1, \alpha, \alpha^2, \alpha^3)$ eine $\Rational$-Basis von $\Rational(\alpha)$.
+    In dieser Basis gilt
+    \[
+        \beta
+      = \alpha + \alpha^{-1}
+      = \alpha + \alpha^4
+      = \alpha + -\alpha^3 - \alpha^2 - \alpha - 1
+      = -\alpha^3 - \alpha^2 - 1 \,.
+    \]
+    Inbesondere gilt $\beta \notin \generated{ 1 }_\Rational = \Rational$.
+\end{itemize}
+
+Es gilt $\Rational(\beta) \subseteq \Rational(\alpha)$, da $\beta = \alpha + \alpha^{-1} \in \Rational(\alpha)$ gilt.
+Es ergibt sich auch auf verschieden Weisen, dass bereits $\Rational(\beta) \subsetneq \Rational(\alpha)$ gilt.
+\begin{itemize}
+  \item
+    Nach den ersten beiden obigen Argumentationen ist $p(t)$ irreduzibel über $\Rational$, und somit das Minimalpolynom von $\beta$ über $\Rational$.
+    Also gilt $[\Rational(\beta) : \Rational] = \deg p(t) = 2$.
+    Nach der letzten der obigen Argumentation gilt $[\Rational(\alpha) : \Rational] = 4$.
+    Es gilt somit
+    \[
+        [\Rational(\alpha) : \Rational]
+      = 4
+      > 2
+      = [\Rational(\beta) : \Rational]
+    \]
+    und deshalb $\Rational(\alpha) \supsetneq \Rational(\beta)$.
+  \item
+    Es gilt $\Rational(\beta) \subseteq \Real$, da $\beta = \alpha + \conjugate{\alpha} \in \Real$ gilt (sowie $\Rational \subseteq \Real$).
+    Es gilt aber auch $\alpha \notin \Real$, und somit $\alpha \notin \Rational(\beta)$.
+    Also gilt $\Rational(\beta) \subsetneq \Rational(\alpha)$.
+\end{itemize}
+
+Insgesamt ergibt sich, dass $\Rational(\beta)$ ein echtere Zwischenkörper $\Rational \subsetneq \Rational(\beta) \subsetneq \Rational(\alpha)$ ist.
+
+
+
+
+
+\subsection{}
+
+Die Aussage ist \emph{wahr}:
+Das Minimalpolynom von $\alpha \define \sqrt[p]{q}$ über $\Rational$ ist $p(t) \define t^p - q$, wobei sich die Irreduziblität aus dem Eisenstein-Kriterium ergibt.
+Folglich ist der Grad $[\Rational(\alpha) : \Rational] = p$ prim.
+Für jeden Zwischenkörper $\Rational \subseteq K \subseteq \Rational(\alpha)$ gilt nun
+\begin{gather*}
+    p
+  = [\Rational(\alpha) : \Rational]
+  = [\Rational(\alpha) : K] [K : \Rational]
+\shortintertext{und somit}
+  [\Rational(\alpha) : K] = 1
+  \quad\text{oder}\quad
+  [K : \Rational] = 1 \,,
+\shortintertext{und somit}
+  K = \Rational(\alpha)
+  \quad\text{oder}\quad
+  K = \Rational \,.
+\end{gather*}
+
+
+
