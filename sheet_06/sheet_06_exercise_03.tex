@@ -1,1 +1,130 @@
-\addtocounter{section}{1}
+\section{}
+
+Es sei $R$ ein euklidischer Ring und es seien $a_1, \dotsc, a_n \in R$ paarweise teilerfremd.
+Wir wollen erklären, wie man für $b_1, \dotsc, b_n \in R$ das System simultaner Kongruenzen
+\[
+  \left\{
+    \begin{array}{rcll}
+      x &\equiv& b_1 & \mod a_1 \,, \\
+      x &\equiv& b_2 & \mod a_2 \,, \\
+        &\vdots&     &              \\
+      x &\equiv& b_n & \mod a_n \,,
+    \end{array}
+  \right.
+\]
+löst.
+Nach dem chinesischen Restsatz ist die Lösungsmenge von der Form
+\[
+  b + (a_1 \dotsm a_n) R,
+\]
+wobei $b$ ein konkrete Lösung ist.
+Es gilt also, eine entsprechende Lösung zu finden.
+Wir geben zwei Möglichkeiten an, wie dies mithilfe des euklidischen Algorithmus getan werden kann:
+\begin{itemize}
+  \item
+    \begin{itemize}
+      \item
+        Wir betrachten zunächst den Fall $n = 2$, also das System von Kongruenzen
+        \begin{equation}
+          \left\{
+            \begin{array}{rclc}
+              x &\equiv& b_1 & \mod a_1 \,, \\
+              x &\equiv& b_2 & \mod a_2 \,.
+            \end{array}
+          \right.
+        \end{equation}
+        Da $a_1$ und $a_2$ teilerfremd sind, gibt es $c_1, c_2 \in R$ mit $1 = c_1 a_1 + c_2 a_2$.
+        Dann gilt
+        \begin{gather*}
+          \left\{
+            \begin{array}{rclc}
+              c_2 a_2 &\equiv& 1  & \mod a_1 \,, \\
+              c_1 a_1 &\equiv& 1  & \mod a_2 \,,
+            \end{array}
+          \right.
+        \shortintertext{und somit}
+          \left\{
+            \begin{array}{rclc}
+              b_1 c_2 a_2 &\equiv& b_1  & \mod a_1 \,, \\
+              b_2 c_1 a_1 &\equiv& b_2  & \mod a_2 \,.
+            \end{array}
+          \right.
+        \end{gather*}
+        Also ist $b \coloneqq b_1 c_2 a_2 + b_2 c_1 a_1$ eine der gesuchten Lösungen.
+        Nach dem chinesischen Restsatz ist \eqref{equation: two equations} somit äquivalent zu der einzelnen Kongruenz
+        \[
+          x \equiv b \mod (a_1 a_2) \,.
+        \]
+      \item
+        Im allgemeinen Fall
+        \begin{equation}
+          \label{equation: multiple equations}
+          \left\{
+            \begin{array}{rcll}
+              x &\equiv&  b_1 & \mod a_1  \,, \\
+              x &\equiv&  b_2 & \mod a_2  \,, \\
+              x &\equiv&  b_3 & \mod a_3  \,, \\
+                &\vdots&      &               \\
+              x &\equiv&  b_n & \mod a_n \,,
+            \end{array}
+          \right.
+        \end{equation}
+        können wir betrachten Fall eine Lösung $b$ der Systems
+        \begin{equation}
+          \label{equation: two equations}
+          \left\{
+            \begin{array}{rclc}
+              x &\equiv& b_1 & \mod a_1 \,, \\
+              x &\equiv& b_2 & \mod a_2 \,,
+            \end{array}
+          \right.
+        \end{equation}
+        finden.
+        Nach dem chinesischen Restsatz ist dann das System \eqref{equation: two equations} äquivalent zu der einzelnen Kongruenz
+        \[
+          x \equiv b  \mod (a_1 a_2).
+        \]
+        Wir können daher das System \eqref{equation: multiple equations} durch das äquivalente System
+        \[
+          \left\{
+            \begin{array}{rcll}
+              x &\equiv&  b   & \mod (a_1 a_2)  \,, \\
+              x &\equiv&  b_3 & \mod a_3        \,, \\
+                &\vdots&      &                     \\
+              x &\equiv&  b_n & \mod a_n \,,
+            \end{array}
+          \right.
+        \]
+        ersetzen.
+        Da $a_1 a_2, a_3, \dotsc, a_n$ teilerfremd sind, können wir dieses Vorgehen fortsetzen, um eine Lösung von \eqref{equation: multiple equations} zu erhalten.
+    \end{itemize}
+    
+  \item
+    Für alle $i = 1, \dotsc, n$ sind $a_i$ und $a_1 \dotsm a_{i-1} a_{i+1} \dotsm a_n$ teilerfremd, weshalb sich mit dem euklidischen Algorthimus $c^{(i)}_1, c^{(i)}_2 \in R$ bestimmen lassen, so dass
+    \[
+      c^{(i)}_1 a_i + c^{(i)}_2 a_1 \dotsm a_{i-1} a_{i+1} \dotsm a_n = 1
+    \]
+    gilt.
+    Für das Element $k_i \define c^{(i)}_2 a_1 \dotsm a_{i-1} a_{i+1} \dotsm a_n$ gilt dann
+    \[
+      \left\{
+        \begin{array}{rcll}
+          k_i &\equiv&  0 & \mod a_1  \,, \\
+              &\vdots&    &               \\
+          k_i &\equiv&  1 & \mod a_i  \,, \\
+              &\vdots&    &               \\
+          k_i &\equiv&  0 & \mod a_n  \,,
+        \end{array}
+      \right.
+    \]
+    Deshalb ist
+    \[
+              b
+      \define b_1 k_1 + \dotsb + b_n k_n
+    \]
+    eine konkrete Lösung.
+\end{itemize}
+
+
+
+
