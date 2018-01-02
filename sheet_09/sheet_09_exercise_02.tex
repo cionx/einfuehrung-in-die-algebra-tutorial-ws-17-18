@@ -1,1 +1,212 @@
-\addtocounter{section}{1}
+\section{}
+
+Wir wollen hier noch einige An- und Bemerkungen zu Polynomringen treffen:
+
+
+
+
+
+\subsection*{Zusammenkleben von Polynomringen mit endlich vielen Variablen}
+
+Man kann die Existenz und die universelle Eigenschaft des Polynomrings in einer beliebigen Menge von Variablen $(t_i)_{i \in I}$ auf Polynomringe in endlich vielen Variablen zurückführen:
+
+
+
+\subsubsection*{Konstruktion}
+
+Wir wissen bereits, dass man für jede endliche Menge $J$ einen Polynomring in der Variablen $(t_j)_{j \in J}$ konstruieren kann.
+Sind dabei $J$ und $K$ endliche Mengen mit $J \subseteq K$, so lässt sich der Polynomring $R[(t_j)_{j \in J}]$ als ein Unterring des Polynomrings $R[(t_k)_{k \in K}]$ auffassen.
+Der Polynomring $R[(t_i)_{i \in I}]$ lässt sich nun als die Vereinigung
+\[
+            R[(t_i)_{i \in I}]
+  \coloneqq \bigcup_{\substack{J \subseteq I \\ \text{$J$ endlich}}} R[(t_j)_{j \in J}]
+\]
+definieren:
+
+Sind $f, g \in R[(t_i)_{i \in I}]$ zwei Polynome, so gibt es endliche Teilmengen $J_1, J_2 \subseteq I$ mit $f \in R[(t_j)_{j \in J_1}]$ und $g \in R[(t_j)_{j \in J_2}]$.
+Dann ist auch $J \coloneqq J_1 \cup J_2 \subseteq I$ eine endliche Teilmenge mit $f, g \in R[(t_j)_{j \in J}]$.
+Somit lassen sich $f + g$ und $f \cdot g$ über die Addition und Multiplikation in $R[(t_j)_{j \in J}]$ definieren.
+
+Diese Definition ist unabhängig von der Wahl von $J_1$ und $J_2$:
+Sind $K_1, K_2 \subseteq I$ weitere endliche Teilmengen mit $f \in R[(t_k)_{k \in K_1}]$ und $g \in R[(t_k)_{k \in K_2}]$, so gilt für die endliche Teilmenge $K \coloneqq K_1 \cup K_2 \subseteq I$, dass $R[(t_j)_{j \in J}]$ und $R[(t_k)_{k \in K}]$ Unterringe von $R[(t_\ell)_{\ell \in L}]$ für die endliche Teilmenge $L \coloneqq K \cup L \subseteq I$ sind, und somit $f + g$ und $f \cdot g$ in $R[(t_j)_{j \in J}]$ und $R[(t_k)_{k \in K}]$ übereinstimmen.
+
+Man bemerke, dass dieses Vorgehen deshalb funktioniert, weil in jedem Polynom $f \in R[(t_i)_{i \in I}]$ tatsächlich nur endlich viele der möglicherweisen unendlich vielen Variablen $(t_i)_{i \in I}$ vorkommen, d.h.\ es gibt eine (von $f$ abhängende) endliche Teilmenge $J \subseteq I$ mit $f \in R[(t_j)_{j \in J}]$.
+
+
+
+\subsubsection*{Universelle Eigenschaft}
+
+Auch die universelle Eigenschaft des Polynomrings $R[(t_i)_{i \in I}]$ ergibt sich dann aus der entsprechenden universellen Eigenschaft für Polynomring in endlich vielen Variablen:
+
+Ist $S$ ein kommutativer Ring und $(s_i)_{i \in I}$ eine Familie von Elementen $s_i \in S$, so gibt es für jede endliche Teilmenge $J \subseteq I$ nach der universellen Eigenschaft des Polynomrings $R[(t_j)_{j \in J}]$ (der nur endlich viele Variablen hat) einen eindeutigen Ringhomomorphismus
+\[
+          f_J
+  \colon  R[(t_j)_{j \in J}]
+  \to     S
+\]
+mit $f_J(t_j) = s_j$ für alle $j \in J$ und $\restrict{f_J}{R} = \phi$.
+Sind dabei $J_1, J_2 \subseteq I$ endliche Teilmengen, so folgt für den Schnitt $J \coloneqq J_1 \cap J_2$ aus dieser Eindeutigkeit, dass
+\[
+    \restrict{ f_{J_1} }{R[(t_j)_{j \in J}]}
+  = f_{J}
+  = \restrict{ f_{J_2} }{R[(t_j)_{j \in J}]} \,.
+\]
+Deshalb lassen sich die Ringhomomorphismen $f_J$ für endliche Teilmengen $J \subseteq I$ eindeutig zu einem Ringhomomorphismus
+\[
+          f
+  \colon  R[(t_i)_{i \in I}]
+  =       \bigcup_{\substack{J \subseteq I \\ \text{$J$ endlich}}} R[(t_j)_{j \in J}]
+  \to     S
+\]
+zusammenfügen, so dass $\restrict{f}{R[(t_j)_{j \in J}]} = f_J$ für jede endliche Teilmenge $J \subseteq I$ gilt. zusammenfügen.
+Dann gilt $f(t_i) = s_i$ für alle $i \in I$ und $\restrict{f}{R} = \phi$.
+
+
+
+\subsubsection*{Streng genommen \dots}
+
+ist für Teilmengen $J \subseteq K$ der Polynomring $R[(t_j)_{j \in J}]$ kein Unterring von $R[(t_k)_{k \in K}]$, sondern kann nur mit einem solchen identifiziert werden.
+Man kann sich deshalb an der Notation
+\[
+  \bigcup_{\substack{J \subseteq I \\ \text{$J$ endlich}}} R[(t_j)_{j \in J}]
+\]
+stören.
+Dieses Problem lässt sich dadurch umgehen, dass man den Begriff des \emph{Kolimes} einführt.
+Dann erhält man (auf mathematisch saubere Weise), dass
+\[
+        R[(t_i)_{i \in I}]
+  \cong \colim_{\substack{J \subseteq I \\ \text{$J$ endlich}}} R[(t_j)_{j \in J}] \,.
+\]
+
+
+
+
+
+\subsection*{Monoidringe}
+
+Eine wichtige Verallgemeinerung von Polynomringen (mit nahezu unveränderter Konstruktion) bilden sogenannte Monoidringe:
+
+\begin{definition}
+  Ein \emph{Monoid} ist eine Menge $M$ zusammen mit einer assoziativen, binären Verknüpfung $\cdot \colon M \times M \to M$, $(m_1, m_2) \mapsto m_1 \cdot m_2$, so dass es ein neutrales Element $1 \in M$ gibt, d.h.\ es gelte
+  \[
+      1 \cdot m
+    = m
+    = m \cdot 1
+    \qquad
+    \text{für alle $m \in M$} \,.
+  \]
+  Gilt zusätzlich $m_1 \cdot m_2 = m_2 \cdot m_1$ für alle $m_1, m_2 \in M$, so heißt $M$ \emph{abelsch}.
+\end{definition}
+
+\begin{example}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Die natürlichen Zahlen $\Natural$ bilden zusammen mit der üblichen Addition ein kommutatives Monoid.
+      Das neutrale Element ist $0$.
+    \item
+      Allgemeiner ist für jede Indexmenge $I$ auch
+      \[
+          \Natural^{(I)}
+        = \{
+            (\alpha_i)_{i \in I}
+          \suchthat
+            \alpha_i \in \Natural,
+            \text{$\alpha_i = 0$ für fast alle $i \in I$}
+          \}
+      \]
+      ein Monoid bezüglich der komponentenweise Addition.
+      Das neutrale Element ist das Nulltupel $0 = (0)_{i \in I}$.
+    \item
+      Ist $R$ ein Ring, so bildet $R$ bezüglich der Multiplikation $\cdot$ ein Monoid mit neutralen Element $1$.
+      Die Kommutavität von $R$ ist gerade die Kommutativität dieses Monoids.
+    \item
+      Gruppen sind genau jene Monoide, in denen jedes Element ein Inverses besitzt.
+  \end{enumerate}
+\end{example}
+
+Ist $M$ ein kommutativer Monoid, additiv geschrieben (wie man es von abelschen Gruppen gewohnt ist), und $R$ ein kommutativer Ring, so lässt sich der \emph{Monoidring} $R[M]$ konstruieren:
+\begin{itemize}
+  \item
+    Die Elemente von $R[M]$ sind formale Linearkombinationen $\sum_{m \in M} r_m t^m$ wobei $r_m = 0$ für fast alle $m \in M$ gilt.
+  \item
+    Zwei formale Linearkombinationen $\sum_{m \in M} r_m t^m$ und $\sum_{m \in M} r'_m t^m$ sind genau dann gleich, wenn $r_m = r'_m$ für alle $m \in M$ gilt.
+  \item
+    Die Addition auf $R[M]$ ist durch
+    \[
+        \left( \sum_{m \in M} r_m t^m \right) + \left( \sum_{m \in M} r'_m t^m \right)
+      = \sum_{m \in M} (r_m + r'_m) t^m
+    \]
+    definiert.
+  \item
+    Die Multiplikation auf $R[M]$ ist durch
+    \[
+        \left( \sum_{m \in M} r_m t^m \right) \cdot \left( \sum_{m \in M} r'_m t^m \right)
+      = \sum_{m_1, m_2 \in M} (r_{m_1} r'_{m_2}) t^{m_1 + m_2}
+    \]
+    definiert;
+    alternativ lässt sich das so ausdrücken, dass
+    \[
+        \left( \sum_{m \in M} r_m t^m \right) \cdot \left( \sum_{m \in M} r'_m t^m \right)
+      = \sum_{m \in M} s_m t^m
+    \]
+    gilt, mit den Koeffizienten
+    \[
+        s_m
+      = \sum_{\substack{m_1, m_2 \in M \\ m_1 + m_2 = m}} r_{m_1} r_{m_2}
+      \qquad
+      \text{für alle $m \in M$}.
+    \]
+\end{itemize}
+
+Der so entstehende Ring hat das Nullelement $0 = \sum_{m \in M} 0 \cdot t^m$, und das Einselement $1 = \sum_{m \in M} \delta_{0m} t^m = t^0$.
+Außerdem ist die Abbildung
+\[
+          R
+  \to     R[M],
+  \quad   r
+  \mapsto r t^0
+\]
+ein injektiver Ringhomomorphismus, wodurch sich $R$ als ein Unterring von $R[M]$ auffassen kann.
+Die entsprechenden Rechnungen lassen sich unverändert aus dem Tutorium übernehmen.
+
+\begin{example}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Der Monoidring $R[\Natural]$ ist genau der übliche Polynomring $R[t]$ in einer Variablen.
+    \item
+      Der Monoidring $R[\Natural^{(I)}]$ ist der Polynomring $R[(t_i)_{i \in I}]$.
+  \end{enumerate}
+\end{example}
+
+Auch der Monoidring hat eine universelle Eigenschaft:
+Ist $S$ ein weiterer kommutativer Ring, $\phi \colon R \to S$ ein Ringhomomorphismus und $f \colon M \to (S, \cdot)$ ein Monoidhomomorphismus, so gibt es einen eindeutigen Ringhomomorphismus $F \colon R[M] \to S$ mit $\restrict{F}{R} = \varphi$ und $F(t^m) = f(m)$ für alle $m \in M$.
+Hieraus lässt sich auch die universelle Eigenschaft des Polynomrings $R[(t_i)_{i \in I}]$ herleiten.
+
+\begin{remark}
+  Tatsächlich wird an keine Stelle die Kommutativität von $R$, $S$ oder $M$ benötigt:
+  Der Monoidring $R[M]$ lässt sich für jeden Ring $R$ und jedes Monoid $M$ bilden, und die obige universelle Eigenschaft gilt dann auch für beliebige Ringe $S$.
+  
+  Häufig schreibt man dann die Element des Monoidrings $R[M]$ nicht als Polynome $\sum_{m \in M} r_m t^m$, sondern als $\sum_{m \in M} r_m e_m$, oder auch direkt als $\sum_{m \in M} r_m m$.
+  Man stellt sich die Elemente von $R[M]$ dann als formale Linearkombinationen der Element von $M$ vor, und die Multiplikation von $R[M]$ als die eindeutige $R$-bilineare Fortsetzung der Multiplikation von $M$.
+  
+  Ist insbesondere $G$ eine Gruppe, so ist
+  \[
+      R[G]
+    = \left\{
+        \sum_{g \in G} r_g g
+      \suchthat*
+        r_g \in R,
+        \text{$r_g = 0$ für fast alle $g \in G$}
+      \right\}
+  \]
+  der \emph{Gruppenring}, bzw.\ die \emph{Gruppenalgebra} von $R$ über $G$.
+  Diese Konstruktion spielt eine wichtige Rolle in vielen Bereichen der Mathematik.
+\end{remark}
+
+
+
+
+
+
