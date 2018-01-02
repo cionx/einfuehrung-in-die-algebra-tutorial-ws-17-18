@@ -1,1 +1,215 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\addtocounter{subsection}{1}
+
+
+
+
+
+\subsection{}
+
+Im Tutorium haben wir genutzt, dass
+\[
+    K^\alg
+  = \{ 
+      x \in K
+      \suchthat
+      \text{$x$ ist algebraisch über $K$}
+    \}
+\]
+ein Unterkörper von $K$ ist, und wegen $L_1, L_2 \subseteq K$ damit auch $L_1 L_2 \subseteq K$ gilt.
+Es gibt auch noch alternative Argumentationsmöglichkeiten:
+
+\begin{itemize}
+  \item
+    Jedes $x \in L_2$ ist nach Annahme algebraisch über $K$, und somit auch algebraisch über $L_1$.
+    Also ist die Körpererweiterung $L_1(L_2)/L_1$ algebraisch, also $L_1 L_2 / L_1$ algebraisch.
+    Nach Annahme ist auch $L_1/K$ algebraisch.
+    Wegen der Transitivität von Algebraizität ist damit auch $L_1 L_2 / K$ algebraisch.
+  \item
+    Es seien $L_1 = K(\alpha_i \suchthat i \in I)$ und $L_2 = K(\beta_j \suchthat j \in J)$.
+    Alle $\alpha_i$ und $\beta_j$ sind algebraisch über $K$, da $L_1/K$ und $L_2/K$ algebraisch sind.
+    Dann gilt
+    \[
+        L_1 L_2
+      = K(\{\alpha_i \suchthat i \in I\} \cup \{\beta_j \suchthat j \in J\}) \,,
+    \]
+    weshalb $L_1 L_2$ von Elementen erzeugt wird, die algebraisch über $K$ sind.
+    Also ist auch $L_1 L_2 / K$ algebraisch.
+  \item
+    Da $L_1/K$ und $L_2/K$ algebraisch sind, lässt sich der Körper $L_1 L_2$ auch explizit beschreiben:
+    Es sei
+    \[
+              L
+      \define \left\{
+                \sum_{i=1}^n x_i y_i
+              \suchthat*
+                \begin{array}{c}
+                  n \geq 0,
+                \\
+                  x_i \in L_1,
+                  y_i \in L_2
+                \end{array}
+              \right\} \,.
+    \]
+    Dann ist $L$ der von $L_1$ und $L_2$ erzeugte Unterring von $L$:
+    Es gilt $1 = 1 \cdot 1 \in L$.
+    Für alle $z_1, z_2 \in L$ mit $z_1 = \sum_{i=1}^n x_i y_i$ und $z_2 = \sum_{i=n+1}^m x_i y_i$ gilt dann auch $z_1 + z_2 = \sum_{i=1}^m x_i y_i \in L$.
+    Für alle $z_1, z_2 \in L$ mit $z_1 = \sum_{i=1}^n x_i y_i$ und $z_2 = \sum_{j=1}^m x'_j y'_j$ gilt auch
+    \[
+          z_1 z_2
+      =   \left(
+            \sum_{i=1}^n x_i y_i
+          \right)
+          \left(
+            \sum_{j=1}^m x'_j y'_j
+          \right)
+      =   \sum_{i=1}^n \sum_{j=1}^m \underbrace{(x_i x'_j)}_{\in L_1} \underbrace{(y_i y'_j)}_{\in L_2}
+      \in L \,.
+    \]
+    Nach Annahme sind alle $x \in L_1$ und $y \in L_2$ algebraisch über $K$, weshalb auch $L$ algebraisch über $K$ ist.
+    Außerdem ist $L$ als Unterring von $M$ ein Integritätsbereich.
+    Nach Aufgabe 2 (c) von Zettel 8 ist $L$ somit bereits ein Körper.
+    Also ist $L$ bereits der von $L_1$ und $L_2$ erzeugte Unterkörper, also $L = L_1 L_2$.
+    Insbesondere sind alle Elemente von $L_1 L_2$ algebraisch über $K$.
+    
+    \begin{remark}
+      Für beliebige, nicht notwendigerweise algebraische Körpererweiterungen $L_1/K$ und $L_2/K$ gilt
+      \begin{align*}
+            L_1 L_2
+        &=  \left\{
+              \frac{x}{x'}
+            \suchthat*
+              x, x' \in L,
+              x' \neq 0
+            \right\}
+        \\
+        &=  \left\{
+              \frac{\sum_{i=1}^n x_i y_i}{\sum_{j=1}^m x'_j y'_j}
+            \suchthat*
+              \begin{array}{c}
+                n, m \geq 0,
+              \\
+                x_i, x'_i \in L_1,
+                y_j, y'_j \in L_2,
+              \\
+                \sum_{j=1}^m x'_j y'_j \neq 0
+              \end{array}
+            \right\} \,.
+      \end{align*}
+      Dies entspricht dem Quotientenkörper $\Quot{L}$ sofern man diesen in $M$ einbettet.
+    \end{remark}
+    \begin{example}
+      Es sei $K(X,Y)$ der Funktionenkörper in zwei Variablen $X$ und $Y$, und es seien $K(X), K(Y) \subseteq K(X,Y)$ die Funktionenkörper in jeweils einer Variable, aufgefasst als Unterkörper von $K(X,Y)$.
+      Dann gilt $K(X) K(Y) = K(X,Y)$.
+      Aber
+      \begin{align*}
+                    \generated{ K(X) \cup K(Y) }_{\text{Ring}}
+        =           \left\{
+                      \frac{f(X,Y)}{g(X)h(Y)}
+                    \suchthat*
+                      \begin{array}{c}
+                      f(X,Y) \in K[X,Y],
+                      \\
+                      g(X) \in K[X],
+                      h(Y) \in K[Y]
+                      \end{array}
+                    \right\}
+        \subsetneq  K(X,Y) \,.
+      \end{align*}
+      So gilt etwa $1/(1 + XY) \notin \generated{ K(X) \cup K(Y) }_{\text{Ring}}$.
+    \end{example}
+\end{itemize}
+
+
+
+
+
+\subsection{}
+
+Wir haben im Tutorium bereits einen Beweis gesehen, und geben hier noch einen weiteren, indem wir konkret ein $K$-Erzeugendensystem von $L_1 L_2$ aus $K$-Basen von $L_1$ und $L_2$ konstruieren.
+Hierfür seien $x_1, \dotsc, x_n \in L_1$ und $y_1, \dotsc, y_m \in L_2$ jeweils endliche $K$-Basen;
+da $L_1/K$ und $L_2/K$ endlich sind, gibt es diese.
+
+\begin{claim*}
+  Die Produkte $x_i y_j \in L_1 L_2$ bilden ein $K$-Erzeugendensystem von $L_1 L_2$.
+\end{claim*}
+
+Aus dieser Behauptung erhalten wir dann direkt, dass
+\[
+        [L_1 L_2 : K]
+  =     \dim_K ( L_1 L_2 )
+  \leq  n m
+  =     (\dim_K L_1)(\dim_K L_2)
+  =     [L_1 : K][L_2 : K] \,.
+\]
+
+\begin{proof}[Beweis der Behauptung]
+  Wir geben zwei Beweise für die Behauptung an:
+  \begin{itemize}
+    \item
+      Die Erweiterungen $L_1/K$ und $L_2/K$ sind algebraisch, da sie endlich sind.
+      Wie bereits oben gesehen, gilt deshalb
+      \[
+          L_1 L_2
+        = \left\{
+            \sum_i \tilde{x}_i \tilde{y}_i
+          \suchthat*
+            \begin{array}{c}
+              n \geq 0,
+            \\
+              \tilde{x}_i \in L_1,
+              \tilde{y}_i \in L_2
+            \end{array}
+          \right\} \,.
+      \]
+      Dabei lässt sich jedes $\tilde{x}_i$ als $K$-Linearkombination der $x_j$ schreiben, und jedes $\tilde{y}_i$ als Linearkombination der $y_j$.
+      Damit ist dann $\sum_i \tilde{x}_i \tilde{y}_i$ eine $K$-Linearkombination der $x_{j_1} y_{j_2}$.
+      
+    \item
+      Da $x_1, \dotsc, x_n \in L_1$ und $y_1, \dotsc, y_m \in L_2$ jeweils $K$-Erzeugendensysteme sind, gelten insbesondere
+      \[
+          L_1
+        = K(x_1, \dotsc, x_n)
+        \quad\text{und}\quad
+          L_2
+        = K(y_1, \dotsc, y_m) \,.
+      \]
+      Damit gilt dann auch
+      \[
+          L_1 L_2
+        = K(x_1, \dotsc, x_n, y_1, \dotsc, y_m) \,.
+      \]
+      Da die $x_i$ und $y_j$ algebraisch über $K$ sind (da $L_1/K$ und $L_2/K$ als endliche Körpererweiterungen inbesondere algebraisch sind), gilt dabei bereits
+      \[
+          L_1 L_2
+        = K(x_1, \dotsc, x_n, y_1, \dotsc, y_m)
+        = K[x_1, \dotsc, x_n, y_1, \dotsc, y_m] \,.
+      \]
+      Also wird $L_1 L_2$ als $K$-Vektorraum von den Monomen
+      \[
+        x_1^{\alpha_1} \dotsm x_n^{\alpha_n} y_1^{\beta_1} \dotsm y_m^{\beta_m}
+      \]
+      erzeugt.
+      Dabei gilt $x_1^{\alpha_1} \dotsm x_n^{\alpha_n} \in L_1$, weshalb $x_1^{\alpha_1} \dotsm x_n^{\alpha_n}$ eine $K$-Linear\-kombi\-nation der $x_i$ ist;
+      analog ergibt sich auch, dass $y_1^{\beta_1} \dotsm y_m^{\beta_m}$ eine $K$-Linear\-kombi\-nation der $y_j$ ist.
+      Damit ist das Monom $x_1^{\alpha_1} \dotsm x_n^{\alpha_n} y_1^{\beta_1} \dotsm y_m^{\beta_m}$ insgesamt eine $K$-Linear\-kombi\-nation der $x_i y_j$.
+      Da dies für jedes der Monome gilt, und $L_1 L_2$ diese Monome als $K$-Erzeugendensystem hat, sind die $x_i y_j$ bereits ein $K$-Erzeugendensystem von $L_1 L_2$.
+  \end{itemize}
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
