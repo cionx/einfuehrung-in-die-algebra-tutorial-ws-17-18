@@ -1,7 +1,7 @@
 \section{}
 
-Es sei $R$ ein euklidischer Ring und es seien $a_1, \dotsc, a_n \in R$ paarweise teilerfremd.
-Wir wollen erklären, wie man für $b_1, \dotsc, b_n \in R$ das System simultaner Kongruenzen
+Es sei $R$ ein euklidischer Ring, und es seien $a_1, \dotsc, a_n \in R$ paarweise teilerfremd.
+Wir erklären im Folgenden, wie sich für $b_1, \dotsc, b_n \in R$ das System simultaner Kongruenzen
 \[
   \left\{
     \begin{array}{rcll}
@@ -13,121 +13,71 @@ Wir wollen erklären, wie man für $b_1, \dotsc, b_n \in R$ das System simultane
     \end{array}
   \right.
 \]
-mithilfe des euklidischen Algorithmus systematisch lösen kann:
-Nach dem chinesischen Restsatz ist die Lösungsmenge von der Form
-\[
-  b + (a_1 \dotsm a_n) R,
-\]
-wobei $b$ ein konkrete Lösung ist.
-Es gilt also, eine entsprechende Lösung zu finden.
-Wir geben zwei Möglichkeiten an, wie dies mithilfe des euklidischen Algorithmus getan werden kann:
+mithilfe des euklidischen Algorithmus systematisch lösen lässt:
 \begin{itemize}
   \item
-    Die erste Möglichkeit besteht darin, je zwei Kongruenzen durch eine äquivalente einzelne Kongruenz zu ersetzen:
-    \begin{itemize}
-      \item
-        Wir betrachten zunächst den Fall $n = 2$, also das System von Kongruenzen
-        \begin{equation}
-          \label{equation: two equations}
-          \left\{
-            \begin{array}{rcll}
-              x &\equiv& b_1 & \pmod{a_1} \,, \\
-              x &\equiv& b_2 & \pmod{a_2} \,.
-            \end{array}
-          \right.
-        \end{equation}
-        Da $a_1$ und $a_2$ teilerfremd sind, gibt es $c_1, c_2 \in R$ mit $1 = c_1 a_1 + c_2 a_2$.
-        Dann gilt
-        \begin{gather*}
-          \left\{
-            \begin{array}{rcll}
-              c_2 a_2 &\equiv& 1  & \pmod{a_1}  \,, \\
-              c_1 a_1 &\equiv& 1  & \pmod{a_2}  \,,
-            \end{array}
-          \right.
-        \shortintertext{und somit}
-          \left\{
-            \begin{array}{rcll}
-              b_1 c_2 a_2 &\equiv& b_1  & \pmod{a_1}  \,, \\
-              b_2 c_1 a_1 &\equiv& b_2  & \pmod{a_2}  \,.
-            \end{array}
-          \right.
-        \end{gather*}
-        Also ist $b \coloneqq b_1 c_2 a_2 + b_2 c_1 a_1$ eine der gesuchten Lösungen.
-        Nach dem chinesischen Restsatz ist \eqref{equation: two equations} somit äquivalent zu der einzelnen Kongruenz
-        \[
-          x \equiv b \pmod (a_1 a_2) \,.
-        \]
-      \item
-        Im allgemeinen Fall
-        \begin{equation}
-          \label{equation: multiple equations}
-          \left\{
-            \begin{array}{rcll}
-              x &\equiv&  b_1     & \pmod{a_1}      \,, \\
-              x &\equiv&  b_2     & \pmod{a_2}      \,, \\
-              x &\equiv&  b_3     & \pmod{a_3}      \,, \\
-                &\vdots&          &                   \\
-              x &\equiv&  b_{n-1} & \pmod{a_{n-1}}  \,, \\
-              x &\equiv&  b_n     & \pmod{a_n}
-            \end{array}
-          \right.
-        \end{equation}
-        können wir nach mit bereits betrachteten Fall $n = 2$ eine Lösung $b$ des Systems
-        \begin{equation}
-          \label{equation: first two equations}
-          \left\{
-            \begin{array}{rclc}
-              x &\equiv& b_1 & \pmod{a_1} \,, \\
-              x &\equiv& b_2 & \pmod{a_2} \,,
-            \end{array}
-          \right.
-        \end{equation}
-        finden, und das System \eqref{equation: first two equations} anschließend durch die einzelne Kongruenz
-        \[
-          x \equiv b  \pmod{(a_1 a_2)}
-        \]
-        ersetzen.
-        Wir können daher das System \eqref{equation: multiple equations} durch das äquivalente System
-        \[
-          \left\{
-            \begin{array}{rcll}
-              x &\equiv&  b       & \pmod{(a_1 a_2)}  \,, \\
-              x &\equiv&  b_3     & \pmod{a_3}        \,, \\
-                &\vdots&          &                       \\
-              x &\equiv&  b_{n-1} & \pmod{a_{n-1}}    \,, \\
-              x &\equiv&  b_n     & \pmod{a_n}
-            \end{array}
-          \right.
-        \]
-        ersetzen.
-        Da $a_1, a_2, a_3, \dotsc, a_n$ teilerfremd sind, können wir dieses Vorgehen iterativ fortsetzen, um schließlich eine Lösung von \eqref{equation: multiple equations} zu erhalten.
-    \end{itemize}
-    
+    Die erste Möglichkeit besteht darin, je zwei Kongruenzen durch eine äquivalente einzelne Kongruenz zu ersetzen.
+    Wir betrachten hierfür die ersten beiden Kongruenzen:
+    \begin{equation}
+      \label{equation: two equations}
+      \left\{
+        \begin{array}{rcll}
+          x &\equiv& b_1 & \pmod{a_1} \,, \\
+          x &\equiv& b_2 & \pmod{a_2} \,.
+        \end{array}
+      \right.
+    \end{equation}
+    Da $a_1$ und $a_2$ teilerfremd sind, lassen sich mithilfe des euklidischen Algorithmus Koeffizienten $c_1, c_2 \in R$ mit $1 = c_1 a_1 + c_2 a_2$ bestimmen.
+    Dann gilt
+    \begin{gather*}
+      \left\{
+        \begin{array}{rcll}
+          c_2 a_2 &\equiv& 1  & \pmod{a_1}  \,, \\
+          c_1 a_1 &\equiv& 1  & \pmod{a_2}  \,,
+        \end{array}
+      \right.
+    \shortintertext{und somit}
+      \left\{
+        \begin{array}{rcll}
+          b_1 c_2 a_2 &\equiv& b_1  & \pmod{a_1}  \,, \\
+          b_2 c_1 a_1 &\equiv& b_2  & \pmod{a_2}  \,.
+        \end{array}
+      \right.
+    \end{gather*}
+    Also ist $b \coloneqq b_1 c_2 a_2 + b_2 c_1 a_1$ eine Lösung von \eqref{equation: two equations}, und \eqref{equation: two equations} nach dem chinesischen Restsatz somit äquivalent zu der einzelnen Kongruenz
+    \[
+      x \equiv b \pmod{a_1 a_2} \,.
+    \]
+    Iterativ lässt sich nun das gesamte System von Kongrunzen durch eine einzelne Kongruenz ersetzen, welche dann leicht zu lösen ist.
   \item
-    Für alle $i = 1, \dotsc, n$ sind $a_i$ und $a_1 \dotsm a_{i-1} a_{i+1} \dotsm a_n$ teilerfremd, weshalb sich mit dem euklidischen Algorthimus $c^{(i)}_1, c^{(i)}_2 \in R$ bestimmen lassen, so dass
+    Für alle $i = 1, \dotsc, n$ sind $a_i$ und $a_1 \dotsm a_{i-1} a_{i+1} \dotsm a_n$ teilerfremd, weshalb sich mit dem euklidischen Algorthimus Koeffizienten $c^{(i)}_1, c^{(i)}_2 \in R$ bestimmen lassen, so dass
     \[
       c^{(i)}_1 a_i + c^{(i)}_2 a_1 \dotsm a_{i-1} a_{i+1} \dotsm a_n = 1
     \]
     gilt.
-    Für das Element $k_i \define c^{(i)}_2 a_1 \dotsm a_{i-1} a_{i+1} \dotsm a_n$ gilt dann
+    Für den Summanden $k_i \define c^{(i)}_2 a_1 \dotsm a_{i-1} a_{i+1} \dotsm a_n$ gilt dann
     \[
       \left\{
         \begin{array}{rcll}
-          k_i &\equiv&  0 & \pmod{a_1}  \,, \\
-              &\vdots&    &               \\
-          k_i &\equiv&  1 & \pmod{a_i}  \,, \\
-              &\vdots&    &               \\
+          k_i &\equiv&  0 & \pmod{a_1}  \,,     \\
+              &\vdots&    &                     \\
+          k_i &\equiv&  0 & \pmod{a_{i-1}}  \,, \\
+          k_i &\equiv&  1 & \pmod{a_i}  \,,     \\
+          k_i &\equiv&  0 & \pmod{a_{i+1}}  \,, \\
+              &\vdots&    &                     \\
           k_i &\equiv&  0 & \pmod{a_n}  \,.
         \end{array}
       \right.
     \]
-    Deshalb ist
+    Die Linearkombination
     \[
               b
       \define b_1 k_1 + \dotsb + b_n k_n
     \]
-    eine konkrete Lösung.
+    ist dann eine Lösung des Systems von Kongruenzen, und nach dem chinesischen Restsatz ist die gesamte Lösungsmenge somit von der Form
+    \[
+      b + (a_1 \dotsm a_n) R \,.
+    \]
 \end{itemize}
 
 
@@ -152,13 +102,13 @@ Es gilt das System
   \right.
 \]
 zu lösen.
-Da es nur zwei Kongruenzen gibt, ist die Rechnung für beide Möglichkeiten die gleiche:
+Da es nur zwei Kongruenzen gibt, entstehen bei beiden möglichen Vorgehensweisen die gleichen Rechnung:
 Es gilt
 \[
   1 = c_1 \cdot 7 + c_2 \cdot 12
 \]
 für die Koeffizienten $c_1 = -5$ und $c_2 = 3$.
-Eine konkrete Lösung ist also durch
+Eine Lösung ist also durch
 \[
     b
   = 4 \cdot (3 \cdot 12) + 7 \cdot ((-5) \cdot 7)
@@ -166,12 +116,12 @@ Eine konkrete Lösung ist also durch
   = -101
 \]
 gegeben.
-Die Lösungsmeneg ist also durch
+Die Lösungsmenge ist deshalb
 \[
-    -101 + 84 \Integer
-  =   67 + 84 \Integer
+    -101 + (7 \cdot 12) \Integer
+  = -101 + 84 \Integer
+  =   67 + 84 \Integer \,.
 \]
-gegeben.
 
 
 
@@ -204,7 +154,7 @@ Wir geben drei mögliche Vorgehensweisen an:
       \right.
     \]
     um.
-    Für die ersten beiden Gleichungen ist $-2$ eine konkrete Lösung, weshalb wir das System durch
+    Für die ersten beiden Kongruenzen ist $-2$ eine Lösung, weshalb wir das System durch
     \[
       \left\{
         \begin{array}{rcrl}
@@ -219,20 +169,21 @@ Wir geben drei mögliche Vorgehensweisen an:
       1 = c_1 \cdot 210 + c_2 \cdot 11
     \]
     mit $c_1 = 1$ und $c_2 = -19$.
-    Eine konkrete Lösung ist also durch
+    Eine Lösung ist also durch
     \[
         b
       = -2 \cdot ((-19) \cdot 11) -1 \cdot (1 \cdot 210)
       = 208
     \]
     gegeben.
-    Die Lösungsmenge ist somit
+    Die gesamte Lösungsmenge ist somit
     \[
-      208 + 2310 \Integer \,.
+        208 + (210 \cdot 11) \Integer
+      = 208 + 2310 \Integer \,.
     \]
     
   \item
-    Wir lösen zunächst das System
+    Wir lösen zunächst das System der ersten beiden Kongruenzen,
     \begin{equation}
       \label{equation: first two equations second example}
       \left\{
@@ -246,37 +197,45 @@ Wir geben drei mögliche Vorgehensweisen an:
     \[
       1 = c_1 \cdot 6 + c_2 \cdot 35
     \]
-    mit $c_1 = 6$ und $c_2 = -1$.
-    Eine konkrete Lösung ist somit durch
+    mit $c_1 = 6$ und $c_2 = -1$, weshalb eine Lösung dr ersten beiden Kongruenzen durch
     \[
         b'
       = 4 \cdot ((-1) \cdot 35) + 33 \cdot (6 \cdot 6)
       = 1048
     \]
-    gegeben.
+    gegeben ist.
     Das System \eqref{equation: first two equations second example} können wir also durch die einzelne Kongruenz
     \[
       x \equiv 1048 \pmod{210}
     \]
-    ersetzen, also die Kongruenz
+    ersetzen, bzw.\ durch die äquivalente Kongruenz
     \[
       x \equiv 208 \pmod{210} \,.
+    \]
+    Wir erhalten somit das folgende System von Kongruenzen:
+    \[
+      \left\{
+        \begin{array}{rcrl}
+          x &\equiv& 208  & \pmod{210}  \,, \\
+          x &\equiv&  10  & \pmod{11}.
+        \end{array}
+      \right.
     \]
     Wie bereits oben gesehen, ist
     \[
         1
       = c_1 \cdot 210 + c_2 \cdot 11
     \]
-    für $c_1 = 1$ und $c_2 = -19$, und es ergibt sich nun die konkrete Lösung
+    für $c_1 = 1$ und $c_2 = -19$, und es ergibt sich nun die Lösung
     \[
         b
       = 208 \cdot ((-19) \cdot 11) + 10 \cdot (1 \cdot 210)
       = -41372 \,.
     \]
-    Die Lösungsmenge ist somit
+    Die gesamte Lösungsmenge ist somit
     \[
-        -41372 + 2310 \Integer
-      =   4828 + 2310 \Integer
+        -41372 + (11 \cdot 210) \Integer
+      = -41372 + 2310 \Integer
       =    208 + 2310 \Integer \,.
     \]
     
@@ -289,9 +248,9 @@ Wir geben drei mögliche Vorgehensweisen an:
         1 & = & e_1 \cdot 11 & + & e_2 \cdot 6  \cdot 35
       \end{array}
     \intertext{für die Koeffizienten}
-      c_1 = -64, c_2 =  1 \,, \qquad
-      d_1 =  17, d_2 = -9 \,, \qquad
-      e_1 = -19, e_2 =  1 \,.
+      c_1 = -64, \, c_2 =  1 \,, \qquad
+      d_1 =  17, \, d_2 = -9 \,, \qquad
+      e_1 = -19, \, e_2 =  1 \,.
     \end{gather*}
     Eine konkrete Lösung ist deshalb
     \[
@@ -301,10 +260,10 @@ Wir geben drei mögliche Vorgehensweisen an:
         + 10 \cdot e_2 \cdot  6 \cdot 35
       = -15962 \,.
     \]
-    Die Lösungsmenge ist somit
+    Die gesamte Lösungsmenge ist somit
     \[
-        -15962 + 2310 \Integer
-      =   7138 + 2310 \Integer
+        -15962 + (6 \cdot 35 \cdot 11) \Integer
+      = -15962 + 2310 \Integer
       =    208 + 2310 \Integer \,.
     \]
 \end{itemize}
