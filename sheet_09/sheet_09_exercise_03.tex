@@ -21,13 +21,13 @@ Im Tutorium haben wir genutzt, dass
       \text{$x$ ist algebraisch über $K$}
     \}
 \]
-ein Unterkörper von $K$ ist, und wegen $L_1, L_2 \subseteq K$ damit auch $L_1 L_2 \subseteq K$ gilt.
+ein Unterkörper von $K$ ist, und wegen $L_1, L_2 \subseteq K$ deshalb auch $L_1 L_2 \subseteq K$ gilt.
 Es gibt auch noch alternative Argumentationsmöglichkeiten:
 
 \begin{itemize}
   \item
     Jedes $x \in L_2$ ist nach Annahme algebraisch über $K$, und somit auch algebraisch über $L_1$.
-    Also ist die Körpererweiterung $L_1(L_2)/L_1$ algebraisch, also $L_1 L_2 / L_1$ algebraisch.
+    Also ist die Körpererweiterung $L_1(L_2)/L_1$ algebraisch, also $L_1 L_2 / L_1$ algebraisch (denn $L_1(L_2) = L_1 L_2$).
     Nach Annahme ist auch $L_1/K$ algebraisch.
     Wegen der Transitivität von Algebraizität ist damit auch $L_1 L_2 / K$ algebraisch.
   \item
@@ -76,54 +76,54 @@ Es gibt auch noch alternative Argumentationsmöglichkeiten:
     Nach Aufgabe 2 (c) von Zettel 8 ist $L$ somit bereits ein Körper.
     Also ist $L$ bereits der von $L_1$ und $L_2$ erzeugte Unterkörper, also $L = L_1 L_2$.
     Insbesondere sind alle Elemente von $L_1 L_2$ algebraisch über $K$.
-    
-    \begin{remark}
-      Für beliebige, nicht notwendigerweise algebraische Körpererweiterungen $L_1/K$ und $L_2/K$ gilt
-      \begin{align*}
-            L_1 L_2
-        &=  \left\{
-              \frac{x}{x'}
-            \suchthat*
-              x, x' \in L,
-              x' \neq 0
-            \right\}
-        \\
-        &=  \left\{
-              \frac{\sum_{i=1}^n x_i y_i}{\sum_{j=1}^m x'_j y'_j}
-            \suchthat*
-              \begin{array}{c}
-                n, m \geq 0,
-              \\
-                x_i, x'_i \in L_1,
-                y_j, y'_j \in L_2,
-              \\
-                \sum_{j=1}^m x'_j y'_j \neq 0
-              \end{array}
-            \right\} \,.
-      \end{align*}
-      Dies entspricht dem Quotientenkörper $\Quot{L}$ sofern man diesen in $M$ einbettet.
-    \end{remark}
-    \begin{example}
-      Es sei $K(X,Y)$ der Funktionenkörper in zwei Variablen $X$ und $Y$, und es seien $K(X), K(Y) \subseteq K(X,Y)$ die Funktionenkörper in jeweils einer Variable, aufgefasst als Unterkörper von $K(X,Y)$.
-      Dann gilt $K(X) K(Y) = K(X,Y)$.
-      Aber
-      \begin{align*}
-                    \generated{ K(X) \cup K(Y) }_{\text{Ring}}
-        =           \left\{
-                      \frac{f(X,Y)}{g(X)h(Y)}
-                    \suchthat*
-                      \begin{array}{c}
-                      f(X,Y) \in K[X,Y],
-                      \\
-                      g(X) \in K[X],
-                      h(Y) \in K[Y]
-                      \end{array}
-                    \right\}
-        \subsetneq  K(X,Y) \,.
-      \end{align*}
-      So gilt etwa $1/(1 + XY) \notin \generated{ K(X) \cup K(Y) }_{\text{Ring}}$.
-    \end{example}
 \end{itemize}
+
+\begin{remark}
+  Setzt man nicht voraus, dass $L_1/K$ und $L_2/K$ algebraisch sind, so gilt mit der obigen Definition von $L$, dass
+  \begin{align*}
+        L_1 L_2
+    &=  \left\{
+          \frac{x}{x'}
+        \suchthat*
+          x, x' \in L,
+          x' \neq 0
+        \right\}
+    \\
+    &=  \left\{
+          \frac{\sum_{i=1}^n x_i y_i}{\sum_{j=1}^m x'_j y'_j}
+        \suchthat*
+          \begin{array}{c}
+            n, m \geq 0,
+          \\
+            x_i, x'_i \in L_1,
+            y_j, y'_j \in L_2,
+          \\
+            \sum_{j=1}^m x'_j y'_j \neq 0
+          \end{array}
+        \right\} \,.
+  \end{align*}
+  Dies entspricht dem Quotientenkörper $\Quot{L}$ sofern man diesen in $M$ einbettet.
+\end{remark}
+
+\begin{example}
+  Es sei $K(X,Y)$ der Funktionenkörper in zwei Variablen $X$ und $Y$, und es seien $K(X), K(Y) \subseteq K(X,Y)$ die Funktionenkörper in jeweils einer Variable, aufgefasst als Unterkörper von $K(X,Y)$.
+  Dann gilt $K(X) K(Y) = K(X,Y)$, aber
+  \begin{align*}
+                \generated{ K(X) \cup K(Y) }_{\text{Ring}}
+    =           \left\{
+                  \frac{f(X,Y)}{g(X)h(Y)}
+                \suchthat*
+                  \begin{array}{c}
+                  f(X,Y) \in K[X,Y],
+                  \\
+                  g(X) \in K[X],
+                  h(Y) \in K[Y]
+                  \end{array}
+                \right\}
+    \subsetneq  K(X,Y) \,.
+  \end{align*}
+  So gilt etwa $1/(1 + XY) \notin \generated{ K(X) \cup K(Y) }_{\text{Ring}}$.
+\end{example}
 
 
 
@@ -131,9 +131,8 @@ Es gibt auch noch alternative Argumentationsmöglichkeiten:
 
 \subsection{}
 
-Wir haben im Tutorium bereits einen Beweis gesehen, und geben hier noch einen weiteren, indem wir konkret ein $K$-Erzeugendensystem von $L_1 L_2$ aus $K$-Basen von $L_1$ und $L_2$ konstruieren.
-Hierfür seien $x_1, \dotsc, x_n \in L_1$ und $y_1, \dotsc, y_m \in L_2$ jeweils endliche $K$-Basen;
-da $L_1/K$ und $L_2/K$ endlich sind, gibt es diese.
+Wir haben im Tutorium bereits einen Beweis gesehen, und geben hier noch einen weiteren, indem wir aus $K$-Basen von $L_1$ und $L_2$ ein $K$-Erzeugendensystem von $L_1 L_2$ konstruieren.
+Hierfür seien $x_1, \dotsc, x_n \in L_1$ und $y_1, \dotsc, y_m \in L_2$ jeweils endliche $K$-Basen.
 
 \begin{claim*}
   Die Produkte $x_i y_j \in L_1 L_2$ bilden ein $K$-Erzeugendensystem von $L_1 L_2$.
@@ -167,8 +166,8 @@ Aus dieser Behauptung erhalten wir dann direkt, dass
             \end{array}
           \right\} \,.
       \]
-      Dabei lässt sich jedes $\tilde{x}_i$ als $K$-Linearkombination der $x_j$ schreiben, und jedes $\tilde{y}_i$ als Linearkombination der $y_j$.
-      Damit ist dann $\sum_i \tilde{x}_i \tilde{y}_i$ eine $K$-Linearkombination der $x_{j_1} y_{j_2}$.
+      Dabei lässt sich jedes $\tilde{x}_i$ als $K$-Linearkombination der $x_j$ schreiben, und jedes $\tilde{y}_i$ als Linearkombination der $y_k$.
+      Damit ist dann $\sum_i \tilde{x}_i \tilde{y}_i$ eine $K$-Linearkombination der $x_j y_k$.
       
     \item
       Da $x_1, \dotsc, x_n \in L_1$ und $y_1, \dotsc, y_m \in L_2$ jeweils $K$-Erzeugendensysteme sind, gelten insbesondere
@@ -202,12 +201,9 @@ Aus dieser Behauptung erhalten wir dann direkt, dass
   \end{itemize}
 \end{proof}
 
-
-
-
-
-
-
+\begin{remark}
+  Sind allgemeiner $L_1/K$ und $L_2/K$ nur algebraisch mit $K$-Basen $(x_i)_{i \in I}$ und $(y_j)_{j \in J}$, so ergibt sich aus der obigen Argumentation, dass die $x_i y_j$ ein $K$-Erzeugendensystem von $L_1 L_2$ bilden.
+\end{remark}
 
 
 

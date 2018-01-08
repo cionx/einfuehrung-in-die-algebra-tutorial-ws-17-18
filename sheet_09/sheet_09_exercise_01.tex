@@ -37,7 +37,7 @@ und nach Annahme gilt $[M : L], [L : K] < \infty$
 Die Aussage ist \emph{wahr}:
 Per Aufgabenstellung ist $L$ ein algebraischer Abschluss von $\Real$.
 Außerdem ist $\Complex$ ein algebraischer Abschluss von $\Real$.
-Es gibt deshalb nach der Vorlesung einen $\Real$-Isomorphismus $L \to \Complex$.
+Es gibt deshalb einen $\Real$-Isomorphismus $L \to \Complex$.
 Insbesondere gilt
 \[
     [L : \Real]
@@ -53,34 +53,34 @@ Insbesondere gilt
 \subsection{}
 
 Die Aussage ist \emph{falsch}:
-Es sei $\alpha \define e^{2 \pi i / 5}$.
-Wir bemerken zunächst, dass das Element
-\[
-          \beta
-  \define \alpha + \alpha^{-1}
-  =       \alpha + \conjugate{\alpha}
-\]
-das Polynom $p(t) \define t^2 + t - 1$ erfüllt.
-Es ist nämlich $\alpha$ eine primitive $5$-te Einheitswurzel weshalb $\Phi_5(\alpha) = 0$ gilt.
-Also gilt
-\begin{align*}
-      0
-   =  \alpha^4 + \alpha^3 + \alpha^2 + \alpha + 1
-  &=  \alpha^{-1} + \alpha^{-2} + \alpha^2 + \alpha + 1
-  \\
-  &=  \alpha^{-1} + (\alpha^{-1} + \alpha)^2 - 2 + \alpha + 1
-   =  \beta^2 + \beta - 1 \,.
-\end{align*}
+Es seien $\alpha \define e^{2 \pi i / 5}$ und $\beta \define \alpha + \alpha^{-1}$.
+
+\begin{claim*}
+  Die Zahl $\beta$ erfüllt das Polynom $p(t) \define t^2 + t - 1$.
+\end{claim*}
+
+\begin{proof}
+  Es gilt $\Phi_5(\alpha) = 0$, da $\alpha$ eine primitive $5$-te Einheitswurzel ist.
+  Also gilt
+  \begin{align*}
+        0
+     =  \alpha^4 + \alpha^3 + \alpha^2 + \alpha + 1
+    &=  \alpha^{-1} + \alpha^{-2} + \alpha^2 + \alpha + 1
+    \\
+    &=  \alpha^{-1} + (\alpha^{-1} + \alpha)^2 - 2 + \alpha + 1
+     =  \beta^2 + \beta - 1 \,.
+  \qedhere
+  \end{align*}
+\end{proof}
 
 Es gibt mehrere Möglichkeiten, einzusehen, dass $\Rational \subsetneq \Rational(\beta)$ gilt:
+
 \begin{itemize}
   \item
-    Das Polynom hat keine rationale Nullstelle, denn die beiden komplexen Nullstellen sind $(-1 \pm \sqrt{5})/2$.
+    Das Polynom $p(t)$ hat keine rationale Nullstelle, denn die beiden komplexen Nullstellen sind $(-1 \pm \sqrt{5})/2$.
     Somit gilt inbesondere $\beta \notin \Rational$.
-    (Man kann hier bereits erkennen, dass $\beta = (-1 + \sqrt{5})/2$ gilt.
-\end{itemize}
-Hieraus ergibt sich inbesondere auch, dass $p(t)$ irreduzibel ist, da es quadratisch ist.
-\begin{itemize}[resume]
+    (Man kann hier bereits erkennen, dass $\beta = (-1 + \sqrt{5})/2$ gilt.)
+    (Da $p(t)$ qaudatrisch ist, ergibt sich hieraus auch, dass $p(t)$ irreduzibel ist.)
   \item
     Das Polynom $p(t) = t^2 + t -1 \in \Integer[t]$ ist normiert und somit primitiv.
     Das Polynom $\induced{p}(t) = t^2 + t + 1 \in (\Integer/2)[t]$ ist irreduzibel, da es quadratisch ist und keine Nullstellen besitzt (da $\induced{p}(0) = 1 = \induced{p}(1)$ gilt).
@@ -88,7 +88,7 @@ Hieraus ergibt sich inbesondere auch, dass $p(t)$ irreduzibel ist, da es quadrat
     Somit ist $p(t)$ das Minimalpolynom von $\beta$ über $\Rational$, weshalb $[\Rational(\beta) : \Rational] = \deg p = 2$ gilt.
     Inbesondere gilt $\beta \notin \Rational$.
   \item
-    Das Minimalpolynom von $\beta$ über $\Rational$ ist $\Phi_5(t)$ (die Irreduziblität ist aus der Vorlesung bekannt), weshalb $[\Rational(\alpha) : \Rational] = \deg \Phi_5 = 4$ gilt.
+    Das Minimalpolynom von $\alpha$ über $\Rational$ ist $\Phi_5(t)$ (die Irreduziblität ist aus der Vorlesung bekannt), weshalb $[\Rational(\alpha) : \Rational] = \deg \Phi_5 = 4$ gilt.
     Deshalb ist die Familie $(1, \alpha, \alpha^2, \alpha^3)$ eine $\Rational$-Basis von $\Rational(\alpha)$.
     In dieser Basis gilt
     \[
@@ -98,14 +98,14 @@ Hieraus ergibt sich inbesondere auch, dass $p(t)$ irreduzibel ist, da es quadrat
       = \alpha + -\alpha^3 - \alpha^2 - \alpha - 1
       = -\alpha^3 - \alpha^2 - 1 \,.
     \]
-    Inbesondere gilt $\beta \notin \generated{ 1 }_\Rational = \Rational$.
+    Inbesondere gilt somit $\beta \notin \generated{ 1 }_\Rational = \Rational$.
 \end{itemize}
 
 Es gilt $\Rational(\beta) \subseteq \Rational(\alpha)$, da $\beta = \alpha + \alpha^{-1} \in \Rational(\alpha)$ gilt.
-Es ergibt sich auch auf verschieden Weisen, dass bereits $\Rational(\beta) \subsetneq \Rational(\alpha)$ gilt.
+Dass bereits $\Rational(\beta) \subsetneq \Rational(\alpha)$ gilt, ergibt sich ebenfalls auf verschiedene Weisen:
 \begin{itemize}
   \item
-    Nach den ersten beiden obigen Argumentationen ist $p(t)$ irreduzibel über $\Rational$, und somit das Minimalpolynom von $\beta$ über $\Rational$.
+    Nach den ersten beiden der obigen Argumentationen ist $p(t)$ irreduzibel über $\Rational$, und somit das Minimalpolynom von $\beta$ über $\Rational$.
     Also gilt $[\Rational(\beta) : \Rational] = \deg p(t) = 2$.
     Nach der letzten der obigen Argumentation gilt $[\Rational(\alpha) : \Rational] = 4$.
     Es gilt somit
@@ -117,12 +117,18 @@ Es ergibt sich auch auf verschieden Weisen, dass bereits $\Rational(\beta) \subs
     \]
     und deshalb $\Rational(\alpha) \supsetneq \Rational(\beta)$.
   \item
-    Es gilt $\Rational(\beta) \subseteq \Real$, da $\beta = \alpha + \conjugate{\alpha} \in \Real$ gilt (sowie $\Rational \subseteq \Real$).
+    Es gilt $\Rational(\beta) \subseteq \Real$, da $\beta = \alpha + \alpha^{-1} = \alpha + \conjugate{\alpha} \in \Real$ gilt (sowie $\Rational \subseteq \Real$).
     Es gilt aber auch $\alpha \notin \Real$, und somit $\alpha \notin \Rational(\beta)$.
     Also gilt $\Rational(\beta) \subsetneq \Rational(\alpha)$.
 \end{itemize}
 
 Insgesamt ergibt sich, dass $\Rational(\beta)$ ein echtere Zwischenkörper $\Rational \subsetneq \Rational(\beta) \subsetneq \Rational(\alpha)$ ist.
+
+\begin{remark}
+  Wir werden im weiteren Verlauf der Vorlesung sehen, dass die Körpererweiterung $\Rational(\alpha)/\Rational$ \emph{galoissch} ist, und deshalb die Zwischenkörper $\Rational \subseteq K \subseteq \Rational(\alpha)$ auf bijektive Weise den Untergruppen der \emph{Galoisgruppe} $\Aut{\Rational(\alpha)/\Rational}$ entsprechen.
+  Dabei gilt $\Aut{\Rational(\alpha)/\Rational} \cong \Integer/4$.
+  Da $\Integer/4$ genau drei Untergruppen hat, nämlich $0$, $2\Integer/4$ und $\Integer/4$, hat die Erweiterung $\Rational(\alpha)/\Rational$ genau drei Zwischenkörper, nämlich $\Rational(\alpha)$, $\Rational(\beta)$ und $\Rational$.
+\end{remark}
 
 
 
