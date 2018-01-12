@@ -1,1 +1,230 @@
-\addtocounter{section}{1}
+\section{}
+
+Es sei $\pi \colon K[t] \to K[t]/(p(t))$, $q \mapsto \class{q}$ die kanonische Projektion.
+Da $p(t)$ das Minimalpolynom von $a$ über $K$ ist, faktorisiert der Auswertungshomomorphismus $\ev_a \colon K[t] \to L$, $q(t) \mapsto q(a)$ über $\pi$ zu einem Isomorphismus von Körper $\induced{\ev_a} \colon K[t]/(p(t)) \to K(a)$, $\class{q(t)} \mapsto q(a)$, der das folgende Diagramm zum kommutieren bringt:
+\[
+  \begin{tikzcd}[column sep = large]
+      K(a)
+    & K[t]/(p(t))
+      \arrow{l}[above]{\induced{\ev_a}}
+    \\
+      {}
+    & K[t]
+      \arrow{u}[right]{\pi}
+      \arrow{ul}[left below]{\ev_a}
+  \end{tikzcd}
+\]
+Wir schreiben im Folgenden abkürzend $p'(t) \coloneqq f_*(p(t))$.
+
+
+
+
+
+\subsection{}
+
+
+Es sei $\pi' \colon K'[t] \to K'[t]/(p'(t))$, $q'(t) \mapsto \class{q'(t)}$ die kanonische Projektion.
+Da $a'$ eine Nullstelle von $p'(t)$ ist, faktorisiert der Auswertungshomomorphismus $\ev_{a'} \colon K'[t] \to L'$ über einen Homomorphismus $\induced{\ev_{a'}} \colon K'[t]/(p'(t)) \to L'$, $\class{q'(t)} \mapsto q'(a')$, der das folgende Diagramm zum kommutieren bringt:
+\[
+  \begin{tikzcd}[column sep = large]
+      K'[t](p'(t))
+      \arrow{r}[above]{\induced{\ev_{a'}}}
+    & L'
+    \\
+      K'[t]
+      \arrow{u}[left]{\pi'}
+      \arrow{ur}[below right]{\ev_{a'}}
+    & {}
+  \end{tikzcd}
+\]
+Es gilt $\ker \pi' = (p'(t))$ und somit $p(t) \in \ker(\pi' \circ f_*)$, weshalb $\pi' \circ f_* \colon K[t] \to K'[t]/(p'(t))$ nach dem Homomorphisatz einen Homomorphismus
+\[
+          \tilde{\varphi}
+  \colon  K[t]/(p(t))
+  \to     K'[t]/(p'(t))
+  \quad   \class{q(t)}
+  \mapsto \class{f_*(q(t))} \,,
+\]
+faktorisiert, der das folgende Diagramm zum kommutieren bringt:
+\[
+  \begin{tikzcd}
+      K[t]/(p(t))
+      \arrow{r}[above]{\tilde{\varphi}}
+    & K'[t]/(q'(t))
+    \\
+      K[t]
+      \arrow{u}[left]{\pi}
+      \arrow{r}[above]{f_*}
+    & K'[t]
+      \arrow{u}[right]{\pi'}
+  \end{tikzcd}
+\]
+Ingesamt haben wir damit das folgende kommutierende Diagramm:
+\[
+  \begin{tikzcd}[column sep = large]
+      K(a)
+    & K[t]/(p(t))
+      \arrow{l}[above]{\induced{\ev_a}}
+      \arrow{r}[above]{\tilde{\varphi}}
+    & K'[t]/(p'(t))
+      \arrow{r}[above]{\induced{\ev_{a'}}}
+    & L'
+    \\
+      {}
+    & K[t]
+      \arrow{u}[left]{\pi}
+      \arrow{ul}[left below]{\ev_a}
+      \arrow{r}[above]{f_*}
+    & K'[t]
+      \arrow{u}[right]{\pi'}
+      \arrow{ur}[below right]{\ev_{a'}}
+    & {}
+  \end{tikzcd}
+\]
+Der gesuchte Homomorphismus $\varphi$ ist nun $\varphi \coloneqq \induced{\ev_{a'}} \circ \tilde{\varphi} \circ \induced{\ev_a}^{-1}$.
+\begin{equation}
+  \label{equation: big diagram}
+  \begin{tikzcd}[column sep = large]
+      K(a)
+      \arrow[bend left = 25]{rrr}[above]{\varphi}
+    & K[t]/(p(t))
+      \arrow{l}[above, near start]{\induced{\ev_a}}
+      \arrow{r}[above]{\tilde{\varphi}}
+    & K'[t]/(p'(t))
+      \arrow{r}[above, near start]{\induced{\ev_{a'}}}
+    & L'
+    \\
+      {}
+    & K[t]
+      \arrow{u}[left]{\pi}
+      \arrow{ul}[left below]{\ev_a}
+      \arrow{r}[above]{f_*}
+    & K'[t]
+      \arrow{u}[right]{\pi'}
+      \arrow{ur}[below right]{\ev_{a'}}
+    & {}
+  \end{tikzcd}
+\end{equation}
+Betrachtet man, wie das Element $t \in K[t]$ in dem obigen Diagramm herumgeschoben wird, so erhalten wir das folgende Diagramm:
+\[
+  \begin{tikzcd}[column sep = large]
+      a
+      \arrow[|->, bend left = 35]{rrr}[above]{\varphi}
+    & \class{t}
+      \arrow[|->]{l}[above, near start]{\induced{\ev_a}}
+      \arrow[|->]{r}[above]{\tilde{\varphi}}
+    & \class{t}
+      \arrow[|->]{r}[above, near start]{\induced{\ev_{a'}}}
+    & a'
+    \\
+      {}
+    & t
+      \arrow[|->]{u}[left]{\pi}
+      \arrow[|->]{ul}[left below]{\ev_a}
+      \arrow[|->]{r}[above]{f_*}
+    & t
+      \arrow[|->]{u}[right]{\pi'}
+      \arrow[|->]{ur}[below right]{\ev_{a'}}
+    & {}
+  \end{tikzcd}
+\]
+Insbesondere gilt somit $\varphi(a) = a'$.
+Für jedes $x \in K$ erhalten wir das folgende Diagramm:
+\[
+  \begin{tikzcd}[column sep = large]
+      x
+      \arrow[|->, bend left=30]{rrr}[above]{\varphi}
+    & \class{x}
+      \arrow[|->]{l}[above, near start]{\induced{\ev_a}}
+      \arrow[|->]{r}[above]{\tilde{\varphi}}
+    & \class{f(x)}
+      \arrow[|->]{r}[above, near start]{\induced{\ev_{a'}}}
+    & f(x)
+    \\
+      {}
+    & x
+      \arrow[|->]{u}[left]{\pi}
+      \arrow[|->]{ul}[left below]{\ev_a}
+      \arrow[|->]{r}[above]{f_*}
+    & f(x)
+      \arrow[|->]{u}[right]{\pi'}
+      \arrow[|->]{ur}[below right]{\ev_{a'}}
+    & {}
+  \end{tikzcd}
+\]
+Also gilt $\restrict{\varphi}{K} = f$.
+
+\begin{remark}
+  Wer keine Lust auf Diagramme hat, kann die obigen beiden Diagramme auch in Gleichungsketten übersetzen:
+  Es gilt
+  \[
+      \varphi(a)
+    = \varphi( \ev_a(t) )
+    = \varphi( \induced{\ev_a}( \class{t} ) )
+    = \induced{\ev_{a'}}( \tilde{\varphi}( \class{t} ) )
+    = \induced{\ev_{a'}}( \class{f_*(t)} )
+    = \induced{\ev_{a'}}( \class{t} )
+    = \ev_{a'}(t)
+    = a' \,,
+  \]
+  und für jedes $x \in K$ gilt
+  \begin{align*}
+        \varphi(x)
+    &=  \varphi( \ev_a(x) )
+     =  \varphi( \induced{\ev_a}( \class{x} ) )
+     =  \induced{\ev_{a'}}( \tilde{\varphi}( \class{x} ) )
+    \\
+    &=  \induced{\ev_{a'}}( \class{f_*(x)} )
+     =  \induced{\ev_{a'}}( \class{f(x)} )
+     =  \ev_{a'}(f(x))
+     =  f(x) \,,
+  \end{align*}
+  und somit $\restrict{\varphi}{K} = f$.
+\end{remark}
+
+
+
+
+
+\subsection{}
+
+Ist $\varphi \colon K(a) \to L'$ ein Körperhomomorphismus mit $\restrict{\varphi}{K} = f$, so gilt für das Element $a' \coloneqq \varphi(a) \in L$ mit $p(t) = \sum_i p_i t^i$, dass
+\begin{align*}
+      p'(a')
+  &=  f_*( p(t) )( \varphi(a) )
+   =  \left( \sum_i f(p_i) t^i \right)( \varphi(a) )
+   =  \left( \sum_i \varphi(p_i) t^i \right)( \varphi(a) )
+  \\
+  &=  \sum_i \varphi(p_i) \varphi(a)^i
+   =  \varphi\left( \sum_i p_i a^i \right)
+   =  \varphi( p(a) )
+   =  \varphi(0)
+   =   0 \,.
+\end{align*}
+Das zeigt, dass die gegebene Abbildung wohldefiniert ist.
+Nach dem vorherigen Aufgabenteil ist sie surjektiv.
+Sie ist injektiv, denn $K(a)$ wird als Ring von $K \cup \{a\}$ erzeugt, weshalb jeder Ringhomomorphismus $\varphi \colon K(a) \to L$ durch die Einschränkung $\restrict{\varphi}{K}$ und das Bildelement $\varphi(a)$ bereits eindeutig bestimmt ist.
+
+
+
+
+
+\subsection{}
+
+Indem wir $K'$ durch $f(K)$ ersetzen, können wir o.B.d.A.\ davon ausgehen, dass der Körperhomomorphismus $f$ surjektiv ist.
+Dann ist auch $f_*$ surjektiv.
+Es gilt $K'(a') = \im \ev_{a'}$, denn $a'$ ist algebraisch über $K'$, da $a'$ eine Nullstelle des Polynoms $p'(t) \in K'[t]$ ist (es gilt $p'(t) = f_*(p(t) \neq 0$, da $p(t) \neq 0$ gilt, und $f_*$ wegen der Injektvität von $f$ ebenfalls injektiv ist).
+Aus der Kommutativität des Diagramm~\eqref{equation: big diagram} und der Surjektvitäten von $\ev_a$ und $f_*$ folgt somit, dass
+\[
+    \im \varphi
+  = \im (\varphi \circ \ev_a)
+  = \im (\ev_{a'}' \circ f_*)
+  = \im \ev_{a'}
+  = K'(a')
+  = \varphi(K)(\varphi(a)) \,.
+\]
+
+
+
+
+
