@@ -13,7 +13,7 @@ Auf der Menge $G \times H$ wird durch die Multiplikation
   \define (g_1 g_2, h_1 h_2)
 \]
 eine Gruppenstruktur definiert.
-Wir nennen die entstehende Gruppe das \emph{äußere direkte Produkt} von $G$ und $H$, und bezeichnen diesese mit $G \times H$.
+Wir nennen die entstehende Gruppe das \emph{äußere direkte Produkt} von $G$ und $H$, und bezeichnen diese ebenfalls mit $G \times H$.
 
 
 
@@ -76,8 +76,7 @@ Vorstellungsmäßig unterscheiden wir im Folgenden allerdings nicht zwischen den
 
 \subsection*{Universelle Eigenschaft von \texorpdfstring{$G \times H$}{G x H}}
 
-Stellen wir uns $G$ und $H$ als Untergruppen von $G \times H$ vor, so kommutieren $G$ und $H$ miteinander:
-Für alle $g \in G$, $h \in H$ gilt
+Stellen wir uns $G$ und $H$ als Untergruppen von $G \times H$ vor, so kommutieren $G$ und $H$ miteinander, denn für alle $g \in G$, $h \in H$ gilt
 \[
     \induced{g} \induced{h}
   = (g, 1) (1, h)
@@ -85,7 +84,7 @@ Für alle $g \in G$, $h \in H$ gilt
   = (1, h) (g, 1)
   = \induced{h} \induced{g} \,.
 \]
-Die Inklusionen $i \colon G \to G \times H$ und $j \colon H \to G \times H$ betten also $G$ und $H$ in eine Gruppe $G \times H$ ein, in der $G$ und $H$ dann miteinander kommutieren.
+Die beiden Inklusionen $i \colon G \to G \times H$ und $j \colon H \to G \times H$ betten also die Gruppen $G$ und $H$ in eine neue Gruppe $G \times H$ ein, in der $G$ und $H$ dann miteinander kommutieren.
 Tatsächlich ist $G \times H$ bereits universell mit dieser Eigenschaft:
 
 \begin{proposition}
@@ -93,38 +92,33 @@ Tatsächlich ist $G \times H$ bereits universell mit dieser Eigenschaft:
   \[
       \alpha(g) \beta(h)
     = \beta(h) \alpha(g)
-    \qquad
-    \text{für alle $g \in G$, $h \in H$}
   \]
-  gilt.
-  Dann gibt es einen eindeutigen Gruppenhomomorphismus $\varphi \colon G \times H \to T$, der die folgenden beiden Diagramme zum Kommutieren bringt:
+  für alle $g \in G$, $h \in H$ gilt.
+  Dann gibt es einen eindeutigen Gruppenhomomorphismus $\varphi \colon G \times H \to T$, der das folgende Diagramm zum kommutieren bringt:
   \[
     \begin{tikzcd}
-        G \times H
-        \arrow{rr}{\varphi}
-      & {}
+        {}
       & T
+      & {}
       \\
         {}
-      & G
-        \arrow[swap]{ru}{i}
-        \arrow{lu}{\alpha}
       & {}
-    \end{tikzcd}
-    \qquad\qquad
-    \begin{tikzcd}
-        G \times H
-        \arrow{rr}{\varphi}
       & {}
-      & T
       \\
         {}
+      & G \times H
+        \arrow[dashed]{uu}[right]{\varphi}
+      & {}
+      \\
+        G
+        \arrow{ur}[above left]{i}
+        \arrow[bend left]{uuur}[above left]{\alpha}
+      & {}
       & H
-        \arrow[swap]{ru}{j}
-        \arrow{lu}{\beta}
-      & {}
+        \arrow{ul}[above right]{j}
+        \arrow[bend right]{uuul}[above right]{\beta}
     \end{tikzcd}
   \]
 \end{proposition}
 
-Die Gruppe $G \times H$ zusammen mit den beiden Inklusionen $i \colon G \to G \times H$ und $j \colon H \to G \times H$ sind also die \enquote{allgemeinste} Möglichkeit, $G$ und $H$ auf kommutierende Weise zu einer gemeinsamen Gruppen $G \times H$ zusammenzufassen.
+Die Gruppe $G \times H$ zusammen mit den beiden Inklusionen $i \colon G \to G \times H$ und $j \colon H \to G \times H$ ist also die \enquote{allgemeinste} Möglichkeit, die Gruppen $G$ und $H$ auf kommutierende Weise zu einer gemeinsamen Gruppen $G \times H$ zusammenzufassen.

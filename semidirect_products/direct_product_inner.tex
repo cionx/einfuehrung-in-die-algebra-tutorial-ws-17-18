@@ -7,16 +7,16 @@
 \subsection*{Definition}
 
 Es sei $G$ eine Gruppe, und es seien $H, K \subgroup G$ zwei Untergruppen.
-Wir wollen untersuchen, wann $G$ dem direkten Produkt $K \times H$ entspricht, d.h.\ wann die Abbildung
+Wir wollen untersuchen, wann die Gruppe $G$ dem direkten Produkt $H \times K$ entspricht, d.h.\ wann die Abbildung
 \[
           \varphi
   \colon  H \times K
-  \to     G,
+  \to     G \,,
   \quad   (h,k)
   \mapsto hk
 \]
 ein Gruppenisomorphismus ist.
-Wir bezeichnen $G$ dann als das \emph{innere direkte Produkt} der Untergruppen $K$ und $H$.
+Ist dies der Fall, so bezeichnen wir $G$ als das \emph{innere direkte Produkt} der beiden Untergruppen $K$ und $H$.
 
 
 
@@ -24,7 +24,7 @@ Wir bezeichnen $G$ dann als das \emph{innere direkte Produkt} der Untergruppen $
 
 \subsection*{Erste Charakterisierung}
 
-Wir wollen charakterisieren, wann $\varphi$ ein Gruppenhomomorphismus ist, und wann $\varphi$ surjektiv, bzw.\ injektiv ist.
+Wir charakterisieren zunächst, unter welchen Bedingungen $\varphi$ ein Gruppenhomomorphismus ist, und wann $\varphi$ surjektiv, bzw.\ injektiv ist.
 
 \begin{itemize}
   \item
@@ -41,25 +41,21 @@ Wir wollen charakterisieren, wann $\varphi$ ein Gruppenhomomorphismus ist, und w
     \[
         h_1 k_1 h_2 k_2
       = h_1 h_2 k_1 k_2
-      \qquad
-      \text{für alle $h_1, h_2 \in K$, $k_1, k_2 \in H$}
     \]
-    gilt.
+    für alle $h_1, h_2 \in K$, $k_1, k_2 \in H$ gilt.
     Indem man den Fall $h_1 = k_2 = 1$ betrachtet, ist dies ferner äquivalent dazu, dass
     \[
         k_1 h_2
       = h_2 k_1
-      \qquad
-      \text{für alle $h_1 \in K$, $k_2 \in H$}
     \]
-    gilt.
-    Also ist $\varphi$ genau dann ein Gruppenhomomorphismus, wenn $K$ und $H$ miteinander kommutieren.
+    für alle $h_1 \in K$, $k_2 \in H$ gilt.
+    Also ist $\varphi$ genau dann ein Gruppenhomomorphismus, wenn die Untergruppen $K$ und $H$ miteinander kommutieren.
     
   \item
     Die Abbildung $\varphi$ ist surjektiv, wenn sich jedes Element $g \in G$ als $g = hk$ mit $h \in H$ und $k \in K$ darstellen lässt, d.h.\ wenn $G = HK$ gilt.
     
   \item
-    Für $(h_1, k_1), (h_2, k_2) \in H \times K$ gilt
+    Für alle $(h_1, k_1), (h_2, k_2) \in H \times K$ gilt
     \[
             \varphi(h_1, k_1) = \varphi(h_2, k_2)
       \iff  h_1 k_1 = h_2 k_2
@@ -67,17 +63,19 @@ Wir wollen charakterisieren, wann $\varphi$ ein Gruppenhomomorphismus ist, und w
     \]
     Man bemerke, dass das Element $x \define h_2^{-1} h_1 = k_2 k_1^{-1}$ dann bereits in $H \cap K$ enthalten ist.
     
-    Gilt $H \cap K = 1$, so folgen die Gleichheiten $h_2^{-1} h_1 = 1$ und $k_2 k_2^{-1} = 1$, und somit $h_1 = h_2$ und $k_1 = k_2$, also die Gleichheit $(h_1, k_1) = (h_2, k_2)$.
-    Also ist $\varphi$ dann injektiv.
+    \begin{itemize}
+      \item
+        Gilt $H \cap K = 1$, so gilt $x = 1$, und somit $h_1 = h_2$ und $k_1 = k_2$.
+        Somit gilt $(h_1, k_1) = (h_2, k_2)$, weshalb $\varphi$ dann injektiv ist.
+      \item
+        Gilt andererseits $H \cap K \neq 1$, so gibt es ein Element $x \in H \cap K$ mit $x \neq 1$.
+        Dann gilt $\varphi(x, x^{-1}) = 1 = \varphi(1,1)$ aber $(x, x^{-1}) \neq (1,1)$.
+        Also ist $\varphi$ dann nicht injektiv.
+    \end{itemize}
     
-    Gilt andererseits $H \cap K \neq 1$, so gibt es ein Element $x \in H \cap K$ mit $x \neq 1$.
-    Dann gilt $\varphi(x, x^{-1}) = 1 = \varphi(1,1)$ aber $(x, x^{-1}) \neq (1,1)$.
-    Also ist $\varphi$ dann nicht injektiv.
-    
-    Insgesamt zeigt dies, dass $\varphi$ genau dann injektiv ist, wenn $H \cap K = 1$ gilt.
+    Zusammen zeigt dies, dass $\varphi$ genau dann injektiv ist, wenn $H \cap K = 1$ gilt.
 \end{itemize}
 
-Ingesamt erhalten wir damit das folgende Resultat:
 
 \begin{proposition}
   \label{proposition: first characterization}
@@ -94,23 +92,27 @@ Wir wollen noch eine zweite Charakterisierung innerer direkte Produkte angeben:
 
 \begin{itemize}
   \item
-    Wir nehmen zunächst an, dass $G$ das innere direkte Produkt von $H$ und $K$ ist, dass also $\varphi \colon H \times K \to G$ ein Gruppenisomorphismus ist.
+    Wir nehmen zunächst an, dass $G$ das innere direkte Produkt der Untergruppen $H$ und $K$ ist, dass also die Abbildung $\varphi \colon H \times K \to G$ ein Gruppenisomorphismus ist.
+    Dann sind die Untergruppen $H, K \subgroup G$ bereits normal in $G$:
     
-    Die Untergruppen $\induced{H}, \induced{K} \subgroup H \times K$ sind normal.
-    Es gilt beispielsweise
-    \[
-          (h, k) (h', 1) (h, k)^{-1}
-      =   (h, k) (h', 1) (h^{-1}, k^{-1})
-      =   (h h' h^{-1}, k k^{-1})
-      =   (h h' h^{-1}, 1) \,,
-    \]
-    was die Normalität von $\induced{H}$ in $H \times K$ zeigt.
-    Da $\varphi$ ein Isomorphismus ist, folgt daraus, dass $H = \varphi(\induced{H})$ und $K = \varphi(\induced{K})$ normal in $\varphi(H \times K) = G$ sind.
-    
-    Dass $H$ und $K$ normal in $G$ sind, lässt sich auch direkt durch Betrachtung der Normalisatoren $\normalizer{H}{G}$ und $\normalizer{K}{G}$ erkennen:
-    Es gilt stets $H \subgroup \normalizer{H}{G}$, und da $H$ und $K$ miteinander kommutieren, gilt auch $K \subgroup \normalizer{H}{G}$.
-    Aus $G = HK$ folgt damit, dass bereits $G = \normalizer{H}{G}$ gilt, dass also $H$ normal in $G$ ist.
-    Analog ergibt sich die auch Normalität von $K$ in $G$.
+    \begin{itemize}
+      \item
+        Man bemerke, dass die Untergruppen $\induced{H}, \induced{K} \subgroup H \times K$ normal sind.
+        So gilt beispielsweise
+        \[
+              (h, k) (h', 1) (h, k)^{-1}
+          =   (h, k) (h', 1) (h^{-1}, k^{-1})
+          =   (h h' h^{-1}, k k^{-1})
+          =   (h h' h^{-1}, 1) \,,
+        \]
+        was die Normalität von $\induced{H}$ in $H \times K$ zeigt.
+        Da $\varphi$ ein Isomorphismus ist, folgt daraus, dass $H = \varphi(\induced{H})$ und $K = \varphi(\induced{K})$ normal in $\varphi(H \times K) = G$ sind.
+      \item
+        Alternativ lassen sich auch die Normalisatoren $\normalizer{H}{G}$ und $\normalizer{K}{G}$ betrachten:
+        Es gilt stets $H \subgroup \normalizer{H}{G}$, und da $H$ und $K$ miteinander kommutieren, gilt auch $K \subgroup \normalizer{H}{G}$.
+        Aus $G = HK$ folgt damit, dass bereits $G = \normalizer{H}{G}$ gilt, dass also $H$ normal in $G$ ist.
+        Analog ergibt sich die auch Normalität von $K$ in $G$.
+    \end{itemize}
     
     Unabhängig von der Vorgehensweise erhalten wir das folgende wichtige Resultat:
     \begin{center}
@@ -120,7 +122,7 @@ Wir wollen noch eine zweite Charakterisierung innerer direkte Produkte angeben:
       }
     \end{center}
   \item
-    Wir nehmen nun umgekehrt an, dass die Untergruppen $H, K \subgroup G$ beide normal sind, und dass $H \cap K = G$ gilt.
+    Wir nehmen nun umgekehrt an, dass die Untergruppen $H, K \subgroup G$ beide normal sind, und dass $H \cap K = 1$ gilt.
     Dann kommutieren $H$ und $K$ auch schon miteinander.
     Für alle $h \in H$ und $k \in K$ gilt nämlich, dass
     \[
@@ -173,7 +175,7 @@ Damit erhalten wir für endliches $G$ die folgenden (vier) Charakterisierungen i
     \item
       die Untergruppen $H$ und $K$ beide normal sind,
   \end{enumerate}
-  und
+  und 
   \begin{enumerate}[label=\arabic*'.]
     \item
       es gilt $H \cap K = 1$, oder
@@ -182,7 +184,7 @@ Damit erhalten wir für endliches $G$ die folgenden (vier) Charakterisierungen i
   \end{enumerate}
 \end{proposition}
 
-Besonders hervorheben möchten wir die folgende der oberen Charakterisierungen:
+Besonders hervorheben möchten wir an dieser Stelle die folgende der oberen Charakterisierungen:
 
 \begin{corollary}
   Eine endliche Gruppe $G$ ist genau dann das innere direkte Produkt zweier Untergruppen $H, K \subgroup G$, falls $\card{G} = \card{H} \cdot \card{K}$ gilt, $H$ und $K$ beide normal in $G$ sind, und $H \cap K = 1$ gilt.
