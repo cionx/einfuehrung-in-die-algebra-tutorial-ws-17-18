@@ -1,1 +1,78 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+Die Aussage ist \emph{falsch}:
+Nach Aufgabe~2 von Zettel~10 gibt es einen Automorphismus $f \colon \Rational(\sqrt{2}) \to \Rational(\sqrt{2})$ mit $f(\sqrt{2}) = -\sqrt{2}$.
+Das Element $\sqrt{2} \in \Rational(\sqrt[4]{2})$ hat eine Quadratwurzel, das Element $-\sqrt{2} \in \Rational(\sqrt[4]{2})$ allerdings nicht.
+Es gibt deshalb keinen Körperhomomorphismus $\hat{f} \colon \Rational(\sqrt[4]{2}) \to \Rational(\sqrt[4]{2})$ mit $\hat{f}(\sqrt{2}) = -\sqrt{2}$.
+Daher lässt sich $f$ nicht zu einem Körperhomomorphismus $\Rational(\sqrt[4]{2}) \to \Rational(\sqrt[4]{2})$ fortsetzen.
+
+
+
+
+
+\subsection{}
+
+Die Aussage ist \emph{falsch}:
+Nach dem Fundamentalsatz der Algebra zerfällt jedes normierte Polynom $f(t) \in \Real[t]$ in quadratische und lineare Faktoren.
+Inbesondere ist $f(t)$ reduzibel, falls $\deg f(t) \geq 3$ gilt.
+Somit ist das gegebene Polynom reduzibel.
+
+
+
+
+
+\subsection{}
+
+Die Aussage ist \emph{wahr}:
+Eine einfache Lösung besteht darin, für $f(t)$ das konstante $1$-Polynom zu wählen.
+Das Polynom $f(t)$ lässt sich aber auch nicht-konstant wählen:
+Gilt $S = \emptyset$, so lasst sich $f(t) = t$ wählen, und gilt $S \neq \emptyset$, so lässt sich $f(t) = 1 + \prod_{s \in S} (t-s)$ wählen.
+
+
+
+
+
+\subsection{}
+
+Die Aussage ist \emph{falsch}, da es keine endlichen algebraisch abgeschlossenen Körper gibt:
+Ist $K$ ein endlicher Körper, so gibt es nach dem vorherigen Aufgabenteil ein nicht-konstantes Polynom $f(t) \in K[t]$  gibt, das in $K$ keine Nullstelle hat.
+
+
+
+
+
+\subsection{}
+
+Die Aussage ist \emph{wahr}:
+Ist $K$ ein endlicher Integritätsbereich, so ist $K$ per Definition kommutative und es gilt $K \neq 0$.
+Es bleibt daher zu zeigen, dass jedes Element $x \in K$, $x \neq 0$ ein Inverses besitzt.
+
+Die Abbildung $\lambda_x \colon K \to K$, $y \mapsto xy$ ist injektiv, da $K$ ein Integritätsbereich ist, denn für alle $y_1, y_2 \in K$ gilt
+\begin{align*}
+            \lambda_x(y_1) = \lambda_x(y_2)
+   \implies x y_1 = x y_2
+  &\implies x (y_1 - y_2) = 0 \\
+  &\implies y_1 - y_2 = 0
+   \implies y_1 = y_2 \,.
+\end{align*}
+Wegen der Endlichkeit von $K$ ist $\lambda_x$ somit auch surjektiv.
+Inbesondere gibt es ein Element $y \in K$ mit $1 = \lambda_x(y) = xy$, so dass $x$ eine Einheit in $K$ ist.
+
+\begin{remark}
+  Ist $D \neq 0$ ein (nicht notwendigerweise kommutativer) links- und rechtsnullteilerfreier Ring, so ergibt sich nach der obigen Argumentation, dass jedes Element $x \in D$, $x \neq 0$ ein Links-\ und Rechtsinverses besitzt, und somit bereits ein beidseitig Inverses (der Leser sollte sich bewusst machen, dass diese Folgerung nicht trivial ist).
+  Also ist $D$ ein Schiefkörper.
+  
+  Nach dem Satz von Wedderburn, ist jeder endliche Schiefkörper bereits kommutativ, und somit ein Körper.
+  Dies gilt insbesondere für $D$.
+\end{remark}
+
+
+
+
+
