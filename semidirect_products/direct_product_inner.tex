@@ -76,7 +76,6 @@ Wir charakterisieren zunächst, unter welchen Bedingungen $\varphi$ ein Gruppenh
     Zusammen zeigt dies, dass $\varphi$ genau dann injektiv ist, wenn $H \cap K = 1$ gilt.
 \end{itemize}
 
-
 \begin{proposition}
   \label{proposition: first characterization}
   Eine Gruppe $G$ ist genau dann das innere direkte Produkt zweier Untergruppen $H, K \subgroup G$, falls $H$ und $K$ miteinander kommutieren, sowie $HK = G$ und $H \cap K = 1$ gelten.
@@ -187,6 +186,108 @@ Damit erhalten wir für endliches $G$ die folgenden (vier) Charakterisierungen i
 Besonders hervorheben möchten wir an dieser Stelle die folgende der oberen Charakterisierungen:
 
 \begin{corollary}
+  \label{corollary: inner direct product for finite groups}
   Eine endliche Gruppe $G$ ist genau dann das innere direkte Produkt zweier Untergruppen $H, K \subgroup G$, falls $\card{G} = \card{H} \cdot \card{K}$ gilt, $H$ und $K$ beide normal in $G$ sind, und $H \cap K = 1$ gilt.
 \end{corollary}
+
+\begin{example}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Für teilerfremde $n, m \geq 1$ betrachten wir die abelsche Gruppe $G \coloneqq \Integer/(nm)$.
+      Die Untergruppen $H \coloneqq n\Integer/(nm)$ und $K \coloneqq m\Integer/(nm)$ sind normal in $G$, da $G$ abelsch ist.
+      Es gelten $\card{H} = nm/n = m$ und $\card{K} = nm/m = n$.
+      Da $\card{H \cap K}$ ein Teiler von $\card{H} = m$ und $\card{K} = n$ ist, folgt damit aus der Teilerfremdheit von $n$ und $m$, dass $\card{H \cap K} = 1$ und somit $H \cap K = 0$.
+      Außerdem gilt $\card{G} = mn = \card{H} \card{K}$.
+      Somit erhalten wir nach Korollar~\ref{corollary: inner direct product for finite groups}, dass $G$ das innere Produkt der Untergruppen $H$ und $K$ ist.
+      
+      Inbesondere gilt $G \cong H \times K$.
+      Die Gruppen $H$ und $K$ sind als Untergruppen der zyklischen Gruppe $G$ ebenfalls zyklisch.
+      Also gelten $H \cong \Integer/m$ und $K \cong \Integer/n$.
+      Damit erhalten wir, dass
+      \[
+              \Integer/(mn)
+        \cong \Integer/m \times \Integer/n \,.
+      \]
+    \item
+      Ist allgemeiner $A$ eine endliche abelsche Gruppe, und sind $B, C \subgroup A$ zwei Untergruppen mit $B \cap C = 0$ und $B + C = 0$, oder äquivalent $\card{B} \card{C} = \card{A}$, so gilt $A \cong B \times C$.
+    \item
+      Es sei $G$ eine endliche Gruppe der Ordnung $\card{G} = pq$ mit $p$ und $q$ prim, so dass $p < q$ und $p \ndivides (q-1)$ gilt.
+      Es sei $n_p$ die Anzahl der $p$-Sylowgruppen in $G$, und $n_q$ die Anzahl der $q$-Sylowgruppen.
+      \begin{itemize}
+        \item
+          Es gelten $n_p \equiv 1 \pmod{p}$ und $n_p \divides q$.
+          Würde $n_p \neq 1$ gelten, so müsste $n_p = q$ gelten, und somit $q \equiv 1 \pmod{p}$, was aber im Widerspruch zu $p \ndivides (q-1)$ steht.
+          Also gilt $n_p = 1$.
+          Es gibt also eine eindeutige $p$-Sylowuntergruppe $H \subgroup G$;
+          da es sich um die einzige $p$-Sylowuntergruppe von $G$ handelt, ist $H$ normal.
+        \item
+          Es gelten $n_q \equiv 1 \pmod{q}$ und $n_q \divides p$.
+          Würde $n_q \neq 1$ gelten, so wäre $n_q \geq 1+q$, was wegen $p < q$ im Widerspruch zu $p \divides n_q$ stünde.
+          Somit gilt $n_q = 1$.
+          Es gibt also eine eindeutige $q$-Sylowuntergruppe $K \subgroup G$, die notwendigerweise normal in $G$ ist.
+      \end{itemize}
+      Die Ordnung $\card{H \cap K}$ teilt $\card{H} = p$ und $\card{K} = q$, weshalb $\card{H \cap K} = 1$ und somit $H \cap K = 1$ gilt.
+      Außerdem gilt $\card{G} = pq = \card{H} \card{K}$.
+      Somit ergibt sich nach Korollar~\ref{corollary: inner direct product for finite groups}, dass $G$ das innere direkte Produkt der Gruppen $H$ und $K$ ist.
+      
+      Inbesondere gilt $G \cong H \times K$.
+      Da $\card{H} = p$ und $\card{K} = q$ prim sind, gelten $H \cong \Integer/p$ und $K \cong \Integer/q$.
+      Damit erhalten wir aus der Teilerfremdheit von $p$ und $q$, dass
+      \[
+              G
+        \cong H \times K
+        \cong \Integer/p \times \Integer/q
+        =     \Integer/(pq) \,.
+      \]
+      
+    \item
+      Es sei $n \geq 1$ ungerade und es sei $G \coloneqq D_{2n}$ die Diedergruppe der Ordnung $\card{D_{2n}} = 2 \cdot 2n = 4n$.
+      Ist $\rho \in D_{2n}$ eine Rotation um den Winkel $2\pi/(2n)$ und $\tau \in D_{2n}$ eine Spiegelung, so gilt
+      \[
+          D_{2n}
+        = \{ 1, \rho, \dotsc, \rho^{2n-1}, \tau, \tau \rho, \dotsc, \tau \rho^{2n-1} \} \,,
+      \]
+      und Gruppenstruktur ist eindeutig durch die beiden \emph{Relationen}
+      \[
+              \rho^{2n} = 1 \,,
+        \quad \tau^2    = 1 \,,
+        \quad \tau \rho \tau^{-1} = \rho^{-1}
+      \]
+      festgelegt:
+      Für alle $i, j, k, l \in \Integer$ gilt
+      \[
+          \tau^i \rho^j \cdot \tau^k \rho^l
+        = \tau^i  \tau^k \rho^{(-1)^k j} \rho^l
+        = \tau^{i+k} \rho^{(-1)^k j + l} \,.
+      \]
+      Das Zentrum von $D_{2n}$ ist
+      \[
+          \groupcenter{D_{2n}}
+        = \{1, \rho^n\} \,,
+      \]
+      wobei $\rho^n$ geometrisch gesehen die Rotation um $180^\circ$ ist, also die Multiplikation mit $-1$.
+      Außerdem ist
+      \[
+                  D
+        \coloneqq \{
+                    \tau^i \rho^j
+                  \suchthat
+                    i \in \Integer,
+                    j \in 2\Integer
+                  \}
+      \]
+      eine Untergruppe von $D_{2n}$ vom Index $2$.
+      Inbesondere sind $\groupcenter{D_{2n}}$ und $D$ normal in $D_{2n}$ mit $\card{D_{2n}} = 4n = 2 \cdot 2n = \card{\groupcenter{D_{2n}}} \cdot \card{D}$.
+      Da $n$ ungerade ist, gilt $\rho^n \notin D$, und somit $\groupcenter{D_{2n}} \cap D = 1$.
+      Somit gilt nach Korollar~\ref{corollary: inner direct product for finite groups}, dass $D_{2n}$ das innere direkte Produkt der beiden Untergruppen $\groupcenter{D_{2n}}$ und $D$ ist.
+      
+      Inbesondere gilt $D_{2n} \cong \groupcenter{D_{2n}} \times D$.
+      Dabei gelten $\groupcenter{D_{2n}} \cong \Integer/2$ und $D \cong D_n$, und somit
+      \[
+        D_{2n} \cong D_n \times \Integer/2 \,.
+      \]
+  \end{enumerate}
+\end{example}
+
 
