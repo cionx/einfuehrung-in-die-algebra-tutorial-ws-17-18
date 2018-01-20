@@ -1,1 +1,127 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+Wir bestimmen zunächst, wieviele $z \in K$ von der Form $z = x^2$ für passendes $x \in K$ ist, d.h.\ wie viele Zahlen aus $K$ bereits Quadratzahlen sind.
+Da $0^2 = 0$ gilt, genügt es hierfür, die Elemente $z \in K \smallsetminus \{0\} = K^\times$ zu betrachten.
+
+Die Abbildung
+\[
+          q
+  \colon  K^\times
+  \to     K^\times \,,
+  \quad   x
+  \mapsto x^2
+\]
+ist ein Gruppenhomomorphismus mit
+\[
+    \ker q
+  = \{
+      x \in K^\times
+    \suchthat
+      x^2 = 1
+    \}
+  = \{1, -1\}
+\]
+(denn dies sind genau die Nullstellen des Polynoms $t^2 - 1 = (t+1)(t-1) \in K[t]$).
+\begin{enumerate}
+  \item
+    Gilt $\ringchar{K} = 2$, so gilt $1 = -1$, so dass $\ker q = 1$ gilt.
+    In diesem Fall ist $q$ injektiv, und wegen der Endlichkeit von $q$ somit bereits bijektiv.
+    Also ist dann jedes $z \in K^\times$ ein Quadrat.
+  \item
+    Gilt $\ringchar{K} \neq 2$, so gilt $1 \neq -1$, und somit $\card{\ker q} = 2$.
+    Dann gilt
+    \[
+        \card{\im q}
+      = \frac{\card{K^\times}}{\card{\ker q}}
+      = \frac{\card{K} - 1}{2} \,.
+    \]
+    Dann ist also genau die Hälfte aller $z \in K^\times$ ein Quadrat.
+\end{enumerate}
+Im Fall $\ringchar{K} = 2$ folgt mit $0^2 = 0$, dass jedes $z \in K$ ein Quadrat ist, die Abbildung $K \to K$, $x \mapsto x^2$ also bijektiv ist.
+Im Fall $\ringchar{K} \neq 2$ folgt mit $0^2 = 0$ hingegen, dass
+\[
+    \card{ \{ x^2 \suchthat x \in K \} }
+  = 1 + \card{ \{ x^2 \suchthat x \in K^\times \} }
+  = 1 + \frac{\card{K} - 1}{2}
+  = \frac{\card{K} + 1}{2} \,.  
+\]
+
+Da $a \in K^\times$ gilt, ist die Abbildung $K \to K$, $z \mapsto az$ bijektiv, und somit
+\[
+    \card{ \{a x^2 \suchthat x \in K\} }
+  = \card{ \{x^2 \suchthat x \in K\} }
+  = \begin{cases}
+      \card{K}        & \text{falls $\ringchar{K} = 2$}     \,, \\
+      (\card{K}+1)/2  & \text{falls $\ringchar{K} \neq 2$}  \,.
+    \end{cases}
+\]
+
+
+
+
+
+\addtocounter{subsection}{1}
+\subsection{}
+
+Es gilt $\ringchar{K} = 2$, da $\card{K}$ gerade ist.
+Wie bereits gesehen ist die Abbildung $K \to K$, $x \mapsto a x^2$ deshalb bijektiv.
+Also ist auch die Abbildung $K \to K$, $x \mapsto 1 + a x^2$ bijektiv.
+Es gibt also für jedes $z \in K$ ein eindeutiges Element $x \in K$ mit $z = 1 + a x^2$.
+
+
+
+
+
+\addtocounter{subsection}{-2}
+\subsection{}
+
+Gilt $\ringchar{K} = 2$, ist also $\card{K}$ gerade, so lässt sogar noch $y = 0$ wählen, wie bereits gezeigt.
+Es bleibt also nur noch der Fall $\ringchar{K} \neq 2$ zu betrachten.
+Wie bereits gesehen, gelten dann
+\begin{gather*}
+    \card{ \{ 1 + a x^2 \suchthat x \in K \} }
+  = \card{ \{ a x^2 \suchthat x \in K \} }
+  = \card{ \{ x^2 \suchthat x \in K \} }
+  = \frac{\card{K} + 1}{2}
+\shortintertext{und}
+    \card{ \{ -b y^2 \suchthat y \in K \} }
+  = \card{ \{ y^2 \suchthat y \in K \} }
+  = \card{ \{ y^2 \suchthat y \in K \} }
+  = \frac{\card{K} + 1}{2} \,.
+\end{gather*}
+Dabei gilt
+\[
+    \frac{\card{K}+1}{2}
+  + \frac{\card{K}+1}{2}
+  = \card{K} + 1
+  > \card{K} \,,
+\]
+weshalb nach dem Schubfachprinzip
+\[
+        \{ 1 + a x^2 \suchthat x \in K \} \cap \{ -b y^2 \suchthat y \in K \}
+  \neq  \emptyset
+\]
+gilt.
+Es gibt also $x, y \in K$ mit $1 + a x^2 = -b y^2$, also mit $1 + a x^2 + b y^2 = 0$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
