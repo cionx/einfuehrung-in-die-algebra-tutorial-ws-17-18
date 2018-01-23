@@ -1,1 +1,83 @@
-\addtocounter{section}{1}
+\section{}
+
+
+
+
+
+\subsection{}
+
+Die in dieser Aufgabe gezeigte Aussage, dass jede endliche abelsche Gruppe $A$ zu einem direkten Produkt von zyklischen $p$-Gruppen isomorph ist (wobei $p$ die Primfaktoren von $\card{A}$ durchläuft), verallgemeinert sich zum \emph{Fundamentalsatz über endlich erzeugte abelsche Gruppen}.
+
+\begin{theorem}[Fundamentalsatz über endlich erzeugte abelsche Gruppen]
+  \label{theorem: fundamental theorem for finitely generated abelian groups}
+  Ist $A$ eine endlich erzeugte abelsche Gruppe, so gilt
+  \[
+          A
+    \cong \Integer^r \times \prod_{i=1}^s (\Integer/p_i^{\nu_i})
+  \]
+  mit $r, s \geq 0$, $\nu_1, \dotsc, \nu_s \geq 1$ und $p_1, \dotsc, p_s$ prim.
+  Dabei sind die Zahlen $r, s$ eindeutig, und die Paare $(p_1, \nu_1), \dotsc, (p_s, \nu_s)$ eindeutig bis auf Permutation.
+\end{theorem}
+
+Ist $A$ eine endliche abelsche Gruppe, so muss $r = 0$ gelten, und wir erhalten die Aussage der Aufgabe.
+Wir erhalten sogar die Eindeutigkeit (bis auf Permutation der Faktoren) der Zerlegung von $A$ in zyklische $p$-Gruppen.
+
+\begin{remark}
+  In der Praxis stellt sich häufig die Frage, wie für gegebene Elemente $a_1, \dotsc, a_m \in \Integer^n$ die Gruppe
+  \[
+              A
+    \coloneqq \Integer^n / \generated{a_1, \dotsc, a_m}
+  \]
+  aussieht.
+  Da $\Integer^n$ als abelsche Gruppe von den (endlich vielen) Standardbasisvektoren $e_1, \dotsc, e_n \in \Integer^n$ erzeugt wird, ist auch $A$ endlich erzeugt.
+  Nach Satz~\ref{theorem: fundamental theorem for finitely generated abelian groups} gilt deshalb
+  \[
+          A
+    \cong \Integer^r \times \prod_{i=1}^s (\Integer/p_i^{\nu_i}) \,.
+  \]
+  Es gibt nun einen Algorithmus, um diese Zerlegung auch tatsächlich zu berechnen:
+  \begin{enumerate}
+    \item
+      Man trage zunächst die $a_1, \dotsc, a_n$ als Spalten in eine Matrix $A \in \mnatrices{m}{n}{\Integer}$ ein.
+    \item
+      Durch elementare Zeilen- und Spaltenumformungen (wobei man beim Skalieren der Zeilen und Spalten nur die Einheiten $\pm 1 \in \Integer$ nutzen darf) bringe man $A$ in eine $(2 \times 2)$-Blockgestalt
+      \[
+          D
+        = \left(
+          \begin{array}{ccc|c}
+            d_1 &         &         & 0       \\
+                & \ddots  &         & \vdots  \\
+                &         & d_s     & 0       \\
+            \hline
+            0   & \cdots  & 0       & 0
+          \end{array}
+          \right) \,,
+      \]
+      wobei $d_1, \dotsc, d_s \geq 1$.
+    \item
+      Es gilt dann
+      \[
+              A
+        \cong \Integer^{m-s} \times (\Integer/d_1) \times \dotsb \times (\Integer/d_s) \,.
+      \]
+      Mithilfe des chinesischen Restklassensatzes lassen sich dann die Faktoren $\Integer/d_i$ noch weiter in ein direktes Produkte von zyklischen $p$-Gruppen zerlegen.
+  \end{enumerate}
+  Insbesondere lassen sich der Fundamentalsatz über endlich erzeugte abelsche Gruppen (inklusive der von uns gezeigten Aussagen über endliche abelsche Gruppen) auch rein algorithmisch begründen.
+  (Zumindest die Existenz der entsprechenden Zerlegungen.)
+\end{remark}
+
+
+
+\begin{remark}
+  Der Fundamentalsatz über endlich erzeugte abelsche Gruppen verallgemeinert sich weiter zum \emph{Fundamentalsatz über endlich erzeugte Moduln über Hauptidealringen} (den wir hier nicht angeben werden).
+  Für den Hauptidealring $\Integer$ erhält man hieraus den Fundamentalsatz über endlich erzeugte abelsche Gruppen;
+  für den Hauptidealring $K[t]$, wobei $K$ ein algebraisch abgeschlossener Körper ist, erhält man (unter anderem) die Jordan-Normalform aus der linearen Algebra.
+  
+  Insbesondere lassen sich die Beweise zu Aufgaben~5~und~6 in einen Beweis für die Existenz der Jordan-Normalform über algebraisch abgeschlossenen Körpern umschreiben.
+  (Die Zerlegung einer endlichen abelschen Gruppe in ihre $p$-Sylowuntergruppen wird dabei durch die Zerlegung eines endlichdimensionalen Vektorraums in die verallgemeinerten Eigenräume, bzw.\ Haupträume ersetzt.)
+  Hieraus ergibt sich auch, dass die Lösungen zu Aufgabe 5 nicht sehr viel besser als die Beweise für die Existenz der Jordan-Normalform seien können.
+\end{remark}
+
+
+
+
