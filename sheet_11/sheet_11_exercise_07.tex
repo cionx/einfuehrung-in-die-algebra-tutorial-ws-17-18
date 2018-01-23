@@ -1,1 +1,96 @@
-\addtocounter{section}{1}
+\section{}
+
+\begin{lemma}
+  Es sei $p$ prim, und es seien $n, m \geq 1$.
+  Dann gibt es genau dann eine Einbettung $\Finite{p^n} \hookrightarrow \Finite{p^m}$, also einen Körperhomomorphismus $\Finite{p^n} \to \Finite{p^m}$, wenn $n \divides m$ gilt.
+\end{lemma}
+
+\begin{proof}
+  Falls es eine Einbettung $\Finite{p^n} \hookrightarrow \Finite{p^m}$ gibt, so können wir o.B.d.A.\ den Körper $\Finite{p^n}$ als einen Unterkörper von $\Finite{p^m}$ auffassen.
+  Nach der Multiplikativität des Grades gilt dann
+  \[
+      m
+    = [\Finite{p^m} : \Finite{p}]
+    = [\Finite{p^m} : \Finite{p^n}] [\Finite{p^n} : \Finite{p}]
+    = [\Finite{p^m} : \Finite{p^n}] \cdot n \,,
+  \]
+  weshalb dann $n \divides m$ gilt.
+  Gilt andererseits $n \divides m$, so lässt sich auf verschiedene Weisen vorgehen:
+  \begin{itemize}
+    \item
+      Das Polynom $t^{p^n} - t$ ein Teiler des Polynoms $t^{p^m} - t$.
+      Dies lässt sich auf verschiedene Weisen sehen:
+      \begin{itemize}
+        \item
+          Ist $\overline{\Finite{p}}$ ein algebraischer Abschluss von $\Finite{p}$, so zerfallen beide Polynome über $\overline{\Finite{p}}$ in paarweise verschieden Linearfaktoren (denn beide Polynome sind separabel).
+          Für jede Nullstelle $x \in \overline{\Finite{p}}$ von $t^{p^n} - t$ gilt $x^{p^n} = x$.
+          Dann gilt auch $x^{p^m} = x$, da $m$ ein Vielfaches von $n$ ist (und somit die Abbildung $y \mapsto y^{p^m}$ durch $(m/n)$-faches Anwenden von $y \mapsto y^{p^n}$ gegeben ist).
+          Also ist jeder Linearfaktor von $t^{p^n} - t$ auch ein Linearfaktor von $t^{p^m} - t$.
+        \item
+          Indem wir beide Polynome durch $t$ teilen, genügt es $(t^{(p^n-1)} - 1) \divides (t^{(p^m - 1)} - 1)$ zu zeigen.
+          
+          \begin{claim*}
+            Es sei $R$ ein Ring und es seien $a \in R$, $k \geq 1$.
+            Dann gilt $(a - 1) \divides (a^k - 1)$.
+          \end{claim*}
+          \begin{proof}
+            Es gilt $a^k - 1 = (a-1)(a^{k-1} + a^{k-2} + \dotsb + 1)$.
+          \end{proof}
+          
+          Nach der Behauptung genügt es zu zeigen, dass $(p^n - 1) \divides (p^m - 1)$ gilt, denn dann ist $t^{(p^m - 1)}$ eine Potenz von $t^{(p^n - 1)}$.
+          Erneut nach der Behauptung genügt es hierfür zu zeigen, dass $p^m$ eine Potenz von $p^n$ ist.
+          Dies ergibt sich aus $n \divides m$.
+      \end{itemize}
+      
+      Da $\Finite{p^m}$ ein Zerfällungkörper des Polynoms $t^{p^m} - t$ ist, folgt damit, dass $\Finite{p^m}$ einen Zerfällungskörper des Polynoms $t^{p^n} - t$ enthält, also $\Finite{p^n}$ enthält.
+  \end{itemize}
+  Zum besseren Verständnis der zu zeigenden Aussage möchten wir auch die folgende Argumentation angeben, die zur Abgabe des Übungszetteln noch nicht zur Verfügung stand:
+  \begin{itemize}[resume]
+    \item
+      Die Körpererweiterung $\Finite{p^m}/\Finite{p}$ ist galoisch mit Galoisgruppe $\Gal(\Finite{p^m}/\Finite{p}) \cong \Integer/m$.
+      Da $n \divides m$ gilt, enthält $\Gal(\Finite{p^m}/\Finite{p})$ somit eine Untergruppe $G \subgroup \Gal(\Finite{p^m}/\Finite{p})$ der Ordnung $m/n$.
+      Nach dem Hauptsatz der Galoistheorie gilt für den Fixkörper $K \coloneqq (\Finite{p^m})^G$, dass die Körpererweiterung $\Finite{p^m}/K$ galoissch mit Galoisgruppe $\Gal(\Finite{p^m}/K) = G$ ist, und (somit) vom Grad $[\Finite{p^m} : K] = \card{G} = m/n$ ist.
+      Nach der Multiplikativität des Grades gilt nun
+      \[
+          m
+        = [\Finite{p^m} : \Finite{p}]
+        = [\Finite{p^m} : K] [K : \Finite{p}]
+        = \frac{m}{n} \cdot [K : \Finite{p}] \,,
+      \]
+      und somit $[K : \Finite{p}] = n$.
+      Nach der Klassifikation endlicher Körper gilt für den Unterkörper $K \subseteq \Finite{p^m}$ deshalb $K \cong \Finite{p^n}$.
+  \end{itemize}
+  Mit ein wenig Abänderung der obigen Idee genügt auch der Spezialfall der Galois-Korrespondenz für endliche Körper (Satz~19.1), der in der Vorlesung zum Zeitpunkt der Abgabe bereits bekannt war:
+  \begin{itemize}[resume]
+    \item
+      Wie bereits gesehen, ist für jeden Unterkörper $K \subseteq \Finite{p^m}$ der Grad $[K : \Finite{p}]$ ein Teiler des Grads $[\Finite{p^m} : \Finite{p}] = m$.
+      Dabei ist $K$ durch den Grad $[K : \Finite{p}] = d$ nach der Klassifikation endlicher Körper bereits eindeutig als
+      \[
+          K
+        = \{
+            x \in K
+          \suchthat
+            x^{p^d} = x
+          \}
+      \]
+      bestimmt.
+      Es gibt also höchsten so viele Unterkörper $K \subseteq \Finite{p^m}$, wie es positive Teiler $d \divides m$ gibt.
+      
+      Nach Satz~19.1 gibt eine 1:1-Korrespondenz
+      \[
+                              \{ \text{Unterkörper $K \subseteq \Finite{p^m}$}  \}
+        \xleftrightarrow{1:1} \{ \text{Untergruppen $G \subgroup \Aut{\Finite{p^m}}$} \}  \,,
+      \]
+      wobei $\Aut{\Finite{p^m}} = \generated{\Fr} \cong \Integer/m$ gilt.
+      Da $\Integer/m$ für jeden positiven Teiler $d \divides m$ eine eindeutige Untergruppe der Ordnung $d$ besitzt\footnote{
+      Die vorherige Argumenation zeigt, dass es für einen Teiler $d \divides m$ eigentlich natürlicher ist, die eindeutige Untergruppe von Ordnung $m/d$ zu betrachten.
+      Es geht es uns hier aber nur um die Anzahl der Untergruppen, weshalb wir hier auch eine einfache Formulierung wählen können.},
+      enthält $\Finite{p^m}$ tatsächlich schon so viele Unterkörper $K \subseteq \Finite{p^m}$ wie es positive Teiler $d \divides m$ gibt.
+      
+      Zusammen erhalten wir somit, dass $\Finite{p^m}$ für jeden positven Teiler $d \divides m$ einen Unterkörper $K \subseteq \Finite{p^m}$ mit $[K : \Finite{p}] = d$ besitzt.
+      Inbesondere gilt dies für $d = n$.
+  \qedhere
+  \end{itemize}
+
+\end{proof}
+
