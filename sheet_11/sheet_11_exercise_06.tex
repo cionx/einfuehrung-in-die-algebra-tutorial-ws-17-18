@@ -81,3 +81,45 @@ Wir erhalten sogar die Eindeutigkeit (bis auf Permutation der Faktoren) der Zerl
 
 
 
+
+\subsection{}
+
+
+Ein \emph{Partition} einer Menge $X$ ist eine Kollektion von Teilmenge $\mathcal{Y} \subseteq \mathcal{P}(X)$ mit $X = \bigcup_{Y \in \mathcal{Y}} Y$ und $Y_1 \cap Y_2 = \emptyset$ für alle $Y_1, Y_2 \in \mathcal{Y}$.
+Partitionen von $X$ entsprechen also den Möglichkeiten, die Menge $X$ in paarweise disjunkte Teilmengen zu zerlegen.
+Für alle $n \geq 1$ sei $P(n)$ die Anzahl der Partitionen einer $n$-elementigen Menge.
+
+Es sei $N \geq 1$ mit Primfaktorzerlegung $N = p_1 \dotsm p_n$.
+Dann liefert jede Partition $\{1, \dotsc, n\} = A_1 \cup \dotsb \cup A_r$ in paarweise disjunkt Teilmengen $A_1, \dotsc, A_r \subseteq \{1, \dotsc, n\}$ eine endliche abelsche Gruppe
+\[
+          \left. \Integer \middle/ \left( \prod_{p \in A_1} p \right) \right.
+  \times  \dotsb
+  \times  \left. \Integer \middle/ \left( \prod_{p \in A_r} p \right) \right.
+\]
+der Ordnung $N$.
+Nach den vorherigen Ergebnissen ist jede abelsche Gruppe der Ordnung $N$ von dieser Form.
+Es genügt daher zu zeigen, dass
+\[
+  P(n) \leq n^n
+\]
+gilt.
+Wir zeigen dies per Induktion über $n$:
+
+Für $n = 1$ gilt $P(n) = 1 = 1^1 = n^n$.
+Es sei nun $n \geq 2$ und es gelte $P(m) \leq m^m$ für alle $m = 1, \dotsc, n-1$.
+Um $P(n)$ abzuschätzen, bemerken wir, dass es für jedes $k \geq 1$ genau $\binom{n-1}{k}$ viele $(k+1)$-elementige Teilmengen $A_1 \subseteq \{1, \dotsc, n\}$ gibt, die $1$ enthalten.
+Für jede solche Menge gibt es $P(n-(k+1))$ viele Möglichkeiten, das Komplement $\{1, \dotsc, n\} \setminus A_1$ weiter disjunkt zu zerlegen.
+Wir erhalten somit, dass
+\begin{align*}
+        P(n)
+  &=    \sum_{k=0}^{n-1} \binom{n-1}{k} P(n-(k+1))
+   =    \sum_{k=0}^{n-1} \binom{n-1}{k} P(n-k-1)
+  \\
+  &\leq \sum_{k=0}^{n-1} \binom{n-1}{k} (n-k-1)^{(n-k-1)}
+   \leq \sum_{k=0}^{n-1} \binom{n-1}{k} (n-1)^{n-1-k} \cdot 1^k
+  \\
+  &=    (n-1 + 1)^{n-1}
+   =   n^{(n-1)}
+   \leq  n^n \,.
+\end{align*}
+
