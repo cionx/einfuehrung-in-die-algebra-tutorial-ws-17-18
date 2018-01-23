@@ -7,8 +7,8 @@
 \subsection{}
 
 Da $\Rational \subseteq K$ der Primkörper von $K$ ist, gilt für den Körperhomomorphismus $f$, dass $\restrict{f}{\Rational} = \id_\Rational$.
-Für das Minimalpolynom $m_a(t) = \sum_i p_i t^i \in \Rational[t]$ gilt $p_i \in \Rational$ für alle $i$;
-für jede Nullstelle $b \in S_a$ von $m_a(t)$ gilt somit
+Für das Minimalpolynom $m_a(t) = \sum_i p_i t^i \in \Rational[t]$ gilt $p_i \in \Rational$ für alle $i$.
+Für jede Nullstelle $b \in S_a$ von $m_a(t)$ gilt deshalb
 \[
     m_a( f(b) )
   = \sum_i p_i f(b)^i
@@ -27,7 +27,7 @@ und somit auch $f(b) \in S_a$.
 \subsection{}
 
 Für jedes $a \in K$ ist die Menge $S_a$ endlich, da das Polynom $m_a(t) \in \Rational[t] \subseteq K[t]$ nur endlich viele Nullstellen hat.
-Die Einschränkung $\restrict{f}{S_a}[S_a] \colon S_a \to S_a$ ist injektiv, da $f$ als Körperhomomorphismus injektiv ist, und wegen der Endlichkeit von $S_a$ somit auch surjektiv.
+Die Einschränkung $\restrict{f}{S_a}[S_a] \colon S_a \to S_a$ ist injektiv, da der Körperhomomorphismus $f$ injektiv ist, und wegen der Endlichkeit von $S_a$ somit auch surjektiv.
 Also gilt $f(S_a) = S_a$.
 
 
@@ -37,7 +37,7 @@ Also gilt $f(S_a) = S_a$.
 \subsection{}
 
 Für jedes $a \in K$ gilt $a \in S_a$, weshalb $K = \bigcup_{a \in K} S_a$ gilt.
-Damit folgt, dass
+Hiermit folgt, dass
 \[
     f(K)
   = f\left( \bigcup_{a \in K} S_a \right)
