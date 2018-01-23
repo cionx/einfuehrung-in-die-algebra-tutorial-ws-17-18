@@ -21,7 +21,7 @@ Mit $f(t) = \sum_i a_i t^i$ und $g(t) = \sum_i b_i t^i$ gilt $(r \cdot f + s \cd
 
 \subsection{}
 
-Mit $f(t) = \sum_i a_i t^i$ und $g(t) = \sum_j b_j t^j$ gilt $(f \cdot g)(t) = \sum_{i,j} a_i b_j t^{i+j}$ und somit
+Mit $f(t) = \sum_i a_i t^i$ und $g(t) = \sum_j b_j t^j$ gilt $(f \cdot g)(t) = \sum_{i,j} a_i b_j t^{i+j}$, und somit nach dem vorherigen Aufgabenteil
 \begin{align*}
       (f \cdot g)'(t)
   &=  \sum_{i,j} a_i b_j (i+j) t^{i+j-1}
@@ -40,7 +40,7 @@ Mit $f(t) = \sum_i a_i t^i$ und $g(t) = \sum_j b_j t^j$ gilt $(f \cdot g)(t) = \
 
 \subsection{}
 
-Hat $f(t)$ keine $9$ verschiedenen Nullstellen, so hat $f(t)$ in $\Finite{9}$, und somit auch in $\overline{\Finite{3}}$ eine mehrfache Nullstelle.
+Hat $f(t)$ keine $9$ verschiedenen Nullstellen in $K$, so hat $f(t)$ im im algebraischen Abschluss $\overline{\Finite{3}} \supseteq K$ eine mehrfache Nullstelle.
 Da $f(t)$ irreduzibel ist, gilt somit (wie in der Vorlesung gezeigt), dass $f'(t) = 0$.
 Insbesondere ist dann jedes $x \in \Finite{9}$ eine Nullstelle von $f'(t)$.
 
@@ -63,9 +63,9 @@ Für das gegebene Polynom $f(t) \coloneqq t^6 + t^5 - t^4 - t^3 - t^2 + t$ gilt
   = 2 t^4 + 2 t^3 + t + 1
   = t^4 + t^3 + 2 t + 2 \,.
 \]
-Es gibt nun (mindestens) zwei Vorgehensweisen:
-Wir bestimmen jeweils die gemeinsamen Nullstellen von $f(t)$ und $f'(t)$;
+Wir bestimmen nun die gemeinsamen Nullstellen von $f(t)$ und $f'(t)$;
 dies sind dann genau die mehrfachen Nullstellen von $f(t)$ und $f'(t)$.
+Es gibt hierfür (mindestens) zwei Vorgehensweisen:
 
 \begin{itemize}
   \item
@@ -79,18 +79,18 @@ dies sind dann genau die mehrfachen Nullstellen von $f(t)$ und $f'(t)$.
        =  (t - 1)^3 (t - 1) \,.
     \end{align*}
     (Dabei nutzen wir für die Umfomung $(t^3 + 2) = (t+2)^3$, dass $\ringchar{\Finite{9}} = 3$ gilt.)
-    Also zerfällt $f'(t)$ bereits über $\Finite{3}$ in Linearfaktoren, und die auftretenden Nullstellen sind $1$ und $-1$.
+    Also zerfällt $f'(t)$ über $\Finite{3}$ in Linearfaktoren, und die auftretenden Nullstellen sind $1$ und $-1$.
     Dabei ist $1$ auch eine Nullstelle von $f(t)$, $-1$ hingegen nicht.
     
     Somit ist $1$ die einzige gemeinsame Nullstelle von $f(t)$ und $f'(t)$, und somit auch die einzige mehrfache Nullstelle von $f(t)$.
   \item
     Mithife des euklidischen Algorithmus ergibt sich, dass $(t-1)^3$ der größte gemeinsame Teiler von $f(t)$ und $f'(t)$ ist.
-    Da die gemeinsamen Nullstellen von $f(t)$ und $f'(t)$ genau die Nullstellen dieses größten gemeinsamen Teilers sind, ist $1$ die einzige mehrfache Nullstelle des Polynoms $f(t)$.
+    Da die gemeinsamen Nullstellen von $f(t)$ und $f'(t)$ genau die Nullstellen dieses größten gemeinsamen Teilers sind, ist $1$ die einzige mehrfache Nullstelle von $f(t)$.
 \end{itemize}
 
 
 
-\subsection{}
+\subsubsection{}
 
 Für das gegebene Polynom $g(t) \coloneqq t^{12} + t^6 + t^4 + 2 t^3 + t$ gilt
 \[
@@ -99,7 +99,7 @@ Für das gegebene Polynom $g(t) \coloneqq t^{12} + t^6 + t^4 + 2 t^3 + t$ gilt
   = t^3 + 1
   = (t + 1)^3 \,.
 \]
-Da $-1$ eine Nullstelle von $g(t)$ ist, ist somit $-1$ die einzige gemeinsame Nullstelle des Polynoms $g(t)$.
+Da $-1$ auch eine Nullstelle von $g(t)$ ist, handelt es sich bei $-1$ um die einzige mehrfache Nullstelle von $g(t)$.
 
 
 
