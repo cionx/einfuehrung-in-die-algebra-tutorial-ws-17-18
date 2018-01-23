@@ -6,7 +6,7 @@
 
 \subsection{}
 
-Die in dieser Aufgabe gezeigte Aussage, dass jede endliche abelsche Gruppe $A$ zu einem direkten Produkt von zyklischen $p$-Gruppen isomorph ist (wobei $p$ die Primfaktoren von $\card{A}$ durchläuft), verallgemeinert sich zum \emph{Fundamentalsatz über endlich erzeugte abelsche Gruppen}.
+Die in dieser Aufgabe gezeigte Aussage, dass jede endliche abelsche Gruppe $A$ zu einem direkten Produkt von zyklischen $p$-Gruppen isomorph ist (wobei $p$ die Primfaktoren der Ordnung $\card{A}$ durchläuft), verallgemeinert sich zum \emph{Fundamentalsatz über endlich erzeugte abelsche Gruppen}.
 
 \begin{theorem}[Fundamentalsatz über endlich erzeugte abelsche Gruppen]
   \label{theorem: fundamental theorem for finitely generated abelian groups}
@@ -20,7 +20,7 @@ Die in dieser Aufgabe gezeigte Aussage, dass jede endliche abelsche Gruppe $A$ z
 \end{theorem}
 
 Ist $A$ eine endliche abelsche Gruppe, so muss $r = 0$ gelten, und wir erhalten die Aussage der Aufgabe.
-Wir erhalten sogar die Eindeutigkeit (bis auf Permutation der Faktoren) der Zerlegung von $A$ in zyklische $p$-Gruppen.
+Wir erhalten sogar noch eine Eindeutigkeitsaussage (bis auf Permutation der Faktoren).
 
 \begin{remark}
   In der Praxis stellt sich häufig die Frage, wie für gegebene Elemente $a_1, \dotsc, a_m \in \Integer^n$ die Gruppe
@@ -35,7 +35,7 @@ Wir erhalten sogar die Eindeutigkeit (bis auf Permutation der Faktoren) der Zerl
           A
     \cong \Integer^r \times \prod_{i=1}^s (\Integer/p_i^{\nu_i}) \,.
   \]
-  Es gibt nun einen Algorithmus, um diese Zerlegung auch tatsächlich zu berechnen:
+  Es gibt nun einen Algorithmus, um die rechte Seite zu berechnen.
   \begin{enumerate}
     \item
       Man trage zunächst die $a_1, \dotsc, a_n$ als Spalten in eine Matrix $A \in \mnatrices{m}{n}{\Integer}$ ein.
@@ -53,14 +53,14 @@ Wir erhalten sogar die Eindeutigkeit (bis auf Permutation der Faktoren) der Zerl
           \end{array}
           \right) \,,
       \]
-      wobei $d_1, \dotsc, d_s \geq 1$.
+      mit $d_1, \dotsc, d_s \geq 1$.
     \item
       Es gilt dann
       \[
               A
         \cong \Integer^{m-s} \times (\Integer/d_1) \times \dotsb \times (\Integer/d_s) \,.
       \]
-      Mithilfe des chinesischen Restklassensatzes lassen sich dann die Faktoren $\Integer/d_i$ noch weiter in ein direktes Produkte von zyklischen $p$-Gruppen zerlegen.
+      Mithilfe des chinesischen Restklassensatzes lassen sich dann die Faktoren $\Integer/d_i$ noch weiter in direkte Produkte von zyklischen $p$-Gruppen zerlegen.
   \end{enumerate}
   Insbesondere lassen sich der Fundamentalsatz über endlich erzeugte abelsche Gruppen (inklusive der von uns gezeigten Aussagen über endliche abelsche Gruppen) auch rein algorithmisch begründen.
   (Zumindest die Existenz der entsprechenden Zerlegungen.)
@@ -85,38 +85,39 @@ Wir erhalten sogar die Eindeutigkeit (bis auf Permutation der Faktoren) der Zerl
 \subsection{}
 
 
-Ein \emph{Partition} einer Menge $X$ ist eine Kollektion von Teilmenge $\mathcal{Y} \subseteq \mathcal{P}(X)$ mit $X = \bigcup_{Y \in \mathcal{Y}} Y$ und $Y_1 \cap Y_2 = \emptyset$ für alle $Y_1, Y_2 \in \mathcal{Y}$.
-Partitionen von $X$ entsprechen also den Möglichkeiten, die Menge $X$ in paarweise disjunkte Teilmengen zu zerlegen.
+Ein \emph{Partition} einer Menge $X$ ist eine Kollektion von nicht-leeren Teilmenge $\mathcal{Y} \subseteq \mathcal{P}(X)$ mit $X = \bigcup_{Y \in \mathcal{Y}} Y$ und $Y_1 \cap Y_2 = \emptyset$ für alle $Y_1, Y_2 \in \mathcal{Y}$.
+Partitionen von $X$ entsprechen also den Möglichkeiten, die Menge $X$ in paarweise disjunkte, nicht-leere Teilmengen zu zerlegen.
 Für alle $n \geq 1$ sei $P(n)$ die Anzahl der Partitionen einer $n$-elementigen Menge.
+(Es gelten etwa $P(1) = 1$, $P(2) = 2$, $P(3) = 5$ und $P(4) = 15$.)
 
-Es sei $N \geq 1$ mit Primfaktorzerlegung $N = p_1 \dotsm p_n$.
-Dann liefert jede Partition $\{1, \dotsc, n\} = A_1 \cup \dotsb \cup A_r$ in paarweise disjunkt Teilmengen $A_1, \dotsc, A_r \subseteq \{1, \dotsc, n\}$ eine endliche abelsche Gruppe
+Es sei nun $N \geq 1$ mit Primfaktorzerlegung $N = p_1 \dotsm p_n$.
+Dann liefert jede Partition $\{1, \dotsc, n\} = A_1 \cup \dotsb \cup A_r$ in paarweise disjunkte Teilmengen $A_1, \dotsc, A_r \subseteq \{1, \dotsc, n\}$ eine endliche abelsche Gruppe
 \[
           \left. \Integer \middle/ \left( \prod_{p \in A_1} p \right) \right.
   \times  \dotsb
   \times  \left. \Integer \middle/ \left( \prod_{p \in A_r} p \right) \right.
 \]
 der Ordnung $N$.
-Nach den vorherigen Ergebnissen ist jede abelsche Gruppe der Ordnung $N$ von dieser Form.
+Nach den vorherigen Ergebnissen ist jede abelsche Gruppe der Ordnung $N$ isomorph zu einer Gruppe dieser Form.
 Es genügt daher zu zeigen, dass
 \[
   P(n) \leq n^n
 \]
-gilt.
+für alle $n \geq 1$ gilt.
 Wir zeigen dies per Induktion über $n$:
 
 Für $n = 1$ gilt $P(n) = 1 = 1^1 = n^n$.
 Es sei nun $n \geq 2$ und es gelte $P(m) \leq m^m$ für alle $m = 1, \dotsc, n-1$.
-Um $P(n)$ abzuschätzen, bemerken wir, dass es für jedes $k \geq 1$ genau $\binom{n-1}{k}$ viele $(k+1)$-elementige Teilmengen $A_1 \subseteq \{1, \dotsc, n\}$ gibt, die $1$ enthalten.
-Für jede solche Menge gibt es $P(n-(k+1))$ viele Möglichkeiten, das Komplement $\{1, \dotsc, n\} \setminus A_1$ weiter disjunkt zu zerlegen.
+Um $P(n)$ entsprechend abzuschätzen, betrachten wir alle Teilmengen $A \subseteq \{1, \dotsc, n\}$, die $1$ enthalten.  Für jedes $k \geq 1$ gibt es genau $\binom{n-1}{k-1}$ viele $k$-elementige solche Teilmengen.
+Für jede solche Menge gibt es dann $P(n-k)$ viele Partitionen für das Komplement $\{1, \dotsc, n\} \setminus A$, also Möglichkeiten, dieses Komplement weiter disjunkt zu zerlegen.
 Wir erhalten somit, dass
 \begin{align*}
         P(n)
-  &=    \sum_{k=0}^{n-1} \binom{n-1}{k} P(n-(k+1))
+  &=    \sum_{k=1}^n \binom{n-1}{k-1} P(n-k)
    =    \sum_{k=0}^{n-1} \binom{n-1}{k} P(n-k-1)
   \\
   &\leq \sum_{k=0}^{n-1} \binom{n-1}{k} (n-k-1)^{(n-k-1)}
-   \leq \sum_{k=0}^{n-1} \binom{n-1}{k} (n-1)^{n-1-k} \cdot 1^k
+   \leq \sum_{k=0}^{n-1} \binom{n-1}{k} (n-1)^{(n-1-k)} \cdot 1^k
   \\
   &=    (n-1 + 1)^{n-1}
    =   n^{(n-1)}
