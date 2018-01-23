@@ -6,8 +6,8 @@
 
 \subsection{}
 
-Wir bestimmen zunächst, wieviele $z \in K$ von der Form $z = x^2$ für passendes $x \in K$ ist, d.h.\ wie viele Zahlen aus $K$ bereits Quadratzahlen sind.
-Da $0^2 = 0$ gilt, genügt es hierfür, die Elemente $z \in K \smallsetminus \{0\} = K^\times$ zu betrachten.
+Wir bestimmen zunächst, wieviele $z \in K$ von der Form $z = x^2$ für passendes $x \in K$ sind, d.h.\ wie viele Zahlen $z \in K$ bereits Quadratzahlen sind.
+Dabei genügt es im Folgenden, die Elemente $z \in K \smallsetminus \{0\} = K^\times$ zu betrachten, da $0^2 = 0$ gilt.
 
 Die Abbildung
 \[
@@ -25,12 +25,12 @@ ist ein Gruppenhomomorphismus mit
     \suchthat
       x^2 = 1
     \}
-  = \{1, -1\}
+  = \{1, -1\} \,.
 \]
-(denn dies sind genau die Nullstellen des Polynoms $t^2 - 1 = (t+1)(t-1) \in K[t]$).
+(Denn dies sind genau die Nullstellen des Polynoms $t^2 - 1 = (t+1)(t-1) \in K[t]$.)
 \begin{enumerate}
   \item
-    Gilt $\ringchar{K} = 2$, so gilt $1 = -1$, so dass $\ker q = 1$ gilt.
+    Gilt $\ringchar{K} = 2$, so gilt $1 = -1$, weshalb dann $\ker q = 1$ gilt.
     In diesem Fall ist $q$ injektiv, und wegen der Endlichkeit von $q$ somit bereits bijektiv.
     Also ist dann jedes $z \in K^\times$ ein Quadrat.
   \item
@@ -44,6 +44,7 @@ ist ein Gruppenhomomorphismus mit
     Dann ist also genau die Hälfte aller $z \in K^\times$ ein Quadrat.
 \end{enumerate}
 Im Fall $\ringchar{K} = 2$ folgt mit $0^2 = 0$, dass jedes $z \in K$ ein Quadrat ist, die Abbildung $K \to K$, $x \mapsto x^2$ also bijektiv ist.
+(Man bemerke, dass dies genau der Frobenius-Automorphismus ist.)
 Im Fall $\ringchar{K} \neq 2$ folgt mit $0^2 = 0$ hingegen, dass
 \[
     \card{ \{ x^2 \suchthat x \in K \} }
@@ -81,7 +82,7 @@ Es gibt also für jedes $z \in K$ ein eindeutiges Element $x \in K$ mit $z = 1 +
 \addtocounter{subsection}{-2}
 \subsection{}
 
-Gilt $\ringchar{K} = 2$, ist also $\card{K}$ gerade, so lässt sogar noch $y = 0$ wählen, wie bereits gezeigt.
+Gilt $\ringchar{K} = 2$, ist also $\card{K}$ gerade, so haben wir bereits gezeigt, dass sich sogar noch $y = 0$ wählen lässt.
 Es bleibt also nur noch der Fall $\ringchar{K} \neq 2$ zu betrachten.
 Wie bereits gesehen, gelten dann
 \begin{gather*}
@@ -91,7 +92,6 @@ Wie bereits gesehen, gelten dann
   = \frac{\card{K} + 1}{2}
 \shortintertext{und}
     \card{ \{ -b y^2 \suchthat y \in K \} }
-  = \card{ \{ y^2 \suchthat y \in K \} }
   = \card{ \{ y^2 \suchthat y \in K \} }
   = \frac{\card{K} + 1}{2} \,.
 \end{gather*}
