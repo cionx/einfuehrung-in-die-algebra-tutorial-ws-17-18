@@ -12,21 +12,21 @@ Durch Reduzieren bezüglich der Primzahl $p = 2$ erhalten wir das Polynom
   =   t^3 + t + 1
   \in \Finite{2}[t] \,.
 \]
-Dies ist ein Polynom von Grad $3$ über dem Körper $\Finite{2}$, dass keine Nullstellen (in $\Finite{2}$) hat.
+Dies ist ein Polynom von Grad $3$ über dem Körper $\Finite{2}$, das keine Nullstellen hat.
 Folglich ist $\induced{f}(t)$ irreduzibel.
-Damit ist nach dem Reduktionskriterium auch $f(t)$ irreduzibel, da $f(t)$ primitiv ist (und somit normiert).
+Damit ist nach dem Reduktionskriterium auch $f(t)$ irreduzibel, da $f(t)$ primitiv ist (denn $f(t)$ ist normiert).
 
-Der Körper $\Rational(t)$ ist perfekt, da $\ringchar \Rational = 0$ gilt.
+Der Körper $\Rational$ ist perfekt, da $\ringchar \Rational = 0$ gilt.
 Das irreduzible Polynom $f(t) \in \Rational[t]$ ist deshalb separabel, d.h.\ $f(t)$ hat keine mehrfache Nullstelle in $L$.
 
 \begin{remark}
-  Mit etwas mit Hintergrundswissen, als aus der Vorlesung bekannt ist, ließe sich auch wie folgt argumentieren:
+  Mit etwas mehr Hintergrundswissen, als aus der Vorlesung bekannt ist, ließe sich auch wie folgt argumentieren:
   
   Da $\Rational$ ein Körper ist, genügt es auch zu zeigen, dass $f(t)$ keine rationale Nullstelle besitzt.
   
-  Da $f(t)$ ein normiertes Polynom mit ganzzahligen Koeffizienten ist, lässt sich zeigen, dass jede rationale Nullstelle von $f(t)$ bereits ganzzahlig ist (dies ist eine nicht-triviale Aussage, die \emph{nicht} aus der Vorlesung bekannt ist).
+  Da $f(t)$ ein normiertes Polynom mit ganzzahligen Koeffizienten ist, lässt sich zeigen, dass jede rationale Nullstelle von $f(t)$ bereits ganzzahlig sein muss (dies ist eine nicht-triviale Aussage, die \emph{nicht} aus der Vorlesung bekannt ist).
   Damit genügt es dann zu zeigen, dass $f(t)$ keine ganzzahlige Nullstelle hat.
-  Jede konstante Nullstelle von $f(t)$ muss den konstanten Koeffizienten von $f(t)$ teilen, also ein Teiler von $-1$ sein.
+  Jede ganzzahlige Nullstelle von $f(t)$ muss den konstanten Koeffizienten von $f(t)$ teilen, also ein Teiler von $-1$ sein.
   Somit sind $1$ und $-1$ die einzigen beiden möglichen rationalen Nullstellen von $f(t)$.
   
   Da aber $f(1) = -3$ und $f(-1) = 1$ gelten, hat $f(t)$ somit keine rationale Nullstelle, ist also irreduzibel.
@@ -43,7 +43,7 @@ Es seien $x_1, x_2, x_3 \in L$ die drei paarweise verschiedenen Nullstellen von 
 
 Die Galoisgruppe $\Gal(L/\Rational)$ wirkt auf der Menge der Wurzeln $\{x_1, x_2, x_3\}$, und diese Wirkung entspricht einem Gruppenhomomorphismus $\alpha \colon \Gal(L/\Rational) \to S(\{x_1, x_2, x_3\})$.
 Indem wir eine Bijektion zwischen den Mengen $\{x_1, \dotsc, x_n\}$ und $\{1, 2, 3\}$ wählen (etwa vermöge der Abbildung $x_i \mapsto i$) erhalten wir einen induzierten Gruppenisomorphismus $\varphi \colon S(\{x_1, x_2, x_3\}) \to S_3$.
-Damit erhalten wir insgesamt einen Grupenhomomorphismus $\beta \define \varphi \circ \alpha \colon \Gal(L/\Rational) \to S_3$.
+Durch Komposition ergibt sich ein Gruppenhomomorphismus $\beta \define \varphi \circ \alpha \colon \Gal(L/\Rational) \to S_3$.
 
 Die Wirkung der Galoisgruppe $\Gal(L/\Rational)$ auf der Menge der Nullstellen $\{x_1, x_2, x_3\}$ ist treu, der Gruppenhomomorphismus $\alpha$ also injektiv.
 Also ist auch $\beta$ injektiv.
@@ -64,7 +64,7 @@ Die einzigen Untergruppen von $S_3$, die transitiv auf $\{1, 2, 3\}$ wirken, sin
 Somit gilt $\im \beta = A_3$ oder $\im \beta = S_3$.
 
 \begin{remark}
-  Eine Untergruppe $H \subgroup S_n$, die transitiv auf der Menge $\{1, \dotsc, n\}$ wirkt (bezüglich der Einschränkung der kanonischen Wirkung von $S_n$ auf $\{1, \dotsc, n\}$) ist eine \emph{transitive Untergruppe}.
+  Eine Untergruppe $H \subgroup S_n$, die transitiv auf der Menge $\{1, \dotsc, n\}$ wirkt (bezüglich der Einschränkung der kanonischen Wirkung von $S_n$ auf $\{1, \dotsc, n\}$) ist eine \emph{transitive Untergruppe} von $S_n$.
 \end{remark}
 
 
@@ -73,15 +73,16 @@ Somit gilt $\im \beta = A_3$ oder $\im \beta = S_3$.
 
 \subsection{}
 
-Wir geben mehrere mögliche Vorgehensweisen an:
+Wir geben zwei mögliche Vorgehensweisen an:
 
 \begin{itemize}
   \item
     Zunächst rechnen wir nach, dass $a^2 - a - 2$ nd $2 - a^2$ Nullstellen von $f(t)$ sind.
+    Dies lässt sich auf (mindestens) zwei Weisen einsehen:
     \begin{itemize}
       \item
-        Hierfür setzen wir beide Werte in das Polynom $f(t)$ ein und Vereinfachen anschließend dei Ergebnisse mithilfe der Identität $a^3 = 3a + 1$ (die eine Umformulierung der Annahme $0 = f(a) = a^3 - 3a + 1$ ist):
-        Es gilt
+        Wir setzen beide Werte in das Polynom $f(t)$ ein und vereinfachen die Ergebnisse anschließend iterativ mithilfe der Identität $a^3 = 3a + 1$ (die eine Umformulierung der Annahme $0 = f(a) = a^3 - 3a - 1$ ist).
+        Dadurch erhalten wir, dass
         \begin{align*}
            &\,  f(a^2 - a - 2)  \\
           =&\,  (a^2 - a - 2)^3 - 3(a^2 - a - 2) - 1  \\
@@ -91,18 +92,18 @@ Wir geben mehrere mögliche Vorgehensweisen an:
           =&\,  3a(3a+1) - 8(3a+1) - 9a^2 + 21a + 8
           = \,  0 \,,
         \end{align*}
-        und es gilt
+        und dass
         \begin{align*}
                 f(2 - a^2)
           &=   (2 - a^2)^3 - 3(2 - a^2) - 1
             =   -a^6 + 6a^4 - 9a^2 + 1  \\
-          &=   -a^3(3a+1) + 6a^1(3a+1) - 9a^2 + 1
+          &=   -a^3(3a+1) + 6a(3a+1) - 9a^2 + 1
             =   -3a^4 - a^3 + 9a^2 + 6a + 1 \\
           &=   -3a(3a+1) - (3a+1) + 9a^2 + 6a + 1
             =   0 \,.
         \end{align*}
       \item
-        Mithilfe von Polynomdivison erhalten wir, dass
+        Mithilfe der Polynomdivison erhalten wir, dass
         \begin{align*}
               f(a^2 - a - 2)
           &=  a^6 - 3a^5 - 3a^4 + 11a^3 + 3a^2 - 9a - 3 \\
@@ -117,7 +118,7 @@ Wir geben mehrere mögliche Vorgehensweisen an:
           =   0 \,.
         \]
     \end{itemize}
-    Es bleibt zu zeigen, dass die Nullstellen $a$, $a^2 - a - 2$ und $2 - a^2$ paarweise verschieden sind, dass es sich also tatsächlich um alle drei Nullstellen von $a$ handelt.
+    Es bleibt zu zeigen, dass die Nullstellen $a$, $a^2 - a - 2$ und $2 - a^2$ paarweise verschieden sind, dass es sich also tatsächlich um alle drei Nullstellen von $f(t)$ handelt.
     Dies ergibt sich daraus, dass $f(t)$ das Minimalpolynom von $a$ ist (denn $f(t)$ ist irreduzibel mit $f(a) = 0$), und somit die Potenzen $1, a, a^2$ linear unabhängig über $\Rational$ sind.
     
   \item
@@ -126,10 +127,11 @@ Wir geben mehrere mögliche Vorgehensweisen an:
        &\,  (t - a)(t - (a^2 - a - 2))(t - (2 - a^2)) \\
       =&\,  t^3 + (-a^4 + a^3 + 3a^2 - 2a - 4) t + (a^5 - a^4 - 4a^3 + 2a^2 + 4a)
     \end{align*}
-    Analog zu den obigen Rechnungen lassen sich die Koeffizienten vereinfachen, wodurch sich das Polynom $f(t)$ ergibt.
+    Analog zu den obigen Rechnungen lassen sich nun die Koeffizienten vereinfachen, wodurch sich das Polynom $f(t)$ ergibt.
+    Also sind $a$, $a^2 - a - 2$ und $2 - a^2$ alle Nullstellen von $f(t)$.
 \end{itemize}
 
-Wir erhalten nun, dass die einfache Körpererweiterung $\Rational(a)$ bereits alle Nullstellen des Polynoms $p(t)$ erhalten.
+Wir erhalten somit, dass die einfache Körpererweiterung $\Rational(a)$ bereits alle Nullstellen des Polynoms $p(t)$ enthält.
 Somit ist $\Rational(a)$ bereits ein Zerfälllungskörper von $f(t)$, weshalb bereits $L = \Rational(a)$ gilt.
 
 Die Körpererweiterung $L/\Rational$ ist galoissch, da $L$ ein Zerfällungskörper des separablen Polynoms $f(t) \in \Rational[t]$ ist.
@@ -142,7 +144,7 @@ Damit erhalten wir, dass
   = \deg f(t)
   = 3 \,.
 \]
-Damit erhalten wir, dass es sich bei $\Gal(L/\Rational)$ nicht um $S_3$ handelt, sondern um $A_3$.
+Hieraus erhalten wir, dass es sich bei $\Gal(L/\Rational)$ nicht um $S_3$ handeln kann, und es sich somit um $A_3$ handelt.
 
 
 
@@ -152,7 +154,7 @@ Damit erhalten wir, dass es sich bei $\Gal(L/\Rational)$ nicht um $S_3$ handelt,
 
 Da die Erweiterung $L/\Rational$ galoissch ist, entsprechen die Zwischenkörper $\Rational \subseteq K \subseteq \Rational$ in bijektiver Weise den Zwischengruppen $1 \subgroup H \subgroup \Gal(L/\Rational)$, also Untergruppen von $\Gal(L/\Rational)$.
 Da $\Gal(L/\Rational) \cong A_3 \cong \Integer/3$ gilt, sind $1$ und $\Gal(L/\Rational)$ die einzigen beiden Untergruppen von $\Gal(L/\Rational)$.
-Folglich sind $\Rational$ und $L$ die einzigen beiden Zwischenkörper von $L$.
+Folglich sind $\Rational$ und $L$ die einzigen beiden Zwischenkörper der Erweiterung $L/\Rational$.
 
 
 
